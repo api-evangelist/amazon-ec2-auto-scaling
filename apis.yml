@@ -10,10 +10,10 @@ type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - Auto Scaling
-  - EC2
-  - Compute
-  - High Availability
   - AWS
+  - Compute
+  - EC2
+  - High Availability
 url: >-
   https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/apis.yml
 created: '2026-03-16'
@@ -30,8 +30,8 @@ apis:
     baseURL: https://autoscaling.amazonaws.com
     tags:
       - Auto Scaling
-      - EC2
       - Capacity Management
+      - EC2
     properties:
       - type: Documentation
         url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
