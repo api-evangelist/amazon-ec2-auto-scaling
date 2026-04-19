@@ -1,0 +1,5 @@
+{
+  "LoadForecast": "example-string",
+  "CapacityForecast": "example-string",
+  "UpdateTime": "example-string"
+}

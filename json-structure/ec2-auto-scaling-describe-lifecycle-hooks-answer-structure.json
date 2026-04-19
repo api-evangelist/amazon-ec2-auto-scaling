@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-describe-lifecycle-hooks-answer-structure.json",
+  "name": "DescribeLifecycleHooksAnswer",
+  "description": "DescribeLifecycleHooksAnswer schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "LifecycleHooks": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LifecycleHooks"
+        },
+        {
+          "description": "The lifecycle hooks for the specified group."
+        }
+      ]
+    }
+  },
+  "example": {
+    "LifecycleHooks": [
+      {
+        "AutoScalingGroupName": "my-auto-scaling-group",
+        "DefaultResult": "ABANDON",
+        "GlobalTimeout": 172800,
+        "HeartbeatTimeout": 3600,
+        "LifecycleHookName": "my-lifecycle-hook",
+        "LifecycleTransition": "autoscaling:EC2_INSTANCE_LAUNCHING",
+        "NotificationTargetARN": "arn:aws:sns:us-west-2:123456789012:my-sns-topic",
+        "RoleARN": "arn:aws:iam::123456789012:role/my-auto-scaling-role"
+      }
+    ]
+  }
+}

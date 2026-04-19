@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-describe-account-limits-answer-structure.json",
+  "name": "DescribeAccountLimitsAnswer",
+  "description": "DescribeAccountLimitsAnswer schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "MaxNumberOfAutoScalingGroups": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MaxNumberOfAutoScalingGroups"
+        },
+        {
+          "description": "The maximum number of groups allowed for your account. The default is 200 groups per Region."
+        }
+      ]
+    },
+    "MaxNumberOfLaunchConfigurations": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MaxNumberOfLaunchConfigurations"
+        },
+        {
+          "description": "The maximum number of launch configurations allowed for your account. The default is 200 launch configurations per Region."
+        }
+      ]
+    },
+    "NumberOfAutoScalingGroups": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NumberOfAutoScalingGroups"
+        },
+        {
+          "description": "The current number of groups for your account."
+        }
+      ]
+    },
+    "NumberOfLaunchConfigurations": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NumberOfLaunchConfigurations"
+        },
+        {
+          "description": "The current number of launch configurations for your account."
+        }
+      ]
+    }
+  },
+  "example": {
+    "MaxNumberOfAutoScalingGroups": 20,
+    "MaxNumberOfLaunchConfigurations": 100,
+    "NumberOfAutoScalingGroups": 3,
+    "NumberOfLaunchConfigurations": 5
+  }
+}

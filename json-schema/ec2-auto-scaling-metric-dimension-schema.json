@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-schema/ec2-auto-scaling-metric-dimension-schema.json",
+  "title": "MetricDimension",
+  "description": "Describes the dimension of a metric.",
+  "type": "object",
+  "properties": {
+    "Name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MetricDimensionName"
+        },
+        {
+          "description": "The name of the dimension."
+        }
+      ]
+    },
+    "Value": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MetricDimensionValue"
+        },
+        {
+          "description": "The value of the dimension."
+        }
+      ]
+    }
+  },
+  "required": [
+    "Name",
+    "Value"
+  ]
+}

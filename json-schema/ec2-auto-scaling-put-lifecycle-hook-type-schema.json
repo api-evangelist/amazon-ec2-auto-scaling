@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-schema/ec2-auto-scaling-put-lifecycle-hook-type-schema.json",
+  "title": "PutLifecycleHookType",
+  "description": "PutLifecycleHookType schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "LifecycleHookName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AsciiStringMaxLen255"
+        },
+        {
+          "description": "The name of the lifecycle hook."
+        }
+      ]
+    },
+    "AutoScalingGroupName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "The name of the Auto Scaling group."
+        }
+      ]
+    },
+    "LifecycleTransition": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LifecycleTransition"
+        },
+        {
+          "description": "<p>The lifecycle transition. For Auto Scaling groups, there are two major lifecycle transitions.</p> <ul> <li> <p>To create a lifecycle hook for scale-out events, specify <code>autoscaling:EC2_INSTANCE_LAUNCHING</code>.</p> </li> <li> <p>To create a lifecycle hook for scale-in events, specify <code>autoscaling:EC2_INSTANCE_TERMINATING</code>.</p> </li> </ul> <p>Required for new lifecycle hooks, but optional when updating existing hooks.</p>"
+        }
+      ]
+    },
+    "RoleARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "<p>The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.</p> <p>Valid only if the notification target is an Amazon SNS topic or an Amazon SQS queue. Required for new lifecycle hooks, but optional when updating existing hooks.</p>"
+        }
+      ]
+    },
+    "NotificationTargetARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NotificationTargetResourceName"
+        },
+        {
+          "description": "<p>The Amazon Resource Name (ARN) of the notification target that Amazon EC2 Auto Scaling uses to notify you when an instance is in a wait state for the lifecycle hook. You can specify either an Amazon SNS topic or an Amazon SQS queue.</p> <p>If you specify an empty string, this overrides the current ARN.</p> <p>This operation uses the JSON format when sending notifications to an Amazon SQS queue, and an email key-value pair format when sending notifications to an Amazon SNS topic.</p> <p>When you specify a notification target, Amazon EC2 Auto Scaling sends it a test message. Test messages contain the following additional key-value pair: <code>\"Event\": \"autoscaling:TEST_NOTIFICATION\"</code>.</p>"
+        }
+      ]
+    },
+    "NotificationMetadata": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen1023"
+        },
+        {
+          "description": "Additional information that you want to include any time Amazon EC2 Auto Scaling sends a message to the notification target."
+        }
+      ]
+    },
+    "HeartbeatTimeout": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/HeartbeatTimeout"
+        },
+        {
+          "description": "The maximum time, in seconds, that can elapse before the lifecycle hook times out. The range is from <code>30</code> to <code>7200</code> seconds. The default value is <code>3600</code> seconds (1 hour)."
+        }
+      ]
+    },
+    "DefaultResult": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LifecycleActionResult"
+        },
+        {
+          "description": "<p>The action the Auto Scaling group takes when the lifecycle hook timeout elapses or if an unexpected failure occurs. The default value is <code>ABANDON</code>.</p> <p>Valid values: <code>CONTINUE</code> | <code>ABANDON</code> </p>"
+        }
+      ]
+    }
+  },
+  "required": [
+    "LifecycleHookName",
+    "AutoScalingGroupName"
+  ]
+}

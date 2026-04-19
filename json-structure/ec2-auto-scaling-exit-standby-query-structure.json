@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-exit-standby-query-structure.json",
+  "name": "ExitStandbyQuery",
+  "description": "ExitStandbyQuery schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "InstanceIds": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InstanceIds"
+        },
+        {
+          "description": "The IDs of the instances. You can specify up to 20 instances."
+        }
+      ]
+    },
+    "AutoScalingGroupName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "The name of the Auto Scaling group."
+        }
+      ]
+    }
+  },
+  "required": [
+    "AutoScalingGroupName"
+  ]
+}

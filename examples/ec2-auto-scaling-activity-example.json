@@ -1,0 +1,7 @@
+{
+  "ActivityId": "example-id-1234",
+  "AutoScalingGroupName": "example-resource-name",
+  "Cause": "example-string",
+  "StartTime": "example-string",
+  "StatusCode": "running"
+}

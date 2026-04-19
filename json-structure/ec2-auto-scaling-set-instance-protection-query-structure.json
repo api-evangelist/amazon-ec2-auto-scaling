@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-set-instance-protection-query-structure.json",
+  "name": "SetInstanceProtectionQuery",
+  "description": "SetInstanceProtectionQuery schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "InstanceIds": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InstanceIds"
+        },
+        {
+          "description": "One or more instance IDs. You can specify up to 50 instances."
+        }
+      ]
+    },
+    "AutoScalingGroupName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "The name of the Auto Scaling group."
+        }
+      ]
+    },
+    "ProtectedFromScaleIn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ProtectedFromScaleIn"
+        },
+        {
+          "description": "Indicates whether the instance is protected from termination by Amazon EC2 Auto Scaling when scaling in."
+        }
+      ]
+    }
+  },
+  "required": [
+    "InstanceIds",
+    "AutoScalingGroupName",
+    "ProtectedFromScaleIn"
+  ]
+}

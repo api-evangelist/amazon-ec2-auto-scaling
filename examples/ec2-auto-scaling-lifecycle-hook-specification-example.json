@@ -1,0 +1,7 @@
+{
+  "LifecycleHookName": "example-resource-name",
+  "LifecycleTransition": "example-string",
+  "NotificationMetadata": "example-string",
+  "HeartbeatTimeout": "example-string",
+  "DefaultResult": "example-string"
+}

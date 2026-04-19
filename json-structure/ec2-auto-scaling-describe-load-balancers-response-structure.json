@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-describe-load-balancers-response-structure.json",
+  "name": "DescribeLoadBalancersResponse",
+  "description": "DescribeLoadBalancersResponse schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "LoadBalancers": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LoadBalancerStates"
+        },
+        {
+          "description": "The load balancers."
+        }
+      ]
+    },
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlString"
+        },
+        {
+          "description": "A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the <code>NextToken</code> value when requesting the next set of items. This value is null when there are no more items to return."
+        }
+      ]
+    }
+  },
+  "example": {
+    "LoadBalancers": [
+      {
+        "LoadBalancerName": "my-load-balancer",
+        "State": "Added"
+      }
+    ]
+  }
+}

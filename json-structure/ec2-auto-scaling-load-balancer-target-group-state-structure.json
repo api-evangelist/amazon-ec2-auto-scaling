@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-load-balancer-target-group-state-structure.json",
+  "name": "LoadBalancerTargetGroupState",
+  "description": "Describes the state of a target group.",
+  "type": "object",
+  "properties": {
+    "LoadBalancerTargetGroupARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen511"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the target group."
+        }
+      ]
+    },
+    "State": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "<p>The state of the target group.</p> <ul> <li> <p> <code>Adding</code> - The Auto Scaling instances are being registered with the target group.</p> </li> <li> <p> <code>Added</code> - All Auto Scaling instances are registered with the target group.</p> </li> <li> <p> <code>InService</code> - At least one Auto Scaling instance passed an <code>ELB</code> health check.</p> </li> <li> <p> <code>Removing</code> - The Auto Scaling instances are being deregistered from the target group. If connection draining is enabled, Elastic Load Balancing waits for in-flight requests to complete before deregistering the instances.</p> </li> <li> <p> <code>Removed</code> - All Auto Scaling instances are deregistered from the target group.</p> </li> </ul>"
+        }
+      ]
+    }
+  }
+}

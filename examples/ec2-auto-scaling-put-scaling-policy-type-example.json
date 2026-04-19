@@ -1,0 +1,7 @@
+{
+  "AutoScalingGroupName": "example-resource-name",
+  "PolicyName": "example-resource-name",
+  "PolicyType": "standard",
+  "AdjustmentType": "standard",
+  "MinAdjustmentStep": "example-string"
+}

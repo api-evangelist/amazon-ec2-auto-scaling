@@ -1,0 +1,736 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Amazon EC2 Auto Scaling"
+  description: "Amazon EC2 Auto Scaling automatic capacity management service."
+  tags:
+    - Amazon EC2 Auto Scaling
+    - AWS
+    - Compute
+    - Auto Scaling
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+binds:
+  - namespace: env
+    keys:
+      AWS_ACCESS_KEY_ID: AWS_ACCESS_KEY_ID
+      AWS_SECRET_ACCESS_KEY: AWS_SECRET_ACCESS_KEY
+
+capability:
+  consumes:
+    - type: http
+      namespace: ec2-auto-scaling
+      baseUri: https://autoscaling.amazonaws.com
+      description: "Amazon EC2 Auto Scaling automatic capacity management service."
+      authentication:
+        type: apikey
+        key: Authorization
+        value: "AWS4-HMAC-SHA256 Credential={{env.AWS_ACCESS_KEY_ID}}"
+        placement: header
+      resources:
+        - name: root
+          path: /#Action=AttachInstances
+          description: "root operations."
+          operations:
+            - name: GET_AttachInstances
+              method: GET
+              description: "Amazon EC2 Auto Scaling GET_ Attach Instances"
+              inputParameters:
+                - name: InstanceIds
+                  in: query
+                  type: array
+                  required: false
+                  description: "The IDs of the instances. You can specify up to 20 instances."
+                - name: AutoScalingGroupName
+                  in: query
+                  type: string
+                  required: true
+                  description: "The name of the Auto Scaling group."
+                - name: Action
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Action parameter"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: POST_AttachInstances
+              method: POST
+              description: "Amazon EC2 Auto Scaling POST_ Attach Instances"
+              inputParameters:
+                - name: Action
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Action parameter"
+                - name: Version
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Version parameter"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: root
+          path: /#Action=AttachLoadBalancerTargetGroups
+          description: "root operations."
+          operations:
+            - name: GET_AttachLoadBalancerTargetGroups
+              method: GET
+              description: "Amazon EC2 Auto Scaling GET_ Attach Load Balancer Target Groups"
+              inputParameters:
+                - name: AutoScalingGroupName
+                  in: query
+                  type: string
+                  required: true
+                  description: "The name of the Auto Scaling group."
+                - name: TargetGroupARNs
+                  in: query
+                  type: array
+                  required: true
+                  description: "The Amazon Resource Names (ARNs) of the target groups. You can specify up to 10 target groups. To get the ARN of a target group, use the Elastic Load Balancing <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html">DescribeTargetGroups</a> API operation."
+                - name: Action
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Action parameter"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: POST_AttachLoadBalancerTargetGroups
+              method: POST
+              description: "Amazon EC2 Auto Scaling POST_ Attach Load Balancer Target Groups"
+              inputParameters:
+                - name: Action
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Action parameter"
+                - name: Version
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Version parameter"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: root
+          path: /#Action=AttachLoadBalancers
+          description: "root operations."
+          operations:
+            - name: GET_AttachLoadBalancers
+              method: GET
+              description: "Amazon EC2 Auto Scaling GET_ Attach Load Balancers"
+              inputParameters:
+                - name: AutoScalingGroupName
+                  in: query
+                  type: string
+                  required: true
+                  description: "The name of the Auto Scaling group."
+                - name: LoadBalancerNames
+                  in: query
+                  type: array
+                  required: true
+                  description: "The names of the load balancers. You can specify up to 10 load balancers."
+                - name: Action
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Action parameter"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: POST_AttachLoadBalancers
+              method: POST
+              description: "Amazon EC2 Auto Scaling POST_ Attach Load Balancers"
+              inputParameters:
+                - name: Action
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Action parameter"
+                - name: Version
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Version parameter"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: root
+          path: /#Action=AttachTrafficSources
+          description: "root operations."
+          operations:
+            - name: GET_AttachTrafficSources
+              method: GET
+              description: "Amazon EC2 Auto Scaling GET_ Attach Traffic Sources"
+              inputParameters:
+                - name: AutoScalingGroupName
+                  in: query
+                  type: string
+                  required: true
+                  description: "The name of the Auto Scaling group."
+                - name: TrafficSources
+                  in: query
+                  type: array
+                  required: true
+                  description: "The unique identifiers of one or more traffic sources. You can specify up to 10 traffic sources."
+                - name: Action
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Action parameter"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: POST_AttachTrafficSources
+              method: POST
+              description: "Amazon EC2 Auto Scaling POST_ Attach Traffic Sources"
+              inputParameters:
+                - name: Action
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Action parameter"
+                - name: Version
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Version parameter"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: root
+          path: /#Action=BatchDeleteScheduledAction
+          description: "root operations."
+          operations:
+            - name: GET_BatchDeleteScheduledAction
+              method: GET
+              description: "Amazon EC2 Auto Scaling GET_ Batch Delete Scheduled Action"
+              inputParameters:
+                - name: AutoScalingGroupName
+                  in: query
+                  type: string
+                  required: true
+                  description: "The name of the Auto Scaling group."
+                - name: ScheduledActionNames
+                  in: query
+                  type: array
+                  required: true
+                  description: "The names of the scheduled actions to delete. The maximum number allowed is 50. "
+                - name: Action
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Action parameter"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: POST_BatchDeleteScheduledAction
+              method: POST
+              description: "Amazon EC2 Auto Scaling POST_ Batch Delete Scheduled Action"
+              inputParameters:
+                - name: Action
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Action parameter"
+                - name: Version
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Version parameter"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: root
+          path: /#Action=BatchPutScheduledUpdateGroupAction
+          description: "root operations."
+          operations:
+            - name: GET_BatchPutScheduledUpdateGroupAction
+              method: GET
+              description: "Amazon EC2 Auto Scaling GET_ Batch Put Scheduled Update Group Action"
+              inputParameters:
+                - name: AutoScalingGroupName
+                  in: query
+                  type: string
+                  required: true
+                  description: "The name of the Auto Scaling group."
+                - name: ScheduledUpdateGroupActions
+                  in: query
+                  type: array
+                  required: true
+                  description: "One or more scheduled actions. The maximum number allowed is 50."
+                - name: Action
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Action parameter"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: POST_BatchPutScheduledUpdateGroupAction
+              method: POST
+              description: "Amazon EC2 Auto Scaling POST_ Batch Put Scheduled Update Group Action"
+              inputParameters:
+                - name: Action
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Action parameter"
+                - name: Version
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Version parameter"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: root
+          path: /#Action=CancelInstanceRefresh
+          description: "root operations."
+          operations:
+            - name: GET_CancelInstanceRefresh
+              method: GET
+              description: "Amazon EC2 Auto Scaling GET_ Cancel Instance Refresh"
+              inputParameters:
+                - name: AutoScalingGroupName
+                  in: query
+                  type: string
+                  required: true
+                  description: "The name of the Auto Scaling group."
+                - name: Action
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Action parameter"
+                - name: Version
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Version parameter"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: POST_CancelInstanceRefresh
+              method: POST
+              description: "Amazon EC2 Auto Scaling POST_ Cancel Instance Refresh"
+              inputParameters:
+                - name: Action
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Action parameter"
+                - name: Version
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Version parameter"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: root
+          path: /#Action=CompleteLifecycleAction
+          description: "root operations."
+          operations:
+            - name: GET_CompleteLifecycleAction
+              method: GET
+              description: "Amazon EC2 Auto Scaling GET_ Complete Lifecycle Action"
+              inputParameters:
+                - name: LifecycleHookName
+                  in: query
+                  type: string
+                  required: true
+                  description: "The name of the lifecycle hook."
+                - name: AutoScalingGroupName
+                  in: query
+                  type: string
+                  required: true
+                  description: "The name of the Auto Scaling group."
+                - name: LifecycleActionToken
+                  in: query
+                  type: string
+                  required: false
+                  description: "A universally unique identifier (UUID) that identifies a specific lifecycle action associated with an instance. Amazon EC2 Auto Scaling sends this token to the notification target you specified when you created the lifecycle hook."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: POST_CompleteLifecycleAction
+              method: POST
+              description: "Amazon EC2 Auto Scaling POST_ Complete Lifecycle Action"
+              inputParameters:
+                - name: Action
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Action parameter"
+                - name: Version
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Version parameter"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: root
+          path: /#Action=CreateAutoScalingGroup
+          description: "root operations."
+          operations:
+            - name: GET_CreateAutoScalingGroup
+              method: GET
+              description: "Amazon EC2 Auto Scaling GET_ Create Auto Scaling Group"
+              inputParameters:
+                - name: AutoScalingGroupName
+                  in: query
+                  type: string
+                  required: true
+                  description: "<p>The name of the Auto Scaling group. This name must be unique per Region per account.</p> <p>The name can contain any ASCII character 33 to 126 including most punctuation characters, digits, and upper and lowercased letters.</p> <note> <p>You cannot use a colon (:) in the name.</p> </note>"
+                - name: LaunchConfigurationName
+                  in: query
+                  type: string
+                  required: false
+                  description: "<p>The name of the launch configuration to use to launch instances. </p> <p>Conditional: You must specify either a launch template (<code>LaunchTemplate</code> or <code>MixedInstancesPolicy</code>) or a launch configuration (<code>LaunchConfigurationName</code> or <code>InstanceId</code>).</p>"
+                - name: LaunchTemplate
+                  in: query
+                  type: object
+                  required: false
+                  description: "<p>Information used to specify the launch template and version to use to launch instances. </p> <p>Conditional: You must specify either a launch template (<code>LaunchTemplate</code> or <code>MixedInstancesPolicy</code>) or a launch configuration (<code>LaunchConfigurationName</code> or <code>InstanceId</code>).</p> <note> <p>The launch template that is specified must be configured for use with an Auto Scaling group. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html">Creating a launch template for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> </note>"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: POST_CreateAutoScalingGroup
+              method: POST
+              description: "Amazon EC2 Auto Scaling POST_ Create Auto Scaling Group"
+              inputParameters:
+                - name: Action
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Action parameter"
+                - name: Version
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Version parameter"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: root
+          path: /#Action=CreateLaunchConfiguration
+          description: "root operations."
+          operations:
+            - name: GET_CreateLaunchConfiguration
+              method: GET
+              description: "Amazon EC2 Auto Scaling GET_ Create Launch Configuration"
+              inputParameters:
+                - name: LaunchConfigurationName
+                  in: query
+                  type: string
+                  required: true
+                  description: "The name of the launch configuration. This name must be unique per Region per account."
+                - name: ImageId
+                  in: query
+                  type: string
+                  required: false
+                  description: "<p>The ID of the Amazon Machine Image (AMI) that was assigned during registration. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html">Finding a Linux AMI</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> <p>If you specify <code>InstanceId</code>, an <code>ImageId</code> is not required.</p>"
+                - name: KeyName
+                  in: query
+                  type: string
+                  required: false
+                  description: "The name of the key pair. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon EC2 key pairs and Linux instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: POST_CreateLaunchConfiguration
+              method: POST
+              description: "Amazon EC2 Auto Scaling POST_ Create Launch Configuration"
+              inputParameters:
+                - name: Action
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Action parameter"
+                - name: Version
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Version parameter"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: root
+          path: /#Action=CreateOrUpdateTags
+          description: "root operations."
+          operations:
+            - name: GET_CreateOrUpdateTags
+              method: GET
+              description: "Amazon EC2 Auto Scaling GET_ Create or Update Tags"
+              inputParameters:
+                - name: Tags
+                  in: query
+                  type: array
+                  required: true
+                  description: "One or more tags."
+                - name: Action
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Action parameter"
+                - name: Version
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Version parameter"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: POST_CreateOrUpdateTags
+              method: POST
+              description: "Amazon EC2 Auto Scaling POST_ Create or Update Tags"
+              inputParameters:
+                - name: Action
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Action parameter"
+                - name: Version
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Version parameter"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: root
+          path: /#Action=DeleteAutoScalingGroup
+          description: "root operations."
+          operations:
+            - name: GET_DeleteAutoScalingGroup
+              method: GET
+              description: "Amazon EC2 Auto Scaling GET_ Delete Auto Scaling Group"
+              inputParameters:
+                - name: AutoScalingGroupName
+                  in: query
+                  type: string
+                  required: true
+                  description: "The name of the Auto Scaling group."
+                - name: ForceDelete
+                  in: query
+                  type: boolean
+                  required: false
+                  description: "Specifies that the group is to be deleted along with all instances associated with the group, without waiting for all instances to be terminated. This action also deletes any outstanding lifecycle actions associated with the group."
+                - name: Action
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Action parameter"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: POST_DeleteAutoScalingGroup
+              method: POST
+              description: "Amazon EC2 Auto Scaling POST_ Delete Auto Scaling Group"
+              inputParameters:
+                - name: Action
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Action parameter"
+                - name: Version
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Version parameter"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: root
+          path: /#Action=DeleteLaunchConfiguration
+          description: "root operations."
+          operations:
+            - name: GET_DeleteLaunchConfiguration
+              method: GET
+              description: "Amazon EC2 Auto Scaling GET_ Delete Launch Configuration"
+              inputParameters:
+                - name: LaunchConfigurationName
+                  in: query
+                  type: string
+                  required: true
+                  description: "The name of the launch configuration."
+                - name: Action
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Action parameter"
+                - name: Version
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Version parameter"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: POST_DeleteLaunchConfiguration
+              method: POST
+              description: "Amazon EC2 Auto Scaling POST_ Delete Launch Configuration"
+              inputParameters:
+                - name: Action
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Action parameter"
+                - name: Version
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Version parameter"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: root
+          path: /#Action=DeleteLifecycleHook
+          description: "root operations."
+          operations:
+            - name: GET_DeleteLifecycleHook
+              method: GET
+              description: "Amazon EC2 Auto Scaling GET_ Delete Lifecycle Hook"
+              inputParameters:
+                - name: LifecycleHookName
+                  in: query
+                  type: string
+                  required: true
+                  description: "The name of the lifecycle hook."
+                - name: AutoScalingGroupName
+                  in: query
+                  type: string
+                  required: true
+                  description: "The name of the Auto Scaling group."
+                - name: Action
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Action parameter"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: POST_DeleteLifecycleHook
+              method: POST
+              description: "Amazon EC2 Auto Scaling POST_ Delete Lifecycle Hook"
+              inputParameters:
+                - name: Action
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Action parameter"
+                - name: Version
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Version parameter"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: root
+          path: /#Action=DeleteNotificationConfiguration
+          description: "root operations."
+          operations:
+            - name: GET_DeleteNotificationConfiguration
+              method: GET
+              description: "Amazon EC2 Auto Scaling GET_ Delete Notification Configuration"
+              inputParameters:
+                - name: AutoScalingGroupName
+                  in: query
+                  type: string
+                  required: true
+                  description: "The name of the Auto Scaling group."
+                - name: TopicARN
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Amazon Resource Name (ARN) of the Amazon SNS topic."
+                - name: Action
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Action parameter"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: POST_DeleteNotificationConfiguration
+              method: POST
+              description: "Amazon EC2 Auto Scaling POST_ Delete Notification Configuration"
+              inputParameters:
+                - name: Action
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Action parameter"
+                - name: Version
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Version parameter"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."

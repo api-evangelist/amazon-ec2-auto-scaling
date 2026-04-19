@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-mixed-instances-policy-structure.json",
+  "name": "MixedInstancesPolicy",
+  "description": "<p>Use this structure to launch multiple instance types and On-Demand Instances and Spot Instances within a single Auto Scaling group.</p> <p>A mixed instances policy contains information that Amazon EC2 Auto Scaling can use to launch instances and help optimize your costs. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html\">Auto Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>",
+  "type": "object",
+  "properties": {
+    "LaunchTemplate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LaunchTemplate"
+        },
+        {
+          "description": "One or more launch templates and the instance types (overrides) that are used to launch EC2 instances to fulfill On-Demand and Spot capacities."
+        }
+      ]
+    },
+    "InstancesDistribution": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InstancesDistribution"
+        },
+        {
+          "description": "The instances distribution."
+        }
+      ]
+    }
+  }
+}

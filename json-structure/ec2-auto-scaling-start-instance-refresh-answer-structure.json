@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-start-instance-refresh-answer-structure.json",
+  "name": "StartInstanceRefreshAnswer",
+  "description": "StartInstanceRefreshAnswer schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "InstanceRefreshId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "A unique ID for tracking the progress of the instance refresh."
+        }
+      ]
+    }
+  },
+  "example": {
+    "InstanceRefreshId": "08b91cf7-8fa6-48af-b6a6-d227f40f1b9b"
+  }
+}

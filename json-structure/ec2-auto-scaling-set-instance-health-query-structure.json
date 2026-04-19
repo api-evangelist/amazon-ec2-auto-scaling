@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-set-instance-health-query-structure.json",
+  "name": "SetInstanceHealthQuery",
+  "description": "SetInstanceHealthQuery schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "InstanceId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen19"
+        },
+        {
+          "description": "The ID of the instance."
+        }
+      ]
+    },
+    "HealthStatus": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen32"
+        },
+        {
+          "description": "The health status of the instance. Set to <code>Healthy</code> to have the instance remain in service. Set to <code>Unhealthy</code> to have the instance be out of service. Amazon EC2 Auto Scaling terminates and replaces the unhealthy instance."
+        }
+      ]
+    },
+    "ShouldRespectGracePeriod": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ShouldRespectGracePeriod"
+        },
+        {
+          "description": "<p>If the Auto Scaling group of the specified instance has a <code>HealthCheckGracePeriod</code> specified for the group, by default, this call respects the grace period. Set this to <code>False</code>, to have the call not respect the grace period associated with the group.</p> <p>For more information about the health check grace period, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CreateAutoScalingGroup.html\">CreateAutoScalingGroup</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p>"
+        }
+      ]
+    }
+  },
+  "required": [
+    "InstanceId",
+    "HealthStatus"
+  ]
+}

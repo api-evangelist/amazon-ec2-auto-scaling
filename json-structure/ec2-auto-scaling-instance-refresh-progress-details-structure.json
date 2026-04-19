@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-instance-refresh-progress-details-structure.json",
+  "name": "InstanceRefreshProgressDetails",
+  "description": "Reports progress on replacing instances in an Auto Scaling group that has a warm pool. This includes separate details for instances in the warm pool and instances in the Auto Scaling group (the live pool).",
+  "type": "object",
+  "properties": {
+    "LivePoolProgress": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InstanceRefreshLivePoolProgress"
+        },
+        {
+          "description": "Reports progress on replacing instances that are in the Auto Scaling group."
+        }
+      ]
+    },
+    "WarmPoolProgress": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InstanceRefreshWarmPoolProgress"
+        },
+        {
+          "description": "Reports progress on replacing instances that are in the warm pool."
+        }
+      ]
+    }
+  }
+}

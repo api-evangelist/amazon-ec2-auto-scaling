@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-accelerator-name-structure.json",
+  "name": "AcceleratorName",
+  "description": "AcceleratorName schema from Auto Scaling",
+  "type": "string",
+  "enum": [
+    "a100",
+    "v100",
+    "k80",
+    "t4",
+    "m60",
+    "radeon-pro-v520",
+    "vu9p"
+  ]
+}

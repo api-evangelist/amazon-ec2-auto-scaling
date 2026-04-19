@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-complete-lifecycle-action-type-structure.json",
+  "name": "CompleteLifecycleActionType",
+  "description": "CompleteLifecycleActionType schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "LifecycleHookName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AsciiStringMaxLen255"
+        },
+        {
+          "description": "The name of the lifecycle hook."
+        }
+      ]
+    },
+    "AutoScalingGroupName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceName"
+        },
+        {
+          "description": "The name of the Auto Scaling group."
+        }
+      ]
+    },
+    "LifecycleActionToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LifecycleActionToken"
+        },
+        {
+          "description": "A universally unique identifier (UUID) that identifies a specific lifecycle action associated with an instance. Amazon EC2 Auto Scaling sends this token to the notification target you specified when you created the lifecycle hook."
+        }
+      ]
+    },
+    "LifecycleActionResult": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LifecycleActionResult"
+        },
+        {
+          "description": "The action for the group to take. You can specify either <code>CONTINUE</code> or <code>ABANDON</code>."
+        }
+      ]
+    },
+    "InstanceId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen19"
+        },
+        {
+          "description": "The ID of the instance."
+        }
+      ]
+    }
+  },
+  "required": [
+    "LifecycleHookName",
+    "AutoScalingGroupName",
+    "LifecycleActionResult"
+  ]
+}

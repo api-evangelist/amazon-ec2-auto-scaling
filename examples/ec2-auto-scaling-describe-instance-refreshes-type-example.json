@@ -1,0 +1,6 @@
+{
+  "AutoScalingGroupName": "example-resource-name",
+  "InstanceRefreshIds": "example-id-1234",
+  "NextToken": "example-string",
+  "MaxRecords": "example-string"
+}

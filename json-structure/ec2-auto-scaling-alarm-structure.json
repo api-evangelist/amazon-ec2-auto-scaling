@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-alarm-structure.json",
+  "name": "Alarm",
+  "description": "Describes an alarm.",
+  "type": "object",
+  "properties": {
+    "AlarmName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "The name of the alarm."
+        }
+      ]
+    },
+    "AlarmARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceName"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the alarm."
+        }
+      ]
+    }
+  }
+}

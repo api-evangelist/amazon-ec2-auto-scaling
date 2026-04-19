@@ -1,0 +1,5 @@
+{
+  "HttpTokens": "example-string",
+  "HttpPutResponseHopLimit": "example-string",
+  "HttpEndpoint": "example-string"
+}

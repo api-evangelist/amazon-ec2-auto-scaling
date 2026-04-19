@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-delete-notification-configuration-type-structure.json",
+  "name": "DeleteNotificationConfigurationType",
+  "description": "DeleteNotificationConfigurationType schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "AutoScalingGroupName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "The name of the Auto Scaling group."
+        }
+      ]
+    },
+    "TopicARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the Amazon SNS topic."
+        }
+      ]
+    }
+  },
+  "required": [
+    "AutoScalingGroupName",
+    "TopicARN"
+  ]
+}

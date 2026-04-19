@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-schema/ec2-auto-scaling-batch-put-scheduled-update-group-action-type-schema.json",
+  "title": "BatchPutScheduledUpdateGroupActionType",
+  "description": "BatchPutScheduledUpdateGroupActionType schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "AutoScalingGroupName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "The name of the Auto Scaling group."
+        }
+      ]
+    },
+    "ScheduledUpdateGroupActions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ScheduledUpdateGroupActionRequests"
+        },
+        {
+          "description": "One or more scheduled actions. The maximum number allowed is 50."
+        }
+      ]
+    }
+  },
+  "required": [
+    "AutoScalingGroupName",
+    "ScheduledUpdateGroupActions"
+  ]
+}

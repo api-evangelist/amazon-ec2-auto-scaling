@@ -1,0 +1,5 @@
+{
+  "MaxGroupPreparedCapacity": "example-string",
+  "MinSize": "example-string",
+  "PoolState": "available"
+}

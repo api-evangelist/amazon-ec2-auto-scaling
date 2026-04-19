@@ -1,0 +1,6 @@
+{
+  "LifecycleHookName": "example-resource-name",
+  "AutoScalingGroupName": "example-resource-name",
+  "LifecycleActionToken": "example-string",
+  "InstanceId": "example-id-1234"
+}

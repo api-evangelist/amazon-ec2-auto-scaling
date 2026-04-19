@@ -1,0 +1,6 @@
+{
+  "AutoScalingGroupName": "example-resource-name",
+  "MaxGroupPreparedCapacity": "example-string",
+  "MinSize": "example-string",
+  "PoolState": "running"
+}

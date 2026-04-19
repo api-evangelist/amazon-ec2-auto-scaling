@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-delete-warm-pool-type-structure.json",
+  "name": "DeleteWarmPoolType",
+  "description": "DeleteWarmPoolType schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "AutoScalingGroupName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "The name of the Auto Scaling group."
+        }
+      ]
+    },
+    "ForceDelete": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ForceDelete"
+        },
+        {
+          "description": "Specifies that the warm pool is to be deleted along with all of its associated instances, without waiting for all instances to be terminated. This parameter also deletes any outstanding lifecycle actions associated with the warm pool instances."
+        }
+      ]
+    }
+  },
+  "required": [
+    "AutoScalingGroupName"
+  ]
+}

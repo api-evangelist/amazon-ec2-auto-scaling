@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-schema/ec2-auto-scaling-enter-standby-answer-schema.json",
+  "title": "EnterStandbyAnswer",
+  "description": "EnterStandbyAnswer schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "Activities": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Activities"
+        },
+        {
+          "description": "The activities related to moving instances into <code>Standby</code> mode."
+        }
+      ]
+    }
+  },
+  "example": {
+    "Activities": [
+      {
+        "ActivityId": "ffa056b4-6ed3-41ba-ae7c-249dfae6eba1",
+        "AutoScalingGroupName": "my-auto-scaling-group",
+        "Cause": "At 2015-04-12T15:10:23Z instance i-93633f9b was moved to standby in response to a user request, shrinking the capacity from 2 to 1.",
+        "Description": "Moving EC2 instance to Standby: i-93633f9b",
+        "Details": "details",
+        "Progress": 50,
+        "StartTime": "2015-04-12T15:10:23.640000+00:00",
+        "StatusCode": "InProgress"
+      }
+    ]
+  }
+}

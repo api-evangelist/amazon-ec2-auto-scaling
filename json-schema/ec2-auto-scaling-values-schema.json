@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-schema/ec2-auto-scaling-values-schema.json",
+  "title": "Values",
+  "description": "Values schema from Auto Scaling",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/XmlString"
+  }
+}

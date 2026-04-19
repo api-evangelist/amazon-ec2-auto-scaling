@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-schema/ec2-auto-scaling-detach-load-balancers-type-schema.json",
+  "title": "DetachLoadBalancersType",
+  "description": "DetachLoadBalancersType schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "AutoScalingGroupName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "The name of the Auto Scaling group."
+        }
+      ]
+    },
+    "LoadBalancerNames": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LoadBalancerNames"
+        },
+        {
+          "description": "The names of the load balancers. You can specify up to 10 load balancers."
+        }
+      ]
+    }
+  },
+  "required": [
+    "AutoScalingGroupName",
+    "LoadBalancerNames"
+  ]
+}

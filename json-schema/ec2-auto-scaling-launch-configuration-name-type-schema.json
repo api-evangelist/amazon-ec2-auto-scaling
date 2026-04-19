@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-schema/ec2-auto-scaling-launch-configuration-name-type-schema.json",
+  "title": "LaunchConfigurationNameType",
+  "description": "LaunchConfigurationNameType schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "LaunchConfigurationName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "The name of the launch configuration."
+        }
+      ]
+    }
+  },
+  "required": [
+    "LaunchConfigurationName"
+  ]
+}

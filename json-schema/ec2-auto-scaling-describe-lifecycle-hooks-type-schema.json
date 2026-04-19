@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-schema/ec2-auto-scaling-describe-lifecycle-hooks-type-schema.json",
+  "title": "DescribeLifecycleHooksType",
+  "description": "DescribeLifecycleHooksType schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "AutoScalingGroupName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "The name of the Auto Scaling group."
+        }
+      ]
+    },
+    "LifecycleHookNames": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LifecycleHookNames"
+        },
+        {
+          "description": "The names of one or more lifecycle hooks. If you omit this property, all lifecycle hooks are described."
+        }
+      ]
+    }
+  },
+  "required": [
+    "AutoScalingGroupName"
+  ]
+}

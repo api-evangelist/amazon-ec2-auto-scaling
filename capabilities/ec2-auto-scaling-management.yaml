@@ -1,0 +1,237 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Amazon EC2 Auto Scaling Auto Scaling Group Management"
+  description: "Unified capability for managing EC2 Auto Scaling groups, scaling policies, and lifecycle hooks for cloud operations engineers."
+  tags:
+    - Amazon EC2 Auto Scaling
+    - AWS
+    - Compute
+    - Auto Scaling
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+binds:
+  - namespace: env
+    keys:
+      AWS_ACCESS_KEY_ID: AWS_ACCESS_KEY_ID
+      AWS_SECRET_ACCESS_KEY: AWS_SECRET_ACCESS_KEY
+
+capability:
+  consumes:
+    - import: ec2-auto-scaling
+      location: ./shared/ec2-auto-scaling.yaml
+
+  exposes:
+    - type: rest
+      port: 8087
+      namespace: ec2-auto-scaling-api
+      description: "Unified REST API for Auto Scaling Group Management."
+      resources:
+        - path: /v1/resource
+          name: GET_AttachInstances
+          description: "Amazon EC2 Auto Scaling GET_ Attach Instances"
+          operations:
+            - method: GET
+              name: GET_AttachInstances
+              description: "Amazon EC2 Auto Scaling GET_ Attach Instances"
+              call: "ec2-auto-scaling.GET_AttachInstances"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/resource
+          name: POST_AttachInstances
+          description: "Amazon EC2 Auto Scaling POST_ Attach Instances"
+          operations:
+            - method: POST
+              name: POST_AttachInstances
+              description: "Amazon EC2 Auto Scaling POST_ Attach Instances"
+              call: "ec2-auto-scaling.POST_AttachInstances"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/resource
+          name: GET_AttachLoadBalancerTargetGroups
+          description: "Amazon EC2 Auto Scaling GET_ Attach Load Balancer Target Groups"
+          operations:
+            - method: GET
+              name: GET_AttachLoadBalancerTargetGroups
+              description: "Amazon EC2 Auto Scaling GET_ Attach Load Balancer Target Groups"
+              call: "ec2-auto-scaling.GET_AttachLoadBalancerTargetGroups"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/resource
+          name: POST_AttachLoadBalancerTargetGroups
+          description: "Amazon EC2 Auto Scaling POST_ Attach Load Balancer Target Groups"
+          operations:
+            - method: POST
+              name: POST_AttachLoadBalancerTargetGroups
+              description: "Amazon EC2 Auto Scaling POST_ Attach Load Balancer Target Groups"
+              call: "ec2-auto-scaling.POST_AttachLoadBalancerTargetGroups"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/resource
+          name: GET_AttachLoadBalancers
+          description: "Amazon EC2 Auto Scaling GET_ Attach Load Balancers"
+          operations:
+            - method: GET
+              name: GET_AttachLoadBalancers
+              description: "Amazon EC2 Auto Scaling GET_ Attach Load Balancers"
+              call: "ec2-auto-scaling.GET_AttachLoadBalancers"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/resource
+          name: POST_AttachLoadBalancers
+          description: "Amazon EC2 Auto Scaling POST_ Attach Load Balancers"
+          operations:
+            - method: POST
+              name: POST_AttachLoadBalancers
+              description: "Amazon EC2 Auto Scaling POST_ Attach Load Balancers"
+              call: "ec2-auto-scaling.POST_AttachLoadBalancers"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/resource
+          name: GET_AttachTrafficSources
+          description: "Amazon EC2 Auto Scaling GET_ Attach Traffic Sources"
+          operations:
+            - method: GET
+              name: GET_AttachTrafficSources
+              description: "Amazon EC2 Auto Scaling GET_ Attach Traffic Sources"
+              call: "ec2-auto-scaling.GET_AttachTrafficSources"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/resource
+          name: POST_AttachTrafficSources
+          description: "Amazon EC2 Auto Scaling POST_ Attach Traffic Sources"
+          operations:
+            - method: POST
+              name: POST_AttachTrafficSources
+              description: "Amazon EC2 Auto Scaling POST_ Attach Traffic Sources"
+              call: "ec2-auto-scaling.POST_AttachTrafficSources"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/resource
+          name: GET_BatchDeleteScheduledAction
+          description: "Amazon EC2 Auto Scaling GET_ Batch Delete Scheduled Action"
+          operations:
+            - method: GET
+              name: GET_BatchDeleteScheduledAction
+              description: "Amazon EC2 Auto Scaling GET_ Batch Delete Scheduled Action"
+              call: "ec2-auto-scaling.GET_BatchDeleteScheduledAction"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/resource
+          name: POST_BatchDeleteScheduledAction
+          description: "Amazon EC2 Auto Scaling POST_ Batch Delete Scheduled Action"
+          operations:
+            - method: POST
+              name: POST_BatchDeleteScheduledAction
+              description: "Amazon EC2 Auto Scaling POST_ Batch Delete Scheduled Action"
+              call: "ec2-auto-scaling.POST_BatchDeleteScheduledAction"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9097
+      namespace: ec2-auto-scaling-mcp
+      transport: http
+      description: "MCP server for AI-assisted Auto Scaling Group Management."
+      tools:
+        - name: get_-attach-instances
+          description: "Amazon EC2 Auto Scaling GET_ Attach Instances"
+          hints:
+            readOnly: true
+            destructive: false
+          call: "ec2-auto-scaling.GET_AttachInstances"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: post_-attach-instances
+          description: "Amazon EC2 Auto Scaling POST_ Attach Instances"
+          hints:
+            readOnly: false
+            destructive: false
+          call: "ec2-auto-scaling.POST_AttachInstances"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get_-attach-load-balancer-target-groups
+          description: "Amazon EC2 Auto Scaling GET_ Attach Load Balancer Target Groups"
+          hints:
+            readOnly: true
+            destructive: false
+          call: "ec2-auto-scaling.GET_AttachLoadBalancerTargetGroups"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: post_-attach-load-balancer-target-groups
+          description: "Amazon EC2 Auto Scaling POST_ Attach Load Balancer Target Groups"
+          hints:
+            readOnly: false
+            destructive: false
+          call: "ec2-auto-scaling.POST_AttachLoadBalancerTargetGroups"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get_-attach-load-balancers
+          description: "Amazon EC2 Auto Scaling GET_ Attach Load Balancers"
+          hints:
+            readOnly: true
+            destructive: false
+          call: "ec2-auto-scaling.GET_AttachLoadBalancers"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: post_-attach-load-balancers
+          description: "Amazon EC2 Auto Scaling POST_ Attach Load Balancers"
+          hints:
+            readOnly: false
+            destructive: false
+          call: "ec2-auto-scaling.POST_AttachLoadBalancers"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get_-attach-traffic-sources
+          description: "Amazon EC2 Auto Scaling GET_ Attach Traffic Sources"
+          hints:
+            readOnly: true
+            destructive: false
+          call: "ec2-auto-scaling.GET_AttachTrafficSources"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: post_-attach-traffic-sources
+          description: "Amazon EC2 Auto Scaling POST_ Attach Traffic Sources"
+          hints:
+            readOnly: false
+            destructive: false
+          call: "ec2-auto-scaling.POST_AttachTrafficSources"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get_-batch-delete-scheduled-action
+          description: "Amazon EC2 Auto Scaling GET_ Batch Delete Scheduled Action"
+          hints:
+            readOnly: true
+            destructive: false
+          call: "ec2-auto-scaling.GET_BatchDeleteScheduledAction"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: post_-batch-delete-scheduled-action
+          description: "Amazon EC2 Auto Scaling POST_ Batch Delete Scheduled Action"
+          hints:
+            readOnly: false
+            destructive: false
+          call: "ec2-auto-scaling.POST_BatchDeleteScheduledAction"
+          outputParameters:
+            - type: object
+              mapping: "$."

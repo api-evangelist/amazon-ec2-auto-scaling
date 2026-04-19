@@ -1,0 +1,6 @@
+{
+  "AutoScalingGroupName": "example-resource-name",
+  "LaunchConfigurationName": "example-resource-name",
+  "LaunchTemplate": "example-string",
+  "MixedInstancesPolicy": "example-string"
+}

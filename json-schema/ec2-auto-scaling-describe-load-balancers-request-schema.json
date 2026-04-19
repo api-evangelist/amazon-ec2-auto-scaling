@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-schema/ec2-auto-scaling-describe-load-balancers-request-schema.json",
+  "title": "DescribeLoadBalancersRequest",
+  "description": "DescribeLoadBalancersRequest schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "AutoScalingGroupName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "The name of the Auto Scaling group."
+        }
+      ]
+    },
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlString"
+        },
+        {
+          "description": "The token for the next set of items to return. (You received this token from a previous call.)"
+        }
+      ]
+    },
+    "MaxRecords": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MaxRecords"
+        },
+        {
+          "description": "The maximum number of items to return with this call. The default value is <code>100</code> and the maximum value is <code>100</code>."
+        }
+      ]
+    }
+  },
+  "required": [
+    "AutoScalingGroupName"
+  ]
+}

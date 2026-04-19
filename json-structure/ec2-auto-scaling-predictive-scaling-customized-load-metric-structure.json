@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-predictive-scaling-customized-load-metric-structure.json",
+  "name": "PredictiveScalingCustomizedLoadMetric",
+  "description": "Describes a custom load metric for a predictive scaling policy.",
+  "type": "object",
+  "properties": {
+    "MetricDataQueries": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MetricDataQueries"
+        },
+        {
+          "description": "One or more metric data queries to provide the data points for a load metric. Use multiple metric data queries only if you are performing a math expression on returned data. "
+        }
+      ]
+    }
+  },
+  "required": [
+    "MetricDataQueries"
+  ]
+}

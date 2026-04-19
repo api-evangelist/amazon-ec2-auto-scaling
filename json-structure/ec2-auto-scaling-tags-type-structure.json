@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-tags-type-structure.json",
+  "name": "TagsType",
+  "description": "TagsType schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "Tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagDescriptionList"
+        },
+        {
+          "description": "One or more tags."
+        }
+      ]
+    },
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlString"
+        },
+        {
+          "description": "A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the <code>NextToken</code> value when requesting the next set of items. This value is null when there are no more items to return."
+        }
+      ]
+    }
+  },
+  "example": {
+    "Tags": [
+      {
+        "Key": "Dept",
+        "PropagateAtLaunch": true,
+        "ResourceId": "my-auto-scaling-group",
+        "ResourceType": "auto-scaling-group",
+        "Value": "Research"
+      },
+      {
+        "Key": "Role",
+        "PropagateAtLaunch": true,
+        "ResourceId": "my-auto-scaling-group",
+        "ResourceType": "auto-scaling-group",
+        "Value": "WebServer"
+      }
+    ]
+  }
+}

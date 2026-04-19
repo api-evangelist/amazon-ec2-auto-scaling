@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-describe-auto-scaling-instances-type-structure.json",
+  "name": "DescribeAutoScalingInstancesType",
+  "description": "DescribeAutoScalingInstancesType schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "InstanceIds": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InstanceIds"
+        },
+        {
+          "description": "<p>The IDs of the instances. If you omit this property, all Auto Scaling instances are described. If you specify an ID that does not exist, it is ignored with no error.</p> <p>Array Members: Maximum number of 50 items.</p>"
+        }
+      ]
+    },
+    "MaxRecords": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MaxRecords"
+        },
+        {
+          "description": "The maximum number of items to return with this call. The default value is <code>50</code> and the maximum value is <code>50</code>."
+        }
+      ]
+    },
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlString"
+        },
+        {
+          "description": "The token for the next set of items to return. (You received this token from a previous call.)"
+        }
+      ]
+    }
+  }
+}

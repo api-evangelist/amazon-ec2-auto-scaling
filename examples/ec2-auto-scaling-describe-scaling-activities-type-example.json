@@ -1,0 +1,5 @@
+{
+  "ActivityIds": "example-id-1234",
+  "AutoScalingGroupName": "example-resource-name",
+  "IncludeDeletedGroups": "example-string"
+}

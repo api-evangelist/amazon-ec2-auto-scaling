@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-batch-delete-scheduled-action-answer-structure.json",
+  "name": "BatchDeleteScheduledActionAnswer",
+  "description": "BatchDeleteScheduledActionAnswer schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "FailedScheduledActions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FailedScheduledUpdateGroupActionRequests"
+        },
+        {
+          "description": "The names of the scheduled actions that could not be deleted, including an error message."
+        }
+      ]
+    }
+  }
+}

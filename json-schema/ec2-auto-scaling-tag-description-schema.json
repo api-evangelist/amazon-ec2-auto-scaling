@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-schema/ec2-auto-scaling-tag-description-schema.json",
+  "title": "TagDescription",
+  "description": "Describes a tag for an Auto Scaling group.",
+  "type": "object",
+  "properties": {
+    "ResourceId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlString"
+        },
+        {
+          "description": "The name of the group."
+        }
+      ]
+    },
+    "ResourceType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlString"
+        },
+        {
+          "description": "The type of resource. The only supported value is <code>auto-scaling-group</code>."
+        }
+      ]
+    },
+    "Key": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagKey"
+        },
+        {
+          "description": "The tag key."
+        }
+      ]
+    },
+    "Value": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagValue"
+        },
+        {
+          "description": "The tag value."
+        }
+      ]
+    },
+    "PropagateAtLaunch": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PropagateAtLaunch"
+        },
+        {
+          "description": "Determines whether the tag is added to new instances as they are launched in the group."
+        }
+      ]
+    }
+  }
+}

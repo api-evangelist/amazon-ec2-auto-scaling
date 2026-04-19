@@ -1,0 +1,5 @@
+{
+  "InstanceType": "standard",
+  "WeightedCapacity": "example-string",
+  "LaunchTemplateSpecification": "example-string"
+}

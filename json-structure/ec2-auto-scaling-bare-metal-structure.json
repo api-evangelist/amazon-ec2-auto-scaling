@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-bare-metal-structure.json",
+  "name": "BareMetal",
+  "description": "BareMetal schema from Auto Scaling",
+  "type": "string",
+  "enum": [
+    "included",
+    "excluded",
+    "required"
+  ]
+}

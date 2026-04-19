@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-metric-statistic-structure.json",
+  "name": "MetricStatistic",
+  "description": "MetricStatistic schema from Auto Scaling",
+  "type": "string",
+  "enum": [
+    "Average",
+    "Minimum",
+    "Maximum",
+    "SampleCount",
+    "Sum"
+  ]
+}

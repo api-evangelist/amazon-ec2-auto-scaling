@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-schema/ec2-auto-scaling-scheduled-update-group-action-schema.json",
+  "title": "ScheduledUpdateGroupAction",
+  "description": "Describes a scheduled scaling action.",
+  "type": "object",
+  "properties": {
+    "AutoScalingGroupName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "The name of the Auto Scaling group."
+        }
+      ]
+    },
+    "ScheduledActionName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "The name of the scheduled action."
+        }
+      ]
+    },
+    "ScheduledActionARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceName"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the scheduled action."
+        }
+      ]
+    },
+    "Time": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TimestampType"
+        },
+        {
+          "description": "This property is no longer used."
+        }
+      ]
+    },
+    "StartTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TimestampType"
+        },
+        {
+          "description": "The date and time in UTC for this action to start. For example, <code>\"2019-06-01T00:00:00Z\"</code>. "
+        }
+      ]
+    },
+    "EndTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TimestampType"
+        },
+        {
+          "description": "The date and time in UTC for the recurring schedule to end. For example, <code>\"2019-06-01T00:00:00Z\"</code>. "
+        }
+      ]
+    },
+    "Recurrence": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "<p>The recurring schedule for the action, in Unix cron syntax format.</p> <p>When <code>StartTime</code> and <code>EndTime</code> are specified with <code>Recurrence</code>, they form the boundaries of when the recurring action starts and stops.</p>"
+        }
+      ]
+    },
+    "MinSize": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AutoScalingGroupMinSize"
+        },
+        {
+          "description": "The minimum size of the Auto Scaling group."
+        }
+      ]
+    },
+    "MaxSize": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AutoScalingGroupMaxSize"
+        },
+        {
+          "description": "The maximum size of the Auto Scaling group."
+        }
+      ]
+    },
+    "DesiredCapacity": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AutoScalingGroupDesiredCapacity"
+        },
+        {
+          "description": "The desired capacity is the initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain."
+        }
+      ]
+    },
+    "TimeZone": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "The time zone for the cron expression."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,169 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-schema/ec2-auto-scaling-scaling-policy-schema.json",
+  "title": "ScalingPolicy",
+  "description": "Describes a scaling policy.",
+  "type": "object",
+  "properties": {
+    "AutoScalingGroupName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "The name of the Auto Scaling group."
+        }
+      ]
+    },
+    "PolicyName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "The name of the scaling policy."
+        }
+      ]
+    },
+    "PolicyARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceName"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the policy."
+        }
+      ]
+    },
+    "PolicyType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen64"
+        },
+        {
+          "description": "<p>One of the following policy types: </p> <ul> <li> <p> <code>TargetTrackingScaling</code> </p> </li> <li> <p> <code>StepScaling</code> </p> </li> <li> <p> <code>SimpleScaling</code> (default)</p> </li> <li> <p> <code>PredictiveScaling</code> </p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-target-tracking.html\">Target tracking scaling policies</a> and <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html\">Step and simple scaling policies</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>"
+        }
+      ]
+    },
+    "AdjustmentType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "Specifies how the scaling adjustment is interpreted (for example, an absolute number or a percentage). The valid values are <code>ChangeInCapacity</code>, <code>ExactCapacity</code>, and <code>PercentChangeInCapacity</code>."
+        }
+      ]
+    },
+    "MinAdjustmentStep": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MinAdjustmentStep"
+        },
+        {
+          "description": "Available for backward compatibility. Use <code>MinAdjustmentMagnitude</code> instead."
+        }
+      ]
+    },
+    "MinAdjustmentMagnitude": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MinAdjustmentMagnitude"
+        },
+        {
+          "description": "The minimum value to scale by when the adjustment type is <code>PercentChangeInCapacity</code>. "
+        }
+      ]
+    },
+    "ScalingAdjustment": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PolicyIncrement"
+        },
+        {
+          "description": "The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity."
+        }
+      ]
+    },
+    "Cooldown": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Cooldown"
+        },
+        {
+          "description": "The duration of the policy's cooldown period, in seconds."
+        }
+      ]
+    },
+    "StepAdjustments": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StepAdjustments"
+        },
+        {
+          "description": "A set of adjustments that enable you to scale based on the size of the alarm breach."
+        }
+      ]
+    },
+    "MetricAggregationType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen32"
+        },
+        {
+          "description": "The aggregation type for the CloudWatch metrics. The valid values are <code>Minimum</code>, <code>Maximum</code>, and <code>Average</code>."
+        }
+      ]
+    },
+    "EstimatedInstanceWarmup": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EstimatedInstanceWarmup"
+        },
+        {
+          "description": "The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics."
+        }
+      ]
+    },
+    "Alarms": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Alarms"
+        },
+        {
+          "description": "The CloudWatch alarms related to the policy."
+        }
+      ]
+    },
+    "TargetTrackingConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TargetTrackingConfiguration"
+        },
+        {
+          "description": "A target tracking scaling policy."
+        }
+      ]
+    },
+    "Enabled": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ScalingPolicyEnabled"
+        },
+        {
+          "description": "Indicates whether the policy is enabled (<code>true</code>) or disabled (<code>false</code>)."
+        }
+      ]
+    },
+    "PredictiveScalingConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PredictiveScalingConfiguration"
+        },
+        {
+          "description": "A predictive scaling policy."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-schema/ec2-auto-scaling-policies-type-schema.json",
+  "title": "PoliciesType",
+  "description": "PoliciesType schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "ScalingPolicies": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ScalingPolicies"
+        },
+        {
+          "description": "The scaling policies."
+        }
+      ]
+    },
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlString"
+        },
+        {
+          "description": "A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the <code>NextToken</code> value when requesting the next set of items. This value is null when there are no more items to return."
+        }
+      ]
+    }
+  },
+  "example": {
+    "ScalingPolicies": [
+      {
+        "AdjustmentType": "ChangeInCapacity",
+        "Alarms": [],
+        "AutoScalingGroupName": "my-auto-scaling-group",
+        "PolicyARN": "arn:aws:autoscaling:us-west-2:123456789012:scalingPolicy:2233f3d7-6290-403b-b632-93c553560106:autoScalingGroupName/my-auto-scaling-group:policyName/ScaleIn",
+        "PolicyName": "ScaleIn",
+        "ScalingAdjustment": -1
+      },
+      {
+        "AdjustmentType": "PercentChangeInCapacity",
+        "Alarms": [],
+        "AutoScalingGroupName": "my-auto-scaling-group",
+        "Cooldown": 60,
+        "MinAdjustmentStep": 2,
+        "PolicyARN": "arn:aws:autoscaling:us-west-2:123456789012:scalingPolicy:2b435159-cf77-4e89-8c0e-d63b497baad7:autoScalingGroupName/my-auto-scaling-group:policyName/ScalePercentChange",
+        "PolicyName": "ScalePercentChange",
+        "ScalingAdjustment": 25
+      }
+    ]
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "WarmPoolConfiguration": "example-string",
+  "Instances": "example-string",
+  "NextToken": "example-string"
+}

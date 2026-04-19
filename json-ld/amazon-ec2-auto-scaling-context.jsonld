@@ -1,0 +1,858 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "aws": "https://aws.amazon.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "pan": "https://aws.amazon.com/schema/",
+    "AcceleratorCountRequest": "aws:AcceleratorCountRequest",
+    "AcceleratorTotalMemoryMiBRequest": "aws:AcceleratorTotalMemoryMiBRequest",
+    "ActivitiesType": "aws:ActivitiesType",
+    "Activity": "aws:Activity",
+    "ActivityType": "aws:ActivityType",
+    "AdjustmentType": {
+      "@id": "pan:AdjustmentType",
+      "@type": "xsd:string"
+    },
+    "Alarm": "aws:Alarm",
+    "AttachInstancesQuery": "aws:AttachInstancesQuery",
+    "AttachLoadBalancerTargetGroupsResultType": "aws:AttachLoadBalancerTargetGroupsResultType",
+    "AttachLoadBalancerTargetGroupsType": "aws:AttachLoadBalancerTargetGroupsType",
+    "AttachLoadBalancersResultType": "aws:AttachLoadBalancersResultType",
+    "AttachLoadBalancersType": "aws:AttachLoadBalancersType",
+    "AttachTrafficSourcesResultType": "aws:AttachTrafficSourcesResultType",
+    "AttachTrafficSourcesType": "aws:AttachTrafficSourcesType",
+    "AutoScalingGroup": "aws:AutoScalingGroup",
+    "AutoScalingGroupNamesType": "aws:AutoScalingGroupNamesType",
+    "AutoScalingGroupsType": "aws:AutoScalingGroupsType",
+    "AutoScalingInstanceDetails": "aws:AutoScalingInstanceDetails",
+    "AutoScalingInstancesType": "aws:AutoScalingInstancesType",
+    "BaselineEbsBandwidthMbpsRequest": "aws:BaselineEbsBandwidthMbpsRequest",
+    "BatchDeleteScheduledActionAnswer": "aws:BatchDeleteScheduledActionAnswer",
+    "BatchDeleteScheduledActionType": "aws:BatchDeleteScheduledActionType",
+    "BatchPutScheduledUpdateGroupActionAnswer": "aws:BatchPutScheduledUpdateGroupActionAnswer",
+    "BatchPutScheduledUpdateGroupActionType": "aws:BatchPutScheduledUpdateGroupActionType",
+    "BlockDeviceMapping": "aws:BlockDeviceMapping",
+    "CancelInstanceRefreshAnswer": "aws:CancelInstanceRefreshAnswer",
+    "CancelInstanceRefreshType": "aws:CancelInstanceRefreshType",
+    "CapacityForecast": "aws:CapacityForecast",
+    "CompleteLifecycleActionAnswer": "aws:CompleteLifecycleActionAnswer",
+    "CompleteLifecycleActionType": "aws:CompleteLifecycleActionType",
+    "CreateAutoScalingGroupType": "aws:CreateAutoScalingGroupType",
+    "CreateLaunchConfigurationType": "aws:CreateLaunchConfigurationType",
+    "CreateOrUpdateTagsType": "aws:CreateOrUpdateTagsType",
+    "CustomizedMetricSpecification": {
+      "@id": "pan:CustomizedMetricSpecification",
+      "@type": "xsd:string"
+    },
+    "DeleteAutoScalingGroupType": "aws:DeleteAutoScalingGroupType",
+    "DeleteLifecycleHookAnswer": "aws:DeleteLifecycleHookAnswer",
+    "DeleteLifecycleHookType": "aws:DeleteLifecycleHookType",
+    "DeleteNotificationConfigurationType": "aws:DeleteNotificationConfigurationType",
+    "DeletePolicyType": "aws:DeletePolicyType",
+    "DeleteScheduledActionType": "aws:DeleteScheduledActionType",
+    "DeleteTagsType": "aws:DeleteTagsType",
+    "DeleteWarmPoolAnswer": "aws:DeleteWarmPoolAnswer",
+    "DeleteWarmPoolType": "aws:DeleteWarmPoolType",
+    "DescribeAccountLimitsAnswer": "aws:DescribeAccountLimitsAnswer",
+    "DescribeAdjustmentTypesAnswer": "aws:DescribeAdjustmentTypesAnswer",
+    "DescribeAutoScalingInstancesType": "aws:DescribeAutoScalingInstancesType",
+    "DescribeAutoScalingNotificationTypesAnswer": "aws:DescribeAutoScalingNotificationTypesAnswer",
+    "DescribeInstanceRefreshesAnswer": "aws:DescribeInstanceRefreshesAnswer",
+    "DescribeInstanceRefreshesType": "aws:DescribeInstanceRefreshesType",
+    "DescribeLifecycleHookTypesAnswer": "aws:DescribeLifecycleHookTypesAnswer",
+    "MetricSpecifications": {
+      "@id": "pan:MetricSpecifications",
+      "@type": "xsd:string"
+    },
+    "Mode": {
+      "@id": "pan:Mode",
+      "@type": "xsd:string"
+    },
+    "SchedulingBufferTime": {
+      "@id": "pan:SchedulingBufferTime",
+      "@type": "xsd:string"
+    },
+    "MaxCapacityBreachBehavior": {
+      "@id": "pan:MaxCapacityBreachBehavior",
+      "@type": "xsd:string"
+    },
+    "MaxCapacityBuffer": {
+      "@id": "pan:MaxCapacityBuffer",
+      "@type": "xsd:string"
+    },
+    "LifecycleHookName": {
+      "@id": "pan:LifecycleHookName",
+      "@type": "xsd:string"
+    },
+    "LifecycleTransition": {
+      "@id": "pan:LifecycleTransition",
+      "@type": "xsd:string"
+    },
+    "NotificationMetadata": {
+      "@id": "pan:NotificationMetadata",
+      "@type": "xsd:string"
+    },
+    "HeartbeatTimeout": {
+      "@id": "pan:HeartbeatTimeout",
+      "@type": "xsd:string"
+    },
+    "DefaultResult": {
+      "@id": "pan:DefaultResult",
+      "@type": "xsd:string"
+    },
+    "NotificationTargetARN": {
+      "@id": "pan:NotificationTargetARN",
+      "@type": "xsd:string"
+    },
+    "RoleARN": {
+      "@id": "pan:RoleARN",
+      "@type": "xsd:string"
+    },
+    "PolicyARN": {
+      "@id": "pan:PolicyARN",
+      "@type": "xsd:string"
+    },
+    "Alarms": {
+      "@id": "pan:Alarms",
+      "@type": "xsd:string"
+    },
+    "AutoScalingGroupName": {
+      "@id": "pan:AutoScalingGroupName",
+      "@type": "xsd:string"
+    },
+    "PolicyName": {
+      "@id": "pan:PolicyName",
+      "@type": "xsd:string"
+    },
+    "PercentageComplete": {
+      "@id": "pan:PercentageComplete",
+      "@type": "xsd:string"
+    },
+    "InstancesToUpdate": {
+      "@id": "pan:InstancesToUpdate",
+      "@type": "xsd:string"
+    },
+    "MetricIntervalLowerBound": {
+      "@id": "pan:MetricIntervalLowerBound",
+      "@type": "xsd:string"
+    },
+    "MetricIntervalUpperBound": {
+      "@id": "pan:MetricIntervalUpperBound",
+      "@type": "xsd:string"
+    },
+    "ScalingAdjustment": {
+      "@id": "pan:ScalingAdjustment",
+      "@type": "xsd:string"
+    },
+    "MetricDataQueries": {
+      "@id": "pan:MetricDataQueries",
+      "@type": "xsd:string"
+    },
+    "LoadBalancers": {
+      "@id": "pan:LoadBalancers",
+      "@type": "xsd:string"
+    },
+    "NextToken": {
+      "@id": "pan:NextToken",
+      "@type": "xsd:string"
+    },
+    "PolicyNames": {
+      "@id": "pan:PolicyNames",
+      "@type": "xsd:string"
+    },
+    "PolicyTypes": {
+      "@id": "pan:PolicyTypes",
+      "@type": "xsd:string"
+    },
+    "MaxRecords": {
+      "@id": "pan:MaxRecords",
+      "@type": "xsd:string"
+    },
+    "AdjustmentTypes": {
+      "@id": "pan:AdjustmentTypes",
+      "@type": "xsd:string"
+    },
+    "Min": {
+      "@id": "pan:Min",
+      "@type": "xsd:string"
+    },
+    "Max": {
+      "@id": "pan:Max",
+      "@type": "xsd:string"
+    },
+    "Metrics": {
+      "@id": "pan:Metrics",
+      "@type": "xsd:string"
+    },
+    "TrafficSourceType": {
+      "@id": "pan:TrafficSourceType",
+      "@type": "xsd:string"
+    },
+    "MetricName": {
+      "@id": "pan:MetricName",
+      "@type": "xsd:string"
+    },
+    "Namespace": {
+      "@id": "pan:Namespace",
+      "@type": "xsd:string"
+    },
+    "Dimensions": {
+      "@id": "pan:Dimensions",
+      "@type": "xsd:string"
+    },
+    "Statistic": {
+      "@id": "pan:Statistic",
+      "@type": "xsd:string"
+    },
+    "Unit": {
+      "@id": "pan:Unit",
+      "@type": "xsd:string"
+    },
+    "Name": {
+      "@id": "pan:Name",
+      "@type": "xsd:string"
+    },
+    "Value": {
+      "@id": "pan:Value",
+      "@type": "xsd:string"
+    },
+    "Activities": {
+      "@id": "pan:Activities",
+      "@type": "xsd:string"
+    },
+    "LaunchTemplate": {
+      "@id": "pan:LaunchTemplate",
+      "@type": "xsd:string"
+    },
+    "InstancesDistribution": {
+      "@id": "pan:InstancesDistribution",
+      "@type": "xsd:string"
+    },
+    "Granularity": {
+      "@id": "pan:Granularity",
+      "@type": "xsd:string"
+    },
+    "LifecycleHookNames": {
+      "@id": "pan:LifecycleHookNames",
+      "@type": "xsd:string"
+    },
+    "LaunchConfigurations": {
+      "@id": "pan:LaunchConfigurations",
+      "@type": "xsd:string"
+    },
+    "InstanceId": {
+      "@id": "pan:InstanceId",
+      "@type": "xsd:string"
+    },
+    "ShouldDecrementDesiredCapacity": {
+      "@id": "pan:ShouldDecrementDesiredCapacity",
+      "@type": "xsd:string"
+    },
+    "ScheduledUpdateGroupActions": {
+      "@id": "pan:ScheduledUpdateGroupActions",
+      "@type": "xsd:string"
+    },
+    "MinHealthyPercentage": {
+      "@id": "pan:MinHealthyPercentage",
+      "@type": "xsd:string"
+    },
+    "InstanceWarmup": {
+      "@id": "pan:InstanceWarmup",
+      "@type": "xsd:string"
+    },
+    "CheckpointPercentages": {
+      "@id": "pan:CheckpointPercentages",
+      "@type": "xsd:string"
+    },
+    "CheckpointDelay": {
+      "@id": "pan:CheckpointDelay",
+      "@type": "xsd:string"
+    },
+    "SkipMatching": {
+      "@id": "pan:SkipMatching",
+      "@type": "xsd:string"
+    },
+    "AutoRollback": {
+      "@id": "pan:AutoRollback",
+      "@type": "xsd:string"
+    },
+    "ScaleInProtectedInstances": {
+      "@id": "pan:ScaleInProtectedInstances",
+      "@type": "xsd:string"
+    },
+    "StandbyInstances": {
+      "@id": "pan:StandbyInstances",
+      "@type": "xsd:string"
+    },
+    "Metric": {
+      "@id": "pan:Metric",
+      "@type": "xsd:string"
+    },
+    "Stat": {
+      "@id": "pan:Stat",
+      "@type": "xsd:string"
+    },
+    "AutoScalingInstances": {
+      "@id": "pan:AutoScalingInstances",
+      "@type": "xsd:string"
+    },
+    "InstanceType": {
+      "@id": "pan:InstanceType",
+      "@type": "xsd:string"
+    },
+    "WeightedCapacity": {
+      "@id": "pan:WeightedCapacity",
+      "@type": "xsd:string"
+    },
+    "LaunchTemplateSpecification": {
+      "@id": "pan:LaunchTemplateSpecification",
+      "@type": "xsd:string"
+    },
+    "InstanceRequirements": {
+      "@id": "pan:InstanceRequirements",
+      "@type": "xsd:string"
+    },
+    "LoadBalancerName": {
+      "@id": "pan:LoadBalancerName",
+      "@type": "xsd:string"
+    },
+    "State": {
+      "@id": "pan:State",
+      "@type": "xsd:string"
+    },
+    "LoadBalancerTargetGroupARN": {
+      "@id": "pan:LoadBalancerTargetGroupARN",
+      "@type": "xsd:string"
+    },
+    "Tags": {
+      "@id": "pan:Tags",
+      "@type": "xsd:string"
+    },
+    "Strategy": {
+      "@id": "pan:Strategy",
+      "@type": "xsd:string"
+    },
+    "DesiredConfiguration": {
+      "@id": "pan:DesiredConfiguration",
+      "@type": "xsd:string"
+    },
+    "Preferences": {
+      "@id": "pan:Preferences",
+      "@type": "xsd:string"
+    },
+    "Timestamps": {
+      "@id": "pan:Timestamps",
+      "@type": "xsd:string"
+    },
+    "Values": {
+      "@id": "pan:Values",
+      "@type": "xsd:string"
+    },
+    "InstanceRefreshId": {
+      "@id": "pan:InstanceRefreshId",
+      "@type": "xsd:string"
+    },
+    "TrafficSource": {
+      "@id": "pan:TrafficSource",
+      "@type": "xsd:string"
+    },
+    "Identifier": {
+      "@id": "pan:Identifier",
+      "@type": "xsd:string"
+    },
+    "Type": {
+      "@id": "pan:Type",
+      "@type": "xsd:string"
+    },
+    "TopicARN": {
+      "@id": "pan:TopicARN",
+      "@type": "xsd:string"
+    },
+    "ScheduledActionName": {
+      "@id": "pan:ScheduledActionName",
+      "@type": "xsd:string"
+    },
+    "Time": {
+      "@id": "pan:Time",
+      "@type": "xsd:string"
+    },
+    "StartTime": {
+      "@id": "pan:StartTime",
+      "@type": "xsd:string"
+    },
+    "EndTime": {
+      "@id": "pan:EndTime",
+      "@type": "xsd:string"
+    },
+    "Recurrence": {
+      "@id": "pan:Recurrence",
+      "@type": "xsd:string"
+    },
+    "MinSize": {
+      "@id": "pan:MinSize",
+      "@type": "xsd:string"
+    },
+    "MaxSize": {
+      "@id": "pan:MaxSize",
+      "@type": "xsd:string"
+    },
+    "DesiredCapacity": {
+      "@id": "pan:DesiredCapacity",
+      "@type": "xsd:string"
+    },
+    "TimeZone": {
+      "@id": "pan:TimeZone",
+      "@type": "xsd:string"
+    },
+    "OnDemandAllocationStrategy": {
+      "@id": "pan:OnDemandAllocationStrategy",
+      "@type": "xsd:string"
+    },
+    "OnDemandBaseCapacity": {
+      "@id": "pan:OnDemandBaseCapacity",
+      "@type": "xsd:string"
+    },
+    "OnDemandPercentageAboveBaseCapacity": {
+      "@id": "pan:OnDemandPercentageAboveBaseCapacity",
+      "@type": "xsd:string"
+    },
+    "SpotAllocationStrategy": {
+      "@id": "pan:SpotAllocationStrategy",
+      "@type": "xsd:string"
+    },
+    "SpotInstancePools": {
+      "@id": "pan:SpotInstancePools",
+      "@type": "xsd:string"
+    },
+    "SpotMaxPrice": {
+      "@id": "pan:SpotMaxPrice",
+      "@type": "xsd:string"
+    },
+    "LaunchConfigurationName": {
+      "@id": "pan:LaunchConfigurationName",
+      "@type": "xsd:string"
+    },
+    "MixedInstancesPolicy": {
+      "@id": "pan:MixedInstancesPolicy",
+      "@type": "xsd:string"
+    },
+    "DefaultCooldown": {
+      "@id": "pan:DefaultCooldown",
+      "@type": "xsd:string"
+    },
+    "AvailabilityZones": {
+      "@id": "pan:AvailabilityZones",
+      "@type": "xsd:string"
+    },
+    "HealthCheckType": {
+      "@id": "pan:HealthCheckType",
+      "@type": "xsd:string"
+    },
+    "HealthCheckGracePeriod": {
+      "@id": "pan:HealthCheckGracePeriod",
+      "@type": "xsd:string"
+    },
+    "PlacementGroup": {
+      "@id": "pan:PlacementGroup",
+      "@type": "xsd:string"
+    },
+    "VPCZoneIdentifier": {
+      "@id": "pan:VPCZoneIdentifier",
+      "@type": "xsd:string"
+    },
+    "TerminationPolicies": {
+      "@id": "pan:TerminationPolicies",
+      "@type": "xsd:string"
+    },
+    "NewInstancesProtectedFromScaleIn": {
+      "@id": "pan:NewInstancesProtectedFromScaleIn",
+      "@type": "xsd:string"
+    },
+    "ServiceLinkedRoleARN": {
+      "@id": "pan:ServiceLinkedRoleARN",
+      "@type": "xsd:string"
+    },
+    "MaxInstanceLifetime": {
+      "@id": "pan:MaxInstanceLifetime",
+      "@type": "xsd:string"
+    },
+    "CapacityRebalance": {
+      "@id": "pan:CapacityRebalance",
+      "@type": "xsd:string"
+    },
+    "Context": {
+      "@id": "pan:Context",
+      "@type": "xsd:string"
+    },
+    "DesiredCapacityType": {
+      "@id": "pan:DesiredCapacityType",
+      "@type": "xsd:string"
+    },
+    "DefaultInstanceWarmup": {
+      "@id": "pan:DefaultInstanceWarmup",
+      "@type": "xsd:string"
+    },
+    "LoadBalancerNames": {
+      "@id": "pan:LoadBalancerNames",
+      "@type": "xsd:string"
+    },
+    "FailedScheduledActions": {
+      "@id": "pan:FailedScheduledActions",
+      "@type": "xsd:string"
+    },
+    "VirtualName": {
+      "@id": "pan:VirtualName",
+      "@type": "xsd:string"
+    },
+    "DeviceName": {
+      "@id": "pan:DeviceName",
+      "@type": "xsd:string"
+    },
+    "Ebs": {
+      "@id": "pan:Ebs",
+      "@type": "xsd:string"
+    },
+    "NoDevice": {
+      "@id": "pan:NoDevice",
+      "@type": "xsd:string"
+    },
+    "Enabled": {
+      "@id": "pan:Enabled",
+      "@type": "xsd:string"
+    },
+    "ScheduledActionARN": {
+      "@id": "pan:ScheduledActionARN",
+      "@type": "xsd:string"
+    },
+    "LifecycleHookTypes": {
+      "@id": "pan:LifecycleHookTypes",
+      "@type": "xsd:string"
+    },
+    "InstanceIds": {
+      "@id": "pan:InstanceIds",
+      "@type": "xsd:string"
+    },
+    "WarmPoolConfiguration": {
+      "@id": "pan:WarmPoolConfiguration",
+      "@type": "xsd:string"
+    },
+    "Instances": {
+      "@id": "pan:Instances",
+      "@type": "xsd:string"
+    },
+    "FailedScheduledUpdateGroupActions": {
+      "@id": "pan:FailedScheduledUpdateGroupActions",
+      "@type": "xsd:string"
+    },
+    "MetricSpecification": {
+      "@id": "pan:MetricSpecification",
+      "@type": "xsd:string"
+    },
+    "LoadBalancerTargetGroups": {
+      "@id": "pan:LoadBalancerTargetGroups",
+      "@type": "xsd:string"
+    },
+    "PolicyType": {
+      "@id": "pan:PolicyType",
+      "@type": "xsd:string"
+    },
+    "MinAdjustmentStep": {
+      "@id": "pan:MinAdjustmentStep",
+      "@type": "xsd:string"
+    },
+    "MinAdjustmentMagnitude": {
+      "@id": "pan:MinAdjustmentMagnitude",
+      "@type": "xsd:string"
+    },
+    "Cooldown": {
+      "@id": "pan:Cooldown",
+      "@type": "xsd:string"
+    },
+    "MetricAggregationType": {
+      "@id": "pan:MetricAggregationType",
+      "@type": "xsd:string"
+    },
+    "StepAdjustments": {
+      "@id": "pan:StepAdjustments",
+      "@type": "xsd:string"
+    },
+    "EstimatedInstanceWarmup": {
+      "@id": "pan:EstimatedInstanceWarmup",
+      "@type": "xsd:string"
+    },
+    "TargetTrackingConfiguration": {
+      "@id": "pan:TargetTrackingConfiguration",
+      "@type": "xsd:string"
+    },
+    "PredictiveScalingConfiguration": {
+      "@id": "pan:PredictiveScalingConfiguration",
+      "@type": "xsd:string"
+    },
+    "PredefinedMetricSpecification": {
+      "@id": "pan:PredefinedMetricSpecification",
+      "@type": "xsd:string"
+    },
+    "TargetValue": {
+      "@id": "pan:TargetValue",
+      "@type": "xsd:string"
+    },
+    "DisableScaleIn": {
+      "@id": "pan:DisableScaleIn",
+      "@type": "xsd:string"
+    },
+    "Overrides": {
+      "@id": "pan:Overrides",
+      "@type": "xsd:string"
+    },
+    "PredefinedMetricType": {
+      "@id": "pan:PredefinedMetricType",
+      "@type": "xsd:string"
+    },
+    "ResourceLabel": {
+      "@id": "pan:ResourceLabel",
+      "@type": "xsd:string"
+    },
+    "ReuseOnScaleIn": {
+      "@id": "pan:ReuseOnScaleIn",
+      "@type": "xsd:string"
+    },
+    "ResourceId": {
+      "@id": "pan:ResourceId",
+      "@type": "xsd:string"
+    },
+    "ResourceType": {
+      "@id": "pan:ResourceType",
+      "@type": "xsd:string"
+    },
+    "Key": {
+      "@id": "pan:Key",
+      "@type": "xsd:string"
+    },
+    "PropagateAtLaunch": {
+      "@id": "pan:PropagateAtLaunch",
+      "@type": "xsd:string"
+    },
+    "LaunchConfigurationARN": {
+      "@id": "pan:LaunchConfigurationARN",
+      "@type": "xsd:string"
+    },
+    "ImageId": {
+      "@id": "pan:ImageId",
+      "@type": "xsd:string"
+    },
+    "KeyName": {
+      "@id": "pan:KeyName",
+      "@type": "xsd:string"
+    },
+    "SecurityGroups": {
+      "@id": "pan:SecurityGroups",
+      "@type": "xsd:string"
+    },
+    "ClassicLinkVPCId": {
+      "@id": "pan:ClassicLinkVPCId",
+      "@type": "xsd:string"
+    },
+    "ClassicLinkVPCSecurityGroups": {
+      "@id": "pan:ClassicLinkVPCSecurityGroups",
+      "@type": "xsd:string"
+    },
+    "UserData": {
+      "@id": "pan:UserData",
+      "@type": "xsd:string"
+    },
+    "KernelId": {
+      "@id": "pan:KernelId",
+      "@type": "xsd:string"
+    },
+    "RamdiskId": {
+      "@id": "pan:RamdiskId",
+      "@type": "xsd:string"
+    },
+    "BlockDeviceMappings": {
+      "@id": "pan:BlockDeviceMappings",
+      "@type": "xsd:string"
+    },
+    "InstanceMonitoring": {
+      "@id": "pan:InstanceMonitoring",
+      "@type": "xsd:string"
+    },
+    "SpotPrice": {
+      "@id": "pan:SpotPrice",
+      "@type": "xsd:string"
+    },
+    "IamInstanceProfile": {
+      "@id": "pan:IamInstanceProfile",
+      "@type": "xsd:string"
+    },
+    "CreatedTime": {
+      "@id": "pan:CreatedTime",
+      "@type": "xsd:string"
+    },
+    "EbsOptimized": {
+      "@id": "pan:EbsOptimized",
+      "@type": "xsd:string"
+    },
+    "AssociatePublicIpAddress": {
+      "@id": "pan:AssociatePublicIpAddress",
+      "@type": "xsd:string"
+    },
+    "PlacementTenancy": {
+      "@id": "pan:PlacementTenancy",
+      "@type": "xsd:string"
+    },
+    "MetadataOptions": {
+      "@id": "pan:MetadataOptions",
+      "@type": "xsd:string"
+    },
+    "ScheduledActionNames": {
+      "@id": "pan:ScheduledActionNames",
+      "@type": "xsd:string"
+    },
+    "LifecycleActionToken": {
+      "@id": "pan:LifecycleActionToken",
+      "@type": "xsd:string"
+    },
+    "LifecycleActionResult": {
+      "@id": "pan:LifecycleActionResult",
+      "@type": "xsd:string"
+    },
+    "ActivityIds": {
+      "@id": "pan:ActivityIds",
+      "@type": "xsd:string"
+    },
+    "IncludeDeletedGroups": {
+      "@id": "pan:IncludeDeletedGroups",
+      "@type": "xsd:string"
+    },
+    "TrafficSources": {
+      "@id": "pan:TrafficSources",
+      "@type": "xsd:string"
+    },
+    "RollbackReason": {
+      "@id": "pan:RollbackReason",
+      "@type": "xsd:string"
+    },
+    "RollbackStartTime": {
+      "@id": "pan:RollbackStartTime",
+      "@type": "xsd:string"
+    },
+    "PercentageCompleteOnRollback": {
+      "@id": "pan:PercentageCompleteOnRollback",
+      "@type": "xsd:string"
+    },
+    "InstancesToUpdateOnRollback": {
+      "@id": "pan:InstancesToUpdateOnRollback",
+      "@type": "xsd:string"
+    },
+    "ProgressDetailsOnRollback": {
+      "@id": "pan:ProgressDetailsOnRollback",
+      "@type": "xsd:string"
+    },
+    "Status": {
+      "@id": "pan:Status",
+      "@type": "xsd:string"
+    },
+    "StatusReason": {
+      "@id": "pan:StatusReason",
+      "@type": "xsd:string"
+    },
+    "ProgressDetails": {
+      "@id": "pan:ProgressDetails",
+      "@type": "xsd:string"
+    },
+    "RollbackDetails": {
+      "@id": "pan:RollbackDetails",
+      "@type": "xsd:string"
+    },
+    "InstanceRefreshes": {
+      "@id": "pan:InstanceRefreshes",
+      "@type": "xsd:string"
+    },
+    "TargetGroupARNs": {
+      "@id": "pan:TargetGroupARNs",
+      "@type": "xsd:string"
+    },
+    "ErrorCode": {
+      "@id": "pan:ErrorCode",
+      "@type": "xsd:string"
+    },
+    "ErrorMessage": {
+      "@id": "pan:ErrorMessage",
+      "@type": "xsd:string"
+    },
+    "AutoScalingGroupARN": {
+      "@id": "pan:AutoScalingGroupARN",
+      "@type": "xsd:string"
+    },
+    "PredictedCapacity": {
+      "@id": "pan:PredictedCapacity",
+      "@type": "xsd:string"
+    },
+    "SuspendedProcesses": {
+      "@id": "pan:SuspendedProcesses",
+      "@type": "xsd:string"
+    },
+    "EnabledMetrics": {
+      "@id": "pan:EnabledMetrics",
+      "@type": "xsd:string"
+    },
+    "WarmPoolSize": {
+      "@id": "pan:WarmPoolSize",
+      "@type": "xsd:string"
+    },
+    "LaunchTemplateId": {
+      "@id": "pan:LaunchTemplateId",
+      "@type": "xsd:string"
+    },
+    "LaunchTemplateName": {
+      "@id": "pan:LaunchTemplateName",
+      "@type": "xsd:string"
+    },
+    "Version": {
+      "@id": "pan:Version",
+      "@type": "xsd:string"
+    },
+    "Processes": {
+      "@id": "pan:Processes",
+      "@type": "xsd:string"
+    },
+    "Id": {
+      "@id": "pan:Id",
+      "@type": "xsd:string"
+    },
+    "Expression": {
+      "@id": "pan:Expression",
+      "@type": "xsd:string"
+    },
+    "MetricStat": {
+      "@id": "pan:MetricStat",
+      "@type": "xsd:string"
+    },
+    "Label": {
+      "@id": "pan:Label",
+      "@type": "xsd:string"
+    },
+    "ReturnData": {
+      "@id": "pan:ReturnData",
+      "@type": "xsd:string"
+    },
+    "HonorCooldown": {
+      "@id": "pan:HonorCooldown",
+      "@type": "xsd:string"
+    },
+    "MetricValue": {
+      "@id": "pan:MetricValue",
+      "@type": "xsd:string"
+    },
+    "BreachThreshold": {
+      "@id": "pan:BreachThreshold",
+      "@type": "xsd:string"
+    },
+    "LivePoolProgress": {
+      "@id": "pan:LivePoolProgress",
+      "@type": "xsd:string"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-schema/ec2-auto-scaling-policy-arn-type-schema.json",
+  "title": "PolicyARNType",
+  "description": "Contains the output of PutScalingPolicy.",
+  "type": "object",
+  "properties": {
+    "PolicyARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceName"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the policy."
+        }
+      ]
+    },
+    "Alarms": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Alarms"
+        },
+        {
+          "description": "The CloudWatch alarms created for the target tracking scaling policy."
+        }
+      ]
+    }
+  },
+  "example": {
+    "Alarms": [
+      {
+        "AlarmARN": "arn:aws:cloudwatch:us-west-2:123456789012:alarm:TargetTracking-my-asg-AlarmHigh-fc0e4183-23ac-497e-9992-691c9980c38e",
+        "AlarmName": "TargetTracking-my-asg-AlarmHigh-fc0e4183-23ac-497e-9992-691c9980c38e"
+      },
+      {
+        "AlarmARN": "arn:aws:cloudwatch:us-west-2:123456789012:alarm:TargetTracking-my-asg-AlarmLow-61a39305-ed0c-47af-bd9e-471a352ee1a2",
+        "AlarmName": "TargetTracking-my-asg-AlarmLow-61a39305-ed0c-47af-bd9e-471a352ee1a2"
+      }
+    ],
+    "PolicyARN": "arn:aws:autoscaling:us-west-2:123456789012:scalingPolicy:228f02c2-c665-4bfd-aaac-8b04080bea3c:autoScalingGroupName/my-auto-scaling-group:policyName/alb1000-target-tracking-scaling-policy"
+  }
+}

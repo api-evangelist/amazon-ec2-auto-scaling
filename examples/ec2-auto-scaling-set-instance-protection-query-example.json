@@ -1,0 +1,5 @@
+{
+  "InstanceIds": "example-id-1234",
+  "AutoScalingGroupName": "example-resource-name",
+  "ProtectedFromScaleIn": "example-string"
+}

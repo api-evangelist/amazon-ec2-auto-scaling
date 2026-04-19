@@ -1,0 +1,7 @@
+{
+  "AutoScalingGroupName": "example-resource-name",
+  "MinSize": "example-string",
+  "MaxSize": "example-string",
+  "LaunchConfigurationName": "example-resource-name",
+  "LaunchTemplate": "example-string"
+}

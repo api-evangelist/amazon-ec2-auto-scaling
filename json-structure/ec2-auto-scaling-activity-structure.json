@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-activity-structure.json",
+  "name": "Activity",
+  "description": "Describes scaling activity, which is a long-running process that represents a change to your Auto Scaling group, such as changing its size or replacing an instance.",
+  "type": "object",
+  "properties": {
+    "ActivityId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlString"
+        },
+        {
+          "description": "The ID of the activity."
+        }
+      ]
+    },
+    "AutoScalingGroupName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "The name of the Auto Scaling group."
+        }
+      ]
+    },
+    "Description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlString"
+        },
+        {
+          "description": "A friendly, more verbose description of the activity."
+        }
+      ]
+    },
+    "Cause": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen1023"
+        },
+        {
+          "description": "The reason the activity began."
+        }
+      ]
+    },
+    "StartTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TimestampType"
+        },
+        {
+          "description": "The start time of the activity."
+        }
+      ]
+    },
+    "EndTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TimestampType"
+        },
+        {
+          "description": "The end time of the activity."
+        }
+      ]
+    },
+    "StatusCode": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ScalingActivityStatusCode"
+        },
+        {
+          "description": "The current status of the activity."
+        }
+      ]
+    },
+    "StatusMessage": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "A friendly, more verbose description of the activity status."
+        }
+      ]
+    },
+    "Progress": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Progress"
+        },
+        {
+          "description": "A value between 0 and 100 that indicates the progress of the activity."
+        }
+      ]
+    },
+    "Details": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlString"
+        },
+        {
+          "description": "The details about the activity."
+        }
+      ]
+    },
+    "AutoScalingGroupState": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AutoScalingGroupState"
+        },
+        {
+          "description": "The state of the Auto Scaling group, which is either <code>InService</code> or <code>Deleted</code>."
+        }
+      ]
+    },
+    "AutoScalingGroupARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceName"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the Auto Scaling group."
+        }
+      ]
+    }
+  },
+  "required": [
+    "ActivityId",
+    "AutoScalingGroupName",
+    "Cause",
+    "StartTime",
+    "StatusCode"
+  ]
+}

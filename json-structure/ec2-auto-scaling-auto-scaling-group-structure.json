@@ -1,0 +1,359 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-auto-scaling-group-structure.json",
+  "name": "AutoScalingGroup",
+  "description": "Describes an Auto Scaling group.",
+  "type": "object",
+  "properties": {
+    "AutoScalingGroupName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "The name of the Auto Scaling group."
+        }
+      ]
+    },
+    "AutoScalingGroupARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceName"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the Auto Scaling group."
+        }
+      ]
+    },
+    "LaunchConfigurationName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "The name of the associated launch configuration."
+        }
+      ]
+    },
+    "LaunchTemplate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LaunchTemplateSpecification"
+        },
+        {
+          "description": "The launch template for the group."
+        }
+      ]
+    },
+    "MixedInstancesPolicy": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MixedInstancesPolicy"
+        },
+        {
+          "description": "The mixed instances policy for the group."
+        }
+      ]
+    },
+    "MinSize": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AutoScalingGroupMinSize"
+        },
+        {
+          "description": "The minimum size of the group."
+        }
+      ]
+    },
+    "MaxSize": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AutoScalingGroupMaxSize"
+        },
+        {
+          "description": "The maximum size of the group."
+        }
+      ]
+    },
+    "DesiredCapacity": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AutoScalingGroupDesiredCapacity"
+        },
+        {
+          "description": "The desired size of the group."
+        }
+      ]
+    },
+    "PredictedCapacity": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AutoScalingGroupPredictedCapacity"
+        },
+        {
+          "description": "The predicted capacity of the group when it has a predictive scaling policy."
+        }
+      ]
+    },
+    "DefaultCooldown": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Cooldown"
+        },
+        {
+          "description": "The duration of the default cooldown period, in seconds."
+        }
+      ]
+    },
+    "AvailabilityZones": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AvailabilityZones"
+        },
+        {
+          "description": "One or more Availability Zones for the group."
+        }
+      ]
+    },
+    "LoadBalancerNames": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LoadBalancerNames"
+        },
+        {
+          "description": "One or more load balancers associated with the group."
+        }
+      ]
+    },
+    "TargetGroupARNs": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TargetGroupARNs"
+        },
+        {
+          "description": "The Amazon Resource Names (ARN) of the target groups for your load balancer."
+        }
+      ]
+    },
+    "HealthCheckType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen32"
+        },
+        {
+          "description": "A comma-separated value string of one or more health check types."
+        }
+      ]
+    },
+    "HealthCheckGracePeriod": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/HealthCheckGracePeriod"
+        },
+        {
+          "description": "The duration of the health check grace period, in seconds."
+        }
+      ]
+    },
+    "Instances": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Instances"
+        },
+        {
+          "description": "The EC2 instances associated with the group."
+        }
+      ]
+    },
+    "CreatedTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TimestampType"
+        },
+        {
+          "description": "The date and time the group was created."
+        }
+      ]
+    },
+    "SuspendedProcesses": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SuspendedProcesses"
+        },
+        {
+          "description": "The suspended processes associated with the group."
+        }
+      ]
+    },
+    "PlacementGroup": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "The name of the placement group into which to launch your instances, if any."
+        }
+      ]
+    },
+    "VPCZoneIdentifier": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen2047"
+        },
+        {
+          "description": "One or more subnet IDs, if applicable, separated by commas."
+        }
+      ]
+    },
+    "EnabledMetrics": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EnabledMetrics"
+        },
+        {
+          "description": "The metrics enabled for the group."
+        }
+      ]
+    },
+    "Status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "The current state of the group when the <a>DeleteAutoScalingGroup</a> operation is in progress."
+        }
+      ]
+    },
+    "Tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagDescriptionList"
+        },
+        {
+          "description": "The tags for the group."
+        }
+      ]
+    },
+    "TerminationPolicies": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TerminationPolicies"
+        },
+        {
+          "description": "The termination policies for the group."
+        }
+      ]
+    },
+    "NewInstancesProtectedFromScaleIn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InstanceProtected"
+        },
+        {
+          "description": "Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in."
+        }
+      ]
+    },
+    "ServiceLinkedRoleARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceName"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other Amazon Web Services on your behalf."
+        }
+      ]
+    },
+    "MaxInstanceLifetime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MaxInstanceLifetime"
+        },
+        {
+          "description": "<p>The maximum amount of time, in seconds, that an instance can be in service.</p> <p>Valid Range: Minimum value of 0.</p>"
+        }
+      ]
+    },
+    "CapacityRebalance": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CapacityRebalanceEnabled"
+        },
+        {
+          "description": "Indicates whether Capacity Rebalancing is enabled."
+        }
+      ]
+    },
+    "WarmPoolConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WarmPoolConfiguration"
+        },
+        {
+          "description": "The warm pool for the group."
+        }
+      ]
+    },
+    "WarmPoolSize": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WarmPoolSize"
+        },
+        {
+          "description": "The current size of the warm pool."
+        }
+      ]
+    },
+    "Context": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Context"
+        },
+        {
+          "description": "Reserved."
+        }
+      ]
+    },
+    "DesiredCapacityType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "The unit of measurement for the value specified for desired capacity. Amazon EC2 Auto Scaling supports <code>DesiredCapacityType</code> for attribute-based instance type selection only."
+        }
+      ]
+    },
+    "DefaultInstanceWarmup": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DefaultInstanceWarmup"
+        },
+        {
+          "description": "The duration of the default instance warmup, in seconds."
+        }
+      ]
+    },
+    "TrafficSources": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TrafficSources"
+        },
+        {
+          "description": "The traffic sources associated with this Auto Scaling group."
+        }
+      ]
+    }
+  },
+  "required": [
+    "AutoScalingGroupName",
+    "MinSize",
+    "MaxSize",
+    "DesiredCapacity",
+    "DefaultCooldown",
+    "AvailabilityZones",
+    "HealthCheckType",
+    "CreatedTime"
+  ]
+}

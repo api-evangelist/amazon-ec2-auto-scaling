@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-schema/ec2-auto-scaling-activities-type-schema.json",
+  "title": "ActivitiesType",
+  "description": "ActivitiesType schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "Activities": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Activities"
+        },
+        {
+          "description": "The scaling activities. Activities are sorted by start time. Activities still in progress are described first."
+        }
+      ]
+    },
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlString"
+        },
+        {
+          "description": "A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the <code>NextToken</code> value when requesting the next set of items. This value is null when there are no more items to return."
+        }
+      ]
+    }
+  },
+  "required": [
+    "Activities"
+  ],
+  "example": {
+    "Activities": [
+      {
+        "ActivityId": "f9f2d65b-f1f2-43e7-b46d-d86756459699",
+        "AutoScalingGroupName": "my-auto-scaling-group",
+        "Cause": "At 2013-08-19T20:53:25Z a user request created an AutoScalingGroup changing the desired capacity from 0 to 1.  At 2013-08-19T20:53:29Z an instance was started in response to a difference between desired and actual capacity, increasing the capacity from 0 to 1.",
+        "Description": "Launching a new EC2 instance: i-4ba0837f",
+        "Details": "details",
+        "EndTime": "2013-08-19T20:54:02+00:00",
+        "Progress": 100,
+        "StartTime": "2013-08-19T20:53:29.930000+00:00",
+        "StatusCode": "Successful"
+      }
+    ]
+  }
+}

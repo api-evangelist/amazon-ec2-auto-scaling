@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-delete-lifecycle-hook-type-structure.json",
+  "name": "DeleteLifecycleHookType",
+  "description": "DeleteLifecycleHookType schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "LifecycleHookName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AsciiStringMaxLen255"
+        },
+        {
+          "description": "The name of the lifecycle hook."
+        }
+      ]
+    },
+    "AutoScalingGroupName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "The name of the Auto Scaling group."
+        }
+      ]
+    }
+  },
+  "required": [
+    "LifecycleHookName",
+    "AutoScalingGroupName"
+  ]
+}

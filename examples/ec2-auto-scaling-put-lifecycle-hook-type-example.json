@@ -1,0 +1,7 @@
+{
+  "LifecycleHookName": "example-resource-name",
+  "AutoScalingGroupName": "example-resource-name",
+  "LifecycleTransition": "example-string",
+  "RoleARN": "arn:aws:service:us-east-1:123456789012:resource/example",
+  "NotificationTargetARN": "arn:aws:service:us-east-1:123456789012:resource/example"
+}

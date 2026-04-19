@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-launch-template-name-structure.json",
+  "name": "LaunchTemplateName",
+  "description": "LaunchTemplateName schema from Auto Scaling",
+  "type": "string",
+  "pattern": "[a-zA-Z0-9\\(\\)\\.\\-/_]+",
+  "minLength": 3,
+  "maxLength": 128
+}

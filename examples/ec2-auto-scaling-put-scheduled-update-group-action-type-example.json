@@ -1,0 +1,7 @@
+{
+  "AutoScalingGroupName": "example-resource-name",
+  "ScheduledActionName": "example-resource-name",
+  "Time": "example-string",
+  "StartTime": "example-string",
+  "EndTime": "example-string"
+}

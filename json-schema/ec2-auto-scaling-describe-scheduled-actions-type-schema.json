@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-schema/ec2-auto-scaling-describe-scheduled-actions-type-schema.json",
+  "title": "DescribeScheduledActionsType",
+  "description": "DescribeScheduledActionsType schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "AutoScalingGroupName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "The name of the Auto Scaling group."
+        }
+      ]
+    },
+    "ScheduledActionNames": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ScheduledActionNames"
+        },
+        {
+          "description": "<p>The names of one or more scheduled actions. If you omit this property, all scheduled actions are described. If you specify an unknown scheduled action, it is ignored with no error.</p> <p>Array Members: Maximum number of 50 actions.</p>"
+        }
+      ]
+    },
+    "StartTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TimestampType"
+        },
+        {
+          "description": "The earliest scheduled start time to return. If scheduled action names are provided, this property is ignored."
+        }
+      ]
+    },
+    "EndTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TimestampType"
+        },
+        {
+          "description": "The latest scheduled start time to return. If scheduled action names are provided, this property is ignored."
+        }
+      ]
+    },
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlString"
+        },
+        {
+          "description": "The token for the next set of items to return. (You received this token from a previous call.)"
+        }
+      ]
+    },
+    "MaxRecords": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MaxRecords"
+        },
+        {
+          "description": "The maximum number of items to return with this call. The default value is <code>50</code> and the maximum value is <code>100</code>."
+        }
+      ]
+    }
+  }
+}

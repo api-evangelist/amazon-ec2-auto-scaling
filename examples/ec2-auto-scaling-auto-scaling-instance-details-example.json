@@ -1,0 +1,7 @@
+{
+  "InstanceId": "example-id-1234",
+  "AutoScalingGroupName": "example-resource-name",
+  "AvailabilityZone": "example-string",
+  "LifecycleState": "running",
+  "HealthStatus": "available"
+}

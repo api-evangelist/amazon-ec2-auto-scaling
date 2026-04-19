@@ -1,0 +1,6 @@
+{
+  "ScheduledActionName": "example-resource-name",
+  "StartTime": "example-string",
+  "EndTime": "example-string",
+  "Recurrence": "example-string"
+}

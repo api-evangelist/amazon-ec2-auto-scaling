@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-customized-metric-specification-structure.json",
+  "name": "CustomizedMetricSpecification",
+  "description": "<p>Represents a CloudWatch metric of your choosing for a target tracking scaling policy to use with Amazon EC2 Auto Scaling.</p> <p>To create your customized metric specification:</p> <ul> <li> <p>Add values for each required property from CloudWatch. You can use an existing metric, or a new metric that you create. To use your own metric, you must first publish the metric to CloudWatch. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html\">Publish custom metrics</a> in the <i>Amazon CloudWatch User Guide</i>.</p> </li> <li> <p>Choose a metric that changes proportionally with capacity. The value of the metric should increase or decrease in inverse proportion to the number of capacity units. That is, the value of the metric should decrease when capacity increases.</p> </li> </ul> <p>For more information about the CloudWatch terminology below, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html\">Amazon CloudWatch concepts</a>.</p> <note> <p>Each individual service provides information about the metrics, namespace, and dimensions they use. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html\">Amazon Web Services services that publish CloudWatch metrics</a> in the <i>Amazon CloudWatch User Guide</i>.</p> </note>",
+  "type": "object",
+  "properties": {
+    "MetricName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MetricName"
+        },
+        {
+          "description": "The name of the metric. To get the exact metric name, namespace, and dimensions, inspect the <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html\">Metric</a> object that is returned by a call to <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html\">ListMetrics</a>."
+        }
+      ]
+    },
+    "Namespace": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MetricNamespace"
+        },
+        {
+          "description": "The namespace of the metric."
+        }
+      ]
+    },
+    "Dimensions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MetricDimensions"
+        },
+        {
+          "description": "<p>The dimensions of the metric.</p> <p>Conditional: If you published your metric with dimensions, you must specify the same dimensions in your scaling policy.</p>"
+        }
+      ]
+    },
+    "Statistic": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MetricStatistic"
+        },
+        {
+          "description": "The statistic of the metric."
+        }
+      ]
+    },
+    "Unit": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MetricUnit"
+        },
+        {
+          "description": "The unit of the metric. For a complete list of the units that CloudWatch supports, see the <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html\">MetricDatum</a> data type in the <i>Amazon CloudWatch API Reference</i>."
+        }
+      ]
+    },
+    "Metrics": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TargetTrackingMetricDataQueries"
+        },
+        {
+          "description": "The metrics to include in the target tracking scaling policy, as a metric data query. This can include both raw metric and metric math expressions."
+        }
+      ]
+    }
+  }
+}

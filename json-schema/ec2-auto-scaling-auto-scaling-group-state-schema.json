@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-schema/ec2-auto-scaling-auto-scaling-group-state-schema.json",
+  "title": "AutoScalingGroupState",
+  "description": "AutoScalingGroupState schema from Auto Scaling",
+  "type": "string",
+  "minLength": 1,
+  "maxLength": 32
+}

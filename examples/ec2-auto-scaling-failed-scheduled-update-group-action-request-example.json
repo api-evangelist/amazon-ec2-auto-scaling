@@ -1,0 +1,5 @@
+{
+  "ScheduledActionName": "example-resource-name",
+  "ErrorCode": "example-string",
+  "ErrorMessage": "example-string"
+}

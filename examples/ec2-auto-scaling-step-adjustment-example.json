@@ -1,0 +1,5 @@
+{
+  "ScalingAdjustment": "example-string",
+  "MetricIntervalLowerBound": "example-string",
+  "MetricIntervalUpperBound": "example-string"
+}

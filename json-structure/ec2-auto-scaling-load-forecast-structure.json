@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-load-forecast-structure.json",
+  "name": "LoadForecast",
+  "description": "A <code>GetPredictiveScalingForecast</code> call returns the load forecast for a predictive scaling policy. This structure includes the data points for that load forecast, along with the timestamps of those data points and the metric specification. ",
+  "type": "object",
+  "properties": {
+    "Timestamps": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PredictiveScalingForecastTimestamps"
+        },
+        {
+          "description": "The timestamps for the data points, in UTC format."
+        }
+      ]
+    },
+    "Values": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PredictiveScalingForecastValues"
+        },
+        {
+          "description": "The values of the data points."
+        }
+      ]
+    },
+    "MetricSpecification": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PredictiveScalingMetricSpecification"
+        },
+        {
+          "description": "The metric specification for the load forecast."
+        }
+      ]
+    }
+  },
+  "required": [
+    "Timestamps",
+    "Values",
+    "MetricSpecification"
+  ]
+}

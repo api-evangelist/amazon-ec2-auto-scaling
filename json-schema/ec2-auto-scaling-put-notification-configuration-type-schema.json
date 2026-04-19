@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-schema/ec2-auto-scaling-put-notification-configuration-type-schema.json",
+  "title": "PutNotificationConfigurationType",
+  "description": "PutNotificationConfigurationType schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "AutoScalingGroupName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "The name of the Auto Scaling group."
+        }
+      ]
+    },
+    "TopicARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the Amazon SNS topic."
+        }
+      ]
+    },
+    "NotificationTypes": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AutoScalingNotificationTypes"
+        },
+        {
+          "description": "The type of event that causes the notification to be sent. To query the notification types supported by Amazon EC2 Auto Scaling, call the <a>DescribeAutoScalingNotificationTypes</a> API."
+        }
+      ]
+    }
+  },
+  "required": [
+    "AutoScalingGroupName",
+    "TopicARN",
+    "NotificationTypes"
+  ]
+}

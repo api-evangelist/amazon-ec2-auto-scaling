@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-schema/ec2-auto-scaling-record-lifecycle-action-heartbeat-type-schema.json",
+  "title": "RecordLifecycleActionHeartbeatType",
+  "description": "RecordLifecycleActionHeartbeatType schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "LifecycleHookName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AsciiStringMaxLen255"
+        },
+        {
+          "description": "The name of the lifecycle hook."
+        }
+      ]
+    },
+    "AutoScalingGroupName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceName"
+        },
+        {
+          "description": "The name of the Auto Scaling group."
+        }
+      ]
+    },
+    "LifecycleActionToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LifecycleActionToken"
+        },
+        {
+          "description": "A token that uniquely identifies a specific lifecycle action associated with an instance. Amazon EC2 Auto Scaling sends this token to the notification target that you specified when you created the lifecycle hook."
+        }
+      ]
+    },
+    "InstanceId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen19"
+        },
+        {
+          "description": "The ID of the instance."
+        }
+      ]
+    }
+  },
+  "required": [
+    "LifecycleHookName",
+    "AutoScalingGroupName"
+  ]
+}

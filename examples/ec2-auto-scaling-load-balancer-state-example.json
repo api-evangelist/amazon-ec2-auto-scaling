@@ -1,0 +1,4 @@
+{
+  "LoadBalancerName": "example-resource-name",
+  "State": "active"
+}

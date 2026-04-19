@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-schema/ec2-auto-scaling-instance-refresh-schema.json",
+  "title": "InstanceRefresh",
+  "description": "Describes an instance refresh for an Auto Scaling group. ",
+  "type": "object",
+  "properties": {
+    "InstanceRefreshId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "The instance refresh ID."
+        }
+      ]
+    },
+    "AutoScalingGroupName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "The name of the Auto Scaling group."
+        }
+      ]
+    },
+    "Status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InstanceRefreshStatus"
+        },
+        {
+          "description": "<p>The current status for the instance refresh operation:</p> <ul> <li> <p> <code>Pending</code> - The request was created, but the instance refresh has not started.</p> </li> <li> <p> <code>InProgress</code> - An instance refresh is in progress.</p> </li> <li> <p> <code>Successful</code> - An instance refresh completed successfully.</p> </li> <li> <p> <code>Failed</code> - An instance refresh failed to complete. You can troubleshoot using the status reason and the scaling activities. </p> </li> <li> <p> <code>Cancelling</code> - An ongoing instance refresh is being cancelled.</p> </li> <li> <p> <code>Cancelled</code> - The instance refresh is cancelled. </p> </li> <li> <p> <code>RollbackInProgress</code> - An instance refresh is being rolled back.</p> </li> <li> <p> <code>RollbackFailed</code> - The rollback failed to complete. You can troubleshoot using the status reason and the scaling activities.</p> </li> <li> <p> <code>RollbackSuccessful</code> - The rollback completed successfully.</p> </li> </ul>"
+        }
+      ]
+    },
+    "StatusReason": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen1023"
+        },
+        {
+          "description": "The explanation for the specific status assigned to this operation."
+        }
+      ]
+    },
+    "StartTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TimestampType"
+        },
+        {
+          "description": "The date and time at which the instance refresh began."
+        }
+      ]
+    },
+    "EndTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TimestampType"
+        },
+        {
+          "description": "The date and time at which the instance refresh ended."
+        }
+      ]
+    },
+    "PercentageComplete": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/IntPercent"
+        },
+        {
+          "description": "<p>The percentage of the instance refresh that is complete. For each instance replacement, Amazon EC2 Auto Scaling tracks the instance's health status and warm-up time. When the instance's health status changes to healthy and the specified warm-up time passes, the instance is considered updated and is added to the percentage complete.</p> <note> <p> <code>PercentageComplete</code> does not include instances that are replaced during a rollback. This value gradually goes back down to zero during a rollback.</p> </note>"
+        }
+      ]
+    },
+    "InstancesToUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InstancesToUpdate"
+        },
+        {
+          "description": "<p>The number of instances remaining to update before the instance refresh is complete.</p> <note> <p>If you roll back the instance refresh, <code>InstancesToUpdate</code> shows you the number of instances that were not yet updated by the instance refresh. Therefore, these instances don't need to be replaced as part of the rollback.</p> </note>"
+        }
+      ]
+    },
+    "ProgressDetails": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InstanceRefreshProgressDetails"
+        },
+        {
+          "description": "Additional progress details for an Auto Scaling group that has a warm pool."
+        }
+      ]
+    },
+    "Preferences": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RefreshPreferences"
+        },
+        {
+          "description": "The preferences for an instance refresh."
+        }
+      ]
+    },
+    "DesiredConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DesiredConfiguration"
+        },
+        {
+          "description": "Describes the desired configuration for the instance refresh."
+        }
+      ]
+    },
+    "RollbackDetails": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RollbackDetails"
+        },
+        {
+          "description": "The rollback details."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-termination-policies-structure.json",
+  "name": "TerminationPolicies",
+  "description": "TerminationPolicies schema from Auto Scaling",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/XmlStringMaxLen1600"
+  }
+}

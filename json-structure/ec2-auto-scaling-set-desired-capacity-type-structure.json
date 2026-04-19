@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-set-desired-capacity-type-structure.json",
+  "name": "SetDesiredCapacityType",
+  "description": "SetDesiredCapacityType schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "AutoScalingGroupName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "The name of the Auto Scaling group."
+        }
+      ]
+    },
+    "DesiredCapacity": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AutoScalingGroupDesiredCapacity"
+        },
+        {
+          "description": "The desired capacity is the initial capacity of the Auto Scaling group after this operation completes and the capacity it attempts to maintain."
+        }
+      ]
+    },
+    "HonorCooldown": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/HonorCooldown"
+        },
+        {
+          "description": "Indicates whether Amazon EC2 Auto Scaling waits for the cooldown period to complete before initiating a scaling activity to set your Auto Scaling group to its new capacity. By default, Amazon EC2 Auto Scaling does not honor the cooldown period during manual scaling activities."
+        }
+      ]
+    }
+  },
+  "required": [
+    "AutoScalingGroupName",
+    "DesiredCapacity"
+  ]
+}

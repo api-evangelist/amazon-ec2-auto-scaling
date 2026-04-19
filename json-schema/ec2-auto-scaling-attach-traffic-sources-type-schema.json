@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-schema/ec2-auto-scaling-attach-traffic-sources-type-schema.json",
+  "title": "AttachTrafficSourcesType",
+  "description": "AttachTrafficSourcesType schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "AutoScalingGroupName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "The name of the Auto Scaling group."
+        }
+      ]
+    },
+    "TrafficSources": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TrafficSources"
+        },
+        {
+          "description": "The unique identifiers of one or more traffic sources. You can specify up to 10 traffic sources."
+        }
+      ]
+    }
+  },
+  "required": [
+    "AutoScalingGroupName",
+    "TrafficSources"
+  ]
+}

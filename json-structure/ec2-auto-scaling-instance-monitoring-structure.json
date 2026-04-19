@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-instance-monitoring-structure.json",
+  "name": "InstanceMonitoring",
+  "description": "Describes whether detailed monitoring is enabled for the Auto Scaling instances.",
+  "type": "object",
+  "properties": {
+    "Enabled": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MonitoringEnabled"
+        },
+        {
+          "description": "If <code>true</code>, detailed monitoring is enabled. Otherwise, basic monitoring is enabled."
+        }
+      ]
+    }
+  }
+}

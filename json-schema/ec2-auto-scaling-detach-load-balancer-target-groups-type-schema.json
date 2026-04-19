@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-schema/ec2-auto-scaling-detach-load-balancer-target-groups-type-schema.json",
+  "title": "DetachLoadBalancerTargetGroupsType",
+  "description": "DetachLoadBalancerTargetGroupsType schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "AutoScalingGroupName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "The name of the Auto Scaling group."
+        }
+      ]
+    },
+    "TargetGroupARNs": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TargetGroupARNs"
+        },
+        {
+          "description": "The Amazon Resource Names (ARN) of the target groups. You can specify up to 10 target groups."
+        }
+      ]
+    }
+  },
+  "required": [
+    "AutoScalingGroupName",
+    "TargetGroupARNs"
+  ]
+}

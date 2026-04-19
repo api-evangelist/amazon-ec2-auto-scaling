@@ -1,0 +1,5 @@
+{
+  "RollbackReason": "example-string",
+  "RollbackStartTime": "example-string",
+  "PercentageCompleteOnRollback": "example-string"
+}

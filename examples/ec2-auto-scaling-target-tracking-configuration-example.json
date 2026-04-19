@@ -1,0 +1,6 @@
+{
+  "TargetValue": "example-string",
+  "PredefinedMetricSpecification": "example-string",
+  "CustomizedMetricSpecification": "example-string",
+  "DisableScaleIn": "example-string"
+}

@@ -1,0 +1,6 @@
+{
+  "AutoScalingGroupName": "example-resource-name",
+  "TrafficSourceType": "standard",
+  "NextToken": "example-string",
+  "MaxRecords": "example-string"
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-schema/ec2-auto-scaling-describe-notification-configurations-answer-schema.json",
+  "title": "DescribeNotificationConfigurationsAnswer",
+  "description": "DescribeNotificationConfigurationsAnswer schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "NotificationConfigurations": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NotificationConfigurations"
+        },
+        {
+          "description": "The notification configurations."
+        }
+      ]
+    },
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlString"
+        },
+        {
+          "description": "A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the <code>NextToken</code> value when requesting the next set of items. This value is null when there are no more items to return."
+        }
+      ]
+    }
+  },
+  "required": [
+    "NotificationConfigurations"
+  ],
+  "example": {
+    "NotificationConfigurations": [
+      {
+        "AutoScalingGroupName": "my-auto-scaling-group",
+        "NotificationType": "autoscaling:TEST_NOTIFICATION",
+        "TopicARN": "arn:aws:sns:us-west-2:123456789012:my-sns-topic-2"
+      },
+      {
+        "AutoScalingGroupName": "my-auto-scaling-group",
+        "NotificationType": "autoscaling:TEST_NOTIFICATION",
+        "TopicARN": "arn:aws:sns:us-west-2:123456789012:my-sns-topic"
+      }
+    ]
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-describe-policies-type-structure.json",
+  "name": "DescribePoliciesType",
+  "description": "DescribePoliciesType schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "AutoScalingGroupName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "The name of the Auto Scaling group."
+        }
+      ]
+    },
+    "PolicyNames": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PolicyNames"
+        },
+        {
+          "description": "<p>The names of one or more policies. If you omit this property, all policies are described. If a group name is provided, the results are limited to that group. If you specify an unknown policy name, it is ignored with no error.</p> <p>Array Members: Maximum number of 50 items.</p>"
+        }
+      ]
+    },
+    "PolicyTypes": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PolicyTypes"
+        },
+        {
+          "description": "One or more policy types. The valid values are <code>SimpleScaling</code>, <code>StepScaling</code>, <code>TargetTrackingScaling</code>, and <code>PredictiveScaling</code>."
+        }
+      ]
+    },
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlString"
+        },
+        {
+          "description": "The token for the next set of items to return. (You received this token from a previous call.)"
+        }
+      ]
+    },
+    "MaxRecords": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MaxRecords"
+        },
+        {
+          "description": "The maximum number of items to be returned with each call. The default value is <code>50</code> and the maximum value is <code>100</code>."
+        }
+      ]
+    }
+  }
+}

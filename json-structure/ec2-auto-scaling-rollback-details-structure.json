@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-rollback-details-structure.json",
+  "name": "RollbackDetails",
+  "description": "Details about an instance refresh rollback.",
+  "type": "object",
+  "properties": {
+    "RollbackReason": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen1023"
+        },
+        {
+          "description": "The reason for this instance refresh rollback (for example, whether a manual or automatic rollback was initiated)."
+        }
+      ]
+    },
+    "RollbackStartTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TimestampType"
+        },
+        {
+          "description": "The date and time at which the rollback began."
+        }
+      ]
+    },
+    "PercentageCompleteOnRollback": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/IntPercent"
+        },
+        {
+          "description": "Indicates the value of <code>PercentageComplete</code> at the time the rollback started."
+        }
+      ]
+    },
+    "InstancesToUpdateOnRollback": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InstancesToUpdate"
+        },
+        {
+          "description": "Indicates the value of <code>InstancesToUpdate</code> at the time the rollback started."
+        }
+      ]
+    },
+    "ProgressDetailsOnRollback": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InstanceRefreshProgressDetails"
+        },
+        {
+          "description": "Reports progress on replacing instances in an Auto Scaling group that has a warm pool. This includes separate details for instances in the warm pool and instances in the Auto Scaling group (the live pool)."
+        }
+      ]
+    }
+  }
+}

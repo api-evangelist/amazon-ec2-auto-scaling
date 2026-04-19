@@ -1,0 +1,5 @@
+{
+  "AutoScalingGroupNames": "example-resource-name",
+  "NextToken": "example-string",
+  "MaxRecords": "example-string"
+}

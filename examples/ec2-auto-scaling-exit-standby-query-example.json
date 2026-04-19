@@ -1,0 +1,4 @@
+{
+  "AutoScalingGroupName": "example-resource-name",
+  "InstanceIds": "example-id-1234"
+}

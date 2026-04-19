@@ -1,0 +1,6 @@
+{
+  "Id": "example-id-1234",
+  "Expression": "example-string",
+  "MetricStat": "example-string",
+  "Label": "example-string"
+}

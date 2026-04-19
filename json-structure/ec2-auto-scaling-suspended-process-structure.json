@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-suspended-process-structure.json",
+  "name": "SuspendedProcess",
+  "description": "<p>Describes an auto scaling process that has been suspended.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html#process-types\">Scaling processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>",
+  "type": "object",
+  "properties": {
+    "ProcessName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "The name of the suspended process."
+        }
+      ]
+    },
+    "SuspensionReason": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "The reason that the process was suspended."
+        }
+      ]
+    }
+  }
+}

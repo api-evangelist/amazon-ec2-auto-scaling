@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-schema/ec2-auto-scaling-describe-warm-pool-answer-schema.json",
+  "title": "DescribeWarmPoolAnswer",
+  "description": "DescribeWarmPoolAnswer schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "WarmPoolConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WarmPoolConfiguration"
+        },
+        {
+          "description": "The warm pool configuration details. "
+        }
+      ]
+    },
+    "Instances": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Instances"
+        },
+        {
+          "description": "The instances that are currently in the warm pool."
+        }
+      ]
+    },
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlString"
+        },
+        {
+          "description": "This string indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the <code>NextToken</code> value when requesting the next set of items. This value is null when there are no more items to return."
+        }
+      ]
+    }
+  }
+}

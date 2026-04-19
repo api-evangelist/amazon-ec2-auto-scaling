@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-schema/ec2-auto-scaling-scaling-activity-status-code-schema.json",
+  "title": "ScalingActivityStatusCode",
+  "description": "ScalingActivityStatusCode schema from Auto Scaling",
+  "type": "string",
+  "enum": [
+    "PendingSpotBidPlacement",
+    "WaitingForSpotInstanceRequestId",
+    "WaitingForSpotInstanceId",
+    "WaitingForInstanceId",
+    "PreInService",
+    "InProgress",
+    "WaitingForELBConnectionDraining",
+    "MidLifecycleAction",
+    "WaitingForInstanceWarmup",
+    "Successful",
+    "Failed",
+    "Cancelled",
+    "WaitingForConnectionDraining"
+  ]
+}

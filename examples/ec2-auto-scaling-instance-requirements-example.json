@@ -1,0 +1,7 @@
+{
+  "VCpuCount": "example-string",
+  "MemoryMiB": "example-string",
+  "CpuManufacturers": "example-string",
+  "MemoryGiBPerVCpu": "example-string",
+  "ExcludedInstanceTypes": "standard"
+}

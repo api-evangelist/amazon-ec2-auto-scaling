@@ -1,0 +1,6 @@
+{
+  "LaunchConfigurationName": "example-resource-name",
+  "ImageId": "example-id-1234",
+  "KeyName": "example-resource-name",
+  "SecurityGroups": "example-string"
+}

@@ -1,0 +1,5 @@
+{
+  "InstanceId": "example-id-1234",
+  "HealthStatus": "running",
+  "ShouldRespectGracePeriod": "example-string"
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-schema/ec2-auto-scaling-v-cpu-count-request-schema.json",
+  "title": "VCpuCountRequest",
+  "description": "Specifies the minimum and maximum for the <code>VCpuCount</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.",
+  "type": "object",
+  "properties": {
+    "Min": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NullablePositiveInteger"
+        },
+        {
+          "description": "The minimum number of vCPUs."
+        }
+      ]
+    },
+    "Max": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NullablePositiveInteger"
+        },
+        {
+          "description": "The maximum number of vCPUs."
+        }
+      ]
+    }
+  },
+  "required": [
+    "Min"
+  ]
+}

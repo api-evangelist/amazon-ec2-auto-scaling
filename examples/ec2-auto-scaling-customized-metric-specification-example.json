@@ -1,0 +1,5 @@
+{
+  "MetricName": "example-resource-name",
+  "Namespace": "example-resource-name",
+  "Dimensions": "example-string"
+}

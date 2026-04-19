@@ -1,0 +1,5 @@
+{
+  "MaxNumberOfAutoScalingGroups": "example-string",
+  "MaxNumberOfLaunchConfigurations": "example-string",
+  "NumberOfAutoScalingGroups": "example-string"
+}

@@ -1,0 +1,7 @@
+{
+  "AutoScalingGroupName": "example-resource-name",
+  "MinSize": "example-string",
+  "MaxSize": "example-string",
+  "DesiredCapacity": "example-string",
+  "DefaultCooldown": "example-string"
+}

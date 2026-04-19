@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-schema/ec2-auto-scaling-context-schema.json",
+  "title": "Context",
+  "description": "Context schema from Auto Scaling",
+  "type": "string"
+}

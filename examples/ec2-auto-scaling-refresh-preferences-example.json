@@ -1,0 +1,5 @@
+{
+  "MinHealthyPercentage": "example-string",
+  "InstanceWarmup": "example-string",
+  "CheckpointPercentages": "example-string"
+}

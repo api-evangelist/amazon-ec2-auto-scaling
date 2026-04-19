@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-schema/ec2-auto-scaling-describe-auto-scaling-notification-types-answer-schema.json",
+  "title": "DescribeAutoScalingNotificationTypesAnswer",
+  "description": "DescribeAutoScalingNotificationTypesAnswer schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "AutoScalingNotificationTypes": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AutoScalingNotificationTypes"
+        },
+        {
+          "description": "The notification types."
+        }
+      ]
+    }
+  },
+  "example": {
+    "AutoScalingNotificationTypes": [
+      "autoscaling:EC2_INSTANCE_LAUNCH",
+      "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
+      "autoscaling:EC2_INSTANCE_TERMINATE",
+      "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
+      "autoscaling:TEST_NOTIFICATION"
+    ]
+  }
+}

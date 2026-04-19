@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-schema/ec2-auto-scaling-rollback-instance-refresh-answer-schema.json",
+  "title": "RollbackInstanceRefreshAnswer",
+  "description": "RollbackInstanceRefreshAnswer schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "InstanceRefreshId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "The instance refresh ID associated with the request. This is the unique ID assigned to the instance refresh when it was started."
+        }
+      ]
+    }
+  }
+}

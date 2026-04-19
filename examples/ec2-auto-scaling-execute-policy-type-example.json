@@ -1,0 +1,6 @@
+{
+  "PolicyName": "example-resource-name",
+  "AutoScalingGroupName": "example-resource-name",
+  "HonorCooldown": "example-string",
+  "MetricValue": "example-string"
+}

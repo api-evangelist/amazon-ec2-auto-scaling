@@ -1,0 +1,4 @@
+{
+  "AutoScalingGroupName": "example-resource-name",
+  "LoadBalancerNames": "example-resource-name"
+}

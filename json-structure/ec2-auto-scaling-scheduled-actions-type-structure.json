@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-scheduled-actions-type-structure.json",
+  "name": "ScheduledActionsType",
+  "description": "ScheduledActionsType schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "ScheduledUpdateGroupActions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ScheduledUpdateGroupActions"
+        },
+        {
+          "description": "The scheduled actions."
+        }
+      ]
+    },
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlString"
+        },
+        {
+          "description": "A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the <code>NextToken</code> value when requesting the next set of items. This value is null when there are no more items to return."
+        }
+      ]
+    }
+  },
+  "example": {
+    "ScheduledUpdateGroupActions": [
+      {
+        "AutoScalingGroupName": "my-auto-scaling-group",
+        "DesiredCapacity": 4,
+        "MaxSize": 6,
+        "MinSize": 2,
+        "Recurrence": "30 0 1 12 0",
+        "ScheduledActionARN": "arn:aws:autoscaling:us-west-2:123456789012:scheduledUpdateGroupAction:8e86b655-b2e6-4410-8f29-b4f094d6871c:autoScalingGroupName/my-auto-scaling-group:scheduledActionName/my-scheduled-action",
+        "ScheduledActionName": "my-scheduled-action",
+        "StartTime": "2016-12-01T00:30:00+00:00",
+        "Time": "2016-12-01T00:30:00+00:00"
+      }
+    ]
+  }
+}

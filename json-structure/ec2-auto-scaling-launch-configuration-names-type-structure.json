@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-launch-configuration-names-type-structure.json",
+  "name": "LaunchConfigurationNamesType",
+  "description": "LaunchConfigurationNamesType schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "LaunchConfigurationNames": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LaunchConfigurationNames"
+        },
+        {
+          "description": "<p>The launch configuration names. If you omit this property, all launch configurations are described.</p> <p>Array Members: Maximum number of 50 items.</p>"
+        }
+      ]
+    },
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlString"
+        },
+        {
+          "description": "The token for the next set of items to return. (You received this token from a previous call.)"
+        }
+      ]
+    },
+    "MaxRecords": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MaxRecords"
+        },
+        {
+          "description": "The maximum number of items to return with this call. The default value is <code>50</code> and the maximum value is <code>100</code>."
+        }
+      ]
+    }
+  }
+}

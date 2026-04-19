@@ -1,0 +1,4 @@
+{
+  "LifecycleHookName": "example-resource-name",
+  "AutoScalingGroupName": "example-resource-name"
+}

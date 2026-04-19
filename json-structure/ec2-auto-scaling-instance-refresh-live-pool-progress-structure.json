@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-instance-refresh-live-pool-progress-structure.json",
+  "name": "InstanceRefreshLivePoolProgress",
+  "description": "Reports progress on replacing instances that are in the Auto Scaling group.",
+  "type": "object",
+  "properties": {
+    "PercentageComplete": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/IntPercent"
+        },
+        {
+          "description": "The percentage of instances in the Auto Scaling group that have been replaced. For each instance replacement, Amazon EC2 Auto Scaling tracks the instance's health status and warm-up time. When the instance's health status changes to healthy and the specified warm-up time passes, the instance is considered updated and is added to the percentage complete."
+        }
+      ]
+    },
+    "InstancesToUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InstancesToUpdate"
+        },
+        {
+          "description": "The number of instances remaining to update."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "InstanceId": "example-id-1234",
+  "AvailabilityZone": "example-string",
+  "LifecycleState": "active",
+  "HealthStatus": "active",
+  "ProtectedFromScaleIn": "example-string"
+}

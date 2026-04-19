@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-describe-instance-refreshes-answer-structure.json",
+  "name": "DescribeInstanceRefreshesAnswer",
+  "description": "DescribeInstanceRefreshesAnswer schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "InstanceRefreshes": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InstanceRefreshes"
+        },
+        {
+          "description": "The instance refreshes for the specified group, sorted by creation timestamp in descending order."
+        }
+      ]
+    },
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlString"
+        },
+        {
+          "description": "A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the <code>NextToken</code> value when requesting the next set of items. This value is null when there are no more items to return."
+        }
+      ]
+    }
+  },
+  "example": {
+    "InstanceRefreshes": [
+      {
+        "AutoScalingGroupName": "my-auto-scaling-group",
+        "InstanceRefreshId": "08b91cf7-8fa6-48af-b6a6-d227f40f1b9b",
+        "InstancesToUpdate": 5,
+        "PercentageComplete": 0,
+        "StartTime": "2020-06-02T18:11:27+00:00",
+        "Status": "InProgress"
+      },
+      {
+        "AutoScalingGroupName": "my-auto-scaling-group",
+        "EndTime": "2020-06-02T16:53:37+00:00",
+        "InstanceRefreshId": "dd7728d0-5bc4-4575-96a3-1b2c52bf8bb1",
+        "InstancesToUpdate": 0,
+        "PercentageComplete": 100,
+        "StartTime": "2020-06-02T16:43:19+00:00",
+        "Status": "Successful"
+      }
+    ]
+  }
+}

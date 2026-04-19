@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-total-local-storage-gb-request-structure.json",
+  "name": "TotalLocalStorageGBRequest",
+  "description": "Specifies the minimum and maximum for the <code>TotalLocalStorageGB</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.",
+  "type": "object",
+  "properties": {
+    "Min": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NullablePositiveDouble"
+        },
+        {
+          "description": "The storage minimum in GB."
+        }
+      ]
+    },
+    "Max": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NullablePositiveDouble"
+        },
+        {
+          "description": "The storage maximum in GB."
+        }
+      ]
+    }
+  }
+}

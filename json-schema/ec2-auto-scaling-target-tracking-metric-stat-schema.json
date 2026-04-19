@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-schema/ec2-auto-scaling-target-tracking-metric-stat-schema.json",
+  "title": "TargetTrackingMetricStat",
+  "description": "<p>This structure defines the CloudWatch metric to return, along with the statistic and unit.</p> <p>For more information about the CloudWatch terminology below, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html\">Amazon CloudWatch concepts</a> in the <i>Amazon CloudWatch User Guide</i>.</p>",
+  "type": "object",
+  "properties": {
+    "Metric": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Metric"
+        },
+        {
+          "description": "The metric to use."
+        }
+      ]
+    },
+    "Stat": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMetricStat"
+        },
+        {
+          "description": "<p>The statistic to return. It can include any CloudWatch statistic or extended statistic. For a list of valid values, see the table in <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic\">Statistics</a> in the <i>Amazon CloudWatch User Guide</i>.</p> <p>The most commonly used metric for scaling is <code>Average</code>.</p>"
+        }
+      ]
+    },
+    "Unit": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MetricUnit"
+        },
+        {
+          "description": "The unit to use for the returned data points. For a complete list of the units that CloudWatch supports, see the <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html\">MetricDatum</a> data type in the <i>Amazon CloudWatch API Reference</i>."
+        }
+      ]
+    }
+  },
+  "required": [
+    "Metric",
+    "Stat"
+  ]
+}

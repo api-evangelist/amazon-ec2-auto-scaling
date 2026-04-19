@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-schema/ec2-auto-scaling-attach-traffic-sources-result-type-schema.json",
+  "title": "AttachTrafficSourcesResultType",
+  "description": "AttachTrafficSourcesResultType schema from Auto Scaling",
+  "type": "object",
+  "properties": {},
+  "example": {}
+}

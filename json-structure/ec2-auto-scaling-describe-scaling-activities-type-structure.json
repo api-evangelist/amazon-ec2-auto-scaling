@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-describe-scaling-activities-type-structure.json",
+  "name": "DescribeScalingActivitiesType",
+  "description": "DescribeScalingActivitiesType schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "ActivityIds": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ActivityIds"
+        },
+        {
+          "description": "<p>The activity IDs of the desired scaling activities. If you omit this property, all activities for the past six weeks are described. If unknown activities are requested, they are ignored with no error. If you specify an Auto Scaling group, the results are limited to that group.</p> <p>Array Members: Maximum number of 50 IDs.</p>"
+        }
+      ]
+    },
+    "AutoScalingGroupName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "The name of the Auto Scaling group."
+        }
+      ]
+    },
+    "IncludeDeletedGroups": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/IncludeDeletedGroups"
+        },
+        {
+          "description": "Indicates whether to include scaling activity from deleted Auto Scaling groups."
+        }
+      ]
+    },
+    "MaxRecords": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MaxRecords"
+        },
+        {
+          "description": "The maximum number of items to return with this call. The default value is <code>100</code> and the maximum value is <code>100</code>."
+        }
+      ]
+    },
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlString"
+        },
+        {
+          "description": "The token for the next set of items to return. (You received this token from a previous call.)"
+        }
+      ]
+    }
+  }
+}

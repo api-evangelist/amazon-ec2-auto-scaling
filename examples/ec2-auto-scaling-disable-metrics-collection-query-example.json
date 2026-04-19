@@ -1,0 +1,4 @@
+{
+  "AutoScalingGroupName": "example-resource-name",
+  "Metrics": "example-string"
+}

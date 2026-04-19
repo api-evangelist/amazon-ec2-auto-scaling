@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-schema/ec2-auto-scaling-baseline-ebs-bandwidth-mbps-request-schema.json",
+  "title": "BaselineEbsBandwidthMbpsRequest",
+  "description": "Specifies the minimum and maximum for the <code>BaselineEbsBandwidthMbps</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.",
+  "type": "object",
+  "properties": {
+    "Min": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NullablePositiveInteger"
+        },
+        {
+          "description": "The minimum value in Mbps."
+        }
+      ]
+    },
+    "Max": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NullablePositiveInteger"
+        },
+        {
+          "description": "The maximum value in Mbps."
+        }
+      ]
+    }
+  }
+}

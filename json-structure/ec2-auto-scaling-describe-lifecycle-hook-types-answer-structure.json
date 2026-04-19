@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-describe-lifecycle-hook-types-answer-structure.json",
+  "name": "DescribeLifecycleHookTypesAnswer",
+  "description": "DescribeLifecycleHookTypesAnswer schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "LifecycleHookTypes": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AutoScalingNotificationTypes"
+        },
+        {
+          "description": "The lifecycle hook types."
+        }
+      ]
+    }
+  },
+  "example": {
+    "LifecycleHookTypes": [
+      "autoscaling:EC2_INSTANCE_LAUNCHING",
+      "autoscaling:EC2_INSTANCE_TERMINATING"
+    ]
+  }
+}

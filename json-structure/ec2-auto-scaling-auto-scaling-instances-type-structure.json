@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-auto-scaling-instances-type-structure.json",
+  "name": "AutoScalingInstancesType",
+  "description": "AutoScalingInstancesType schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "AutoScalingInstances": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AutoScalingInstances"
+        },
+        {
+          "description": "The instances."
+        }
+      ]
+    },
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlString"
+        },
+        {
+          "description": "A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the <code>NextToken</code> value when requesting the next set of items. This value is null when there are no more items to return."
+        }
+      ]
+    }
+  },
+  "example": {
+    "AutoScalingInstances": [
+      {
+        "AutoScalingGroupName": "my-auto-scaling-group",
+        "AvailabilityZone": "us-west-2c",
+        "HealthStatus": "HEALTHY",
+        "InstanceId": "i-4ba0837f",
+        "LaunchConfigurationName": "my-launch-config",
+        "LifecycleState": "InService",
+        "ProtectedFromScaleIn": false
+      }
+    ]
+  }
+}

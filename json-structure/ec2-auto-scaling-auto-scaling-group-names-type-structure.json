@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-auto-scaling-group-names-type-structure.json",
+  "name": "AutoScalingGroupNamesType",
+  "description": "AutoScalingGroupNamesType schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "AutoScalingGroupNames": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AutoScalingGroupNames"
+        },
+        {
+          "description": "<p>The names of the Auto Scaling groups. By default, you can only specify up to 50 names. You can optionally increase this limit using the <code>MaxRecords</code> property.</p> <p>If you omit this property, all Auto Scaling groups are described.</p>"
+        }
+      ]
+    },
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlString"
+        },
+        {
+          "description": "The token for the next set of items to return. (You received this token from a previous call.)"
+        }
+      ]
+    },
+    "MaxRecords": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MaxRecords"
+        },
+        {
+          "description": "The maximum number of items to return with this call. The default value is <code>50</code> and the maximum value is <code>100</code>."
+        }
+      ]
+    },
+    "Filters": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Filters"
+        },
+        {
+          "description": "One or more filters to limit the results based on specific tags. "
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-instance-structure.json",
+  "name": "Instance",
+  "description": "Describes an EC2 instance.",
+  "type": "object",
+  "properties": {
+    "InstanceId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen19"
+        },
+        {
+          "description": "The ID of the instance."
+        }
+      ]
+    },
+    "InstanceType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "The instance type of the EC2 instance."
+        }
+      ]
+    },
+    "AvailabilityZone": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "The Availability Zone in which the instance is running."
+        }
+      ]
+    },
+    "LifecycleState": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LifecycleState"
+        },
+        {
+          "description": "A description of the current lifecycle state. The <code>Quarantined</code> state is not used. For information about lifecycle states, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroupLifecycle.html\">Instance lifecycle</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. "
+        }
+      ]
+    },
+    "HealthStatus": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen32"
+        },
+        {
+          "description": "The last reported health status of the instance. <code>Healthy</code> means that the instance is healthy and should remain in service. <code>Unhealthy</code> means that the instance is unhealthy and that Amazon EC2 Auto Scaling should terminate and replace it."
+        }
+      ]
+    },
+    "LaunchConfigurationName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen255"
+        },
+        {
+          "description": "The launch configuration associated with the instance."
+        }
+      ]
+    },
+    "LaunchTemplate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LaunchTemplateSpecification"
+        },
+        {
+          "description": "The launch template for the instance."
+        }
+      ]
+    },
+    "ProtectedFromScaleIn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InstanceProtected"
+        },
+        {
+          "description": "Indicates whether the instance is protected from termination by Amazon EC2 Auto Scaling when scaling in."
+        }
+      ]
+    },
+    "WeightedCapacity": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen32"
+        },
+        {
+          "description": "<p>The number of capacity units contributed by the instance based on its instance type.</p> <p>Valid Range: Minimum value of 1. Maximum value of 999.</p>"
+        }
+      ]
+    }
+  },
+  "required": [
+    "InstanceId",
+    "AvailabilityZone",
+    "LifecycleState",
+    "HealthStatus",
+    "ProtectedFromScaleIn"
+  ]
+}

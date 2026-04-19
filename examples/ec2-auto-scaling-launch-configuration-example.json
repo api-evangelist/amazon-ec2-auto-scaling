@@ -1,0 +1,7 @@
+{
+  "LaunchConfigurationName": "example-resource-name",
+  "ImageId": "example-id-1234",
+  "InstanceType": "standard",
+  "CreatedTime": "example-string",
+  "LaunchConfigurationARN": "arn:aws:service:us-east-1:123456789012:resource/example"
+}

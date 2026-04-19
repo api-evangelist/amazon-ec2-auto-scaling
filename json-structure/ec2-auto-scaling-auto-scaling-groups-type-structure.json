@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-auto-scaling-groups-type-structure.json",
+  "name": "AutoScalingGroupsType",
+  "description": "AutoScalingGroupsType schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "AutoScalingGroups": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AutoScalingGroups"
+        },
+        {
+          "description": "The groups."
+        }
+      ]
+    },
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlString"
+        },
+        {
+          "description": "A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the <code>NextToken</code> value when requesting the next set of items. This value is null when there are no more items to return."
+        }
+      ]
+    }
+  },
+  "required": [
+    "AutoScalingGroups"
+  ],
+  "example": {
+    "AutoScalingGroups": [
+      {
+        "AutoScalingGroupARN": "arn:aws:autoscaling:us-west-2:123456789012:autoScalingGroup:930d940e-891e-4781-a11a-7b0acd480f03:autoScalingGroupName/my-auto-scaling-group",
+        "AutoScalingGroupName": "my-auto-scaling-group",
+        "AvailabilityZones": [
+          "us-west-2c"
+        ],
+        "CreatedTime": "2013-08-19T20:53:25.584000+00:00",
+        "DefaultCooldown": 300,
+        "DesiredCapacity": 1,
+        "EnabledMetrics": [],
+        "HealthCheckGracePeriod": 300,
+        "HealthCheckType": "EC2",
+        "Instances": [
+          {
+            "AvailabilityZone": "us-west-2c",
+            "HealthStatus": "Healthy",
+            "InstanceId": "i-4ba0837f",
+            "LaunchConfigurationName": "my-launch-config",
+            "LifecycleState": "InService",
+            "ProtectedFromScaleIn": false
+          }
+        ],
+        "LaunchConfigurationName": "my-launch-config",
+        "LoadBalancerNames": [],
+        "MaxSize": 1,
+        "MinSize": 0,
+        "NewInstancesProtectedFromScaleIn": false,
+        "SuspendedProcesses": [],
+        "Tags": [],
+        "TerminationPolicies": [
+          "Default"
+        ],
+        "VPCZoneIdentifier": "subnet-12345678"
+      }
+    ]
+  }
+}

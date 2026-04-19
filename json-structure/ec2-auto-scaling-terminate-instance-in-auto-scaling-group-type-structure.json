@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-terminate-instance-in-auto-scaling-group-type-structure.json",
+  "name": "TerminateInstanceInAutoScalingGroupType",
+  "description": "TerminateInstanceInAutoScalingGroupType schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "InstanceId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/XmlStringMaxLen19"
+        },
+        {
+          "description": "The ID of the instance."
+        }
+      ]
+    },
+    "ShouldDecrementDesiredCapacity": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ShouldDecrementDesiredCapacity"
+        },
+        {
+          "description": "Indicates whether terminating the instance also decrements the size of the Auto Scaling group."
+        }
+      ]
+    }
+  },
+  "required": [
+    "InstanceId",
+    "ShouldDecrementDesiredCapacity"
+  ]
+}

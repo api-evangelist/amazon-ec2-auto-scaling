@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-delete-tags-type-structure.json",
+  "name": "DeleteTagsType",
+  "description": "DeleteTagsType schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "Tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Tags"
+        },
+        {
+          "description": "One or more tags."
+        }
+      ]
+    }
+  },
+  "required": [
+    "Tags"
+  ]
+}

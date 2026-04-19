@@ -1,0 +1,6 @@
+{
+  "TargetValue": "example-string",
+  "PredefinedMetricPairSpecification": "example-string",
+  "PredefinedScalingMetricSpecification": "example-string",
+  "PredefinedLoadMetricSpecification": "example-string"
+}

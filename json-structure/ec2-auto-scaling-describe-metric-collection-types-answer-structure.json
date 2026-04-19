@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-describe-metric-collection-types-answer-structure.json",
+  "name": "DescribeMetricCollectionTypesAnswer",
+  "description": "DescribeMetricCollectionTypesAnswer schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "Metrics": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MetricCollectionTypes"
+        },
+        {
+          "description": "The metrics."
+        }
+      ]
+    },
+    "Granularities": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MetricGranularityTypes"
+        },
+        {
+          "description": "The granularities for the metrics."
+        }
+      ]
+    }
+  },
+  "example": {
+    "Granularities": [
+      {
+        "Granularity": "1Minute"
+      }
+    ],
+    "Metrics": [
+      {
+        "Metric": "GroupMinSize"
+      },
+      {
+        "Metric": "GroupMaxSize"
+      },
+      {
+        "Metric": "GroupDesiredCapacity"
+      },
+      {
+        "Metric": "GroupInServiceInstances"
+      },
+      {
+        "Metric": "GroupPendingInstances"
+      },
+      {
+        "Metric": "GroupTerminatingInstances"
+      },
+      {
+        "Metric": "GroupStandbyInstances"
+      },
+      {
+        "Metric": "GroupTotalInstances"
+      }
+    ]
+  }
+}

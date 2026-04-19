@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-xml-string-max-len64-structure.json",
+  "name": "XmlStringMaxLen64",
+  "description": "XmlStringMaxLen64 schema from Auto Scaling",
+  "type": "string",
+  "minLength": 1,
+  "maxLength": 64
+}

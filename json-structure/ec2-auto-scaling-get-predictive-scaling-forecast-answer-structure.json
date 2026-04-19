@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-get-predictive-scaling-forecast-answer-structure.json",
+  "name": "GetPredictiveScalingForecastAnswer",
+  "description": "GetPredictiveScalingForecastAnswer schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "LoadForecast": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LoadForecasts"
+        },
+        {
+          "description": "The load forecast."
+        }
+      ]
+    },
+    "CapacityForecast": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CapacityForecast"
+        },
+        {
+          "description": "The capacity forecast."
+        }
+      ]
+    },
+    "UpdateTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TimestampType"
+        },
+        {
+          "description": "The time the forecast was made."
+        }
+      ]
+    }
+  },
+  "required": [
+    "LoadForecast",
+    "CapacityForecast",
+    "UpdateTime"
+  ]
+}

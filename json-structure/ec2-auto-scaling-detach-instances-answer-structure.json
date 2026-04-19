@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-detach-instances-answer-structure.json",
+  "name": "DetachInstancesAnswer",
+  "description": "DetachInstancesAnswer schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "Activities": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Activities"
+        },
+        {
+          "description": "The activities related to detaching the instances from the Auto Scaling group."
+        }
+      ]
+    }
+  },
+  "example": {
+    "Activities": [
+      {
+        "ActivityId": "5091cb52-547a-47ce-a236-c9ccbc2cb2c9",
+        "AutoScalingGroupName": "my-auto-scaling-group",
+        "Cause": "At 2015-04-12T15:02:16Z instance i-93633f9b was detached in response to a user request, shrinking the capacity from 2 to 1.",
+        "Description": "Detaching EC2 instance: i-93633f9b",
+        "Details": "details",
+        "Progress": 50,
+        "StartTime": "2015-04-12T15:02:16.179000+00:00",
+        "StatusCode": "InProgress"
+      }
+    ]
+  }
+}

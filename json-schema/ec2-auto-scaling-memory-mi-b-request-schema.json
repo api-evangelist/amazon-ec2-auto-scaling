@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-schema/ec2-auto-scaling-memory-mi-b-request-schema.json",
+  "title": "MemoryMiBRequest",
+  "description": "Specifies the minimum and maximum for the <code>MemoryMiB</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.",
+  "type": "object",
+  "properties": {
+    "Min": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NullablePositiveInteger"
+        },
+        {
+          "description": "The memory minimum in MiB."
+        }
+      ]
+    },
+    "Max": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NullablePositiveInteger"
+        },
+        {
+          "description": "The memory maximum in MiB."
+        }
+      ]
+    }
+  },
+  "required": [
+    "Min"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-launch-template-structure.json",
+  "name": "LaunchTemplate",
+  "description": "Use this structure to specify the launch templates and instance types (overrides) for a mixed instances policy.",
+  "type": "object",
+  "properties": {
+    "LaunchTemplateSpecification": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LaunchTemplateSpecification"
+        },
+        {
+          "description": "The launch template."
+        }
+      ]
+    },
+    "Overrides": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Overrides"
+        },
+        {
+          "description": "Any properties that you specify override the same properties in the launch template."
+        }
+      ]
+    }
+  }
+}

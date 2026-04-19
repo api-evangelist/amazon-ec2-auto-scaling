@@ -1,0 +1,5 @@
+{
+  "InstanceRefreshId": "example-id-1234",
+  "AutoScalingGroupName": "example-resource-name",
+  "Status": "active"
+}

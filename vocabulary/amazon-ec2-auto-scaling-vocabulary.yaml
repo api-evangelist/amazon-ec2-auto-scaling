@@ -1,0 +1,251 @@
+vocabulary: 1.0.0
+info:
+  provider: Amazon EC2 Auto Scaling
+  description: Unified vocabulary and taxonomy for Amazon EC2 Auto Scaling APIs.
+  created: '2026-04-19'
+  modified: '2026-04-19'
+operational:
+  apis:
+  - name: Amazon EC2 Auto Scaling API
+    namespace: ec2-auto-scaling
+    version: '2011-01-01'
+    status: active
+  resources:
+  - name: account-limits
+    description: account-limits resource
+  - name: adjustment-types
+    description: adjustment-types resource
+  - name: auto-scalinggroup
+    description: auto-scalinggroup resource
+  - name: auto-scalinggroups
+    description: auto-scalinggroups resource
+  - name: auto-scalinginstances
+    description: auto-scalinginstances resource
+  - name: auto-scalingnotification-types
+    description: auto-scalingnotification-types resource
+  - name: delete-scheduledaction
+    description: delete-scheduledaction resource
+  - name: desired-capacity
+    description: desired-capacity resource
+  - name: instance-health
+    description: instance-health resource
+  - name: instance-inauto-scalinggroup
+    description: instance-inauto-scalinggroup resource
+  - name: instance-protection
+    description: instance-protection resource
+  - name: instance-refresh
+    description: instance-refresh resource
+  - name: instance-refreshes
+    description: instance-refreshes resource
+  - name: instances
+    description: instances resource
+  - name: launch-configuration
+    description: launch-configuration resource
+  - name: launch-configurations
+    description: launch-configurations resource
+  - name: lifecycle-action
+    description: lifecycle-action resource
+  - name: lifecycle-actionheartbeat
+    description: lifecycle-actionheartbeat resource
+  - name: lifecycle-hook
+    description: lifecycle-hook resource
+  - name: lifecycle-hooks
+    description: lifecycle-hooks resource
+  actions:
+  - name: attach
+    pattern: write
+  - name: batch
+    pattern: write
+  - name: cancel
+    pattern: write
+  - name: complete
+    pattern: write
+  - name: create
+    pattern: write
+  - name: delete
+    pattern: write
+  - name: describe
+    pattern: read
+  - name: detach
+    pattern: write
+  - name: disable
+    pattern: write
+  - name: enable
+    pattern: write
+  - name: enter
+    pattern: write
+  - name: execute
+    pattern: write
+  - name: exit
+    pattern: write
+  - name: get
+    pattern: read
+  - name: put
+    pattern: write
+  - name: record
+    pattern: write
+  - name: resume
+    pattern: write
+  - name: rollback
+    pattern: write
+  - name: set
+    pattern: write
+  - name: start
+    pattern: write
+  - name: suspend
+    pattern: write
+  - name: terminate
+    pattern: write
+  - name: update
+    pattern: write
+  schemas:
+    core:
+    - name: XmlStringMaxLen19
+      description: XmlStringMaxLen19 schema
+    - name: ResourceContentionFault
+      description: ResourceContentionFault schema
+    - name: ServiceLinkedRoleFailure
+      description: ServiceLinkedRoleFailure schema
+    - name: AttachLoadBalancerTargetGroupsResultType
+      description: AttachLoadBalancerTargetGroupsResultType schema
+    - name: XmlStringMaxLen511
+      description: XmlStringMaxLen511 schema
+    - name: AttachLoadBalancersResultType
+      description: AttachLoadBalancersResultType schema
+    - name: XmlStringMaxLen255
+      description: XmlStringMaxLen255 schema
+    - name: AttachTrafficSourcesResultType
+      description: AttachTrafficSourcesResultType schema
+    - name: TrafficSourceIdentifier
+      description: Identifying information for a traffic source.
+    - name: BatchDeleteScheduledActionAnswer
+      description: BatchDeleteScheduledActionAnswer schema
+    - name: BatchPutScheduledUpdateGroupActionAnswer
+      description: BatchPutScheduledUpdateGroupActionAnswer schema
+    - name: ScheduledUpdateGroupActionRequest
+      description: Describes information used for one or more scheduled scaling action updates in a <a>BatchPutScheduledUpdateGroupAction</a> operation.
+    - name: AlreadyExistsFault
+      description: AlreadyExistsFault schema
+    - name: LimitExceededFault
+      description: LimitExceededFault schema
+    - name: CancelInstanceRefreshAnswer
+      description: CancelInstanceRefreshAnswer schema
+  authentication:
+    schemes:
+    - AWS Signature Version 4
+    description: All API requests use AWS Signature Version 4.
+capability:
+  workflows:
+  - name: Auto Scaling Management
+    file: capabilities/ec2-auto-scaling-management.yaml
+    description: Workflow for Auto Scaling Management.
+  personas:
+  - id: cloud-engineer
+    name: Cloud Operations Engineer
+    description: Engineers managing EC2 Auto Scaling fleets.
+    workflows:
+    - Auto Scaling Management
+  domains:
+  - name: Auto Scaling Management
+    description: Auto Scaling Management business domain.
+crossReference:
+- resource: account-limits
+  workflows:
+  - Auto Scaling Management
+  personas:
+  - Cloud Operations Engineer
+- resource: adjustment-types
+  workflows:
+  - Auto Scaling Management
+  personas:
+  - Cloud Operations Engineer
+- resource: auto-scalinggroup
+  workflows:
+  - Auto Scaling Management
+  personas:
+  - Cloud Operations Engineer
+- resource: auto-scalinggroups
+  workflows:
+  - Auto Scaling Management
+  personas:
+  - Cloud Operations Engineer
+- resource: auto-scalinginstances
+  workflows:
+  - Auto Scaling Management
+  personas:
+  - Cloud Operations Engineer
+- resource: auto-scalingnotification-types
+  workflows:
+  - Auto Scaling Management
+  personas:
+  - Cloud Operations Engineer
+- resource: delete-scheduledaction
+  workflows:
+  - Auto Scaling Management
+  personas:
+  - Cloud Operations Engineer
+- resource: desired-capacity
+  workflows:
+  - Auto Scaling Management
+  personas:
+  - Cloud Operations Engineer
+- resource: instance-health
+  workflows:
+  - Auto Scaling Management
+  personas:
+  - Cloud Operations Engineer
+- resource: instance-inauto-scalinggroup
+  workflows:
+  - Auto Scaling Management
+  personas:
+  - Cloud Operations Engineer
+- resource: instance-protection
+  workflows:
+  - Auto Scaling Management
+  personas:
+  - Cloud Operations Engineer
+- resource: instance-refresh
+  workflows:
+  - Auto Scaling Management
+  personas:
+  - Cloud Operations Engineer
+- resource: instance-refreshes
+  workflows:
+  - Auto Scaling Management
+  personas:
+  - Cloud Operations Engineer
+- resource: instances
+  workflows:
+  - Auto Scaling Management
+  personas:
+  - Cloud Operations Engineer
+- resource: launch-configuration
+  workflows:
+  - Auto Scaling Management
+  personas:
+  - Cloud Operations Engineer
+- resource: launch-configurations
+  workflows:
+  - Auto Scaling Management
+  personas:
+  - Cloud Operations Engineer
+- resource: lifecycle-action
+  workflows:
+  - Auto Scaling Management
+  personas:
+  - Cloud Operations Engineer
+- resource: lifecycle-actionheartbeat
+  workflows:
+  - Auto Scaling Management
+  personas:
+  - Cloud Operations Engineer
+- resource: lifecycle-hook
+  workflows:
+  - Auto Scaling Management
+  personas:
+  - Cloud Operations Engineer
+- resource: lifecycle-hooks
+  workflows:
+  - Auto Scaling Management
+  personas:
+  - Cloud Operations Engineer

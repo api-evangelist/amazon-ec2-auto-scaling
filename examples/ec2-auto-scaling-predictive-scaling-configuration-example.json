@@ -1,0 +1,6 @@
+{
+  "MetricSpecifications": "example-string",
+  "Mode": "example-string",
+  "SchedulingBufferTime": "example-string",
+  "MaxCapacityBreachBehavior": "example-string"
+}

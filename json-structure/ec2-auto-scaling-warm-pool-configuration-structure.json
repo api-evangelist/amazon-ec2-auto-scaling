@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-structure/ec2-auto-scaling-warm-pool-configuration-structure.json",
+  "name": "WarmPoolConfiguration",
+  "description": "Describes a warm pool configuration. ",
+  "type": "object",
+  "properties": {
+    "MaxGroupPreparedCapacity": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MaxGroupPreparedCapacity"
+        },
+        {
+          "description": "The maximum number of instances that are allowed to be in the warm pool or in any state except <code>Terminated</code> for the Auto Scaling group."
+        }
+      ]
+    },
+    "MinSize": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WarmPoolMinSize"
+        },
+        {
+          "description": "The minimum number of instances to maintain in the warm pool."
+        }
+      ]
+    },
+    "PoolState": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WarmPoolState"
+        },
+        {
+          "description": "The instance state to transition to after the lifecycle actions are complete."
+        }
+      ]
+    },
+    "Status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WarmPoolStatus"
+        },
+        {
+          "description": "The status of a warm pool that is marked for deletion."
+        }
+      ]
+    },
+    "InstanceReusePolicy": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InstanceReusePolicy"
+        },
+        {
+          "description": "The instance reuse policy."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "AutoScalingGroupName": "example-resource-name",
+  "Strategy": "example-string",
+  "DesiredConfiguration": "example-string",
+  "Preferences": "example-string"
+}

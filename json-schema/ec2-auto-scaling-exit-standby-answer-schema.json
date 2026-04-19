@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-auto-scaling/refs/heads/main/json-schema/ec2-auto-scaling-exit-standby-answer-schema.json",
+  "title": "ExitStandbyAnswer",
+  "description": "ExitStandbyAnswer schema from Auto Scaling",
+  "type": "object",
+  "properties": {
+    "Activities": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Activities"
+        },
+        {
+          "description": "The activities related to moving instances out of <code>Standby</code> mode."
+        }
+      ]
+    }
+  },
+  "example": {
+    "Activities": [
+      {
+        "ActivityId": "142928e1-a2dc-453a-9b24-b85ad6735928",
+        "AutoScalingGroupName": "my-auto-scaling-group",
+        "Cause": "At 2015-04-12T15:14:29Z instance i-93633f9b was moved out of standby in response to a user request, increasing the capacity from 1 to 2.",
+        "Description": "Moving EC2 instance out of Standby: i-93633f9b",
+        "Details": "details",
+        "Progress": 30,
+        "StartTime": "2015-04-12T15:14:29.886000+00:00",
+        "StatusCode": "PreInService"
+      }
+    ]
+  }
+}
