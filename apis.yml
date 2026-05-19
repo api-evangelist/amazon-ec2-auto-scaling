@@ -1,10 +1,11 @@
 name: Amazon EC2 Auto Scaling
-description: Amazon EC2 Auto Scaling helps you maintain application availability and lets you automatically add or remove EC2 instances according to conditions you define. You can use fleet management
-  features to maintain the health and availability of your fleet, and use dynamic and predictive scaling to add or remove EC2 instances to meet demand.
+description: Amazon EC2 Auto Scaling helps you maintain application availability and lets you automatically add or remove
+  EC2 instances according to conditions you define. You can use fleet management features to maintain the health and availability
+  of your fleet, and use dynamic and predictive scaling to add or remove EC2 instances to meet demand.
 image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
 url: https://aws.amazon.com/ec2/autoscaling/
 created: '2026-03-16'
-modified: '2026-04-19'
+modified: '2026-05-19'
 tags:
 - Amazon Web Services
 - Auto Scaling
@@ -15,8 +16,8 @@ tags:
 - Scaling
 apis:
 - name: Amazon EC2 Auto Scaling API
-  description: The Amazon EC2 Auto Scaling API provides programmatic access to create and manage Auto Scaling groups, launch configurations, scaling policies, scheduled actions, lifecycle hooks, and 
-    warm pools for automatic capacity management.
+  description: The Amazon EC2 Auto Scaling API provides programmatic access to create and manage Auto Scaling groups, launch
+    configurations, scaling policies, scheduled actions, lifecycle hooks, and warm pools for automatic capacity management.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/ec2/autoscaling/
   baseURL: https://autoscaling.amazonaws.com
@@ -54,6 +55,8 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Example
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
 common:
 - type: Portal
   url: https://aws.amazon.com/
@@ -94,9 +97,11 @@ common:
 - type: Features
   data:
   - name: Dynamic Scaling
-    description: Automatically scales EC2 capacity up or down in response to real-time demand using target tracking, step, or simple scaling policies.
+    description: Automatically scales EC2 capacity up or down in response to real-time demand using target tracking, step,
+      or simple scaling policies.
   - name: Predictive Scaling
-    description: Uses machine learning to forecast future demand and proactively adds EC2 instances ahead of anticipated load spikes.
+    description: Uses machine learning to forecast future demand and proactively adds EC2 instances ahead of anticipated load
+      spikes.
   - name: Scheduled Scaling
     description: Scales capacity at pre-defined times based on predictable load patterns or business cycles.
   - name: Fleet Management
@@ -104,7 +109,8 @@ common:
   - name: Instance Refresh
     description: Gradually updates EC2 instances in an Auto Scaling group with new AMIs or launch template versions.
   - name: Warm Pools
-    description: Pre-initializes EC2 instances to reduce latency for scale-out events by keeping a pool of instances in a stopped or running state.
+    description: Pre-initializes EC2 instances to reduce latency for scale-out events by keeping a pool of instances in a
+      stopped or running state.
   - name: Mixed Instances Policy
     description: Combines On-Demand and Spot instances with multiple instance types for cost optimization and availability.
   - name: Lifecycle Hooks
@@ -139,20 +145,18 @@ common:
   url: rules/amazon-ec2-auto-scaling-spectral-rules.yml
 - type: Vocabulary
   url: vocabulary/amazon-ec2-auto-scaling-vocabulary.yaml
-- type: NaftikoCapability
-  url: capabilities/ec2-auto-scaling-management.yaml
 - type: Integrations
   url: https://aws.amazon.com/marketplace
 integrations:
-  - name: Sign in
-  - name: Agent Mode
-  - name: 'Why AWS Marketplace?'
-  - name: Get started in AWS Marketplace
-  - name: Industry
-  - name: Resources
-  - name: Become a Channel Partner
-  - name: Sell in AWS Marketplace
-  - name: Manage Your Account
+- name: Sign in
+- name: Agent Mode
+- name: Why AWS Marketplace?
+- name: Get started in AWS Marketplace
+- name: Industry
+- name: Resources
+- name: Become a Channel Partner
+- name: Sell in AWS Marketplace
+- name: Manage Your Account
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
