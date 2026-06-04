@@ -1,0 +1,108 @@
+arazzo: 1.0.1
+info:
+  title: Amazon EC2 Auto Scaling Protect Instances From Scale In
+  summary: Find a group's instances, mark them protected from scale-in, and confirm the group state.
+  description: >-
+    Shields specific instances from termination during scale-in. The workflow
+    describes the Auto Scaling instances to capture an instance ID, sets instance
+    scale-in protection for the supplied instances, and then describes the group
+    to confirm its scale-in protection default and current capacity. Every step
+    spells out the AWS query-protocol Action and Version inline so the flow can
+    be read and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: autoScalingApi
+  url: ../openapi/amazon-ec2-auto-scaling-openapi.yaml
+  type: openapi
+workflows:
+- workflowId: protect-instances-from-scale-in
+  summary: Set scale-in protection on instances in a group and verify the group.
+  description: >-
+    Lists Auto Scaling instances, applies scale-in protection, and describes the
+    group to confirm its state.
+  inputs:
+    type: object
+    required:
+    - autoScalingGroupName
+    - instanceIds
+    - protectedFromScaleIn
+    properties:
+      autoScalingGroupName:
+        type: string
+        description: The name of the Auto Scaling group.
+      instanceIds:
+        type: array
+        description: One or more instance IDs to protect or unprotect (up to 50).
+        items:
+          type: string
+      protectedFromScaleIn:
+        type: boolean
+        description: Whether the instances are protected from termination on scale-in.
+  steps:
+  - stepId: describeAutoScalingInstances
+    description: >-
+      Describe the Auto Scaling instances to capture details about the first
+      instance and its group association.
+    operationId: POST_DescribeAutoScalingInstances
+    parameters:
+    - name: Action
+      in: query
+      value: DescribeAutoScalingInstances
+    - name: Version
+      in: query
+      value: 2011-01-01
+    requestBody:
+      contentType: text/xml
+      payload:
+        InstanceIds: $inputs.instanceIds
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      firstInstanceId: $response.body#/AutoScalingInstances/0/InstanceId
+      firstInstanceState: $response.body#/AutoScalingInstances/0/LifecycleState
+  - stepId: setInstanceProtection
+    description: >-
+      Set scale-in protection for the supplied instances in the group.
+    operationId: POST_SetInstanceProtection
+    parameters:
+    - name: Action
+      in: query
+      value: SetInstanceProtection
+    - name: Version
+      in: query
+      value: 2011-01-01
+    requestBody:
+      contentType: text/xml
+      payload:
+        InstanceIds: $inputs.instanceIds
+        AutoScalingGroupName: $inputs.autoScalingGroupName
+        ProtectedFromScaleIn: $inputs.protectedFromScaleIn
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      protectStatus: $statusCode
+  - stepId: describeGroupProtection
+    description: >-
+      Describe the group to confirm its new-instance scale-in protection default
+      and current capacity.
+    operationId: POST_DescribeAutoScalingGroups
+    parameters:
+    - name: Action
+      in: query
+      value: DescribeAutoScalingGroups
+    - name: Version
+      in: query
+      value: 2011-01-01
+    requestBody:
+      contentType: text/xml
+      payload:
+        AutoScalingGroupNames:
+        - $inputs.autoScalingGroupName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      newInstancesProtected: $response.body#/AutoScalingGroups/0/NewInstancesProtectedFromScaleIn
+      desiredCapacity: $response.body#/AutoScalingGroups/0/DesiredCapacity
+  outputs:
+    protectStatus: $steps.setInstanceProtection.outputs.protectStatus
+    newInstancesProtected: $steps.describeGroupProtection.outputs.newInstancesProtected

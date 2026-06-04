@@ -1,0 +1,124 @@
+arazzo: 1.0.1
+info:
+  title: Amazon EC2 Auto Scaling Set Desired Capacity and Verify
+  summary: Manually set a group's desired capacity, verify it took effect, and review the scaling activity.
+  description: >-
+    Manually resizes an Auto Scaling group and confirms the change. The workflow
+    sets the desired capacity, describes the group and branches on whether the
+    reported desired capacity already matches the requested value, and then
+    describes recent scaling activities for the group so the triggered activity
+    can be inspected. Every step spells out the AWS query-protocol Action and
+    Version inline so the flow can be read and executed without opening the
+    underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: autoScalingApi
+  url: ../openapi/amazon-ec2-auto-scaling-openapi.yaml
+  type: openapi
+workflows:
+- workflowId: set-desired-capacity-and-verify
+  summary: Set the desired capacity of a group and confirm the resulting state and activity.
+  description: >-
+    Sets the group's desired capacity, describes the group to verify the new
+    target, and lists recent scaling activities for the group.
+  inputs:
+    type: object
+    required:
+    - autoScalingGroupName
+    - desiredCapacity
+    properties:
+      autoScalingGroupName:
+        type: string
+        description: The name of the Auto Scaling group to resize.
+      desiredCapacity:
+        type: integer
+        description: The new desired capacity for the group.
+      honorCooldown:
+        type: boolean
+        description: Whether to wait for the cooldown period before initiating the scaling activity.
+  steps:
+  - stepId: setDesiredCapacity
+    description: >-
+      Set the new desired capacity for the Auto Scaling group.
+    operationId: POST_SetDesiredCapacity
+    parameters:
+    - name: Action
+      in: query
+      value: SetDesiredCapacity
+    - name: Version
+      in: query
+      value: 2011-01-01
+    requestBody:
+      contentType: text/xml
+      payload:
+        AutoScalingGroupName: $inputs.autoScalingGroupName
+        DesiredCapacity: $inputs.desiredCapacity
+        HonorCooldown: $inputs.honorCooldown
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      setStatus: $statusCode
+  - stepId: describeGroupCapacity
+    description: >-
+      Describe the group and branch on whether the reported desired capacity has
+      already reached the requested value.
+    operationId: POST_DescribeAutoScalingGroups
+    parameters:
+    - name: Action
+      in: query
+      value: DescribeAutoScalingGroups
+    - name: Version
+      in: query
+      value: 2011-01-01
+    requestBody:
+      contentType: text/xml
+      payload:
+        AutoScalingGroupNames:
+        - $inputs.autoScalingGroupName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      reportedDesiredCapacity: $response.body#/AutoScalingGroups/0/DesiredCapacity
+      minSize: $response.body#/AutoScalingGroups/0/MinSize
+      maxSize: $response.body#/AutoScalingGroups/0/MaxSize
+    onSuccess:
+    - name: capacityApplied
+      type: goto
+      stepId: describeScalingActivities
+      criteria:
+      - context: $response.body
+        condition: $.AutoScalingGroups[0].DesiredCapacity == $inputs.desiredCapacity
+        type: jsonpath
+    - name: capacityPending
+      type: goto
+      stepId: describeScalingActivities
+      criteria:
+      - context: $response.body
+        condition: $.AutoScalingGroups[0].DesiredCapacity != $inputs.desiredCapacity
+        type: jsonpath
+  - stepId: describeScalingActivities
+    description: >-
+      List recent scaling activities for the group so the activity triggered by
+      the capacity change can be inspected.
+    operationId: POST_DescribeScalingActivities
+    parameters:
+    - name: Action
+      in: query
+      value: DescribeScalingActivities
+    - name: Version
+      in: query
+      value: 2011-01-01
+    requestBody:
+      contentType: text/xml
+      payload:
+        AutoScalingGroupName: $inputs.autoScalingGroupName
+        MaxRecords: 10
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      latestActivityId: $response.body#/Activities/0/ActivityId
+      latestActivityStatus: $response.body#/Activities/0/StatusCode
+  outputs:
+    reportedDesiredCapacity: $steps.describeGroupCapacity.outputs.reportedDesiredCapacity
+    latestActivityId: $steps.describeScalingActivities.outputs.latestActivityId
+    latestActivityStatus: $steps.describeScalingActivities.outputs.latestActivityStatus

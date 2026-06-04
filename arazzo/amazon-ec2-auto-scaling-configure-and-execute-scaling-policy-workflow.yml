@@ -1,0 +1,124 @@
+arazzo: 1.0.1
+info:
+  title: Amazon EC2 Auto Scaling Configure and Execute Scaling Policy
+  summary: Put a scaling policy on a group, confirm it, then manually execute it.
+  description: >-
+    Sets up a simple scaling policy for an Auto Scaling group and exercises it.
+    The workflow puts a scaling policy (capturing the returned policy ARN),
+    describes the group's policies to confirm the policy is registered, and then
+    executes the policy by name to trigger a scaling activity. Every step spells
+    out the AWS query-protocol Action and Version inline so the flow can be read
+    and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: autoScalingApi
+  url: ../openapi/amazon-ec2-auto-scaling-openapi.yaml
+  type: openapi
+workflows:
+- workflowId: configure-and-execute-scaling-policy
+  summary: Create a scaling policy, verify it, and execute it for an Auto Scaling group.
+  description: >-
+    Puts a simple scaling policy on the group, confirms it appears in the group's
+    policy list, and executes it to drive a scaling activity.
+  inputs:
+    type: object
+    required:
+    - autoScalingGroupName
+    - policyName
+    - scalingAdjustment
+    properties:
+      autoScalingGroupName:
+        type: string
+        description: The name of the Auto Scaling group to attach the policy to.
+      policyName:
+        type: string
+        description: The name of the scaling policy.
+      adjustmentType:
+        type: string
+        description: How the adjustment is interpreted (ChangeInCapacity, ExactCapacity, or PercentChangeInCapacity).
+      scalingAdjustment:
+        type: integer
+        description: The amount to scale by for a SimpleScaling policy (positive adds, negative removes).
+      honorCooldown:
+        type: boolean
+        description: Whether to wait for the cooldown period before executing the policy.
+  steps:
+  - stepId: putScalingPolicy
+    description: >-
+      Create or update a simple scaling policy on the Auto Scaling group and
+      capture the returned policy ARN.
+    operationId: POST_PutScalingPolicy
+    parameters:
+    - name: Action
+      in: query
+      value: PutScalingPolicy
+    - name: Version
+      in: query
+      value: 2011-01-01
+    requestBody:
+      contentType: text/xml
+      payload:
+        AutoScalingGroupName: $inputs.autoScalingGroupName
+        PolicyName: $inputs.policyName
+        PolicyType: SimpleScaling
+        AdjustmentType: $inputs.adjustmentType
+        ScalingAdjustment: $inputs.scalingAdjustment
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      policyArn: $response.body#/PolicyARN
+  - stepId: describePolicies
+    description: >-
+      Describe the policies on the group to confirm the new policy is registered.
+    operationId: POST_DescribePolicies
+    parameters:
+    - name: Action
+      in: query
+      value: DescribePolicies
+    - name: Version
+      in: query
+      value: 2011-01-01
+    requestBody:
+      contentType: text/xml
+      payload:
+        AutoScalingGroupName: $inputs.autoScalingGroupName
+        PolicyNames:
+        - $inputs.policyName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      firstPolicyName: $response.body#/ScalingPolicies/0/PolicyName
+      firstPolicyArn: $response.body#/ScalingPolicies/0/PolicyARN
+    onSuccess:
+    - name: policyRegistered
+      type: goto
+      stepId: executePolicy
+      criteria:
+      - context: $response.body
+        condition: $.ScalingPolicies.length > 0
+        type: jsonpath
+  - stepId: executePolicy
+    description: >-
+      Execute the scaling policy by name to trigger a scaling activity on the
+      group.
+    operationId: POST_ExecutePolicy
+    parameters:
+    - name: Action
+      in: query
+      value: ExecutePolicy
+    - name: Version
+      in: query
+      value: 2011-01-01
+    requestBody:
+      contentType: text/xml
+      payload:
+        AutoScalingGroupName: $inputs.autoScalingGroupName
+        PolicyName: $inputs.policyName
+        HonorCooldown: $inputs.honorCooldown
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      executeStatus: $statusCode
+  outputs:
+    policyArn: $steps.putScalingPolicy.outputs.policyArn
+    executeStatus: $steps.executePolicy.outputs.executeStatus

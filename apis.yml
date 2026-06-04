@@ -58,6 +58,36 @@ apis:
   - type: NaftikoCapability
     url: capabilities/amazon-ec2-auto-scaling.yaml
 common:
+- type: ArazzoWorkflows
+  url: arazzo/
+  workflows:
+  - url: arazzo/amazon-ec2-auto-scaling-audit-launch-configuration-usage-workflow.yml
+    name: Amazon EC2 Auto Scaling Audit Launch Configuration Usage
+    summary: Resolve a launch configuration, then describe the group using it to audit its policies.
+  - url: arazzo/amazon-ec2-auto-scaling-configure-and-execute-scaling-policy-workflow.yml
+    name: Amazon EC2 Auto Scaling Configure and Execute Scaling Policy
+    summary: Put a scaling policy on a group, confirm it, then manually execute it.
+  - url: arazzo/amazon-ec2-auto-scaling-decommission-group-and-launch-configuration-workflow.yml
+    name: Amazon EC2 Auto Scaling Decommission Group and Launch Configuration
+    summary: Force-delete an Auto Scaling group, confirm it is gone, and delete its launch configuration.
+  - url: arazzo/amazon-ec2-auto-scaling-protect-instances-from-scale-in-workflow.yml
+    name: Amazon EC2 Auto Scaling Protect Instances From Scale In
+    summary: Find a group's instances, mark them protected from scale-in, and confirm the group state.
+  - url: arazzo/amazon-ec2-auto-scaling-provision-auto-scaling-group-workflow.yml
+    name: Amazon EC2 Auto Scaling Provision Auto Scaling Group
+    summary: Create a launch configuration, build an Auto Scaling group from it, and confirm the group exists.
+  - url: arazzo/amazon-ec2-auto-scaling-register-lifecycle-hook-and-complete-action-workflow.yml
+    name: Amazon EC2 Auto Scaling Register Lifecycle Hook and Complete Action
+    summary: Add a lifecycle hook to a group, confirm it, and complete a pending lifecycle action.
+  - url: arazzo/amazon-ec2-auto-scaling-roll-out-instance-refresh-workflow.yml
+    name: Amazon EC2 Auto Scaling Roll Out Instance Refresh
+    summary: Start an instance refresh on a group and check its progress, branching on status.
+  - url: arazzo/amazon-ec2-auto-scaling-schedule-capacity-change-workflow.yml
+    name: Amazon EC2 Auto Scaling Schedule Capacity Change
+    summary: Create a scheduled scaling action on a group and confirm it is registered.
+  - url: arazzo/amazon-ec2-auto-scaling-set-desired-capacity-and-verify-workflow.yml
+    name: Amazon EC2 Auto Scaling Set Desired Capacity and Verify
+    summary: Manually set a group's desired capacity, verify it took effect, and review the scaling activity.
 - type: Portal
   url: https://aws.amazon.com/
 - type: DeveloperPortal

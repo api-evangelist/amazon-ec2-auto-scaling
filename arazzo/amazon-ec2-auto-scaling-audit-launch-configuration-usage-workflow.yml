@@ -1,0 +1,113 @@
+arazzo: 1.0.1
+info:
+  title: Amazon EC2 Auto Scaling Audit Launch Configuration Usage
+  summary: Resolve a launch configuration, then describe the group using it to audit its policies.
+  description: >-
+    Audits how a launch configuration is wired into a running group. The
+    workflow describes the named launch configuration to capture its ARN and
+    image, describes the Auto Scaling group that references it to capture its
+    current sizing, and then describes the scaling policies attached to that
+    group. Every step spells out the AWS query-protocol Action and Version
+    inline so the flow can be read and executed without opening the underlying
+    OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: autoScalingApi
+  url: ../openapi/amazon-ec2-auto-scaling-openapi.yaml
+  type: openapi
+workflows:
+- workflowId: audit-launch-configuration-usage
+  summary: Inspect a launch configuration, its group, and that group's scaling policies.
+  description: >-
+    Describes a launch configuration, the group that uses it, and the scaling
+    policies on that group.
+  inputs:
+    type: object
+    required:
+    - launchConfigurationName
+    - autoScalingGroupName
+    properties:
+      launchConfigurationName:
+        type: string
+        description: The name of the launch configuration to audit.
+      autoScalingGroupName:
+        type: string
+        description: The name of the Auto Scaling group that references the launch configuration.
+  steps:
+  - stepId: describeLaunchConfiguration
+    description: >-
+      Describe the named launch configuration to capture its ARN and image.
+    operationId: POST_DescribeLaunchConfigurations
+    parameters:
+    - name: Action
+      in: query
+      value: DescribeLaunchConfigurations
+    - name: Version
+      in: query
+      value: 2011-01-01
+    requestBody:
+      contentType: text/xml
+      payload:
+        LaunchConfigurationNames:
+        - $inputs.launchConfigurationName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      launchConfigurationArn: $response.body#/LaunchConfigurations/0/LaunchConfigurationARN
+      imageId: $response.body#/LaunchConfigurations/0/ImageId
+      instanceType: $response.body#/LaunchConfigurations/0/InstanceType
+    onSuccess:
+    - name: launchConfigFound
+      type: goto
+      stepId: describeGroup
+      criteria:
+      - context: $response.body
+        condition: $.LaunchConfigurations.length > 0
+        type: jsonpath
+  - stepId: describeGroup
+    description: >-
+      Describe the Auto Scaling group that uses the launch configuration and
+      capture its sizing.
+    operationId: POST_DescribeAutoScalingGroups
+    parameters:
+    - name: Action
+      in: query
+      value: DescribeAutoScalingGroups
+    - name: Version
+      in: query
+      value: 2011-01-01
+    requestBody:
+      contentType: text/xml
+      payload:
+        AutoScalingGroupNames:
+        - $inputs.autoScalingGroupName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      groupArn: $response.body#/AutoScalingGroups/0/AutoScalingGroupARN
+      groupLaunchConfigurationName: $response.body#/AutoScalingGroups/0/LaunchConfigurationName
+      desiredCapacity: $response.body#/AutoScalingGroups/0/DesiredCapacity
+  - stepId: describeGroupPolicies
+    description: >-
+      Describe the scaling policies attached to the group to complete the audit.
+    operationId: POST_DescribePolicies
+    parameters:
+    - name: Action
+      in: query
+      value: DescribePolicies
+    - name: Version
+      in: query
+      value: 2011-01-01
+    requestBody:
+      contentType: text/xml
+      payload:
+        AutoScalingGroupName: $inputs.autoScalingGroupName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      firstPolicyName: $response.body#/ScalingPolicies/0/PolicyName
+      firstPolicyType: $response.body#/ScalingPolicies/0/PolicyType
+  outputs:
+    launchConfigurationArn: $steps.describeLaunchConfiguration.outputs.launchConfigurationArn
+    groupArn: $steps.describeGroup.outputs.groupArn
+    firstPolicyName: $steps.describeGroupPolicies.outputs.firstPolicyName

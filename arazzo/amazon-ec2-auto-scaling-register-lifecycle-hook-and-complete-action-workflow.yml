@@ -1,0 +1,141 @@
+arazzo: 1.0.1
+info:
+  title: Amazon EC2 Auto Scaling Register Lifecycle Hook and Complete Action
+  summary: Add a lifecycle hook to a group, confirm it, and complete a pending lifecycle action.
+  description: >-
+    Sets up an instance lifecycle hook and resolves a wait-state action. The
+    workflow puts a lifecycle hook on the group, describes the group's lifecycle
+    hooks to confirm registration and capture the hook details, and then
+    completes a pending lifecycle action for a specific instance with the
+    supplied result so the instance can proceed through its lifecycle. Every
+    step spells out the AWS query-protocol Action and Version inline so the flow
+    can be read and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: autoScalingApi
+  url: ../openapi/amazon-ec2-auto-scaling-openapi.yaml
+  type: openapi
+workflows:
+- workflowId: register-lifecycle-hook-and-complete-action
+  summary: Create a lifecycle hook, verify it, and complete a pending lifecycle action.
+  description: >-
+    Puts a lifecycle hook on the group, confirms it via describe, and completes
+    a pending lifecycle action for an instance.
+  inputs:
+    type: object
+    required:
+    - autoScalingGroupName
+    - lifecycleHookName
+    - lifecycleActionResult
+    properties:
+      autoScalingGroupName:
+        type: string
+        description: The name of the Auto Scaling group.
+      lifecycleHookName:
+        type: string
+        description: The name of the lifecycle hook.
+      lifecycleTransition:
+        type: string
+        description: The lifecycle transition (autoscaling:EC2_INSTANCE_LAUNCHING or autoscaling:EC2_INSTANCE_TERMINATING).
+      roleArn:
+        type: string
+        description: The ARN of the IAM role that allows the group to publish to the notification target.
+      notificationTargetArn:
+        type: string
+        description: The ARN of the Amazon SNS topic or SQS queue notification target.
+      heartbeatTimeout:
+        type: integer
+        description: The maximum time, in seconds, before the lifecycle hook times out (30 to 7200).
+      lifecycleActionResult:
+        type: string
+        description: The action for the group to take when completing the lifecycle action (CONTINUE or ABANDON).
+      lifecycleActionToken:
+        type: string
+        description: The UUID token identifying the specific lifecycle action to complete.
+      instanceId:
+        type: string
+        description: The ID of the instance whose lifecycle action is being completed.
+  steps:
+  - stepId: putLifecycleHook
+    description: >-
+      Create or update the lifecycle hook on the Auto Scaling group.
+    operationId: POST_PutLifecycleHook
+    parameters:
+    - name: Action
+      in: query
+      value: PutLifecycleHook
+    - name: Version
+      in: query
+      value: 2011-01-01
+    requestBody:
+      contentType: text/xml
+      payload:
+        LifecycleHookName: $inputs.lifecycleHookName
+        AutoScalingGroupName: $inputs.autoScalingGroupName
+        LifecycleTransition: $inputs.lifecycleTransition
+        RoleARN: $inputs.roleArn
+        NotificationTargetARN: $inputs.notificationTargetArn
+        HeartbeatTimeout: $inputs.heartbeatTimeout
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      putStatus: $statusCode
+  - stepId: describeLifecycleHooks
+    description: >-
+      Describe the group's lifecycle hooks to confirm the new hook is registered
+      and capture its transition and timeout.
+    operationId: POST_DescribeLifecycleHooks
+    parameters:
+    - name: Action
+      in: query
+      value: DescribeLifecycleHooks
+    - name: Version
+      in: query
+      value: 2011-01-01
+    requestBody:
+      contentType: text/xml
+      payload:
+        AutoScalingGroupName: $inputs.autoScalingGroupName
+        LifecycleHookNames:
+        - $inputs.lifecycleHookName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      registeredHookName: $response.body#/LifecycleHooks/0/LifecycleHookName
+      registeredTransition: $response.body#/LifecycleHooks/0/LifecycleTransition
+      globalTimeout: $response.body#/LifecycleHooks/0/GlobalTimeout
+    onSuccess:
+    - name: hookRegistered
+      type: goto
+      stepId: completeLifecycleAction
+      criteria:
+      - context: $response.body
+        condition: $.LifecycleHooks.length > 0
+        type: jsonpath
+  - stepId: completeLifecycleAction
+    description: >-
+      Complete a pending lifecycle action for the instance with the supplied
+      result so the instance can proceed.
+    operationId: POST_CompleteLifecycleAction
+    parameters:
+    - name: Action
+      in: query
+      value: CompleteLifecycleAction
+    - name: Version
+      in: query
+      value: 2011-01-01
+    requestBody:
+      contentType: text/xml
+      payload:
+        LifecycleHookName: $inputs.lifecycleHookName
+        AutoScalingGroupName: $inputs.autoScalingGroupName
+        LifecycleActionResult: $inputs.lifecycleActionResult
+        LifecycleActionToken: $inputs.lifecycleActionToken
+        InstanceId: $inputs.instanceId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      completeStatus: $statusCode
+  outputs:
+    registeredHookName: $steps.describeLifecycleHooks.outputs.registeredHookName
+    completeStatus: $steps.completeLifecycleAction.outputs.completeStatus

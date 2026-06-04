@@ -1,0 +1,138 @@
+arazzo: 1.0.1
+info:
+  title: Amazon EC2 Auto Scaling Provision Auto Scaling Group
+  summary: Create a launch configuration, build an Auto Scaling group from it, and confirm the group exists.
+  description: >-
+    The foundational provisioning flow for Amazon EC2 Auto Scaling. It first
+    creates a reusable launch configuration that describes the AMI, instance
+    type, and key pair, then creates an Auto Scaling group that references that
+    launch configuration with the desired minimum, maximum, and desired
+    capacity, and finally describes the new group to confirm it was created and
+    capture its ARN. Every step spells out the AWS query-protocol Action and
+    Version inline so the flow can be read and executed without opening the
+    underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: autoScalingApi
+  url: ../openapi/amazon-ec2-auto-scaling-openapi.yaml
+  type: openapi
+workflows:
+- workflowId: provision-auto-scaling-group
+  summary: Create a launch configuration and an Auto Scaling group, then verify the group.
+  description: >-
+    Creates a launch configuration, creates an Auto Scaling group that uses it,
+    and describes the resulting group to confirm creation succeeded.
+  inputs:
+    type: object
+    required:
+    - launchConfigurationName
+    - imageId
+    - instanceType
+    - autoScalingGroupName
+    - minSize
+    - maxSize
+    properties:
+      launchConfigurationName:
+        type: string
+        description: The name of the launch configuration to create (unique per Region per account).
+      imageId:
+        type: string
+        description: The ID of the Amazon Machine Image (AMI) the instances are launched from.
+      instanceType:
+        type: string
+        description: The EC2 instance type for launched instances (e.g. t3.micro).
+      keyName:
+        type: string
+        description: The name of the EC2 key pair to assign to launched instances.
+      autoScalingGroupName:
+        type: string
+        description: The name of the Auto Scaling group to create.
+      minSize:
+        type: integer
+        description: The minimum size of the Auto Scaling group.
+      maxSize:
+        type: integer
+        description: The maximum size of the Auto Scaling group.
+      desiredCapacity:
+        type: integer
+        description: The initial desired capacity of the Auto Scaling group.
+      availabilityZones:
+        type: array
+        description: The Availability Zones where instances in the group can be created.
+        items:
+          type: string
+  steps:
+  - stepId: createLaunchConfiguration
+    description: >-
+      Create the launch configuration that the Auto Scaling group will use to
+      launch instances.
+    operationId: POST_CreateLaunchConfiguration
+    parameters:
+    - name: Action
+      in: query
+      value: CreateLaunchConfiguration
+    - name: Version
+      in: query
+      value: 2011-01-01
+    requestBody:
+      contentType: text/xml
+      payload:
+        LaunchConfigurationName: $inputs.launchConfigurationName
+        ImageId: $inputs.imageId
+        InstanceType: $inputs.instanceType
+        KeyName: $inputs.keyName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      createStatus: $statusCode
+  - stepId: createAutoScalingGroup
+    description: >-
+      Create the Auto Scaling group referencing the launch configuration, with
+      the requested sizing.
+    operationId: POST_CreateAutoScalingGroup
+    parameters:
+    - name: Action
+      in: query
+      value: CreateAutoScalingGroup
+    - name: Version
+      in: query
+      value: 2011-01-01
+    requestBody:
+      contentType: text/xml
+      payload:
+        AutoScalingGroupName: $inputs.autoScalingGroupName
+        LaunchConfigurationName: $inputs.launchConfigurationName
+        MinSize: $inputs.minSize
+        MaxSize: $inputs.maxSize
+        DesiredCapacity: $inputs.desiredCapacity
+        AvailabilityZones: $inputs.availabilityZones
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      createGroupStatus: $statusCode
+  - stepId: describeAutoScalingGroup
+    description: >-
+      Describe the newly created Auto Scaling group to confirm it exists and to
+      capture its ARN and current desired capacity.
+    operationId: POST_DescribeAutoScalingGroups
+    parameters:
+    - name: Action
+      in: query
+      value: DescribeAutoScalingGroups
+    - name: Version
+      in: query
+      value: 2011-01-01
+    requestBody:
+      contentType: text/xml
+      payload:
+        AutoScalingGroupNames:
+        - $inputs.autoScalingGroupName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      autoScalingGroupArn: $response.body#/AutoScalingGroups/0/AutoScalingGroupARN
+      autoScalingGroupName: $response.body#/AutoScalingGroups/0/AutoScalingGroupName
+      desiredCapacity: $response.body#/AutoScalingGroups/0/DesiredCapacity
+  outputs:
+    autoScalingGroupArn: $steps.describeAutoScalingGroup.outputs.autoScalingGroupArn
+    desiredCapacity: $steps.describeAutoScalingGroup.outputs.desiredCapacity

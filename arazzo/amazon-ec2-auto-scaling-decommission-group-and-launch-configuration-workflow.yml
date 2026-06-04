@@ -1,0 +1,118 @@
+arazzo: 1.0.1
+info:
+  title: Amazon EC2 Auto Scaling Decommission Group and Launch Configuration
+  summary: Force-delete an Auto Scaling group, confirm it is gone, and delete its launch configuration.
+  description: >-
+    Tears down an Auto Scaling group and its supporting launch configuration.
+    The workflow force-deletes the group (terminating its instances), describes
+    groups to confirm the group no longer appears and branches accordingly, and
+    then deletes the launch configuration that backed the group. Every step
+    spells out the AWS query-protocol Action and Version inline so the flow can
+    be read and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: autoScalingApi
+  url: ../openapi/amazon-ec2-auto-scaling-openapi.yaml
+  type: openapi
+workflows:
+- workflowId: decommission-group-and-launch-configuration
+  summary: Delete an Auto Scaling group, verify removal, and delete its launch configuration.
+  description: >-
+    Force-deletes the group, confirms it is gone, then deletes the associated
+    launch configuration.
+  inputs:
+    type: object
+    required:
+    - autoScalingGroupName
+    - launchConfigurationName
+    properties:
+      autoScalingGroupName:
+        type: string
+        description: The name of the Auto Scaling group to delete.
+      launchConfigurationName:
+        type: string
+        description: The name of the launch configuration to delete after the group is gone.
+      forceDelete:
+        type: boolean
+        description: Whether to delete the group along with all its instances without waiting for termination.
+  steps:
+  - stepId: deleteAutoScalingGroup
+    description: >-
+      Delete the Auto Scaling group, optionally forcing termination of all its
+      instances.
+    operationId: POST_DeleteAutoScalingGroup
+    parameters:
+    - name: Action
+      in: query
+      value: DeleteAutoScalingGroup
+    - name: Version
+      in: query
+      value: 2011-01-01
+    requestBody:
+      contentType: text/xml
+      payload:
+        AutoScalingGroupName: $inputs.autoScalingGroupName
+        ForceDelete: $inputs.forceDelete
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      deleteStatus: $statusCode
+  - stepId: confirmGroupDeleted
+    description: >-
+      Describe groups filtered by name and branch on whether the deleted group
+      is fully gone before removing the launch configuration.
+    operationId: POST_DescribeAutoScalingGroups
+    parameters:
+    - name: Action
+      in: query
+      value: DescribeAutoScalingGroups
+    - name: Version
+      in: query
+      value: 2011-01-01
+    requestBody:
+      contentType: text/xml
+      payload:
+        AutoScalingGroupNames:
+        - $inputs.autoScalingGroupName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      remainingGroupCount: $response.body#/AutoScalingGroups
+    onSuccess:
+    - name: groupGone
+      type: goto
+      stepId: deleteLaunchConfiguration
+      criteria:
+      - context: $response.body
+        condition: $.AutoScalingGroups.length == 0
+        type: jsonpath
+    - name: groupStillDeleting
+      type: goto
+      stepId: deleteLaunchConfiguration
+      criteria:
+      - context: $response.body
+        condition: $.AutoScalingGroups.length > 0
+        type: jsonpath
+  - stepId: deleteLaunchConfiguration
+    description: >-
+      Delete the launch configuration that backed the now-removed Auto Scaling
+      group.
+    operationId: POST_DeleteLaunchConfiguration
+    parameters:
+    - name: Action
+      in: query
+      value: DeleteLaunchConfiguration
+    - name: Version
+      in: query
+      value: 2011-01-01
+    requestBody:
+      contentType: text/xml
+      payload:
+        LaunchConfigurationName: $inputs.launchConfigurationName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      deleteLaunchConfigStatus: $statusCode
+  outputs:
+    deleteStatus: $steps.deleteAutoScalingGroup.outputs.deleteStatus
+    deleteLaunchConfigStatus: $steps.deleteLaunchConfiguration.outputs.deleteLaunchConfigStatus

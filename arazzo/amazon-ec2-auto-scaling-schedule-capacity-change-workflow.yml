@@ -1,0 +1,107 @@
+arazzo: 1.0.1
+info:
+  title: Amazon EC2 Auto Scaling Schedule Capacity Change
+  summary: Create a scheduled scaling action on a group and confirm it is registered.
+  description: >-
+    Schedules a future or recurring capacity change for an Auto Scaling group.
+    The workflow puts a scheduled update group action with the requested sizing
+    and recurrence, then describes the group's scheduled actions to confirm the
+    action was registered and to capture its ARN and start time. Every step
+    spells out the AWS query-protocol Action and Version inline so the flow can
+    be read and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: autoScalingApi
+  url: ../openapi/amazon-ec2-auto-scaling-openapi.yaml
+  type: openapi
+workflows:
+- workflowId: schedule-capacity-change
+  summary: Put a scheduled scaling action on a group and verify it was created.
+  description: >-
+    Creates a scheduled update group action and confirms it appears in the
+    group's scheduled actions.
+  inputs:
+    type: object
+    required:
+    - autoScalingGroupName
+    - scheduledActionName
+    properties:
+      autoScalingGroupName:
+        type: string
+        description: The name of the Auto Scaling group.
+      scheduledActionName:
+        type: string
+        description: The name of this scheduled action.
+      minSize:
+        type: integer
+        description: The minimum size of the group after the action runs.
+      maxSize:
+        type: integer
+        description: The maximum size of the group after the action runs.
+      desiredCapacity:
+        type: integer
+        description: The desired capacity of the group after the action runs.
+      startTime:
+        type: string
+        description: The start time in YYYY-MM-DDThh:mm:ssZ format (UTC).
+      recurrence:
+        type: string
+        description: A cron expression for a recurring schedule (e.g. "30 0 1 1,6,12 *").
+      timeZone:
+        type: string
+        description: The IANA time zone for the cron expression (defaults to UTC if omitted).
+  steps:
+  - stepId: putScheduledAction
+    description: >-
+      Create or update the scheduled scaling action with the requested sizing
+      and recurrence.
+    operationId: POST_PutScheduledUpdateGroupAction
+    parameters:
+    - name: Action
+      in: query
+      value: PutScheduledUpdateGroupAction
+    - name: Version
+      in: query
+      value: 2011-01-01
+    requestBody:
+      contentType: text/xml
+      payload:
+        AutoScalingGroupName: $inputs.autoScalingGroupName
+        ScheduledActionName: $inputs.scheduledActionName
+        MinSize: $inputs.minSize
+        MaxSize: $inputs.maxSize
+        DesiredCapacity: $inputs.desiredCapacity
+        StartTime: $inputs.startTime
+        Recurrence: $inputs.recurrence
+        TimeZone: $inputs.timeZone
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      putStatus: $statusCode
+  - stepId: describeScheduledActions
+    description: >-
+      Describe the group's scheduled actions to confirm the new action was
+      registered and capture its ARN.
+    operationId: POST_DescribeScheduledActions
+    parameters:
+    - name: Action
+      in: query
+      value: DescribeScheduledActions
+    - name: Version
+      in: query
+      value: 2011-01-01
+    requestBody:
+      contentType: text/xml
+      payload:
+        AutoScalingGroupName: $inputs.autoScalingGroupName
+        ScheduledActionNames:
+        - $inputs.scheduledActionName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      scheduledActionArn: $response.body#/ScheduledUpdateGroupActions/0/ScheduledActionARN
+      scheduledActionName: $response.body#/ScheduledUpdateGroupActions/0/ScheduledActionName
+      scheduledStartTime: $response.body#/ScheduledUpdateGroupActions/0/StartTime
+  outputs:
+    scheduledActionArn: $steps.describeScheduledActions.outputs.scheduledActionArn
+    scheduledStartTime: $steps.describeScheduledActions.outputs.scheduledStartTime
