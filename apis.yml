@@ -58,6 +58,8 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/amazon-ec2-auto-scaling.yaml
 common:
+  - type: AgenticAccess
+    url: agentic-access/amazon-ec2-auto-scaling-agentic-access.yml
   - type: TrustCenter
     url: security/amazon-ec2-auto-scaling-trust-center.yml
   - type: VulnerabilityDisclosure
