@@ -1,0 +1,455 @@
+openapi: 3.0.0
+info:
+  version: 2011-01-01
+  x-release: v4
+  title: 'Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=DescribeTags API'
+  description: <fullname>Amazon EC2 Auto Scaling</fullname> <p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.</p> <p>For more information, see the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/">Amazon EC2 Auto Scaling User Guide</a> and the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html">Amazon EC2 Auto Scaling API Reference</a>.</p>
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: autoscaling
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/autoscaling-2011-01-01.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://autoscaling.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Auto Scaling multi-region endpoint
+- url: https://autoscaling.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Auto Scaling multi-region endpoint
+- url: http://autoscaling.amazonaws.com
+  variables: {}
+  description: The general Auto Scaling endpoint for US East (N. Virginia)
+- url: https://autoscaling.amazonaws.com
+  variables: {}
+  description: The general Auto Scaling endpoint for US East (N. Virginia)
+- url: http://autoscaling.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Auto Scaling endpoint for China (Beijing) and China (Ningxia)
+- url: https://autoscaling.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Auto Scaling endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: '#Action=DescribeTags'
+paths:
+  /#Action=DescribeTags:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      x-aws-operation-name: DescribeTags
+      operationId: GET_DescribeTags
+      description: <p>Describes the specified tags.</p> <p>You can use filters to limit the results. For example, you can query for the tags for a specific Auto Scaling group. You can specify multiple values for a filter. A tag must match at least one of the specified values for it to be included in the results.</p> <p>You can also specify multiple filters. The result includes information for a particular tag only if it matches all the filters. If there's no match, no special message is returned.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-tagging.html">Tag Auto Scaling groups and instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/TagsType'
+              examples:
+                GET_DescribeTags200Example:
+                  summary: Default GET_DescribeTags 200 response
+                  x-microcks-default: true
+                  value:
+                    Tags: example-string
+                    NextToken: example-string
+        '480':
+          description: InvalidNextToken
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/InvalidNextToken'
+              examples:
+                GET_DescribeTags480Example:
+                  summary: Default GET_DescribeTags 480 response
+                  x-microcks-default: true
+                  value: {}
+        '481':
+          description: ResourceContentionFault
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ResourceContentionFault'
+              examples:
+                GET_DescribeTags481Example:
+                  summary: Default GET_DescribeTags 481 response
+                  x-microcks-default: true
+                  value: {}
+      parameters:
+      - name: Filters
+        in: query
+        required: false
+        description: One or more filters to scope the tags to return. The maximum number of filters per filter type (for example, <code>auto-scaling-group</code>) is 1000.
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/Filter'
+      - name: NextToken
+        in: query
+        required: false
+        description: The token for the next set of items to return. (You received this token from a previous call.)
+        schema:
+          type: string
+          x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+      - name: MaxRecords
+        in: query
+        required: false
+        description: The maximum number of items to return with this call. The default value is <code>50</code> and the maximum value is <code>100</code>.
+        schema:
+          type: integer
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - DescribeTags
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - 2011-01-01
+      summary: Amazon EC2 Auto Scaling GET_ Describe Tags
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - '#Action=DescribeTags'
+    post:
+      x-aws-operation-name: DescribeTags
+      operationId: POST_DescribeTags
+      description: <p>Describes the specified tags.</p> <p>You can use filters to limit the results. For example, you can query for the tags for a specific Auto Scaling group. You can specify multiple values for a filter. A tag must match at least one of the specified values for it to be included in the results.</p> <p>You can also specify multiple filters. The result includes information for a particular tag only if it matches all the filters. If there's no match, no special message is returned.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-tagging.html">Tag Auto Scaling groups and instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/TagsType'
+              examples:
+                POST_DescribeTags200Example:
+                  summary: Default POST_DescribeTags 200 response
+                  x-microcks-default: true
+                  value:
+                    Tags: example-string
+                    NextToken: example-string
+        '480':
+          description: InvalidNextToken
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/InvalidNextToken'
+              examples:
+                POST_DescribeTags480Example:
+                  summary: Default POST_DescribeTags 480 response
+                  x-microcks-default: true
+                  value: {}
+        '481':
+          description: ResourceContentionFault
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ResourceContentionFault'
+              examples:
+                POST_DescribeTags481Example:
+                  summary: Default POST_DescribeTags 481 response
+                  x-microcks-default: true
+                  value: {}
+      requestBody:
+        content:
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/DescribeTagsType'
+      parameters:
+      - name: MaxRecords
+        in: query
+        schema:
+          type: string
+        description: Pagination limit
+        required: false
+      - name: NextToken
+        in: query
+        schema:
+          type: string
+        description: Pagination token
+        required: false
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - DescribeTags
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - 2011-01-01
+      summary: Amazon EC2 Auto Scaling POST_ Describe Tags
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - '#Action=DescribeTags'
+components:
+  schemas:
+    XmlString:
+      type: string
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    TagKey:
+      type: string
+      minLength: 1
+      maxLength: 128
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    Filters:
+      type: array
+      items:
+        $ref: '#/components/schemas/Filter'
+    Filter:
+      type: object
+      properties:
+        Name:
+          allOf:
+          - $ref: '#/components/schemas/XmlString'
+          - description: '<p>The name of the filter.</p> <p>The valid values for <code>Name</code> depend on which API operation you''re using with the filter (<a>DescribeAutoScalingGroups</a> or <a>DescribeTags</a>).</p> <p> <b>DescribeAutoScalingGroups</b> </p> <p>Valid values for <code>Name</code> include the following: </p> <ul> <li> <p> <code>tag-key</code> - Accepts tag keys. The results only include information about the Auto Scaling groups associated with these tag keys. </p> </li> <li> <p> <code>tag-value</code> - Accepts tag values. The results only include information about the Auto Scaling groups associated with these tag values. </p> </li> <li> <p> <code>tag:&lt;key&gt;</code> - Accepts the key/value combination of the tag. Use the tag key in the filter name and the tag value as the filter value. The results only include information about the Auto Scaling groups associated with the specified key/value combination. </p> </li> </ul> <p> <b>DescribeTags</b> </p> <p>Valid values for <code>Name</code> include the following: </p> <ul> <li> <p> <code>auto-scaling-group</code> - Accepts the names of Auto Scaling groups. The results only include information about the tags associated with these Auto Scaling groups. </p> </li> <li> <p> <code>key</code> - Accepts tag keys. The results only include information about the tags associated with these tag keys. </p> </li> <li> <p> <code>value</code> - Accepts tag values. The results only include information about the tags associated with these tag values. </p> </li> <li> <p> <code>propagate-at-launch</code> - Accepts a Boolean value, which specifies whether tags propagate to instances at launch. The results only include information about the tags associated with the specified Boolean value. </p> </li> </ul>'
+          example: example-resource-name
+        Values:
+          allOf:
+          - $ref: '#/components/schemas/Values'
+          - description: <p>One or more filter values. Filter values are case-sensitive. </p> <p>If you specify multiple values for a filter, the values are automatically logically joined with an <code>OR</code>, and the request returns all results that match any of the specified values. For example, specify "tag:environment" for the filter name and "production,development" for the filter values to find Auto Scaling groups with the tag "environment=production" or "environment=development".</p>
+          example: example-string
+      description: <p>Describes a filter that is used to return a more specific list of results from a describe operation.</p> <p>If you specify multiple filters, the filters are automatically logically joined with an <code>AND</code>, and the request returns only the results that match all of the specified filters. </p> <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-tagging.html">Tag Auto Scaling groups and instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+    ResourceContentionFault: {}
+    Values:
+      type: array
+      items:
+        $ref: '#/components/schemas/XmlString'
+    MaxRecords:
+      type: integer
+    TagsType:
+      type: object
+      example:
+        Tags:
+        - Key: Dept
+          PropagateAtLaunch: true
+          ResourceId: my-auto-scaling-group
+          ResourceType: auto-scaling-group
+          Value: Research
+        - Key: Role
+          PropagateAtLaunch: true
+          ResourceId: my-auto-scaling-group
+          ResourceType: auto-scaling-group
+          Value: WebServer
+      properties:
+        Tags:
+          allOf:
+          - $ref: '#/components/schemas/TagDescriptionList'
+          - description: One or more tags.
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/XmlString'
+          - description: A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the <code>NextToken</code> value when requesting the next set of items. This value is null when there are no more items to return.
+    TagDescription:
+      type: object
+      properties:
+        ResourceId:
+          allOf:
+          - $ref: '#/components/schemas/XmlString'
+          - description: The name of the group.
+        ResourceType:
+          allOf:
+          - $ref: '#/components/schemas/XmlString'
+          - description: The type of resource. The only supported value is <code>auto-scaling-group</code>.
+        Key:
+          allOf:
+          - $ref: '#/components/schemas/TagKey'
+          - description: The tag key.
+        Value:
+          allOf:
+          - $ref: '#/components/schemas/TagValue'
+          - description: The tag value.
+        PropagateAtLaunch:
+          allOf:
+          - $ref: '#/components/schemas/PropagateAtLaunch'
+          - description: Determines whether the tag is added to new instances as they are launched in the group.
+      description: Describes a tag for an Auto Scaling group.
+    TagDescriptionList:
+      type: array
+      items:
+        $ref: '#/components/schemas/TagDescription'
+    DescribeTagsType:
+      type: object
+      title: DescribeTagsType
+      properties:
+        Filters:
+          allOf:
+          - $ref: '#/components/schemas/Filters'
+          - description: One or more filters to scope the tags to return. The maximum number of filters per filter type (for example, <code>auto-scaling-group</code>) is 1000.
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/XmlString'
+          - description: The token for the next set of items to return. (You received this token from a previous call.)
+        MaxRecords:
+          allOf:
+          - $ref: '#/components/schemas/MaxRecords'
+          - description: The maximum number of items to return with this call. The default value is <code>50</code> and the maximum value is <code>100</code>.
+    InvalidNextToken: {}
+    PropagateAtLaunch:
+      type: boolean
+    TagValue:
+      type: string
+      minLength: 0
+      maxLength: 256
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/autoscaling/
+x-hasEquivalentPaths: true

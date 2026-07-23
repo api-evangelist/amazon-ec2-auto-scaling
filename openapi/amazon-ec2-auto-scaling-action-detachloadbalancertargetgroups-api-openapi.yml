@@ -1,0 +1,338 @@
+openapi: 3.0.0
+info:
+  version: 2011-01-01
+  x-release: v4
+  title: 'Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=DetachLoadBalancerTargetGroups API'
+  description: <fullname>Amazon EC2 Auto Scaling</fullname> <p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.</p> <p>For more information, see the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/">Amazon EC2 Auto Scaling User Guide</a> and the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html">Amazon EC2 Auto Scaling API Reference</a>.</p>
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: autoscaling
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/autoscaling-2011-01-01.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://autoscaling.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Auto Scaling multi-region endpoint
+- url: https://autoscaling.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Auto Scaling multi-region endpoint
+- url: http://autoscaling.amazonaws.com
+  variables: {}
+  description: The general Auto Scaling endpoint for US East (N. Virginia)
+- url: https://autoscaling.amazonaws.com
+  variables: {}
+  description: The general Auto Scaling endpoint for US East (N. Virginia)
+- url: http://autoscaling.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Auto Scaling endpoint for China (Beijing) and China (Ningxia)
+- url: https://autoscaling.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Auto Scaling endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: '#Action=DetachLoadBalancerTargetGroups'
+paths:
+  /#Action=DetachLoadBalancerTargetGroups:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      x-aws-operation-name: DetachLoadBalancerTargetGroups
+      operationId: GET_DetachLoadBalancerTargetGroups
+      description: <note> <p>This API operation is superseded by <a>DetachTrafficSources</a>, which can detach multiple traffic sources types. We recommend using <code>DetachTrafficSources</code> to simplify how you manage traffic sources. However, we continue to support <code>DetachLoadBalancerTargetGroups</code>. You can use both the original <code>DetachLoadBalancerTargetGroups</code> API operation and <code>DetachTrafficSources</code> on the same Auto Scaling group.</p> </note> <p>Detaches one or more target groups from the specified Auto Scaling group.</p> <p>When you detach a target group, it enters the <code>Removing</code> state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the target group using the <a>DescribeLoadBalancerTargetGroups</a> API call. The instances remain running.</p> <note> <p>You can use this operation to detach target groups that were attached by using <a>AttachLoadBalancerTargetGroups</a>, but not for target groups that were attached by using <a>AttachTrafficSources</a>.</p> </note>
+      responses:
+        '200':
+          description: Success
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/DetachLoadBalancerTargetGroupsResultType'
+              examples:
+                GET_DetachLoadBalancerTargetGroups200Example:
+                  summary: Default GET_DetachLoadBalancerTargetGroups 200 response
+                  x-microcks-default: true
+                  value: {}
+        '480':
+          description: ResourceContentionFault
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ResourceContentionFault'
+              examples:
+                GET_DetachLoadBalancerTargetGroups480Example:
+                  summary: Default GET_DetachLoadBalancerTargetGroups 480 response
+                  x-microcks-default: true
+                  value: {}
+      parameters:
+      - name: AutoScalingGroupName
+        in: query
+        required: true
+        description: The name of the Auto Scaling group.
+        schema:
+          type: string
+          minLength: 1
+          maxLength: 255
+          x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+      - name: TargetGroupARNs
+        in: query
+        required: true
+        description: The Amazon Resource Names (ARN) of the target groups. You can specify up to 10 target groups.
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/XmlStringMaxLen511'
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - DetachLoadBalancerTargetGroups
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - 2011-01-01
+      summary: Amazon EC2 Auto Scaling GET_ Detach Load Balancer Target Groups
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - '#Action=DetachLoadBalancerTargetGroups'
+    post:
+      x-aws-operation-name: DetachLoadBalancerTargetGroups
+      operationId: POST_DetachLoadBalancerTargetGroups
+      description: <note> <p>This API operation is superseded by <a>DetachTrafficSources</a>, which can detach multiple traffic sources types. We recommend using <code>DetachTrafficSources</code> to simplify how you manage traffic sources. However, we continue to support <code>DetachLoadBalancerTargetGroups</code>. You can use both the original <code>DetachLoadBalancerTargetGroups</code> API operation and <code>DetachTrafficSources</code> on the same Auto Scaling group.</p> </note> <p>Detaches one or more target groups from the specified Auto Scaling group.</p> <p>When you detach a target group, it enters the <code>Removing</code> state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the target group using the <a>DescribeLoadBalancerTargetGroups</a> API call. The instances remain running.</p> <note> <p>You can use this operation to detach target groups that were attached by using <a>AttachLoadBalancerTargetGroups</a>, but not for target groups that were attached by using <a>AttachTrafficSources</a>.</p> </note>
+      responses:
+        '200':
+          description: Success
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/DetachLoadBalancerTargetGroupsResultType'
+              examples:
+                POST_DetachLoadBalancerTargetGroups200Example:
+                  summary: Default POST_DetachLoadBalancerTargetGroups 200 response
+                  x-microcks-default: true
+                  value: {}
+        '480':
+          description: ResourceContentionFault
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ResourceContentionFault'
+              examples:
+                POST_DetachLoadBalancerTargetGroups480Example:
+                  summary: Default POST_DetachLoadBalancerTargetGroups 480 response
+                  x-microcks-default: true
+                  value: {}
+      requestBody:
+        content:
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/DetachLoadBalancerTargetGroupsType'
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - DetachLoadBalancerTargetGroups
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - 2011-01-01
+      summary: Amazon EC2 Auto Scaling POST_ Detach Load Balancer Target Groups
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - '#Action=DetachLoadBalancerTargetGroups'
+components:
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    XmlStringMaxLen255:
+      type: string
+      minLength: 1
+      maxLength: 255
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    XmlStringMaxLen511:
+      type: string
+      minLength: 1
+      maxLength: 511
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    DetachLoadBalancerTargetGroupsResultType:
+      type: object
+      properties: {}
+    DetachLoadBalancerTargetGroupsType:
+      type: object
+      required:
+      - AutoScalingGroupName
+      - TargetGroupARNs
+      title: DetachLoadBalancerTargetGroupsType
+      properties:
+        AutoScalingGroupName:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen255'
+          - description: The name of the Auto Scaling group.
+        TargetGroupARNs:
+          allOf:
+          - $ref: '#/components/schemas/TargetGroupARNs'
+          - description: The Amazon Resource Names (ARN) of the target groups. You can specify up to 10 target groups.
+    ResourceContentionFault: {}
+    TargetGroupARNs:
+      type: array
+      items:
+        $ref: '#/components/schemas/XmlStringMaxLen511'
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/autoscaling/
+x-hasEquivalentPaths: true

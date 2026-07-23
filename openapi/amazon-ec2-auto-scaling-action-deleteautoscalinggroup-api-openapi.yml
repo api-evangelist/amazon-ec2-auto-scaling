@@ -1,0 +1,343 @@
+openapi: 3.0.0
+info:
+  version: 2011-01-01
+  x-release: v4
+  title: 'Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=DeleteAutoScalingGroup API'
+  description: <fullname>Amazon EC2 Auto Scaling</fullname> <p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.</p> <p>For more information, see the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/">Amazon EC2 Auto Scaling User Guide</a> and the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html">Amazon EC2 Auto Scaling API Reference</a>.</p>
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: autoscaling
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/autoscaling-2011-01-01.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://autoscaling.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Auto Scaling multi-region endpoint
+- url: https://autoscaling.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Auto Scaling multi-region endpoint
+- url: http://autoscaling.amazonaws.com
+  variables: {}
+  description: The general Auto Scaling endpoint for US East (N. Virginia)
+- url: https://autoscaling.amazonaws.com
+  variables: {}
+  description: The general Auto Scaling endpoint for US East (N. Virginia)
+- url: http://autoscaling.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Auto Scaling endpoint for China (Beijing) and China (Ningxia)
+- url: https://autoscaling.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Auto Scaling endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: '#Action=DeleteAutoScalingGroup'
+paths:
+  /#Action=DeleteAutoScalingGroup:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      x-aws-operation-name: DeleteAutoScalingGroup
+      operationId: GET_DeleteAutoScalingGroup
+      description: <p>Deletes the specified Auto Scaling group.</p> <p>If the group has instances or scaling activities in progress, you must specify the option to force the deletion in order for it to succeed. The force delete operation will also terminate the EC2 instances. If the group has a warm pool, the force delete option also deletes the warm pool.</p> <p>To remove instances from the Auto Scaling group before deleting it, call the <a>DetachInstances</a> API with the list of instances and the option to decrement the desired capacity. This ensures that Amazon EC2 Auto Scaling does not launch replacement instances.</p> <p>To terminate all instances before deleting the Auto Scaling group, call the <a>UpdateAutoScalingGroup</a> API and set the minimum size and desired capacity of the Auto Scaling group to zero.</p> <p>If the group has scaling policies, deleting the group deletes the policies, the underlying alarm actions, and any alarm that no longer has an associated action.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-process-shutdown.html">Delete your Auto Scaling infrastructure</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+      responses:
+        '200':
+          description: Success
+        '480':
+          description: ScalingActivityInProgressFault
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ScalingActivityInProgressFault'
+              examples:
+                GET_DeleteAutoScalingGroup480Example:
+                  summary: Default GET_DeleteAutoScalingGroup 480 response
+                  x-microcks-default: true
+                  value: {}
+        '481':
+          description: ResourceInUseFault
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ResourceInUseFault'
+              examples:
+                GET_DeleteAutoScalingGroup481Example:
+                  summary: Default GET_DeleteAutoScalingGroup 481 response
+                  x-microcks-default: true
+                  value: {}
+        '482':
+          description: ResourceContentionFault
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ResourceContentionFault'
+      parameters:
+      - name: AutoScalingGroupName
+        in: query
+        required: true
+        description: The name of the Auto Scaling group.
+        schema:
+          type: string
+          minLength: 1
+          maxLength: 255
+          x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+      - name: ForceDelete
+        in: query
+        required: false
+        description: Specifies that the group is to be deleted along with all instances associated with the group, without waiting for all instances to be terminated. This action also deletes any outstanding lifecycle actions associated with the group.
+        schema:
+          type: boolean
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - DeleteAutoScalingGroup
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - 2011-01-01
+      summary: Amazon EC2 Auto Scaling GET_ Delete Auto Scaling Group
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - '#Action=DeleteAutoScalingGroup'
+    post:
+      x-aws-operation-name: DeleteAutoScalingGroup
+      operationId: POST_DeleteAutoScalingGroup
+      description: <p>Deletes the specified Auto Scaling group.</p> <p>If the group has instances or scaling activities in progress, you must specify the option to force the deletion in order for it to succeed. The force delete operation will also terminate the EC2 instances. If the group has a warm pool, the force delete option also deletes the warm pool.</p> <p>To remove instances from the Auto Scaling group before deleting it, call the <a>DetachInstances</a> API with the list of instances and the option to decrement the desired capacity. This ensures that Amazon EC2 Auto Scaling does not launch replacement instances.</p> <p>To terminate all instances before deleting the Auto Scaling group, call the <a>UpdateAutoScalingGroup</a> API and set the minimum size and desired capacity of the Auto Scaling group to zero.</p> <p>If the group has scaling policies, deleting the group deletes the policies, the underlying alarm actions, and any alarm that no longer has an associated action.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-process-shutdown.html">Delete your Auto Scaling infrastructure</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+      responses:
+        '200':
+          description: Success
+        '480':
+          description: ScalingActivityInProgressFault
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ScalingActivityInProgressFault'
+              examples:
+                POST_DeleteAutoScalingGroup480Example:
+                  summary: Default POST_DeleteAutoScalingGroup 480 response
+                  x-microcks-default: true
+                  value: {}
+        '481':
+          description: ResourceInUseFault
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ResourceInUseFault'
+              examples:
+                POST_DeleteAutoScalingGroup481Example:
+                  summary: Default POST_DeleteAutoScalingGroup 481 response
+                  x-microcks-default: true
+                  value: {}
+        '482':
+          description: ResourceContentionFault
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ResourceContentionFault'
+      requestBody:
+        content:
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/DeleteAutoScalingGroupType'
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - DeleteAutoScalingGroup
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - 2011-01-01
+      summary: Amazon EC2 Auto Scaling POST_ Delete Auto Scaling Group
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - '#Action=DeleteAutoScalingGroup'
+components:
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    XmlStringMaxLen255:
+      type: string
+      minLength: 1
+      maxLength: 255
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    ScalingActivityInProgressFault: {}
+    DeleteAutoScalingGroupType:
+      type: object
+      required:
+      - AutoScalingGroupName
+      title: DeleteAutoScalingGroupType
+      properties:
+        AutoScalingGroupName:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen255'
+          - description: The name of the Auto Scaling group.
+        ForceDelete:
+          allOf:
+          - $ref: '#/components/schemas/ForceDelete'
+          - description: Specifies that the group is to be deleted along with all instances associated with the group, without waiting for all instances to be terminated. This action also deletes any outstanding lifecycle actions associated with the group.
+    ForceDelete:
+      type: boolean
+    ResourceContentionFault: {}
+    ResourceInUseFault: {}
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/autoscaling/
+x-hasEquivalentPaths: true

@@ -1,0 +1,404 @@
+openapi: 3.0.0
+info:
+  version: 2011-01-01
+  x-release: v4
+  title: 'Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=DescribeLoadBalancerTargetGroups API'
+  description: <fullname>Amazon EC2 Auto Scaling</fullname> <p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.</p> <p>For more information, see the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/">Amazon EC2 Auto Scaling User Guide</a> and the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html">Amazon EC2 Auto Scaling API Reference</a>.</p>
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: autoscaling
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/autoscaling-2011-01-01.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://autoscaling.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Auto Scaling multi-region endpoint
+- url: https://autoscaling.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Auto Scaling multi-region endpoint
+- url: http://autoscaling.amazonaws.com
+  variables: {}
+  description: The general Auto Scaling endpoint for US East (N. Virginia)
+- url: https://autoscaling.amazonaws.com
+  variables: {}
+  description: The general Auto Scaling endpoint for US East (N. Virginia)
+- url: http://autoscaling.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Auto Scaling endpoint for China (Beijing) and China (Ningxia)
+- url: https://autoscaling.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Auto Scaling endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: '#Action=DescribeLoadBalancerTargetGroups'
+paths:
+  /#Action=DescribeLoadBalancerTargetGroups:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      x-aws-operation-name: DescribeLoadBalancerTargetGroups
+      operationId: GET_DescribeLoadBalancerTargetGroups
+      description: '<note> <p>This API operation is superseded by <a>DescribeTrafficSources</a>, which can describe multiple traffic sources types. We recommend using <code>DetachTrafficSources</code> to simplify how you manage traffic sources. However, we continue to support <code>DescribeLoadBalancerTargetGroups</code>. You can use both the original <code>DescribeLoadBalancerTargetGroups</code> API operation and <code>DescribeTrafficSources</code> on the same Auto Scaling group.</p> </note> <p>Gets information about the Elastic Load Balancing target groups for the specified Auto Scaling group.</p> <p>To determine the attachment status of the target group, use the <code>State</code> element in the response. When you attach a target group to an Auto Scaling group, the initial <code>State</code> value is <code>Adding</code>. The state transitions to <code>Added</code> after all Auto Scaling instances are registered with the target group. If Elastic Load Balancing health checks are enabled for the Auto Scaling group, the state transitions to <code>InService</code> after at least one Auto Scaling instance passes the health check. When the target group is in the <code>InService</code> state, Amazon EC2 Auto Scaling can terminate and replace any instances that are reported as unhealthy. If no registered instances pass the health checks, the target group doesn''t enter the <code>InService</code> state. </p> <p>Target groups also have an <code>InService</code> state if you attach them in the <a>CreateAutoScalingGroup</a> API call. If your target group state is <code>InService</code>, but it is not working properly, check the scaling activities by calling <a>DescribeScalingActivities</a> and take any corrective actions necessary.</p> <p>For help with failed health checks, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-healthchecks.html">Troubleshooting Amazon EC2 Auto Scaling: Health checks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p> <note> <p>You can use this operation to describe target groups that were attached by using <a>AttachLoadBalancerTargetGroups</a>, but not for target groups that were attached by using <a>AttachTrafficSources</a>.</p> </note>'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/DescribeLoadBalancerTargetGroupsResponse'
+              examples:
+                GET_DescribeLoadBalancerTargetGroups200Example:
+                  summary: Default GET_DescribeLoadBalancerTargetGroups 200 response
+                  x-microcks-default: true
+                  value:
+                    LoadBalancerTargetGroups: example-string
+                    NextToken: example-string
+        '480':
+          description: ResourceContentionFault
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ResourceContentionFault'
+              examples:
+                GET_DescribeLoadBalancerTargetGroups480Example:
+                  summary: Default GET_DescribeLoadBalancerTargetGroups 480 response
+                  x-microcks-default: true
+                  value: {}
+        '481':
+          description: InvalidNextToken
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/InvalidNextToken'
+              examples:
+                GET_DescribeLoadBalancerTargetGroups481Example:
+                  summary: Default GET_DescribeLoadBalancerTargetGroups 481 response
+                  x-microcks-default: true
+                  value: {}
+      parameters:
+      - name: AutoScalingGroupName
+        in: query
+        required: true
+        description: The name of the Auto Scaling group.
+        schema:
+          type: string
+          minLength: 1
+          maxLength: 255
+          x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+      - name: NextToken
+        in: query
+        required: false
+        description: The token for the next set of items to return. (You received this token from a previous call.)
+        schema:
+          type: string
+          x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+      - name: MaxRecords
+        in: query
+        required: false
+        description: The maximum number of items to return with this call. The default value is <code>100</code> and the maximum value is <code>100</code>.
+        schema:
+          type: integer
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - DescribeLoadBalancerTargetGroups
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - 2011-01-01
+      summary: Amazon EC2 Auto Scaling GET_ Describe Load Balancer Target Groups
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - '#Action=DescribeLoadBalancerTargetGroups'
+    post:
+      x-aws-operation-name: DescribeLoadBalancerTargetGroups
+      operationId: POST_DescribeLoadBalancerTargetGroups
+      description: '<note> <p>This API operation is superseded by <a>DescribeTrafficSources</a>, which can describe multiple traffic sources types. We recommend using <code>DetachTrafficSources</code> to simplify how you manage traffic sources. However, we continue to support <code>DescribeLoadBalancerTargetGroups</code>. You can use both the original <code>DescribeLoadBalancerTargetGroups</code> API operation and <code>DescribeTrafficSources</code> on the same Auto Scaling group.</p> </note> <p>Gets information about the Elastic Load Balancing target groups for the specified Auto Scaling group.</p> <p>To determine the attachment status of the target group, use the <code>State</code> element in the response. When you attach a target group to an Auto Scaling group, the initial <code>State</code> value is <code>Adding</code>. The state transitions to <code>Added</code> after all Auto Scaling instances are registered with the target group. If Elastic Load Balancing health checks are enabled for the Auto Scaling group, the state transitions to <code>InService</code> after at least one Auto Scaling instance passes the health check. When the target group is in the <code>InService</code> state, Amazon EC2 Auto Scaling can terminate and replace any instances that are reported as unhealthy. If no registered instances pass the health checks, the target group doesn''t enter the <code>InService</code> state. </p> <p>Target groups also have an <code>InService</code> state if you attach them in the <a>CreateAutoScalingGroup</a> API call. If your target group state is <code>InService</code>, but it is not working properly, check the scaling activities by calling <a>DescribeScalingActivities</a> and take any corrective actions necessary.</p> <p>For help with failed health checks, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-healthchecks.html">Troubleshooting Amazon EC2 Auto Scaling: Health checks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p> <note> <p>You can use this operation to describe target groups that were attached by using <a>AttachLoadBalancerTargetGroups</a>, but not for target groups that were attached by using <a>AttachTrafficSources</a>.</p> </note>'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/DescribeLoadBalancerTargetGroupsResponse'
+              examples:
+                POST_DescribeLoadBalancerTargetGroups200Example:
+                  summary: Default POST_DescribeLoadBalancerTargetGroups 200 response
+                  x-microcks-default: true
+                  value:
+                    LoadBalancerTargetGroups: example-string
+                    NextToken: example-string
+        '480':
+          description: ResourceContentionFault
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ResourceContentionFault'
+              examples:
+                POST_DescribeLoadBalancerTargetGroups480Example:
+                  summary: Default POST_DescribeLoadBalancerTargetGroups 480 response
+                  x-microcks-default: true
+                  value: {}
+        '481':
+          description: InvalidNextToken
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/InvalidNextToken'
+              examples:
+                POST_DescribeLoadBalancerTargetGroups481Example:
+                  summary: Default POST_DescribeLoadBalancerTargetGroups 481 response
+                  x-microcks-default: true
+                  value: {}
+      requestBody:
+        content:
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/DescribeLoadBalancerTargetGroupsRequest'
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - DescribeLoadBalancerTargetGroups
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - 2011-01-01
+      summary: Amazon EC2 Auto Scaling POST_ Describe Load Balancer Target Groups
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - '#Action=DescribeLoadBalancerTargetGroups'
+components:
+  schemas:
+    XmlString:
+      type: string
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    XmlStringMaxLen255:
+      type: string
+      minLength: 1
+      maxLength: 255
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    InvalidNextToken: {}
+    DescribeLoadBalancerTargetGroupsResponse:
+      type: object
+      example:
+        LoadBalancerTargetGroups:
+        - LoadBalancerTargetGroupARN: arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067
+          State: Added
+      properties:
+        LoadBalancerTargetGroups:
+          allOf:
+          - $ref: '#/components/schemas/LoadBalancerTargetGroupStates'
+          - description: Information about the target groups.
+          example: example-string
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/XmlString'
+          - description: A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the <code>NextToken</code> value when requesting the next set of items. This value is null when there are no more items to return.
+          example: example-string
+    DescribeLoadBalancerTargetGroupsRequest:
+      type: object
+      required:
+      - AutoScalingGroupName
+      title: DescribeLoadBalancerTargetGroupsRequest
+      properties:
+        AutoScalingGroupName:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen255'
+          - description: The name of the Auto Scaling group.
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/XmlString'
+          - description: The token for the next set of items to return. (You received this token from a previous call.)
+        MaxRecords:
+          allOf:
+          - $ref: '#/components/schemas/MaxRecords'
+          - description: The maximum number of items to return with this call. The default value is <code>100</code> and the maximum value is <code>100</code>.
+    XmlStringMaxLen511:
+      type: string
+      minLength: 1
+      maxLength: 511
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    MaxRecords:
+      type: integer
+    ResourceContentionFault: {}
+    LoadBalancerTargetGroupState:
+      type: object
+      properties:
+        LoadBalancerTargetGroupARN:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen511'
+          - description: The Amazon Resource Name (ARN) of the target group.
+        State:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen255'
+          - description: <p>The state of the target group.</p> <ul> <li> <p> <code>Adding</code> - The Auto Scaling instances are being registered with the target group.</p> </li> <li> <p> <code>Added</code> - All Auto Scaling instances are registered with the target group.</p> </li> <li> <p> <code>InService</code> - At least one Auto Scaling instance passed an <code>ELB</code> health check.</p> </li> <li> <p> <code>Removing</code> - The Auto Scaling instances are being deregistered from the target group. If connection draining is enabled, Elastic Load Balancing waits for in-flight requests to complete before deregistering the instances.</p> </li> <li> <p> <code>Removed</code> - All Auto Scaling instances are deregistered from the target group.</p> </li> </ul>
+      description: Describes the state of a target group.
+    LoadBalancerTargetGroupStates:
+      type: array
+      items:
+        $ref: '#/components/schemas/LoadBalancerTargetGroupState'
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/autoscaling/
+x-hasEquivalentPaths: true

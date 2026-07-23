@@ -1,0 +1,489 @@
+openapi: 3.0.0
+info:
+  version: 2011-01-01
+  x-release: v4
+  title: 'Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=DescribeAutoScalingInstances API'
+  description: <fullname>Amazon EC2 Auto Scaling</fullname> <p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.</p> <p>For more information, see the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/">Amazon EC2 Auto Scaling User Guide</a> and the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html">Amazon EC2 Auto Scaling API Reference</a>.</p>
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: autoscaling
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/autoscaling-2011-01-01.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://autoscaling.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Auto Scaling multi-region endpoint
+- url: https://autoscaling.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Auto Scaling multi-region endpoint
+- url: http://autoscaling.amazonaws.com
+  variables: {}
+  description: The general Auto Scaling endpoint for US East (N. Virginia)
+- url: https://autoscaling.amazonaws.com
+  variables: {}
+  description: The general Auto Scaling endpoint for US East (N. Virginia)
+- url: http://autoscaling.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Auto Scaling endpoint for China (Beijing) and China (Ningxia)
+- url: https://autoscaling.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Auto Scaling endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: '#Action=DescribeAutoScalingInstances'
+paths:
+  /#Action=DescribeAutoScalingInstances:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      x-aws-operation-name: DescribeAutoScalingInstances
+      operationId: GET_DescribeAutoScalingInstances
+      description: Gets information about the Auto Scaling instances in the account and Region.
+      responses:
+        '200':
+          description: Success
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/AutoScalingInstancesType'
+              examples:
+                GET_DescribeAutoScalingInstances200Example:
+                  summary: Default GET_DescribeAutoScalingInstances 200 response
+                  x-microcks-default: true
+                  value:
+                    AutoScalingInstances: example-string
+                    NextToken: example-string
+        '480':
+          description: InvalidNextToken
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/InvalidNextToken'
+              examples:
+                GET_DescribeAutoScalingInstances480Example:
+                  summary: Default GET_DescribeAutoScalingInstances 480 response
+                  x-microcks-default: true
+                  value: {}
+        '481':
+          description: ResourceContentionFault
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ResourceContentionFault'
+              examples:
+                GET_DescribeAutoScalingInstances481Example:
+                  summary: Default GET_DescribeAutoScalingInstances 481 response
+                  x-microcks-default: true
+                  value: {}
+      parameters:
+      - name: InstanceIds
+        in: query
+        required: false
+        description: '<p>The IDs of the instances. If you omit this property, all Auto Scaling instances are described. If you specify an ID that does not exist, it is ignored with no error.</p> <p>Array Members: Maximum number of 50 items.</p>'
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/XmlStringMaxLen19'
+      - name: MaxRecords
+        in: query
+        required: false
+        description: The maximum number of items to return with this call. The default value is <code>50</code> and the maximum value is <code>50</code>.
+        schema:
+          type: integer
+      - name: NextToken
+        in: query
+        required: false
+        description: The token for the next set of items to return. (You received this token from a previous call.)
+        schema:
+          type: string
+          x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - DescribeAutoScalingInstances
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - 2011-01-01
+      summary: Amazon EC2 Auto Scaling GET_ Describe Auto Scaling Instances
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - '#Action=DescribeAutoScalingInstances'
+    post:
+      x-aws-operation-name: DescribeAutoScalingInstances
+      operationId: POST_DescribeAutoScalingInstances
+      description: Gets information about the Auto Scaling instances in the account and Region.
+      responses:
+        '200':
+          description: Success
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/AutoScalingInstancesType'
+              examples:
+                POST_DescribeAutoScalingInstances200Example:
+                  summary: Default POST_DescribeAutoScalingInstances 200 response
+                  x-microcks-default: true
+                  value:
+                    AutoScalingInstances: example-string
+                    NextToken: example-string
+        '480':
+          description: InvalidNextToken
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/InvalidNextToken'
+              examples:
+                POST_DescribeAutoScalingInstances480Example:
+                  summary: Default POST_DescribeAutoScalingInstances 480 response
+                  x-microcks-default: true
+                  value: {}
+        '481':
+          description: ResourceContentionFault
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ResourceContentionFault'
+              examples:
+                POST_DescribeAutoScalingInstances481Example:
+                  summary: Default POST_DescribeAutoScalingInstances 481 response
+                  x-microcks-default: true
+                  value: {}
+      requestBody:
+        content:
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/DescribeAutoScalingInstancesType'
+      parameters:
+      - name: MaxRecords
+        in: query
+        schema:
+          type: string
+        description: Pagination limit
+        required: false
+      - name: NextToken
+        in: query
+        schema:
+          type: string
+        description: Pagination token
+        required: false
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - DescribeAutoScalingInstances
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - 2011-01-01
+      summary: Amazon EC2 Auto Scaling POST_ Describe Auto Scaling Instances
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - '#Action=DescribeAutoScalingInstances'
+components:
+  schemas:
+    XmlString:
+      type: string
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    AutoScalingInstancesType:
+      type: object
+      example:
+        AutoScalingInstances:
+        - AutoScalingGroupName: my-auto-scaling-group
+          AvailabilityZone: us-west-2c
+          HealthStatus: HEALTHY
+          InstanceId: i-4ba0837f
+          LaunchConfigurationName: my-launch-config
+          LifecycleState: InService
+          ProtectedFromScaleIn: false
+      properties:
+        AutoScalingInstances:
+          allOf:
+          - $ref: '#/components/schemas/AutoScalingInstances'
+          - description: The instances.
+          example: example-string
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/XmlString'
+          - description: A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the <code>NextToken</code> value when requesting the next set of items. This value is null when there are no more items to return.
+          example: example-string
+    ResourceContentionFault: {}
+    XmlStringMaxLen32:
+      type: string
+      minLength: 1
+      maxLength: 32
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    LaunchTemplateName:
+      type: string
+      pattern: '[a-zA-Z0-9\(\)\.\-/_]+'
+      minLength: 3
+      maxLength: 128
+    XmlStringMaxLen19:
+      type: string
+      minLength: 1
+      maxLength: 19
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    MaxRecords:
+      type: integer
+    LaunchTemplateSpecification:
+      type: object
+      properties:
+        LaunchTemplateId:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen255'
+          - description: '<p>The ID of the launch template. To get the template ID, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html">DescribeLaunchTemplates</a> API operation. New launch templates can be created using the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html">CreateLaunchTemplate</a> API. </p> <p>Conditional: You must specify either a <code>LaunchTemplateId</code> or a <code>LaunchTemplateName</code>.</p>'
+        LaunchTemplateName:
+          allOf:
+          - $ref: '#/components/schemas/LaunchTemplateName'
+          - description: '<p>The name of the launch template. To get the template name, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html">DescribeLaunchTemplates</a> API operation. New launch templates can be created using the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html">CreateLaunchTemplate</a> API. </p> <p>Conditional: You must specify either a <code>LaunchTemplateId</code> or a <code>LaunchTemplateName</code>.</p>'
+        Version:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen255'
+          - description: The version number, <code>$Latest</code>, or <code>$Default</code>. To get the version number, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplateVersions.html">DescribeLaunchTemplateVersions</a> API operation. New launch template versions can be created using the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplateVersion.html">CreateLaunchTemplateVersion</a> API. If the value is <code>$Latest</code>, Amazon EC2 Auto Scaling selects the latest version of the launch template when launching instances. If the value is <code>$Default</code>, Amazon EC2 Auto Scaling selects the default version of the launch template when launching instances. The default value is <code>$Default</code>.
+      description: Describes the launch template and the version of the launch template that Amazon EC2 Auto Scaling uses to launch Amazon EC2 instances. For more information about launch templates, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchTemplates.html">Launch templates</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+    XmlStringMaxLen255:
+      type: string
+      minLength: 1
+      maxLength: 255
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    InstanceIds:
+      type: array
+      items:
+        $ref: '#/components/schemas/XmlStringMaxLen19'
+    InstanceProtected:
+      type: boolean
+    InvalidNextToken: {}
+    AutoScalingInstances:
+      type: array
+      items:
+        $ref: '#/components/schemas/AutoScalingInstanceDetails'
+    DescribeAutoScalingInstancesType:
+      type: object
+      title: DescribeAutoScalingInstancesType
+      properties:
+        InstanceIds:
+          allOf:
+          - $ref: '#/components/schemas/InstanceIds'
+          - description: '<p>The IDs of the instances. If you omit this property, all Auto Scaling instances are described. If you specify an ID that does not exist, it is ignored with no error.</p> <p>Array Members: Maximum number of 50 items.</p>'
+        MaxRecords:
+          allOf:
+          - $ref: '#/components/schemas/MaxRecords'
+          - description: The maximum number of items to return with this call. The default value is <code>50</code> and the maximum value is <code>50</code>.
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/XmlString'
+          - description: The token for the next set of items to return. (You received this token from a previous call.)
+    AutoScalingInstanceDetails:
+      type: object
+      required:
+      - InstanceId
+      - AutoScalingGroupName
+      - AvailabilityZone
+      - LifecycleState
+      - HealthStatus
+      - ProtectedFromScaleIn
+      properties:
+        InstanceId:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen19'
+          - description: The ID of the instance.
+        InstanceType:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen255'
+          - description: The instance type of the EC2 instance.
+        AutoScalingGroupName:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen255'
+          - description: The name of the Auto Scaling group for the instance.
+        AvailabilityZone:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen255'
+          - description: The Availability Zone for the instance.
+        LifecycleState:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen32'
+          - description: '<p>The lifecycle state for the instance. The <code>Quarantined</code> state is not used. For information about lifecycle states, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroupLifecycle.html">Instance lifecycle</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p> <p>Valid values: <code>Pending</code> | <code>Pending:Wait</code> | <code>Pending:Proceed</code> | <code>Quarantined</code> | <code>InService</code> | <code>Terminating</code> | <code>Terminating:Wait</code> | <code>Terminating:Proceed</code> | <code>Terminated</code> | <code>Detaching</code> | <code>Detached</code> | <code>EnteringStandby</code> | <code>Standby</code> | <code>Warmed:Pending</code> | <code>Warmed:Pending:Wait</code> | <code>Warmed:Pending:Proceed</code> | <code>Warmed:Terminating</code> | <code>Warmed:Terminating:Wait</code> | <code>Warmed:Terminating:Proceed</code> | <code>Warmed:Terminated</code> | <code>Warmed:Stopped</code> | <code>Warmed:Running</code> </p>'
+        HealthStatus:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen32'
+          - description: The last reported health status of this instance. <code>Healthy</code> means that the instance is healthy and should remain in service. <code>Unhealthy</code> means that the instance is unhealthy and Amazon EC2 Auto Scaling should terminate and replace it.
+        LaunchConfigurationName:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen255'
+          - description: The launch configuration used to launch the instance. This value is not available if you attached the instance to the Auto Scaling group.
+        LaunchTemplate:
+          allOf:
+          - $ref: '#/components/schemas/LaunchTemplateSpecification'
+          - description: The launch template for the instance.
+        ProtectedFromScaleIn:
+          allOf:
+          - $ref: '#/components/schemas/InstanceProtected'
+          - description: Indicates whether the instance is protected from termination by Amazon EC2 Auto Scaling when scaling in.
+        WeightedCapacity:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen32'
+          - description: '<p>The number of capacity units contributed by the instance based on its instance type.</p> <p>Valid Range: Minimum value of 1. Maximum value of 999.</p>'
+      description: Describes an EC2 instance associated with an Auto Scaling group.
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/autoscaling/
+x-hasEquivalentPaths: true

@@ -1,0 +1,418 @@
+openapi: 3.0.0
+info:
+  version: 2011-01-01
+  x-release: v4
+  title: 'Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=DescribeLifecycleHooks API'
+  description: <fullname>Amazon EC2 Auto Scaling</fullname> <p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.</p> <p>For more information, see the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/">Amazon EC2 Auto Scaling User Guide</a> and the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html">Amazon EC2 Auto Scaling API Reference</a>.</p>
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: autoscaling
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/autoscaling-2011-01-01.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://autoscaling.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Auto Scaling multi-region endpoint
+- url: https://autoscaling.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Auto Scaling multi-region endpoint
+- url: http://autoscaling.amazonaws.com
+  variables: {}
+  description: The general Auto Scaling endpoint for US East (N. Virginia)
+- url: https://autoscaling.amazonaws.com
+  variables: {}
+  description: The general Auto Scaling endpoint for US East (N. Virginia)
+- url: http://autoscaling.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Auto Scaling endpoint for China (Beijing) and China (Ningxia)
+- url: https://autoscaling.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Auto Scaling endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: '#Action=DescribeLifecycleHooks'
+paths:
+  /#Action=DescribeLifecycleHooks:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      x-aws-operation-name: DescribeLifecycleHooks
+      operationId: GET_DescribeLifecycleHooks
+      description: Gets information about the lifecycle hooks for the specified Auto Scaling group.
+      responses:
+        '200':
+          description: Success
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/DescribeLifecycleHooksAnswer'
+              examples:
+                GET_DescribeLifecycleHooks200Example:
+                  summary: Default GET_DescribeLifecycleHooks 200 response
+                  x-microcks-default: true
+                  value:
+                    LifecycleHooks: example-string
+        '480':
+          description: ResourceContentionFault
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ResourceContentionFault'
+              examples:
+                GET_DescribeLifecycleHooks480Example:
+                  summary: Default GET_DescribeLifecycleHooks 480 response
+                  x-microcks-default: true
+                  value: {}
+      parameters:
+      - name: AutoScalingGroupName
+        in: query
+        required: true
+        description: The name of the Auto Scaling group.
+        schema:
+          type: string
+          minLength: 1
+          maxLength: 255
+          x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+      - name: LifecycleHookNames
+        in: query
+        required: false
+        description: The names of one or more lifecycle hooks. If you omit this property, all lifecycle hooks are described.
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/AsciiStringMaxLen255'
+          maxItems: 50
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - DescribeLifecycleHooks
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - 2011-01-01
+      summary: Amazon EC2 Auto Scaling GET_ Describe Lifecycle Hooks
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - '#Action=DescribeLifecycleHooks'
+    post:
+      x-aws-operation-name: DescribeLifecycleHooks
+      operationId: POST_DescribeLifecycleHooks
+      description: Gets information about the lifecycle hooks for the specified Auto Scaling group.
+      responses:
+        '200':
+          description: Success
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/DescribeLifecycleHooksAnswer'
+              examples:
+                POST_DescribeLifecycleHooks200Example:
+                  summary: Default POST_DescribeLifecycleHooks 200 response
+                  x-microcks-default: true
+                  value:
+                    LifecycleHooks: example-string
+        '480':
+          description: ResourceContentionFault
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ResourceContentionFault'
+              examples:
+                POST_DescribeLifecycleHooks480Example:
+                  summary: Default POST_DescribeLifecycleHooks 480 response
+                  x-microcks-default: true
+                  value: {}
+      requestBody:
+        content:
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/DescribeLifecycleHooksType'
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - DescribeLifecycleHooks
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - 2011-01-01
+      summary: Amazon EC2 Auto Scaling POST_ Describe Lifecycle Hooks
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - '#Action=DescribeLifecycleHooks'
+components:
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    ResourceContentionFault: {}
+    XmlStringMaxLen1023:
+      type: string
+      minLength: 1
+      maxLength: 1023
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    LifecycleTransition:
+      type: string
+    AsciiStringMaxLen255:
+      type: string
+      pattern: '[A-Za-z0-9\-_\/]+'
+      minLength: 1
+      maxLength: 255
+    LifecycleHook:
+      type: object
+      properties:
+        LifecycleHookName:
+          allOf:
+          - $ref: '#/components/schemas/AsciiStringMaxLen255'
+          - description: The name of the lifecycle hook.
+        AutoScalingGroupName:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen255'
+          - description: The name of the Auto Scaling group for the lifecycle hook.
+        LifecycleTransition:
+          allOf:
+          - $ref: '#/components/schemas/LifecycleTransition'
+          - description: '<p>The lifecycle transition.</p> <p>Valid values: <code>autoscaling:EC2_INSTANCE_LAUNCHING</code> | <code>autoscaling:EC2_INSTANCE_TERMINATING</code> </p>'
+        NotificationTargetARN:
+          allOf:
+          - $ref: '#/components/schemas/NotificationTargetResourceName'
+          - description: The ARN of the target that Amazon EC2 Auto Scaling sends notifications to when an instance is in a wait state for the lifecycle hook.
+        RoleARN:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen255'
+          - description: The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target (an Amazon SNS topic or an Amazon SQS queue).
+        NotificationMetadata:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen1023'
+          - description: Additional information that is included any time Amazon EC2 Auto Scaling sends a message to the notification target.
+        HeartbeatTimeout:
+          allOf:
+          - $ref: '#/components/schemas/HeartbeatTimeout'
+          - description: The maximum time, in seconds, that can elapse before the lifecycle hook times out. If the lifecycle hook times out, Amazon EC2 Auto Scaling performs the action that you specified in the <code>DefaultResult</code> property.
+        GlobalTimeout:
+          allOf:
+          - $ref: '#/components/schemas/GlobalTimeout'
+          - description: The maximum time, in seconds, that an instance can remain in a wait state. The maximum is 172800 seconds (48 hours) or 100 times <code>HeartbeatTimeout</code>, whichever is smaller.
+        DefaultResult:
+          allOf:
+          - $ref: '#/components/schemas/LifecycleActionResult'
+          - description: '<p>The action the Auto Scaling group takes when the lifecycle hook timeout elapses or if an unexpected failure occurs.</p> <p>Valid values: <code>CONTINUE</code> | <code>ABANDON</code> </p>'
+      description: Describes a lifecycle hook. A lifecycle hook lets you create solutions that are aware of events in the Auto Scaling instance lifecycle, and then perform a custom action on instances when the corresponding lifecycle event occurs.
+    GlobalTimeout:
+      type: integer
+    LifecycleActionResult:
+      type: string
+    NotificationTargetResourceName:
+      type: string
+      minLength: 0
+      maxLength: 255
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    XmlStringMaxLen255:
+      type: string
+      minLength: 1
+      maxLength: 255
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    LifecycleHookNames:
+      type: array
+      items:
+        $ref: '#/components/schemas/AsciiStringMaxLen255'
+      maxItems: 50
+    LifecycleHooks:
+      type: array
+      items:
+        $ref: '#/components/schemas/LifecycleHook'
+    HeartbeatTimeout:
+      type: integer
+    DescribeLifecycleHooksAnswer:
+      type: object
+      example:
+        LifecycleHooks:
+        - AutoScalingGroupName: my-auto-scaling-group
+          DefaultResult: ABANDON
+          GlobalTimeout: 172800
+          HeartbeatTimeout: 3600
+          LifecycleHookName: my-lifecycle-hook
+          LifecycleTransition: autoscaling:EC2_INSTANCE_LAUNCHING
+          NotificationTargetARN: arn:aws:sns:us-west-2:123456789012:my-sns-topic
+          RoleARN: arn:aws:iam::123456789012:role/my-auto-scaling-role
+      properties:
+        LifecycleHooks:
+          allOf:
+          - $ref: '#/components/schemas/LifecycleHooks'
+          - description: The lifecycle hooks for the specified group.
+          example: example-string
+    DescribeLifecycleHooksType:
+      type: object
+      required:
+      - AutoScalingGroupName
+      title: DescribeLifecycleHooksType
+      properties:
+        AutoScalingGroupName:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen255'
+          - description: The name of the Auto Scaling group.
+        LifecycleHookNames:
+          allOf:
+          - $ref: '#/components/schemas/LifecycleHookNames'
+          - description: The names of one or more lifecycle hooks. If you omit this property, all lifecycle hooks are described.
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/autoscaling/
+x-hasEquivalentPaths: true

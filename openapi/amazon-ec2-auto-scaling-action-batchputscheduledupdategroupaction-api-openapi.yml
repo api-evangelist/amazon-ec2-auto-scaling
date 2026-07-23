@@ -1,0 +1,461 @@
+openapi: 3.0.0
+info:
+  version: 2011-01-01
+  x-release: v4
+  title: 'Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=BatchPutScheduledUpdateGroupAction API'
+  description: <fullname>Amazon EC2 Auto Scaling</fullname> <p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.</p> <p>For more information, see the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/">Amazon EC2 Auto Scaling User Guide</a> and the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html">Amazon EC2 Auto Scaling API Reference</a>.</p>
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: autoscaling
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/autoscaling-2011-01-01.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://autoscaling.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Auto Scaling multi-region endpoint
+- url: https://autoscaling.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Auto Scaling multi-region endpoint
+- url: http://autoscaling.amazonaws.com
+  variables: {}
+  description: The general Auto Scaling endpoint for US East (N. Virginia)
+- url: https://autoscaling.amazonaws.com
+  variables: {}
+  description: The general Auto Scaling endpoint for US East (N. Virginia)
+- url: http://autoscaling.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Auto Scaling endpoint for China (Beijing) and China (Ningxia)
+- url: https://autoscaling.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Auto Scaling endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: '#Action=BatchPutScheduledUpdateGroupAction'
+paths:
+  /#Action=BatchPutScheduledUpdateGroupAction:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      x-aws-operation-name: BatchPutScheduledUpdateGroupAction
+      operationId: GET_BatchPutScheduledUpdateGroupAction
+      description: Creates or updates one or more scheduled scaling actions for an Auto Scaling group.
+      responses:
+        '200':
+          description: Success
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/BatchPutScheduledUpdateGroupActionAnswer'
+              examples:
+                GET_BatchPutScheduledUpdateGroupAction200Example:
+                  summary: Default GET_BatchPutScheduledUpdateGroupAction 200 response
+                  x-microcks-default: true
+                  value:
+                    FailedScheduledUpdateGroupActions: example-string
+        '480':
+          description: AlreadyExistsFault
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/AlreadyExistsFault'
+              examples:
+                GET_BatchPutScheduledUpdateGroupAction480Example:
+                  summary: Default GET_BatchPutScheduledUpdateGroupAction 480 response
+                  x-microcks-default: true
+                  value: {}
+        '481':
+          description: LimitExceededFault
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/LimitExceededFault'
+              examples:
+                GET_BatchPutScheduledUpdateGroupAction481Example:
+                  summary: Default GET_BatchPutScheduledUpdateGroupAction 481 response
+                  x-microcks-default: true
+                  value: {}
+        '482':
+          description: ResourceContentionFault
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ResourceContentionFault'
+      parameters:
+      - name: AutoScalingGroupName
+        in: query
+        required: true
+        description: The name of the Auto Scaling group.
+        schema:
+          type: string
+          minLength: 1
+          maxLength: 255
+          x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+      - name: ScheduledUpdateGroupActions
+        in: query
+        required: true
+        description: One or more scheduled actions. The maximum number allowed is 50.
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScheduledUpdateGroupActionRequest'
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - BatchPutScheduledUpdateGroupAction
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - 2011-01-01
+      summary: Amazon EC2 Auto Scaling GET_ Batch Put Scheduled Update Group Action
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - '#Action=BatchPutScheduledUpdateGroupAction'
+    post:
+      x-aws-operation-name: BatchPutScheduledUpdateGroupAction
+      operationId: POST_BatchPutScheduledUpdateGroupAction
+      description: Creates or updates one or more scheduled scaling actions for an Auto Scaling group.
+      responses:
+        '200':
+          description: Success
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/BatchPutScheduledUpdateGroupActionAnswer'
+              examples:
+                POST_BatchPutScheduledUpdateGroupAction200Example:
+                  summary: Default POST_BatchPutScheduledUpdateGroupAction 200 response
+                  x-microcks-default: true
+                  value:
+                    FailedScheduledUpdateGroupActions: example-string
+        '480':
+          description: AlreadyExistsFault
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/AlreadyExistsFault'
+              examples:
+                POST_BatchPutScheduledUpdateGroupAction480Example:
+                  summary: Default POST_BatchPutScheduledUpdateGroupAction 480 response
+                  x-microcks-default: true
+                  value: {}
+        '481':
+          description: LimitExceededFault
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/LimitExceededFault'
+              examples:
+                POST_BatchPutScheduledUpdateGroupAction481Example:
+                  summary: Default POST_BatchPutScheduledUpdateGroupAction 481 response
+                  x-microcks-default: true
+                  value: {}
+        '482':
+          description: ResourceContentionFault
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ResourceContentionFault'
+      requestBody:
+        content:
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/BatchPutScheduledUpdateGroupActionType'
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - BatchPutScheduledUpdateGroupAction
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - 2011-01-01
+      summary: Amazon EC2 Auto Scaling POST_ Batch Put Scheduled Update Group Action
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - '#Action=BatchPutScheduledUpdateGroupAction'
+components:
+  schemas:
+    XmlString:
+      type: string
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    AutoScalingGroupMaxSize:
+      type: integer
+    ResourceContentionFault: {}
+    FailedScheduledUpdateGroupActionRequest:
+      type: object
+      required:
+      - ScheduledActionName
+      properties:
+        ScheduledActionName:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen255'
+          - description: The name of the scheduled action.
+        ErrorCode:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen64'
+          - description: The error code.
+        ErrorMessage:
+          allOf:
+          - $ref: '#/components/schemas/XmlString'
+          - description: The error message accompanying the error code.
+      description: Describes a scheduled action that could not be created, updated, or deleted.
+    XmlStringMaxLen64:
+      type: string
+      minLength: 1
+      maxLength: 64
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    TimestampType:
+      type: string
+      format: date-time
+    AutoScalingGroupDesiredCapacity:
+      type: integer
+    AutoScalingGroupMinSize:
+      type: integer
+    XmlStringMaxLen255:
+      type: string
+      minLength: 1
+      maxLength: 255
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    BatchPutScheduledUpdateGroupActionType:
+      type: object
+      required:
+      - AutoScalingGroupName
+      - ScheduledUpdateGroupActions
+      title: BatchPutScheduledUpdateGroupActionType
+      properties:
+        AutoScalingGroupName:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen255'
+          - description: The name of the Auto Scaling group.
+        ScheduledUpdateGroupActions:
+          allOf:
+          - $ref: '#/components/schemas/ScheduledUpdateGroupActionRequests'
+          - description: One or more scheduled actions. The maximum number allowed is 50.
+    BatchPutScheduledUpdateGroupActionAnswer:
+      type: object
+      properties:
+        FailedScheduledUpdateGroupActions:
+          allOf:
+          - $ref: '#/components/schemas/FailedScheduledUpdateGroupActionRequests'
+          - description: The names of the scheduled actions that could not be created or updated, including an error message.
+          example: example-string
+    ScheduledUpdateGroupActionRequests:
+      type: array
+      items:
+        $ref: '#/components/schemas/ScheduledUpdateGroupActionRequest'
+    ScheduledUpdateGroupActionRequest:
+      type: object
+      required:
+      - ScheduledActionName
+      properties:
+        ScheduledActionName:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen255'
+          - description: The name of the scaling action.
+          example: example-resource-name
+        StartTime:
+          allOf:
+          - $ref: '#/components/schemas/TimestampType'
+          - description: <p>The date and time for the action to start, in YYYY-MM-DDThh:mm:ssZ format in UTC/GMT only and in quotes (for example, <code>"2019-06-01T00:00:00Z"</code>).</p> <p>If you specify <code>Recurrence</code> and <code>StartTime</code>, Amazon EC2 Auto Scaling performs the action at this time, and then performs the action based on the specified recurrence.</p> <p>If you try to schedule the action in the past, Amazon EC2 Auto Scaling returns an error message.</p>
+          example: example-string
+        EndTime:
+          allOf:
+          - $ref: '#/components/schemas/TimestampType'
+          - description: The date and time for the recurring schedule to end, in UTC.
+          example: example-string
+        Recurrence:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen255'
+          - description: '<p>The recurring schedule for the action, in Unix cron syntax format. This format consists of five fields separated by white spaces: [Minute] [Hour] [Day_of_Month] [Month_of_Year] [Day_of_Week]. The value must be in quotes (for example, <code>"30 0 1 1,6,12 *"</code>). For more information about this format, see <a href="http://crontab.org">Crontab</a>.</p> <p>When <code>StartTime</code> and <code>EndTime</code> are specified with <code>Recurrence</code>, they form the boundaries of when the recurring action starts and stops.</p> <p>Cron expressions use Universal Coordinated Time (UTC) by default.</p>'
+          example: example-string
+        MinSize:
+          allOf:
+          - $ref: '#/components/schemas/AutoScalingGroupMinSize'
+          - description: The minimum size of the Auto Scaling group.
+          example: example-string
+        MaxSize:
+          allOf:
+          - $ref: '#/components/schemas/AutoScalingGroupMaxSize'
+          - description: The maximum size of the Auto Scaling group.
+          example: example-string
+        DesiredCapacity:
+          allOf:
+          - $ref: '#/components/schemas/AutoScalingGroupDesiredCapacity'
+          - description: The desired capacity is the initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain.
+          example: example-string
+        TimeZone:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen255'
+          - description: <p>Specifies the time zone for a cron expression. If a time zone is not provided, UTC is used by default. </p> <p>Valid values are the canonical names of the IANA time zones, derived from the IANA Time Zone Database (such as <code>Etc/GMT+9</code> or <code>Pacific/Tahiti</code>). For more information, see <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">https://en.wikipedia.org/wiki/List_of_tz_database_time_zones</a>.</p>
+          example: example-string
+      description: Describes information used for one or more scheduled scaling action updates in a <a>BatchPutScheduledUpdateGroupAction</a> operation.
+    FailedScheduledUpdateGroupActionRequests:
+      type: array
+      items:
+        $ref: '#/components/schemas/FailedScheduledUpdateGroupActionRequest'
+    LimitExceededFault: {}
+    AlreadyExistsFault: {}
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/autoscaling/
+x-hasEquivalentPaths: true
