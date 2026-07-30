@@ -2,6 +2,19 @@ name: Amazon EC2 Auto Scaling
 description: Amazon EC2 Auto Scaling helps you maintain application availability and lets you automatically add or remove
   EC2 instances according to conditions you define. You can use fleet management features to maintain the health and availability
   of your fleet, and use dynamic and predictive scaling to add or remove EC2 instances to meet demand.
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
 url: https://aws.amazon.com/ec2/autoscaling/
 created: '2026-03-16'
@@ -15,30 +28,26 @@ tags:
 - High Availability
 - Scaling
 apis:
-- name: Amazon EC2 Auto Scaling API
-  description: The Amazon EC2 Auto Scaling API provides programmatic access to create and manage Auto Scaling groups, launch
-    configurations, scaling policies, scheduled actions, lifecycle hooks, and warm pools for automatic capacity management.
-  image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-attachinstances-api
+  name: 'Amazon EC2 Auto Scaling #Action=AttachInstances API'
+  description: >-
+    The #Action=AttachInstances API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=attachinstances.
   humanURL: https://aws.amazon.com/ec2/autoscaling/
   baseURL: https://autoscaling.amazonaws.com
   tags:
-  - Auto Scaling
-  - Capacity Management
-  - Compute
-  - EC2
+  - '#Action=AttachInstances'
   properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-attachinstances-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
-  - type: OpenAPI
-    url: openapi/amazon-ec2-auto-scaling-openapi.yaml
-  - type: OpenAPI
-    url: https://api.apis.guru/v2/specs/amazonaws.com/autoscaling/2011-01-01/openapi.yaml
   - type: JSONSchema
     url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
   - type: JSONLD
     url: json-ld/amazon-ec2-auto-scaling-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
   - type: Pricing
     url: https://aws.amazon.com/ec2/autoscaling/pricing/
   - type: FAQ
@@ -48,7 +57,2524 @@ apis:
   - type: Authentication
     url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
   - type: RateLimits
-    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-attachloadbalancers-api
+  name: 'Amazon EC2 Auto Scaling #Action=AttachLoadBalancers API'
+  description: >-
+    The #Action=AttachLoadBalancers API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=attachloadbalancers.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=AttachLoadBalancers'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-attachloadbalancers-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: >-
+    amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-attachloadbalancertargetgroups-api
+  name: 'Amazon EC2 Auto Scaling #Action=AttachLoadBalancerTargetGroups API'
+  description: >-
+    The #Action=AttachLoadBalancerTargetGroups API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=attachloadbalancertargetgroups.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=AttachLoadBalancerTargetGroups'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-attachloadbalancertargetgroups-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-attachtrafficsources-api
+  name: 'Amazon EC2 Auto Scaling #Action=AttachTrafficSources API'
+  description: >-
+    The #Action=AttachTrafficSources API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=attachtrafficsources.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=AttachTrafficSources'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-attachtrafficsources-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-batchdeletescheduledaction-api
+  name: 'Amazon EC2 Auto Scaling #Action=BatchDeleteScheduledAction API'
+  description: >-
+    The #Action=BatchDeleteScheduledAction API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=batchdeletescheduledaction.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=BatchDeleteScheduledAction'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-batchdeletescheduledaction-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: >-
+    amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-batchputscheduledupdategroupaction-api
+  name: 'Amazon EC2 Auto Scaling #Action=BatchPutScheduledUpdateGroupAction API'
+  description: >-
+    The #Action=BatchPutScheduledUpdateGroupAction API from Amazon EC2 Auto Scaling — 1 operation(s) for
+    #action=batchputscheduledupdategroupaction.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=BatchPutScheduledUpdateGroupAction'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-ec2-auto-scaling-action-batchputscheduledupdategroupaction-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-cancelinstancerefresh-api
+  name: 'Amazon EC2 Auto Scaling #Action=CancelInstanceRefresh API'
+  description: >-
+    The #Action=CancelInstanceRefresh API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=cancelinstancerefresh.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=CancelInstanceRefresh'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-cancelinstancerefresh-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-completelifecycleaction-api
+  name: 'Amazon EC2 Auto Scaling #Action=CompleteLifecycleAction API'
+  description: >-
+    The #Action=CompleteLifecycleAction API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=completelifecycleaction.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=CompleteLifecycleAction'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-completelifecycleaction-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-createautoscalinggroup-api
+  name: 'Amazon EC2 Auto Scaling #Action=CreateAutoScalingGroup API'
+  description: >-
+    The #Action=CreateAutoScalingGroup API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=createautoscalinggroup.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=CreateAutoScalingGroup'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-createautoscalinggroup-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-createlaunchconfiguration-api
+  name: 'Amazon EC2 Auto Scaling #Action=CreateLaunchConfiguration API'
+  description: >-
+    The #Action=CreateLaunchConfiguration API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=createlaunchconfiguration.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=CreateLaunchConfiguration'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-createlaunchconfiguration-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-createorupdatetags-api
+  name: 'Amazon EC2 Auto Scaling #Action=CreateOrUpdateTags API'
+  description: >-
+    The #Action=CreateOrUpdateTags API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=createorupdatetags.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=CreateOrUpdateTags'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-createorupdatetags-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-deleteautoscalinggroup-api
+  name: 'Amazon EC2 Auto Scaling #Action=DeleteAutoScalingGroup API'
+  description: >-
+    The #Action=DeleteAutoScalingGroup API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=deleteautoscalinggroup.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=DeleteAutoScalingGroup'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-deleteautoscalinggroup-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-deletelaunchconfiguration-api
+  name: 'Amazon EC2 Auto Scaling #Action=DeleteLaunchConfiguration API'
+  description: >-
+    The #Action=DeleteLaunchConfiguration API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=deletelaunchconfiguration.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=DeleteLaunchConfiguration'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-deletelaunchconfiguration-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-deletelifecyclehook-api
+  name: 'Amazon EC2 Auto Scaling #Action=DeleteLifecycleHook API'
+  description: >-
+    The #Action=DeleteLifecycleHook API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=deletelifecyclehook.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=DeleteLifecycleHook'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-deletelifecyclehook-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: >-
+    amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-deletenotificationconfiguration-api
+  name: 'Amazon EC2 Auto Scaling #Action=DeleteNotificationConfiguration API'
+  description: >-
+    The #Action=DeleteNotificationConfiguration API from Amazon EC2 Auto Scaling — 1 operation(s) for
+    #action=deletenotificationconfiguration.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=DeleteNotificationConfiguration'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-deletenotificationconfiguration-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-deletepolicy-api
+  name: 'Amazon EC2 Auto Scaling #Action=DeletePolicy API'
+  description: >-
+    The #Action=DeletePolicy API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=deletepolicy.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=DeletePolicy'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-deletepolicy-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-deletescheduledaction-api
+  name: 'Amazon EC2 Auto Scaling #Action=DeleteScheduledAction API'
+  description: >-
+    The #Action=DeleteScheduledAction API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=deletescheduledaction.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=DeleteScheduledAction'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-deletescheduledaction-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-deletetags-api
+  name: 'Amazon EC2 Auto Scaling #Action=DeleteTags API'
+  description: >-
+    The #Action=DeleteTags API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=deletetags.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=DeleteTags'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-deletetags-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-deletewarmpool-api
+  name: 'Amazon EC2 Auto Scaling #Action=DeleteWarmPool API'
+  description: >-
+    The #Action=DeleteWarmPool API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=deletewarmpool.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=DeleteWarmPool'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-deletewarmpool-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-describeaccountlimits-api
+  name: 'Amazon EC2 Auto Scaling #Action=DescribeAccountLimits API'
+  description: >-
+    The #Action=DescribeAccountLimits API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=describeaccountlimits.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=DescribeAccountLimits'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-describeaccountlimits-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-describeadjustmenttypes-api
+  name: 'Amazon EC2 Auto Scaling #Action=DescribeAdjustmentTypes API'
+  description: >-
+    The #Action=DescribeAdjustmentTypes API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=describeadjustmenttypes.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=DescribeAdjustmentTypes'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-describeadjustmenttypes-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-describeautoscalinggroups-api
+  name: 'Amazon EC2 Auto Scaling #Action=DescribeAutoScalingGroups API'
+  description: >-
+    The #Action=DescribeAutoScalingGroups API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=describeautoscalinggroups.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=DescribeAutoScalingGroups'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-describeautoscalinggroups-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-describeautoscalinginstances-api
+  name: 'Amazon EC2 Auto Scaling #Action=DescribeAutoScalingInstances API'
+  description: >-
+    The #Action=DescribeAutoScalingInstances API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=describeautoscalinginstances.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=DescribeAutoScalingInstances'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-describeautoscalinginstances-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: >-
+    amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-describeautoscalingnotificationtypes-api
+  name: 'Amazon EC2 Auto Scaling #Action=DescribeAutoScalingNotificationTypes API'
+  description: >-
+    The #Action=DescribeAutoScalingNotificationTypes API from Amazon EC2 Auto Scaling — 1 operation(s)
+    for #action=describeautoscalingnotificationtypes.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=DescribeAutoScalingNotificationTypes'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-ec2-auto-scaling-action-describeautoscalingnotificationtypes-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-describeinstancerefreshes-api
+  name: 'Amazon EC2 Auto Scaling #Action=DescribeInstanceRefreshes API'
+  description: >-
+    The #Action=DescribeInstanceRefreshes API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=describeinstancerefreshes.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=DescribeInstanceRefreshes'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-describeinstancerefreshes-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-describelaunchconfigurations-api
+  name: 'Amazon EC2 Auto Scaling #Action=DescribeLaunchConfigurations API'
+  description: >-
+    The #Action=DescribeLaunchConfigurations API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=describelaunchconfigurations.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=DescribeLaunchConfigurations'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-describelaunchconfigurations-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-describelifecyclehooks-api
+  name: 'Amazon EC2 Auto Scaling #Action=DescribeLifecycleHooks API'
+  description: >-
+    The #Action=DescribeLifecycleHooks API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=describelifecyclehooks.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=DescribeLifecycleHooks'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-describelifecyclehooks-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-describelifecyclehooktypes-api
+  name: 'Amazon EC2 Auto Scaling #Action=DescribeLifecycleHookTypes API'
+  description: >-
+    The #Action=DescribeLifecycleHookTypes API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=describelifecyclehooktypes.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=DescribeLifecycleHookTypes'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-describelifecyclehooktypes-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-describeloadbalancers-api
+  name: 'Amazon EC2 Auto Scaling #Action=DescribeLoadBalancers API'
+  description: >-
+    The #Action=DescribeLoadBalancers API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=describeloadbalancers.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=DescribeLoadBalancers'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-describeloadbalancers-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: >-
+    amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-describeloadbalancertargetgroups-api
+  name: 'Amazon EC2 Auto Scaling #Action=DescribeLoadBalancerTargetGroups API'
+  description: >-
+    The #Action=DescribeLoadBalancerTargetGroups API from Amazon EC2 Auto Scaling — 1 operation(s) for
+    #action=describeloadbalancertargetgroups.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=DescribeLoadBalancerTargetGroups'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-describeloadbalancertargetgroups-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-describemetriccollectiontypes-api
+  name: 'Amazon EC2 Auto Scaling #Action=DescribeMetricCollectionTypes API'
+  description: >-
+    The #Action=DescribeMetricCollectionTypes API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=describemetriccollectiontypes.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=DescribeMetricCollectionTypes'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-describemetriccollectiontypes-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: >-
+    amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-describenotificationconfigurations-api
+  name: 'Amazon EC2 Auto Scaling #Action=DescribeNotificationConfigurations API'
+  description: >-
+    The #Action=DescribeNotificationConfigurations API from Amazon EC2 Auto Scaling — 1 operation(s) for
+    #action=describenotificationconfigurations.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=DescribeNotificationConfigurations'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-ec2-auto-scaling-action-describenotificationconfigurations-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-describepolicies-api
+  name: 'Amazon EC2 Auto Scaling #Action=DescribePolicies API'
+  description: >-
+    The #Action=DescribePolicies API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=describepolicies.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=DescribePolicies'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-describepolicies-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-describescalingactivities-api
+  name: 'Amazon EC2 Auto Scaling #Action=DescribeScalingActivities API'
+  description: >-
+    The #Action=DescribeScalingActivities API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=describescalingactivities.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=DescribeScalingActivities'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-describescalingactivities-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-describescalingprocesstypes-api
+  name: 'Amazon EC2 Auto Scaling #Action=DescribeScalingProcessTypes API'
+  description: >-
+    The #Action=DescribeScalingProcessTypes API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=describescalingprocesstypes.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=DescribeScalingProcessTypes'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-describescalingprocesstypes-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-describescheduledactions-api
+  name: 'Amazon EC2 Auto Scaling #Action=DescribeScheduledActions API'
+  description: >-
+    The #Action=DescribeScheduledActions API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=describescheduledactions.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=DescribeScheduledActions'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-describescheduledactions-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-describetags-api
+  name: 'Amazon EC2 Auto Scaling #Action=DescribeTags API'
+  description: >-
+    The #Action=DescribeTags API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=describetags.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=DescribeTags'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-describetags-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: >-
+    amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-describeterminationpolicytypes-api
+  name: 'Amazon EC2 Auto Scaling #Action=DescribeTerminationPolicyTypes API'
+  description: >-
+    The #Action=DescribeTerminationPolicyTypes API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=describeterminationpolicytypes.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=DescribeTerminationPolicyTypes'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-describeterminationpolicytypes-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-describetrafficsources-api
+  name: 'Amazon EC2 Auto Scaling #Action=DescribeTrafficSources API'
+  description: >-
+    The #Action=DescribeTrafficSources API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=describetrafficsources.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=DescribeTrafficSources'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-describetrafficsources-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-describewarmpool-api
+  name: 'Amazon EC2 Auto Scaling #Action=DescribeWarmPool API'
+  description: >-
+    The #Action=DescribeWarmPool API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=describewarmpool.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=DescribeWarmPool'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-describewarmpool-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-detachinstances-api
+  name: 'Amazon EC2 Auto Scaling #Action=DetachInstances API'
+  description: >-
+    The #Action=DetachInstances API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=detachinstances.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=DetachInstances'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-detachinstances-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-detachloadbalancers-api
+  name: 'Amazon EC2 Auto Scaling #Action=DetachLoadBalancers API'
+  description: >-
+    The #Action=DetachLoadBalancers API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=detachloadbalancers.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=DetachLoadBalancers'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-detachloadbalancers-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: >-
+    amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-detachloadbalancertargetgroups-api
+  name: 'Amazon EC2 Auto Scaling #Action=DetachLoadBalancerTargetGroups API'
+  description: >-
+    The #Action=DetachLoadBalancerTargetGroups API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=detachloadbalancertargetgroups.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=DetachLoadBalancerTargetGroups'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-detachloadbalancertargetgroups-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-detachtrafficsources-api
+  name: 'Amazon EC2 Auto Scaling #Action=DetachTrafficSources API'
+  description: >-
+    The #Action=DetachTrafficSources API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=detachtrafficsources.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=DetachTrafficSources'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-detachtrafficsources-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-disablemetricscollection-api
+  name: 'Amazon EC2 Auto Scaling #Action=DisableMetricsCollection API'
+  description: >-
+    The #Action=DisableMetricsCollection API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=disablemetricscollection.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=DisableMetricsCollection'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-disablemetricscollection-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-enablemetricscollection-api
+  name: 'Amazon EC2 Auto Scaling #Action=EnableMetricsCollection API'
+  description: >-
+    The #Action=EnableMetricsCollection API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=enablemetricscollection.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=EnableMetricsCollection'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-enablemetricscollection-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-enterstandby-api
+  name: 'Amazon EC2 Auto Scaling #Action=EnterStandby API'
+  description: >-
+    The #Action=EnterStandby API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=enterstandby.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=EnterStandby'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-enterstandby-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-executepolicy-api
+  name: 'Amazon EC2 Auto Scaling #Action=ExecutePolicy API'
+  description: >-
+    The #Action=ExecutePolicy API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=executepolicy.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=ExecutePolicy'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-executepolicy-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-exitstandby-api
+  name: 'Amazon EC2 Auto Scaling #Action=ExitStandby API'
+  description: >-
+    The #Action=ExitStandby API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=exitstandby.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=ExitStandby'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-exitstandby-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-getpredictivescalingforecast-api
+  name: 'Amazon EC2 Auto Scaling #Action=GetPredictiveScalingForecast API'
+  description: >-
+    The #Action=GetPredictiveScalingForecast API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=getpredictivescalingforecast.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=GetPredictiveScalingForecast'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-getpredictivescalingforecast-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-putlifecyclehook-api
+  name: 'Amazon EC2 Auto Scaling #Action=PutLifecycleHook API'
+  description: >-
+    The #Action=PutLifecycleHook API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=putlifecyclehook.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=PutLifecycleHook'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-putlifecyclehook-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-putnotificationconfiguration-api
+  name: 'Amazon EC2 Auto Scaling #Action=PutNotificationConfiguration API'
+  description: >-
+    The #Action=PutNotificationConfiguration API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=putnotificationconfiguration.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=PutNotificationConfiguration'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-putnotificationconfiguration-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-putscalingpolicy-api
+  name: 'Amazon EC2 Auto Scaling #Action=PutScalingPolicy API'
+  description: >-
+    The #Action=PutScalingPolicy API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=putscalingpolicy.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=PutScalingPolicy'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-putscalingpolicy-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-putscheduledupdategroupaction-api
+  name: 'Amazon EC2 Auto Scaling #Action=PutScheduledUpdateGroupAction API'
+  description: >-
+    The #Action=PutScheduledUpdateGroupAction API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=putscheduledupdategroupaction.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=PutScheduledUpdateGroupAction'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-putscheduledupdategroupaction-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-putwarmpool-api
+  name: 'Amazon EC2 Auto Scaling #Action=PutWarmPool API'
+  description: >-
+    The #Action=PutWarmPool API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=putwarmpool.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=PutWarmPool'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-putwarmpool-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: >-
+    amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-recordlifecycleactionheartbeat-api
+  name: 'Amazon EC2 Auto Scaling #Action=RecordLifecycleActionHeartbeat API'
+  description: >-
+    The #Action=RecordLifecycleActionHeartbeat API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=recordlifecycleactionheartbeat.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=RecordLifecycleActionHeartbeat'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-recordlifecycleactionheartbeat-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-resumeprocesses-api
+  name: 'Amazon EC2 Auto Scaling #Action=ResumeProcesses API'
+  description: >-
+    The #Action=ResumeProcesses API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=resumeprocesses.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=ResumeProcesses'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-resumeprocesses-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-rollbackinstancerefresh-api
+  name: 'Amazon EC2 Auto Scaling #Action=RollbackInstanceRefresh API'
+  description: >-
+    The #Action=RollbackInstanceRefresh API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=rollbackinstancerefresh.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=RollbackInstanceRefresh'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-rollbackinstancerefresh-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-setdesiredcapacity-api
+  name: 'Amazon EC2 Auto Scaling #Action=SetDesiredCapacity API'
+  description: >-
+    The #Action=SetDesiredCapacity API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=setdesiredcapacity.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=SetDesiredCapacity'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-setdesiredcapacity-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-setinstancehealth-api
+  name: 'Amazon EC2 Auto Scaling #Action=SetInstanceHealth API'
+  description: >-
+    The #Action=SetInstanceHealth API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=setinstancehealth.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=SetInstanceHealth'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-setinstancehealth-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-setinstanceprotection-api
+  name: 'Amazon EC2 Auto Scaling #Action=SetInstanceProtection API'
+  description: >-
+    The #Action=SetInstanceProtection API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=setinstanceprotection.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=SetInstanceProtection'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-setinstanceprotection-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-startinstancerefresh-api
+  name: 'Amazon EC2 Auto Scaling #Action=StartInstanceRefresh API'
+  description: >-
+    The #Action=StartInstanceRefresh API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=startinstancerefresh.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=StartInstanceRefresh'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-startinstancerefresh-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-suspendprocesses-api
+  name: 'Amazon EC2 Auto Scaling #Action=SuspendProcesses API'
+  description: >-
+    The #Action=SuspendProcesses API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=suspendprocesses.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=SuspendProcesses'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-suspendprocesses-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: >-
+    amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-terminateinstanceinautoscalinggroup-api
+  name: 'Amazon EC2 Auto Scaling #Action=TerminateInstanceInAutoScalingGroup API'
+  description: >-
+    The #Action=TerminateInstanceInAutoScalingGroup API from Amazon EC2 Auto Scaling — 1 operation(s)
+    for #action=terminateinstanceinautoscalinggroup.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=TerminateInstanceInAutoScalingGroup'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-ec2-auto-scaling-action-terminateinstanceinautoscalinggroup-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
+  - type: Examples
+    url: examples/ec2-auto-scaling-accelerator-count-request-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-ec2-auto-scaling.yaml
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-updateautoscalinggroup-api
+  name: 'Amazon EC2 Auto Scaling #Action=UpdateAutoScalingGroup API'
+  description: >-
+    The #Action=UpdateAutoScalingGroup API from Amazon EC2 Auto Scaling — 1 operation(s) for #action=updateautoscalinggroup.
+  humanURL: https://aws.amazon.com/ec2/autoscaling/
+  baseURL: https://autoscaling.amazonaws.com
+  tags:
+  - '#Action=UpdateAutoScalingGroup'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-auto-scaling-action-updateautoscalinggroup-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-auto-scaling-auto-scaling-group-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-auto-scaling-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+  - type: Pricing
+    url: https://aws.amazon.com/ec2/autoscaling/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/ec2/autoscaling/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html
   - type: JSONSchema
     url: json-schema/ec2-auto-scaling-accelerator-count-request-schema.json
   - type: JSONStructure
