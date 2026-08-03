@@ -1,0 +1,873 @@
+{
+  "info": {
+    "_postman_id": "57e6a5b0-a3ac-4728-a1ad-c48b9ff4cddf",
+    "name": "Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=DescribeAutoScalingGroups API",
+    "description": "<fullname>Amazon EC2 Auto Scaling</fullname> <p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.</p> <p>For more information, see the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/\">Amazon EC2 Auto Scaling User Guide</a> and the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html\">Amazon EC2 Auto Scaling API Reference</a>.</p>\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:18:31.000Z",
+    "updatedAt": "2026-07-28T10:18:32.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-57e6a5b0-a3ac-4728-a1ad-c48b9ff4cddf"
+  },
+  "item": [
+    {
+      "name": "#Action=DescribeAutoScalingGroups",
+      "item": [
+        {
+          "name": "Amazon EC2 Auto Scaling GET_ Describe Auto Scaling Groups",
+          "id": "b0774c3b-0bff-4d8b-93d6-7f4ba1a08aa5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?AutoScalingGroupNames=<string>&AutoScalingGroupNames=<string>&NextToken=<string>&MaxRecords=<integer>&Filters=[object Object]&Filters=[object Object]&Action=DescribeAutoScalingGroups&Version=2011-01-01#Action=DescribeAutoScalingGroups",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "<p>The names of the Auto Scaling groups. By default, you can only specify up to 50 names. You can optionally increase this limit using the <code>MaxRecords</code> property.</p> <p>If you omit this property, all Auto Scaling groups are described.</p>",
+                  "key": "AutoScalingGroupNames",
+                  "value": "<string>"
+                },
+                {
+                  "description": "<p>The names of the Auto Scaling groups. By default, you can only specify up to 50 names. You can optionally increase this limit using the <code>MaxRecords</code> property.</p> <p>If you omit this property, all Auto Scaling groups are described.</p>",
+                  "key": "AutoScalingGroupNames",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The token for the next set of items to return. (You received this token from a previous call.)",
+                  "key": "NextToken",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The maximum number of items to return with this call. The default value is <code>50</code> and the maximum value is <code>100</code>.",
+                  "key": "MaxRecords",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "One or more filters to limit the results based on specific tags. ",
+                  "key": "Filters",
+                  "value": "[object Object]"
+                },
+                {
+                  "description": "One or more filters to limit the results based on specific tags. ",
+                  "key": "Filters",
+                  "value": "[object Object]"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "DescribeAutoScalingGroups"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2011-01-01"
+                }
+              ],
+              "hash": "Action=DescribeAutoScalingGroups"
+            },
+            "description": "<p>Gets information about the Auto Scaling groups in the account and Region.</p> <p>If you specify Auto Scaling group names, the output includes information for only the specified Auto Scaling groups. If you specify filters, the output includes information for only those Auto Scaling groups that meet the filter criteria. If you do not specify group names or filters, the output includes information for all Auto Scaling groups. </p> <p>This operation also returns information about instances in Auto Scaling groups. To retrieve information about the instances in a warm pool, you must call the <a>DescribeWarmPool</a> API. </p>"
+          },
+          "response": [
+            {
+              "id": "963a29b3-0d06-4625-bc48-5efd24a4ab0b",
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?AutoScalingGroupNames=<string>&NextToken=<string>&MaxRecords=<integer>&Filters=[object Object]&Action=DescribeAutoScalingGroups&Version=2011-01-01#Action=DescribeAutoScalingGroups",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "<p>The names of the Auto Scaling groups. By default, you can only specify up to 50 names. You can optionally increase this limit using the <code>MaxRecords</code> property.</p> <p>If you omit this property, all Auto Scaling groups are described.</p>",
+                      "key": "AutoScalingGroupNames",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The token for the next set of items to return. (You received this token from a previous call.)",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum number of items to return with this call. The default value is <code>50</code> and the maximum value is <code>100</code>.",
+                      "key": "MaxRecords",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "One or more filters to limit the results based on specific tags. ",
+                      "key": "Filters",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribeAutoScalingGroups"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=DescribeAutoScalingGroups"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroups>\n    <AutoScalingGroupName>(string)</AutoScalingGroupName>\n    <AutoScalingGroupARN>(string)</AutoScalingGroupARN>\n    <LaunchConfigurationName>(string)</LaunchConfigurationName>\n    <LaunchTemplate>\n      <LaunchTemplateId>(string)</LaunchTemplateId>\n      <LaunchTemplateName>(string)</LaunchTemplateName>\n      <Version>(string)</Version>\n    </LaunchTemplate>\n    <MixedInstancesPolicy>\n      <LaunchTemplate>\n        <LaunchTemplateSpecification>\n          <LaunchTemplateId>(string)</LaunchTemplateId>\n          <LaunchTemplateName>(string)</LaunchTemplateName>\n          <Version>(string)</Version>\n        </LaunchTemplateSpecification>\n        <Overrides>\n          <InstanceType>(string)</InstanceType>\n          <WeightedCapacity>(string)</WeightedCapacity>\n          <LaunchTemplateSpecification>\n            <LaunchTemplateId>(string)</LaunchTemplateId>\n            <LaunchTemplateName>(string)</LaunchTemplateName>\n            <Version>(string)</Version>\n          </LaunchTemplateSpecification>\n          <InstanceRequirements>\n            <VCpuCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </VCpuCount>\n            <MemoryMiB>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </MemoryMiB>\n            <CpuManufacturers>(string)</CpuManufacturers>\n            <CpuManufacturers>(string)</CpuManufacturers>\n            <MemoryGiBPerVCpu>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </MemoryGiBPerVCpu>\n            <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n            <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n            <InstanceGenerations>(string)</InstanceGenerations>\n            <InstanceGenerations>(string)</InstanceGenerations>\n            <SpotMaxPricePercentageOverLowestPrice>(integer)</SpotMaxPricePercentageOverLowestPrice>\n            <OnDemandMaxPricePercentageOverLowestPrice>(integer)</OnDemandMaxPricePercentageOverLowestPrice>\n            <BareMetal>(string)</BareMetal>\n            <BurstablePerformance>(string)</BurstablePerformance>\n            <RequireHibernateSupport>(boolean)</RequireHibernateSupport>\n            <NetworkInterfaceCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </NetworkInterfaceCount>\n            <LocalStorage>(string)</LocalStorage>\n            <LocalStorageTypes>(string)</LocalStorageTypes>\n            <LocalStorageTypes>(string)</LocalStorageTypes>\n            <TotalLocalStorageGB>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </TotalLocalStorageGB>\n            <BaselineEbsBandwidthMbps>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </BaselineEbsBandwidthMbps>\n            <AcceleratorTypes>(string)</AcceleratorTypes>\n            <AcceleratorTypes>(string)</AcceleratorTypes>\n            <AcceleratorCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </AcceleratorCount>\n            <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n            <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n            <AcceleratorNames>(string)</AcceleratorNames>\n            <AcceleratorNames>(string)</AcceleratorNames>\n            <AcceleratorTotalMemoryMiB>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </AcceleratorTotalMemoryMiB>\n            <NetworkBandwidthGbps>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </NetworkBandwidthGbps>\n            <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n            <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n          </InstanceRequirements>\n        </Overrides>\n        <Overrides>\n          <InstanceType>(string)</InstanceType>\n          <WeightedCapacity>(string)</WeightedCapacity>\n          <LaunchTemplateSpecification>\n            <LaunchTemplateId>(string)</LaunchTemplateId>\n            <LaunchTemplateName>(string)</LaunchTemplateName>\n            <Version>(string)</Version>\n          </LaunchTemplateSpecification>\n          <InstanceRequirements>\n            <VCpuCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </VCpuCount>\n            <MemoryMiB>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </MemoryMiB>\n            <CpuManufacturers>(string)</CpuManufacturers>\n            <CpuManufacturers>(string)</CpuManufacturers>\n            <MemoryGiBPerVCpu>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </MemoryGiBPerVCpu>\n            <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n            <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n            <InstanceGenerations>(string)</InstanceGenerations>\n            <InstanceGenerations>(string)</InstanceGenerations>\n            <SpotMaxPricePercentageOverLowestPrice>(integer)</SpotMaxPricePercentageOverLowestPrice>\n            <OnDemandMaxPricePercentageOverLowestPrice>(integer)</OnDemandMaxPricePercentageOverLowestPrice>\n            <BareMetal>(string)</BareMetal>\n            <BurstablePerformance>(string)</BurstablePerformance>\n            <RequireHibernateSupport>(boolean)</RequireHibernateSupport>\n            <NetworkInterfaceCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </NetworkInterfaceCount>\n            <LocalStorage>(string)</LocalStorage>\n            <LocalStorageTypes>(string)</LocalStorageTypes>\n            <LocalStorageTypes>(string)</LocalStorageTypes>\n            <TotalLocalStorageGB>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </TotalLocalStorageGB>\n            <BaselineEbsBandwidthMbps>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </BaselineEbsBandwidthMbps>\n            <AcceleratorTypes>(string)</AcceleratorTypes>\n            <AcceleratorTypes>(string)</AcceleratorTypes>\n            <AcceleratorCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </AcceleratorCount>\n            <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n            <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n            <AcceleratorNames>(string)</AcceleratorNames>\n            <AcceleratorNames>(string)</AcceleratorNames>\n            <AcceleratorTotalMemoryMiB>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </AcceleratorTotalMemoryMiB>\n            <NetworkBandwidthGbps>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </NetworkBandwidthGbps>\n            <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n            <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n          </InstanceRequirements>\n        </Overrides>\n      </LaunchTemplate>\n      <InstancesDistribution>\n        <OnDemandAllocationStrategy>(string)</OnDemandAllocationStrategy>\n        <OnDemandBaseCapacity>(integer)</OnDemandBaseCapacity>\n        <OnDemandPercentageAboveBaseCapacity>(integer)</OnDemandPercentageAboveBaseCapacity>\n        <SpotAllocationStrategy>(string)</SpotAllocationStrategy>\n        <SpotInstancePools>(integer)</SpotInstancePools>\n        <SpotMaxPrice>(string)</SpotMaxPrice>\n      </InstancesDistribution>\n    </MixedInstancesPolicy>\n    <MinSize>(integer)</MinSize>\n    <MaxSize>(integer)</MaxSize>\n    <DesiredCapacity>(integer)</DesiredCapacity>\n    <PredictedCapacity>(integer)</PredictedCapacity>\n    <DefaultCooldown>(integer)</DefaultCooldown>\n    <AvailabilityZones>(string)</AvailabilityZones>\n    <AvailabilityZones>(string)</AvailabilityZones>\n    <LoadBalancerNames>(string)</LoadBalancerNames>\n    <LoadBalancerNames>(string)</LoadBalancerNames>\n    <TargetGroupARNs>(string)</TargetGroupARNs>\n    <TargetGroupARNs>(string)</TargetGroupARNs>\n    <HealthCheckType>(string)</HealthCheckType>\n    <HealthCheckGracePeriod>(integer)</HealthCheckGracePeriod>\n    <Instances>\n      <InstanceId>(string)</InstanceId>\n      <InstanceType>(string)</InstanceType>\n      <AvailabilityZone>(string)</AvailabilityZone>\n      <LifecycleState>(string)</LifecycleState>\n      <HealthStatus>(string)</HealthStatus>\n      <LaunchConfigurationName>(string)</LaunchConfigurationName>\n      <LaunchTemplate>\n        <LaunchTemplateId>(string)</LaunchTemplateId>\n        <LaunchTemplateName>(string)</LaunchTemplateName>\n        <Version>(string)</Version>\n      </LaunchTemplate>\n      <ProtectedFromScaleIn>(boolean)</ProtectedFromScaleIn>\n      <WeightedCapacity>(string)</WeightedCapacity>\n    </Instances>\n    <Instances>\n      <InstanceId>(string)</InstanceId>\n      <InstanceType>(string)</InstanceType>\n      <AvailabilityZone>(string)</AvailabilityZone>\n      <LifecycleState>(string)</LifecycleState>\n      <HealthStatus>(string)</HealthStatus>\n      <LaunchConfigurationName>(string)</LaunchConfigurationName>\n      <LaunchTemplate>\n        <LaunchTemplateId>(string)</LaunchTemplateId>\n        <LaunchTemplateName>(string)</LaunchTemplateName>\n        <Version>(string)</Version>\n      </LaunchTemplate>\n      <ProtectedFromScaleIn>(boolean)</ProtectedFromScaleIn>\n      <WeightedCapacity>(string)</WeightedCapacity>\n    </Instances>\n    <CreatedTime>(string)</CreatedTime>\n    <SuspendedProcesses>\n      <ProcessName>(string)</ProcessName>\n      <SuspensionReason>(string)</SuspensionReason>\n    </SuspendedProcesses>\n    <SuspendedProcesses>\n      <ProcessName>(string)</ProcessName>\n      <SuspensionReason>(string)</SuspensionReason>\n    </SuspendedProcesses>\n    <PlacementGroup>(string)</PlacementGroup>\n    <VPCZoneIdentifier>(string)</VPCZoneIdentifier>\n    <EnabledMetrics>\n      <Metric>(string)</Metric>\n      <Granularity>(string)</Granularity>\n    </EnabledMetrics>\n    <EnabledMetrics>\n      <Metric>(string)</Metric>\n      <Granularity>(string)</Granularity>\n    </EnabledMetrics>\n    <Status>(string)</Status>\n    <Tags>\n      <ResourceId>(string)</ResourceId>\n      <ResourceType>(string)</ResourceType>\n      <Key>(string)</Key>\n      <Value>(string)</Value>\n      <PropagateAtLaunch>(boolean)</PropagateAtLaunch>\n    </Tags>\n    <Tags>\n      <ResourceId>(string)</ResourceId>\n      <ResourceType>(string)</ResourceType>\n      <Key>(string)</Key>\n      <Value>(string)</Value>\n      <PropagateAtLaunch>(boolean)</PropagateAtLaunch>\n    </Tags>\n    <TerminationPolicies>(string)</TerminationPolicies>\n    <TerminationPolicies>(string)</TerminationPolicies>\n    <NewInstancesProtectedFromScaleIn>(boolean)</NewInstancesProtectedFromScaleIn>\n    <ServiceLinkedRoleARN>(string)</ServiceLinkedRoleARN>\n    <MaxInstanceLifetime>(integer)</MaxInstanceLifetime>\n    <CapacityRebalance>(boolean)</CapacityRebalance>\n    <WarmPoolConfiguration>\n      <MaxGroupPreparedCapacity>(integer)</MaxGroupPreparedCapacity>\n      <MinSize>(integer)</MinSize>\n      <PoolState>(string)</PoolState>\n      <Status>(string)</Status>\n      <InstanceReusePolicy>\n        <ReuseOnScaleIn>(boolean)</ReuseOnScaleIn>\n      </InstanceReusePolicy>\n    </WarmPoolConfiguration>\n    <WarmPoolSize>(integer)</WarmPoolSize>\n    <Context>(string)</Context>\n    <DesiredCapacityType>(string)</DesiredCapacityType>\n    <DefaultInstanceWarmup>(integer)</DefaultInstanceWarmup>\n    <TrafficSources>\n      <Identifier>(string)</Identifier>\n      <Type>(string)</Type>\n    </TrafficSources>\n    <TrafficSources>\n      <Identifier>(string)</Identifier>\n      <Type>(string)</Type>\n    </TrafficSources>\n  </AutoScalingGroups>\n  <AutoScalingGroups>\n    <AutoScalingGroupName>(string)</AutoScalingGroupName>\n    <AutoScalingGroupARN>(string)</AutoScalingGroupARN>\n    <LaunchConfigurationName>(string)</LaunchConfigurationName>\n    <LaunchTemplate>\n      <LaunchTemplateId>(string)</LaunchTemplateId>\n      <LaunchTemplateName>(string)</LaunchTemplateName>\n      <Version>(string)</Version>\n    </LaunchTemplate>\n    <MixedInstancesPolicy>\n      <LaunchTemplate>\n        <LaunchTemplateSpecification>\n          <LaunchTemplateId>(string)</LaunchTemplateId>\n          <LaunchTemplateName>(string)</LaunchTemplateName>\n          <Version>(string)</Version>\n        </LaunchTemplateSpecification>\n        <Overrides>\n          <InstanceType>(string)</InstanceType>\n          <WeightedCapacity>(string)</WeightedCapacity>\n          <LaunchTemplateSpecification>\n            <LaunchTemplateId>(string)</LaunchTemplateId>\n            <LaunchTemplateName>(string)</LaunchTemplateName>\n            <Version>(string)</Version>\n          </LaunchTemplateSpecification>\n          <InstanceRequirements>\n            <VCpuCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </VCpuCount>\n            <MemoryMiB>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </MemoryMiB>\n            <CpuManufacturers>(string)</CpuManufacturers>\n            <CpuManufacturers>(string)</CpuManufacturers>\n            <MemoryGiBPerVCpu>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </MemoryGiBPerVCpu>\n            <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n            <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n            <InstanceGenerations>(string)</InstanceGenerations>\n            <InstanceGenerations>(string)</InstanceGenerations>\n            <SpotMaxPricePercentageOverLowestPrice>(integer)</SpotMaxPricePercentageOverLowestPrice>\n            <OnDemandMaxPricePercentageOverLowestPrice>(integer)</OnDemandMaxPricePercentageOverLowestPrice>\n            <BareMetal>(string)</BareMetal>\n            <BurstablePerformance>(string)</BurstablePerformance>\n            <RequireHibernateSupport>(boolean)</RequireHibernateSupport>\n            <NetworkInterfaceCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </NetworkInterfaceCount>\n            <LocalStorage>(string)</LocalStorage>\n            <LocalStorageTypes>(string)</LocalStorageTypes>\n            <LocalStorageTypes>(string)</LocalStorageTypes>\n            <TotalLocalStorageGB>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </TotalLocalStorageGB>\n            <BaselineEbsBandwidthMbps>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </BaselineEbsBandwidthMbps>\n            <AcceleratorTypes>(string)</AcceleratorTypes>\n            <AcceleratorTypes>(string)</AcceleratorTypes>\n            <AcceleratorCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </AcceleratorCount>\n            <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n            <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n            <AcceleratorNames>(string)</AcceleratorNames>\n            <AcceleratorNames>(string)</AcceleratorNames>\n            <AcceleratorTotalMemoryMiB>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </AcceleratorTotalMemoryMiB>\n            <NetworkBandwidthGbps>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </NetworkBandwidthGbps>\n            <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n            <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n          </InstanceRequirements>\n        </Overrides>\n        <Overrides>\n          <InstanceType>(string)</InstanceType>\n          <WeightedCapacity>(string)</WeightedCapacity>\n          <LaunchTemplateSpecification>\n            <LaunchTemplateId>(string)</LaunchTemplateId>\n            <LaunchTemplateName>(string)</LaunchTemplateName>\n            <Version>(string)</Version>\n          </LaunchTemplateSpecification>\n          <InstanceRequirements>\n            <VCpuCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </VCpuCount>\n            <MemoryMiB>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </MemoryMiB>\n            <CpuManufacturers>(string)</CpuManufacturers>\n            <CpuManufacturers>(string)</CpuManufacturers>\n            <MemoryGiBPerVCpu>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </MemoryGiBPerVCpu>\n            <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n            <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n            <InstanceGenerations>(string)</InstanceGenerations>\n            <InstanceGenerations>(string)</InstanceGenerations>\n            <SpotMaxPricePercentageOverLowestPrice>(integer)</SpotMaxPricePercentageOverLowestPrice>\n            <OnDemandMaxPricePercentageOverLowestPrice>(integer)</OnDemandMaxPricePercentageOverLowestPrice>\n            <BareMetal>(string)</BareMetal>\n            <BurstablePerformance>(string)</BurstablePerformance>\n            <RequireHibernateSupport>(boolean)</RequireHibernateSupport>\n            <NetworkInterfaceCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </NetworkInterfaceCount>\n            <LocalStorage>(string)</LocalStorage>\n            <LocalStorageTypes>(string)</LocalStorageTypes>\n            <LocalStorageTypes>(string)</LocalStorageTypes>\n            <TotalLocalStorageGB>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </TotalLocalStorageGB>\n            <BaselineEbsBandwidthMbps>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </BaselineEbsBandwidthMbps>\n            <AcceleratorTypes>(string)</AcceleratorTypes>\n            <AcceleratorTypes>(string)</AcceleratorTypes>\n            <AcceleratorCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </AcceleratorCount>\n            <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n            <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n            <AcceleratorNames>(string)</AcceleratorNames>\n            <AcceleratorNames>(string)</AcceleratorNames>\n            <AcceleratorTotalMemoryMiB>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </AcceleratorTotalMemoryMiB>\n            <NetworkBandwidthGbps>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </NetworkBandwidthGbps>\n            <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n            <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n          </InstanceRequirements>\n        </Overrides>\n      </LaunchTemplate>\n      <InstancesDistribution>\n        <OnDemandAllocationStrategy>(string)</OnDemandAllocationStrategy>\n        <OnDemandBaseCapacity>(integer)</OnDemandBaseCapacity>\n        <OnDemandPercentageAboveBaseCapacity>(integer)</OnDemandPercentageAboveBaseCapacity>\n        <SpotAllocationStrategy>(string)</SpotAllocationStrategy>\n        <SpotInstancePools>(integer)</SpotInstancePools>\n        <SpotMaxPrice>(string)</SpotMaxPrice>\n      </InstancesDistribution>\n    </MixedInstancesPolicy>\n    <MinSize>(integer)</MinSize>\n    <MaxSize>(integer)</MaxSize>\n    <DesiredCapacity>(integer)</DesiredCapacity>\n    <PredictedCapacity>(integer)</PredictedCapacity>\n    <DefaultCooldown>(integer)</DefaultCooldown>\n    <AvailabilityZones>(string)</AvailabilityZones>\n    <AvailabilityZones>(string)</AvailabilityZones>\n    <LoadBalancerNames>(string)</LoadBalancerNames>\n    <LoadBalancerNames>(string)</LoadBalancerNames>\n    <TargetGroupARNs>(string)</TargetGroupARNs>\n    <TargetGroupARNs>(string)</TargetGroupARNs>\n    <HealthCheckType>(string)</HealthCheckType>\n    <HealthCheckGracePeriod>(integer)</HealthCheckGracePeriod>\n    <Instances>\n      <InstanceId>(string)</InstanceId>\n      <InstanceType>(string)</InstanceType>\n      <AvailabilityZone>(string)</AvailabilityZone>\n      <LifecycleState>(string)</LifecycleState>\n      <HealthStatus>(string)</HealthStatus>\n      <LaunchConfigurationName>(string)</LaunchConfigurationName>\n      <LaunchTemplate>\n        <LaunchTemplateId>(string)</LaunchTemplateId>\n        <LaunchTemplateName>(string)</LaunchTemplateName>\n        <Version>(string)</Version>\n      </LaunchTemplate>\n      <ProtectedFromScaleIn>(boolean)</ProtectedFromScaleIn>\n      <WeightedCapacity>(string)</WeightedCapacity>\n    </Instances>\n    <Instances>\n      <InstanceId>(string)</InstanceId>\n      <InstanceType>(string)</InstanceType>\n      <AvailabilityZone>(string)</AvailabilityZone>\n      <LifecycleState>(string)</LifecycleState>\n      <HealthStatus>(string)</HealthStatus>\n      <LaunchConfigurationName>(string)</LaunchConfigurationName>\n      <LaunchTemplate>\n        <LaunchTemplateId>(string)</LaunchTemplateId>\n        <LaunchTemplateName>(string)</LaunchTemplateName>\n        <Version>(string)</Version>\n      </LaunchTemplate>\n      <ProtectedFromScaleIn>(boolean)</ProtectedFromScaleIn>\n      <WeightedCapacity>(string)</WeightedCapacity>\n    </Instances>\n    <CreatedTime>(string)</CreatedTime>\n    <SuspendedProcesses>\n      <ProcessName>(string)</ProcessName>\n      <SuspensionReason>(string)</SuspensionReason>\n    </SuspendedProcesses>\n    <SuspendedProcesses>\n      <ProcessName>(string)</ProcessName>\n      <SuspensionReason>(string)</SuspensionReason>\n    </SuspendedProcesses>\n    <PlacementGroup>(string)</PlacementGroup>\n    <VPCZoneIdentifier>(string)</VPCZoneIdentifier>\n    <EnabledMetrics>\n      <Metric>(string)</Metric>\n      <Granularity>(string)</Granularity>\n    </EnabledMetrics>\n    <EnabledMetrics>\n      <Metric>(string)</Metric>\n      <Granularity>(string)</Granularity>\n    </EnabledMetrics>\n    <Status>(string)</Status>\n    <Tags>\n      <ResourceId>(string)</ResourceId>\n      <ResourceType>(string)</ResourceType>\n      <Key>(string)</Key>\n      <Value>(string)</Value>\n      <PropagateAtLaunch>(boolean)</PropagateAtLaunch>\n    </Tags>\n    <Tags>\n      <ResourceId>(string)</ResourceId>\n      <ResourceType>(string)</ResourceType>\n      <Key>(string)</Key>\n      <Value>(string)</Value>\n      <PropagateAtLaunch>(boolean)</PropagateAtLaunch>\n    </Tags>\n    <TerminationPolicies>(string)</TerminationPolicies>\n    <TerminationPolicies>(string)</TerminationPolicies>\n    <NewInstancesProtectedFromScaleIn>(boolean)</NewInstancesProtectedFromScaleIn>\n    <ServiceLinkedRoleARN>(string)</ServiceLinkedRoleARN>\n    <MaxInstanceLifetime>(integer)</MaxInstanceLifetime>\n    <CapacityRebalance>(boolean)</CapacityRebalance>\n    <WarmPoolConfiguration>\n      <MaxGroupPreparedCapacity>(integer)</MaxGroupPreparedCapacity>\n      <MinSize>(integer)</MinSize>\n      <PoolState>(string)</PoolState>\n      <Status>(string)</Status>\n      <InstanceReusePolicy>\n        <ReuseOnScaleIn>(boolean)</ReuseOnScaleIn>\n      </InstanceReusePolicy>\n    </WarmPoolConfiguration>\n    <WarmPoolSize>(integer)</WarmPoolSize>\n    <Context>(string)</Context>\n    <DesiredCapacityType>(string)</DesiredCapacityType>\n    <DefaultInstanceWarmup>(integer)</DefaultInstanceWarmup>\n    <TrafficSources>\n      <Identifier>(string)</Identifier>\n      <Type>(string)</Type>\n    </TrafficSources>\n    <TrafficSources>\n      <Identifier>(string)</Identifier>\n      <Type>(string)</Type>\n    </TrafficSources>\n  </AutoScalingGroups>\n  <NextToken>(string)</NextToken>\n</element>",
+              "createdAt": "2026-07-28T10:18:32.000Z",
+              "updatedAt": "2026-07-28T10:18:32.000Z",
+              "uid": "35240-963a29b3-0d06-4625-bc48-5efd24a4ab0b"
+            },
+            {
+              "id": "5179727a-4190-4577-badf-29a36c37bb2d",
+              "name": "InvalidNextToken",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?AutoScalingGroupNames=<string>&NextToken=<string>&MaxRecords=<integer>&Filters=[object Object]&Action=DescribeAutoScalingGroups&Version=2011-01-01#Action=DescribeAutoScalingGroups",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "<p>The names of the Auto Scaling groups. By default, you can only specify up to 50 names. You can optionally increase this limit using the <code>MaxRecords</code> property.</p> <p>If you omit this property, all Auto Scaling groups are described.</p>",
+                      "key": "AutoScalingGroupNames",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The token for the next set of items to return. (You received this token from a previous call.)",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum number of items to return with this call. The default value is <code>50</code> and the maximum value is <code>100</code>.",
+                      "key": "MaxRecords",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "One or more filters to limit the results based on specific tags. ",
+                      "key": "Filters",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribeAutoScalingGroups"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=DescribeAutoScalingGroups"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:18:32.000Z",
+              "updatedAt": "2026-07-28T10:18:32.000Z",
+              "uid": "35240-5179727a-4190-4577-badf-29a36c37bb2d"
+            },
+            {
+              "id": "d184eb77-5b4b-4c88-a303-8adfb926c7ac",
+              "name": "ResourceContentionFault",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?AutoScalingGroupNames=<string>&NextToken=<string>&MaxRecords=<integer>&Filters=[object Object]&Action=DescribeAutoScalingGroups&Version=2011-01-01#Action=DescribeAutoScalingGroups",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "<p>The names of the Auto Scaling groups. By default, you can only specify up to 50 names. You can optionally increase this limit using the <code>MaxRecords</code> property.</p> <p>If you omit this property, all Auto Scaling groups are described.</p>",
+                      "key": "AutoScalingGroupNames",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The token for the next set of items to return. (You received this token from a previous call.)",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum number of items to return with this call. The default value is <code>50</code> and the maximum value is <code>100</code>.",
+                      "key": "MaxRecords",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "One or more filters to limit the results based on specific tags. ",
+                      "key": "Filters",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribeAutoScalingGroups"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=DescribeAutoScalingGroups"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:18:32.000Z",
+              "updatedAt": "2026-07-28T10:18:32.000Z",
+              "uid": "35240-d184eb77-5b4b-4c88-a303-8adfb926c7ac"
+            }
+          ],
+          "createdAt": "2026-07-28T10:18:32.000Z",
+          "updatedAt": "2026-07-28T10:18:32.000Z",
+          "uid": "35240-b0774c3b-0bff-4d8b-93d6-7f4ba1a08aa5"
+        },
+        {
+          "name": "Amazon EC2 Auto Scaling POST_ Describe Auto Scaling Groups",
+          "id": "98000439-a29d-492c-a18f-24918ff06aa4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "text/xml"
+              },
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupNames>(string)</AutoScalingGroupNames>\n  <AutoScalingGroupNames>(string)</AutoScalingGroupNames>\n  <NextToken>(string)</NextToken>\n  <MaxRecords>(integer)</MaxRecords>\n  <Filters>\n    <Name>(string)</Name>\n    <Values>(string)</Values>\n    <Values>(string)</Values>\n  </Filters>\n  <Filters>\n    <Name>(string)</Name>\n    <Values>(string)</Values>\n    <Values>(string)</Values>\n  </Filters>\n</element>",
+              "options": {
+                "raw": {
+                  "headerFamily": "xml",
+                  "language": "xml"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/?MaxRecords=<string>&NextToken=<string>&Action=DescribeAutoScalingGroups&Version=2011-01-01#Action=DescribeAutoScalingGroups",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "Pagination limit",
+                  "key": "MaxRecords",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Pagination token",
+                  "key": "NextToken",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "DescribeAutoScalingGroups"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2011-01-01"
+                }
+              ],
+              "hash": "Action=DescribeAutoScalingGroups"
+            },
+            "description": "<p>Gets information about the Auto Scaling groups in the account and Region.</p> <p>If you specify Auto Scaling group names, the output includes information for only the specified Auto Scaling groups. If you specify filters, the output includes information for only those Auto Scaling groups that meet the filter criteria. If you do not specify group names or filters, the output includes information for all Auto Scaling groups. </p> <p>This operation also returns information about instances in Auto Scaling groups. To retrieve information about the instances in a warm pool, you must call the <a>DescribeWarmPool</a> API. </p>"
+          },
+          "response": [
+            {
+              "id": "5036a825-5f08-4aec-b4d5-05bb2dc32ddb",
+              "name": "Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupNames>(string)</AutoScalingGroupNames>\n  <AutoScalingGroupNames>(string)</AutoScalingGroupNames>\n  <NextToken>(string)</NextToken>\n  <MaxRecords>(integer)</MaxRecords>\n  <Filters>\n    <Name>(string)</Name>\n    <Values>(string)</Values>\n    <Values>(string)</Values>\n  </Filters>\n  <Filters>\n    <Name>(string)</Name>\n    <Values>(string)</Values>\n    <Values>(string)</Values>\n  </Filters>\n</element>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "xml",
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?MaxRecords=<string>&NextToken=<string>&Action=DescribeAutoScalingGroups&Version=2011-01-01#Action=DescribeAutoScalingGroups",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "Pagination limit",
+                      "key": "MaxRecords",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination token",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribeAutoScalingGroups"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=DescribeAutoScalingGroups"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroups>\n    <AutoScalingGroupName>(string)</AutoScalingGroupName>\n    <AutoScalingGroupARN>(string)</AutoScalingGroupARN>\n    <LaunchConfigurationName>(string)</LaunchConfigurationName>\n    <LaunchTemplate>\n      <LaunchTemplateId>(string)</LaunchTemplateId>\n      <LaunchTemplateName>(string)</LaunchTemplateName>\n      <Version>(string)</Version>\n    </LaunchTemplate>\n    <MixedInstancesPolicy>\n      <LaunchTemplate>\n        <LaunchTemplateSpecification>\n          <LaunchTemplateId>(string)</LaunchTemplateId>\n          <LaunchTemplateName>(string)</LaunchTemplateName>\n          <Version>(string)</Version>\n        </LaunchTemplateSpecification>\n        <Overrides>\n          <InstanceType>(string)</InstanceType>\n          <WeightedCapacity>(string)</WeightedCapacity>\n          <LaunchTemplateSpecification>\n            <LaunchTemplateId>(string)</LaunchTemplateId>\n            <LaunchTemplateName>(string)</LaunchTemplateName>\n            <Version>(string)</Version>\n          </LaunchTemplateSpecification>\n          <InstanceRequirements>\n            <VCpuCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </VCpuCount>\n            <MemoryMiB>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </MemoryMiB>\n            <CpuManufacturers>(string)</CpuManufacturers>\n            <CpuManufacturers>(string)</CpuManufacturers>\n            <MemoryGiBPerVCpu>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </MemoryGiBPerVCpu>\n            <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n            <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n            <InstanceGenerations>(string)</InstanceGenerations>\n            <InstanceGenerations>(string)</InstanceGenerations>\n            <SpotMaxPricePercentageOverLowestPrice>(integer)</SpotMaxPricePercentageOverLowestPrice>\n            <OnDemandMaxPricePercentageOverLowestPrice>(integer)</OnDemandMaxPricePercentageOverLowestPrice>\n            <BareMetal>(string)</BareMetal>\n            <BurstablePerformance>(string)</BurstablePerformance>\n            <RequireHibernateSupport>(boolean)</RequireHibernateSupport>\n            <NetworkInterfaceCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </NetworkInterfaceCount>\n            <LocalStorage>(string)</LocalStorage>\n            <LocalStorageTypes>(string)</LocalStorageTypes>\n            <LocalStorageTypes>(string)</LocalStorageTypes>\n            <TotalLocalStorageGB>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </TotalLocalStorageGB>\n            <BaselineEbsBandwidthMbps>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </BaselineEbsBandwidthMbps>\n            <AcceleratorTypes>(string)</AcceleratorTypes>\n            <AcceleratorTypes>(string)</AcceleratorTypes>\n            <AcceleratorCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </AcceleratorCount>\n            <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n            <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n            <AcceleratorNames>(string)</AcceleratorNames>\n            <AcceleratorNames>(string)</AcceleratorNames>\n            <AcceleratorTotalMemoryMiB>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </AcceleratorTotalMemoryMiB>\n            <NetworkBandwidthGbps>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </NetworkBandwidthGbps>\n            <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n            <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n          </InstanceRequirements>\n        </Overrides>\n        <Overrides>\n          <InstanceType>(string)</InstanceType>\n          <WeightedCapacity>(string)</WeightedCapacity>\n          <LaunchTemplateSpecification>\n            <LaunchTemplateId>(string)</LaunchTemplateId>\n            <LaunchTemplateName>(string)</LaunchTemplateName>\n            <Version>(string)</Version>\n          </LaunchTemplateSpecification>\n          <InstanceRequirements>\n            <VCpuCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </VCpuCount>\n            <MemoryMiB>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </MemoryMiB>\n            <CpuManufacturers>(string)</CpuManufacturers>\n            <CpuManufacturers>(string)</CpuManufacturers>\n            <MemoryGiBPerVCpu>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </MemoryGiBPerVCpu>\n            <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n            <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n            <InstanceGenerations>(string)</InstanceGenerations>\n            <InstanceGenerations>(string)</InstanceGenerations>\n            <SpotMaxPricePercentageOverLowestPrice>(integer)</SpotMaxPricePercentageOverLowestPrice>\n            <OnDemandMaxPricePercentageOverLowestPrice>(integer)</OnDemandMaxPricePercentageOverLowestPrice>\n            <BareMetal>(string)</BareMetal>\n            <BurstablePerformance>(string)</BurstablePerformance>\n            <RequireHibernateSupport>(boolean)</RequireHibernateSupport>\n            <NetworkInterfaceCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </NetworkInterfaceCount>\n            <LocalStorage>(string)</LocalStorage>\n            <LocalStorageTypes>(string)</LocalStorageTypes>\n            <LocalStorageTypes>(string)</LocalStorageTypes>\n            <TotalLocalStorageGB>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </TotalLocalStorageGB>\n            <BaselineEbsBandwidthMbps>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </BaselineEbsBandwidthMbps>\n            <AcceleratorTypes>(string)</AcceleratorTypes>\n            <AcceleratorTypes>(string)</AcceleratorTypes>\n            <AcceleratorCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </AcceleratorCount>\n            <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n            <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n            <AcceleratorNames>(string)</AcceleratorNames>\n            <AcceleratorNames>(string)</AcceleratorNames>\n            <AcceleratorTotalMemoryMiB>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </AcceleratorTotalMemoryMiB>\n            <NetworkBandwidthGbps>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </NetworkBandwidthGbps>\n            <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n            <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n          </InstanceRequirements>\n        </Overrides>\n      </LaunchTemplate>\n      <InstancesDistribution>\n        <OnDemandAllocationStrategy>(string)</OnDemandAllocationStrategy>\n        <OnDemandBaseCapacity>(integer)</OnDemandBaseCapacity>\n        <OnDemandPercentageAboveBaseCapacity>(integer)</OnDemandPercentageAboveBaseCapacity>\n        <SpotAllocationStrategy>(string)</SpotAllocationStrategy>\n        <SpotInstancePools>(integer)</SpotInstancePools>\n        <SpotMaxPrice>(string)</SpotMaxPrice>\n      </InstancesDistribution>\n    </MixedInstancesPolicy>\n    <MinSize>(integer)</MinSize>\n    <MaxSize>(integer)</MaxSize>\n    <DesiredCapacity>(integer)</DesiredCapacity>\n    <PredictedCapacity>(integer)</PredictedCapacity>\n    <DefaultCooldown>(integer)</DefaultCooldown>\n    <AvailabilityZones>(string)</AvailabilityZones>\n    <AvailabilityZones>(string)</AvailabilityZones>\n    <LoadBalancerNames>(string)</LoadBalancerNames>\n    <LoadBalancerNames>(string)</LoadBalancerNames>\n    <TargetGroupARNs>(string)</TargetGroupARNs>\n    <TargetGroupARNs>(string)</TargetGroupARNs>\n    <HealthCheckType>(string)</HealthCheckType>\n    <HealthCheckGracePeriod>(integer)</HealthCheckGracePeriod>\n    <Instances>\n      <InstanceId>(string)</InstanceId>\n      <InstanceType>(string)</InstanceType>\n      <AvailabilityZone>(string)</AvailabilityZone>\n      <LifecycleState>(string)</LifecycleState>\n      <HealthStatus>(string)</HealthStatus>\n      <LaunchConfigurationName>(string)</LaunchConfigurationName>\n      <LaunchTemplate>\n        <LaunchTemplateId>(string)</LaunchTemplateId>\n        <LaunchTemplateName>(string)</LaunchTemplateName>\n        <Version>(string)</Version>\n      </LaunchTemplate>\n      <ProtectedFromScaleIn>(boolean)</ProtectedFromScaleIn>\n      <WeightedCapacity>(string)</WeightedCapacity>\n    </Instances>\n    <Instances>\n      <InstanceId>(string)</InstanceId>\n      <InstanceType>(string)</InstanceType>\n      <AvailabilityZone>(string)</AvailabilityZone>\n      <LifecycleState>(string)</LifecycleState>\n      <HealthStatus>(string)</HealthStatus>\n      <LaunchConfigurationName>(string)</LaunchConfigurationName>\n      <LaunchTemplate>\n        <LaunchTemplateId>(string)</LaunchTemplateId>\n        <LaunchTemplateName>(string)</LaunchTemplateName>\n        <Version>(string)</Version>\n      </LaunchTemplate>\n      <ProtectedFromScaleIn>(boolean)</ProtectedFromScaleIn>\n      <WeightedCapacity>(string)</WeightedCapacity>\n    </Instances>\n    <CreatedTime>(string)</CreatedTime>\n    <SuspendedProcesses>\n      <ProcessName>(string)</ProcessName>\n      <SuspensionReason>(string)</SuspensionReason>\n    </SuspendedProcesses>\n    <SuspendedProcesses>\n      <ProcessName>(string)</ProcessName>\n      <SuspensionReason>(string)</SuspensionReason>\n    </SuspendedProcesses>\n    <PlacementGroup>(string)</PlacementGroup>\n    <VPCZoneIdentifier>(string)</VPCZoneIdentifier>\n    <EnabledMetrics>\n      <Metric>(string)</Metric>\n      <Granularity>(string)</Granularity>\n    </EnabledMetrics>\n    <EnabledMetrics>\n      <Metric>(string)</Metric>\n      <Granularity>(string)</Granularity>\n    </EnabledMetrics>\n    <Status>(string)</Status>\n    <Tags>\n      <ResourceId>(string)</ResourceId>\n      <ResourceType>(string)</ResourceType>\n      <Key>(string)</Key>\n      <Value>(string)</Value>\n      <PropagateAtLaunch>(boolean)</PropagateAtLaunch>\n    </Tags>\n    <Tags>\n      <ResourceId>(string)</ResourceId>\n      <ResourceType>(string)</ResourceType>\n      <Key>(string)</Key>\n      <Value>(string)</Value>\n      <PropagateAtLaunch>(boolean)</PropagateAtLaunch>\n    </Tags>\n    <TerminationPolicies>(string)</TerminationPolicies>\n    <TerminationPolicies>(string)</TerminationPolicies>\n    <NewInstancesProtectedFromScaleIn>(boolean)</NewInstancesProtectedFromScaleIn>\n    <ServiceLinkedRoleARN>(string)</ServiceLinkedRoleARN>\n    <MaxInstanceLifetime>(integer)</MaxInstanceLifetime>\n    <CapacityRebalance>(boolean)</CapacityRebalance>\n    <WarmPoolConfiguration>\n      <MaxGroupPreparedCapacity>(integer)</MaxGroupPreparedCapacity>\n      <MinSize>(integer)</MinSize>\n      <PoolState>(string)</PoolState>\n      <Status>(string)</Status>\n      <InstanceReusePolicy>\n        <ReuseOnScaleIn>(boolean)</ReuseOnScaleIn>\n      </InstanceReusePolicy>\n    </WarmPoolConfiguration>\n    <WarmPoolSize>(integer)</WarmPoolSize>\n    <Context>(string)</Context>\n    <DesiredCapacityType>(string)</DesiredCapacityType>\n    <DefaultInstanceWarmup>(integer)</DefaultInstanceWarmup>\n    <TrafficSources>\n      <Identifier>(string)</Identifier>\n      <Type>(string)</Type>\n    </TrafficSources>\n    <TrafficSources>\n      <Identifier>(string)</Identifier>\n      <Type>(string)</Type>\n    </TrafficSources>\n  </AutoScalingGroups>\n  <AutoScalingGroups>\n    <AutoScalingGroupName>(string)</AutoScalingGroupName>\n    <AutoScalingGroupARN>(string)</AutoScalingGroupARN>\n    <LaunchConfigurationName>(string)</LaunchConfigurationName>\n    <LaunchTemplate>\n      <LaunchTemplateId>(string)</LaunchTemplateId>\n      <LaunchTemplateName>(string)</LaunchTemplateName>\n      <Version>(string)</Version>\n    </LaunchTemplate>\n    <MixedInstancesPolicy>\n      <LaunchTemplate>\n        <LaunchTemplateSpecification>\n          <LaunchTemplateId>(string)</LaunchTemplateId>\n          <LaunchTemplateName>(string)</LaunchTemplateName>\n          <Version>(string)</Version>\n        </LaunchTemplateSpecification>\n        <Overrides>\n          <InstanceType>(string)</InstanceType>\n          <WeightedCapacity>(string)</WeightedCapacity>\n          <LaunchTemplateSpecification>\n            <LaunchTemplateId>(string)</LaunchTemplateId>\n            <LaunchTemplateName>(string)</LaunchTemplateName>\n            <Version>(string)</Version>\n          </LaunchTemplateSpecification>\n          <InstanceRequirements>\n            <VCpuCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </VCpuCount>\n            <MemoryMiB>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </MemoryMiB>\n            <CpuManufacturers>(string)</CpuManufacturers>\n            <CpuManufacturers>(string)</CpuManufacturers>\n            <MemoryGiBPerVCpu>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </MemoryGiBPerVCpu>\n            <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n            <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n            <InstanceGenerations>(string)</InstanceGenerations>\n            <InstanceGenerations>(string)</InstanceGenerations>\n            <SpotMaxPricePercentageOverLowestPrice>(integer)</SpotMaxPricePercentageOverLowestPrice>\n            <OnDemandMaxPricePercentageOverLowestPrice>(integer)</OnDemandMaxPricePercentageOverLowestPrice>\n            <BareMetal>(string)</BareMetal>\n            <BurstablePerformance>(string)</BurstablePerformance>\n            <RequireHibernateSupport>(boolean)</RequireHibernateSupport>\n            <NetworkInterfaceCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </NetworkInterfaceCount>\n            <LocalStorage>(string)</LocalStorage>\n            <LocalStorageTypes>(string)</LocalStorageTypes>\n            <LocalStorageTypes>(string)</LocalStorageTypes>\n            <TotalLocalStorageGB>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </TotalLocalStorageGB>\n            <BaselineEbsBandwidthMbps>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </BaselineEbsBandwidthMbps>\n            <AcceleratorTypes>(string)</AcceleratorTypes>\n            <AcceleratorTypes>(string)</AcceleratorTypes>\n            <AcceleratorCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </AcceleratorCount>\n            <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n            <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n            <AcceleratorNames>(string)</AcceleratorNames>\n            <AcceleratorNames>(string)</AcceleratorNames>\n            <AcceleratorTotalMemoryMiB>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </AcceleratorTotalMemoryMiB>\n            <NetworkBandwidthGbps>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </NetworkBandwidthGbps>\n            <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n            <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n          </InstanceRequirements>\n        </Overrides>\n        <Overrides>\n          <InstanceType>(string)</InstanceType>\n          <WeightedCapacity>(string)</WeightedCapacity>\n          <LaunchTemplateSpecification>\n            <LaunchTemplateId>(string)</LaunchTemplateId>\n            <LaunchTemplateName>(string)</LaunchTemplateName>\n            <Version>(string)</Version>\n          </LaunchTemplateSpecification>\n          <InstanceRequirements>\n            <VCpuCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </VCpuCount>\n            <MemoryMiB>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </MemoryMiB>\n            <CpuManufacturers>(string)</CpuManufacturers>\n            <CpuManufacturers>(string)</CpuManufacturers>\n            <MemoryGiBPerVCpu>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </MemoryGiBPerVCpu>\n            <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n            <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n            <InstanceGenerations>(string)</InstanceGenerations>\n            <InstanceGenerations>(string)</InstanceGenerations>\n            <SpotMaxPricePercentageOverLowestPrice>(integer)</SpotMaxPricePercentageOverLowestPrice>\n            <OnDemandMaxPricePercentageOverLowestPrice>(integer)</OnDemandMaxPricePercentageOverLowestPrice>\n            <BareMetal>(string)</BareMetal>\n            <BurstablePerformance>(string)</BurstablePerformance>\n            <RequireHibernateSupport>(boolean)</RequireHibernateSupport>\n            <NetworkInterfaceCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </NetworkInterfaceCount>\n            <LocalStorage>(string)</LocalStorage>\n            <LocalStorageTypes>(string)</LocalStorageTypes>\n            <LocalStorageTypes>(string)</LocalStorageTypes>\n            <TotalLocalStorageGB>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </TotalLocalStorageGB>\n            <BaselineEbsBandwidthMbps>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </BaselineEbsBandwidthMbps>\n            <AcceleratorTypes>(string)</AcceleratorTypes>\n            <AcceleratorTypes>(string)</AcceleratorTypes>\n            <AcceleratorCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </AcceleratorCount>\n            <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n            <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n            <AcceleratorNames>(string)</AcceleratorNames>\n            <AcceleratorNames>(string)</AcceleratorNames>\n            <AcceleratorTotalMemoryMiB>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </AcceleratorTotalMemoryMiB>\n            <NetworkBandwidthGbps>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </NetworkBandwidthGbps>\n            <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n            <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n          </InstanceRequirements>\n        </Overrides>\n      </LaunchTemplate>\n      <InstancesDistribution>\n        <OnDemandAllocationStrategy>(string)</OnDemandAllocationStrategy>\n        <OnDemandBaseCapacity>(integer)</OnDemandBaseCapacity>\n        <OnDemandPercentageAboveBaseCapacity>(integer)</OnDemandPercentageAboveBaseCapacity>\n        <SpotAllocationStrategy>(string)</SpotAllocationStrategy>\n        <SpotInstancePools>(integer)</SpotInstancePools>\n        <SpotMaxPrice>(string)</SpotMaxPrice>\n      </InstancesDistribution>\n    </MixedInstancesPolicy>\n    <MinSize>(integer)</MinSize>\n    <MaxSize>(integer)</MaxSize>\n    <DesiredCapacity>(integer)</DesiredCapacity>\n    <PredictedCapacity>(integer)</PredictedCapacity>\n    <DefaultCooldown>(integer)</DefaultCooldown>\n    <AvailabilityZones>(string)</AvailabilityZones>\n    <AvailabilityZones>(string)</AvailabilityZones>\n    <LoadBalancerNames>(string)</LoadBalancerNames>\n    <LoadBalancerNames>(string)</LoadBalancerNames>\n    <TargetGroupARNs>(string)</TargetGroupARNs>\n    <TargetGroupARNs>(string)</TargetGroupARNs>\n    <HealthCheckType>(string)</HealthCheckType>\n    <HealthCheckGracePeriod>(integer)</HealthCheckGracePeriod>\n    <Instances>\n      <InstanceId>(string)</InstanceId>\n      <InstanceType>(string)</InstanceType>\n      <AvailabilityZone>(string)</AvailabilityZone>\n      <LifecycleState>(string)</LifecycleState>\n      <HealthStatus>(string)</HealthStatus>\n      <LaunchConfigurationName>(string)</LaunchConfigurationName>\n      <LaunchTemplate>\n        <LaunchTemplateId>(string)</LaunchTemplateId>\n        <LaunchTemplateName>(string)</LaunchTemplateName>\n        <Version>(string)</Version>\n      </LaunchTemplate>\n      <ProtectedFromScaleIn>(boolean)</ProtectedFromScaleIn>\n      <WeightedCapacity>(string)</WeightedCapacity>\n    </Instances>\n    <Instances>\n      <InstanceId>(string)</InstanceId>\n      <InstanceType>(string)</InstanceType>\n      <AvailabilityZone>(string)</AvailabilityZone>\n      <LifecycleState>(string)</LifecycleState>\n      <HealthStatus>(string)</HealthStatus>\n      <LaunchConfigurationName>(string)</LaunchConfigurationName>\n      <LaunchTemplate>\n        <LaunchTemplateId>(string)</LaunchTemplateId>\n        <LaunchTemplateName>(string)</LaunchTemplateName>\n        <Version>(string)</Version>\n      </LaunchTemplate>\n      <ProtectedFromScaleIn>(boolean)</ProtectedFromScaleIn>\n      <WeightedCapacity>(string)</WeightedCapacity>\n    </Instances>\n    <CreatedTime>(string)</CreatedTime>\n    <SuspendedProcesses>\n      <ProcessName>(string)</ProcessName>\n      <SuspensionReason>(string)</SuspensionReason>\n    </SuspendedProcesses>\n    <SuspendedProcesses>\n      <ProcessName>(string)</ProcessName>\n      <SuspensionReason>(string)</SuspensionReason>\n    </SuspendedProcesses>\n    <PlacementGroup>(string)</PlacementGroup>\n    <VPCZoneIdentifier>(string)</VPCZoneIdentifier>\n    <EnabledMetrics>\n      <Metric>(string)</Metric>\n      <Granularity>(string)</Granularity>\n    </EnabledMetrics>\n    <EnabledMetrics>\n      <Metric>(string)</Metric>\n      <Granularity>(string)</Granularity>\n    </EnabledMetrics>\n    <Status>(string)</Status>\n    <Tags>\n      <ResourceId>(string)</ResourceId>\n      <ResourceType>(string)</ResourceType>\n      <Key>(string)</Key>\n      <Value>(string)</Value>\n      <PropagateAtLaunch>(boolean)</PropagateAtLaunch>\n    </Tags>\n    <Tags>\n      <ResourceId>(string)</ResourceId>\n      <ResourceType>(string)</ResourceType>\n      <Key>(string)</Key>\n      <Value>(string)</Value>\n      <PropagateAtLaunch>(boolean)</PropagateAtLaunch>\n    </Tags>\n    <TerminationPolicies>(string)</TerminationPolicies>\n    <TerminationPolicies>(string)</TerminationPolicies>\n    <NewInstancesProtectedFromScaleIn>(boolean)</NewInstancesProtectedFromScaleIn>\n    <ServiceLinkedRoleARN>(string)</ServiceLinkedRoleARN>\n    <MaxInstanceLifetime>(integer)</MaxInstanceLifetime>\n    <CapacityRebalance>(boolean)</CapacityRebalance>\n    <WarmPoolConfiguration>\n      <MaxGroupPreparedCapacity>(integer)</MaxGroupPreparedCapacity>\n      <MinSize>(integer)</MinSize>\n      <PoolState>(string)</PoolState>\n      <Status>(string)</Status>\n      <InstanceReusePolicy>\n        <ReuseOnScaleIn>(boolean)</ReuseOnScaleIn>\n      </InstanceReusePolicy>\n    </WarmPoolConfiguration>\n    <WarmPoolSize>(integer)</WarmPoolSize>\n    <Context>(string)</Context>\n    <DesiredCapacityType>(string)</DesiredCapacityType>\n    <DefaultInstanceWarmup>(integer)</DefaultInstanceWarmup>\n    <TrafficSources>\n      <Identifier>(string)</Identifier>\n      <Type>(string)</Type>\n    </TrafficSources>\n    <TrafficSources>\n      <Identifier>(string)</Identifier>\n      <Type>(string)</Type>\n    </TrafficSources>\n  </AutoScalingGroups>\n  <NextToken>(string)</NextToken>\n</element>",
+              "createdAt": "2026-07-28T10:18:32.000Z",
+              "updatedAt": "2026-07-28T10:18:32.000Z",
+              "uid": "35240-5036a825-5f08-4aec-b4d5-05bb2dc32ddb"
+            },
+            {
+              "id": "02359430-3b34-4dc4-8a23-ad155204eed8",
+              "name": "InvalidNextToken",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupNames>(string)</AutoScalingGroupNames>\n  <AutoScalingGroupNames>(string)</AutoScalingGroupNames>\n  <NextToken>(string)</NextToken>\n  <MaxRecords>(integer)</MaxRecords>\n  <Filters>\n    <Name>(string)</Name>\n    <Values>(string)</Values>\n    <Values>(string)</Values>\n  </Filters>\n  <Filters>\n    <Name>(string)</Name>\n    <Values>(string)</Values>\n    <Values>(string)</Values>\n  </Filters>\n</element>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "xml",
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?MaxRecords=<string>&NextToken=<string>&Action=DescribeAutoScalingGroups&Version=2011-01-01#Action=DescribeAutoScalingGroups",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "Pagination limit",
+                      "key": "MaxRecords",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination token",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribeAutoScalingGroups"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=DescribeAutoScalingGroups"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:18:32.000Z",
+              "updatedAt": "2026-07-28T10:18:32.000Z",
+              "uid": "35240-02359430-3b34-4dc4-8a23-ad155204eed8"
+            },
+            {
+              "id": "7a9d989b-9899-4091-8d50-3142ee27853a",
+              "name": "ResourceContentionFault",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupNames>(string)</AutoScalingGroupNames>\n  <AutoScalingGroupNames>(string)</AutoScalingGroupNames>\n  <NextToken>(string)</NextToken>\n  <MaxRecords>(integer)</MaxRecords>\n  <Filters>\n    <Name>(string)</Name>\n    <Values>(string)</Values>\n    <Values>(string)</Values>\n  </Filters>\n  <Filters>\n    <Name>(string)</Name>\n    <Values>(string)</Values>\n    <Values>(string)</Values>\n  </Filters>\n</element>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "xml",
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?MaxRecords=<string>&NextToken=<string>&Action=DescribeAutoScalingGroups&Version=2011-01-01#Action=DescribeAutoScalingGroups",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "Pagination limit",
+                      "key": "MaxRecords",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination token",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribeAutoScalingGroups"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=DescribeAutoScalingGroups"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:18:32.000Z",
+              "updatedAt": "2026-07-28T10:18:32.000Z",
+              "uid": "35240-7a9d989b-9899-4091-8d50-3142ee27853a"
+            }
+          ],
+          "createdAt": "2026-07-28T10:18:32.000Z",
+          "updatedAt": "2026-07-28T10:18:32.000Z",
+          "uid": "35240-98000439-a29d-492c-a18f-24918ff06aa4"
+        }
+      ],
+      "id": "b741a0af-21df-498c-8c79-6f7653d81602",
+      "createdAt": "2026-07-28T10:18:32.000Z",
+      "updatedAt": "2026-07-28T10:18:32.000Z",
+      "uid": "35240-b741a0af-21df-498c-8c79-6f7653d81602"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://autoscaling.{{region}}.amazonaws.com"
+    }
+  ]
+}

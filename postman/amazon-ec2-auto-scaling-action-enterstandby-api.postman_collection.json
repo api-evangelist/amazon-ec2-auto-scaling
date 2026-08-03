@@ -1,0 +1,617 @@
+{
+  "info": {
+    "_postman_id": "527530c4-f173-4d58-9b81-db395f307072",
+    "name": "Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=EnterStandby API",
+    "description": "<fullname>Amazon EC2 Auto Scaling</fullname> <p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.</p> <p>For more information, see the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/\">Amazon EC2 Auto Scaling User Guide</a> and the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html\">Amazon EC2 Auto Scaling API Reference</a>.</p>\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:19:35.000Z",
+    "updatedAt": "2026-07-28T10:19:36.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-527530c4-f173-4d58-9b81-db395f307072"
+  },
+  "item": [
+    {
+      "name": "#Action=EnterStandby",
+      "item": [
+        {
+          "name": "Amazon EC2 Auto Scaling GET_ Enter Standby",
+          "id": "d54a5ba2-c5e0-46a2-8039-6ab77776f3bf",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?InstanceIds=<string>&InstanceIds=<string>&AutoScalingGroupName=<string>&ShouldDecrementDesiredCapacity=<boolean>&Action=EnterStandby&Version=2011-01-01#Action=EnterStandby",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "The IDs of the instances. You can specify up to 20 instances.",
+                  "key": "InstanceIds",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The IDs of the instances. You can specify up to 20 instances.",
+                  "key": "InstanceIds",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) The name of the Auto Scaling group.",
+                  "key": "AutoScalingGroupName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) Indicates whether to decrement the desired capacity of the Auto Scaling group by the number of instances moved to <code>Standby</code> mode.",
+                  "key": "ShouldDecrementDesiredCapacity",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "EnterStandby"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2011-01-01"
+                }
+              ],
+              "hash": "Action=EnterStandby"
+            },
+            "description": "<p>Moves the specified instances into the standby state.</p> <p>If you choose to decrement the desired capacity of the Auto Scaling group, the instances can enter standby as long as the desired capacity of the Auto Scaling group after the instances are placed into standby is equal to or greater than the minimum capacity of the group.</p> <p>If you choose not to decrement the desired capacity of the Auto Scaling group, the Auto Scaling group launches new instances to replace the instances on standby.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enter-exit-standby.html\">Temporarily removing instances from your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>"
+          },
+          "response": [
+            {
+              "id": "0def7dfc-30d7-44b4-977f-a8c4929fb712",
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?InstanceIds=<string>&AutoScalingGroupName=<string>&ShouldDecrementDesiredCapacity=<boolean>&Action=EnterStandby&Version=2011-01-01#Action=EnterStandby",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "The IDs of the instances. You can specify up to 20 instances.",
+                      "key": "InstanceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The name of the Auto Scaling group.",
+                      "key": "AutoScalingGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Indicates whether to decrement the desired capacity of the Auto Scaling group by the number of instances moved to <code>Standby</code> mode.",
+                      "key": "ShouldDecrementDesiredCapacity",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "EnterStandby"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=EnterStandby"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <Activities>\n    <ActivityId>(string)</ActivityId>\n    <AutoScalingGroupName>(string)</AutoScalingGroupName>\n    <Description>(string)</Description>\n    <Cause>(string)</Cause>\n    <StartTime>(string)</StartTime>\n    <EndTime>(string)</EndTime>\n    <StatusCode>(string)</StatusCode>\n    <StatusMessage>(string)</StatusMessage>\n    <Progress>(integer)</Progress>\n    <Details>(string)</Details>\n    <AutoScalingGroupState>(string)</AutoScalingGroupState>\n    <AutoScalingGroupARN>(string)</AutoScalingGroupARN>\n  </Activities>\n  <Activities>\n    <ActivityId>(string)</ActivityId>\n    <AutoScalingGroupName>(string)</AutoScalingGroupName>\n    <Description>(string)</Description>\n    <Cause>(string)</Cause>\n    <StartTime>(string)</StartTime>\n    <EndTime>(string)</EndTime>\n    <StatusCode>(string)</StatusCode>\n    <StatusMessage>(string)</StatusMessage>\n    <Progress>(integer)</Progress>\n    <Details>(string)</Details>\n    <AutoScalingGroupState>(string)</AutoScalingGroupState>\n    <AutoScalingGroupARN>(string)</AutoScalingGroupARN>\n  </Activities>\n</element>",
+              "createdAt": "2026-07-28T10:19:36.000Z",
+              "updatedAt": "2026-07-28T10:19:36.000Z",
+              "uid": "35240-0def7dfc-30d7-44b4-977f-a8c4929fb712"
+            },
+            {
+              "id": "3e3b117b-f9d5-4d82-8ac7-eb86cafc049e",
+              "name": "ResourceContentionFault",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?InstanceIds=<string>&AutoScalingGroupName=<string>&ShouldDecrementDesiredCapacity=<boolean>&Action=EnterStandby&Version=2011-01-01#Action=EnterStandby",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "The IDs of the instances. You can specify up to 20 instances.",
+                      "key": "InstanceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The name of the Auto Scaling group.",
+                      "key": "AutoScalingGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Indicates whether to decrement the desired capacity of the Auto Scaling group by the number of instances moved to <code>Standby</code> mode.",
+                      "key": "ShouldDecrementDesiredCapacity",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "EnterStandby"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=EnterStandby"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:19:36.000Z",
+              "updatedAt": "2026-07-28T10:19:36.000Z",
+              "uid": "35240-3e3b117b-f9d5-4d82-8ac7-eb86cafc049e"
+            }
+          ],
+          "createdAt": "2026-07-28T10:19:36.000Z",
+          "updatedAt": "2026-07-28T10:19:36.000Z",
+          "uid": "35240-d54a5ba2-c5e0-46a2-8039-6ab77776f3bf"
+        },
+        {
+          "name": "Amazon EC2 Auto Scaling POST_ Enter Standby",
+          "id": "bc8ebdf4-52b2-44a2-a210-946d29206de8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "text/xml"
+              },
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <InstanceIds>(string)</InstanceIds>\n  <InstanceIds>(string)</InstanceIds>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <ShouldDecrementDesiredCapacity>(boolean)</ShouldDecrementDesiredCapacity>\n</element>",
+              "options": {
+                "raw": {
+                  "headerFamily": "xml",
+                  "language": "xml"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/?Action=EnterStandby&Version=2011-01-01#Action=EnterStandby",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "EnterStandby"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2011-01-01"
+                }
+              ],
+              "hash": "Action=EnterStandby"
+            },
+            "description": "<p>Moves the specified instances into the standby state.</p> <p>If you choose to decrement the desired capacity of the Auto Scaling group, the instances can enter standby as long as the desired capacity of the Auto Scaling group after the instances are placed into standby is equal to or greater than the minimum capacity of the group.</p> <p>If you choose not to decrement the desired capacity of the Auto Scaling group, the Auto Scaling group launches new instances to replace the instances on standby.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enter-exit-standby.html\">Temporarily removing instances from your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>"
+          },
+          "response": [
+            {
+              "id": "481fe3be-3645-45ef-ad9a-152dddc5a3d0",
+              "name": "Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <InstanceIds>(string)</InstanceIds>\n  <InstanceIds>(string)</InstanceIds>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <ShouldDecrementDesiredCapacity>(boolean)</ShouldDecrementDesiredCapacity>\n</element>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "xml",
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=EnterStandby&Version=2011-01-01#Action=EnterStandby",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "EnterStandby"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=EnterStandby"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <Activities>\n    <ActivityId>(string)</ActivityId>\n    <AutoScalingGroupName>(string)</AutoScalingGroupName>\n    <Description>(string)</Description>\n    <Cause>(string)</Cause>\n    <StartTime>(string)</StartTime>\n    <EndTime>(string)</EndTime>\n    <StatusCode>(string)</StatusCode>\n    <StatusMessage>(string)</StatusMessage>\n    <Progress>(integer)</Progress>\n    <Details>(string)</Details>\n    <AutoScalingGroupState>(string)</AutoScalingGroupState>\n    <AutoScalingGroupARN>(string)</AutoScalingGroupARN>\n  </Activities>\n  <Activities>\n    <ActivityId>(string)</ActivityId>\n    <AutoScalingGroupName>(string)</AutoScalingGroupName>\n    <Description>(string)</Description>\n    <Cause>(string)</Cause>\n    <StartTime>(string)</StartTime>\n    <EndTime>(string)</EndTime>\n    <StatusCode>(string)</StatusCode>\n    <StatusMessage>(string)</StatusMessage>\n    <Progress>(integer)</Progress>\n    <Details>(string)</Details>\n    <AutoScalingGroupState>(string)</AutoScalingGroupState>\n    <AutoScalingGroupARN>(string)</AutoScalingGroupARN>\n  </Activities>\n</element>",
+              "createdAt": "2026-07-28T10:19:36.000Z",
+              "updatedAt": "2026-07-28T10:19:36.000Z",
+              "uid": "35240-481fe3be-3645-45ef-ad9a-152dddc5a3d0"
+            },
+            {
+              "id": "3fb482d3-1f84-4510-a179-4b5c78107b8e",
+              "name": "ResourceContentionFault",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <InstanceIds>(string)</InstanceIds>\n  <InstanceIds>(string)</InstanceIds>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <ShouldDecrementDesiredCapacity>(boolean)</ShouldDecrementDesiredCapacity>\n</element>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "xml",
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=EnterStandby&Version=2011-01-01#Action=EnterStandby",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "EnterStandby"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=EnterStandby"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:19:36.000Z",
+              "updatedAt": "2026-07-28T10:19:36.000Z",
+              "uid": "35240-3fb482d3-1f84-4510-a179-4b5c78107b8e"
+            }
+          ],
+          "createdAt": "2026-07-28T10:19:36.000Z",
+          "updatedAt": "2026-07-28T10:19:36.000Z",
+          "uid": "35240-bc8ebdf4-52b2-44a2-a210-946d29206de8"
+        }
+      ],
+      "id": "3f1d771c-2ec6-4bd9-a47c-12d38405a6e9",
+      "createdAt": "2026-07-28T10:19:36.000Z",
+      "updatedAt": "2026-07-28T10:19:36.000Z",
+      "uid": "35240-3f1d771c-2ec6-4bd9-a47c-12d38405a6e9"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://autoscaling.{{region}}.amazonaws.com"
+    }
+  ]
+}

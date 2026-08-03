@@ -1,0 +1,1491 @@
+{
+  "info": {
+    "_postman_id": "57c97946-d28b-4260-b59a-370ac0dc97b9",
+    "name": "Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=UpdateAutoScalingGroup API",
+    "description": "<fullname>Amazon EC2 Auto Scaling</fullname> <p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.</p> <p>For more information, see the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/\">Amazon EC2 Auto Scaling User Guide</a> and the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html\">Amazon EC2 Auto Scaling API Reference</a>.</p>\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:20:12.000Z",
+    "updatedAt": "2026-07-28T10:20:12.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-57c97946-d28b-4260-b59a-370ac0dc97b9"
+  },
+  "item": [
+    {
+      "name": "#Action=UpdateAutoScalingGroup",
+      "item": [
+        {
+          "name": "Amazon EC2 Auto Scaling GET_ Update Auto Scaling Group",
+          "id": "e9ec00e2-e9a3-43ae-8fca-b837980e02bf",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?AutoScalingGroupName=<string>&LaunchConfigurationName=<string>&LaunchTemplateId=<string>&LaunchTemplateName=MMMM&Version=<string>&LaunchTemplate=[object Object]&InstancesDistribution=[object Object]&MinSize=<integer>&MaxSize=<integer>&DesiredCapacity=<integer>&DefaultCooldown=<integer>&AvailabilityZones=<string>&AvailabilityZones=<string>&HealthCheckType=<string>&HealthCheckGracePeriod=<integer>&PlacementGroup=<string>&VPCZoneIdentifier=<string>&TerminationPolicies=<string>&TerminationPolicies=<string>&NewInstancesProtectedFromScaleIn=<boolean>&ServiceLinkedRoleARN=<string>&MaxInstanceLifetime=<integer>&CapacityRebalance=<boolean>&Context=<string>&DesiredCapacityType=<string>&DefaultInstanceWarmup=<integer>&Action=UpdateAutoScalingGroup&Version=2011-01-01#Action=UpdateAutoScalingGroup",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "(Required) The name of the Auto Scaling group.",
+                  "key": "AutoScalingGroupName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The name of the launch configuration. If you specify <code>LaunchConfigurationName</code> in your update request, you can't specify <code>LaunchTemplate</code> or <code>MixedInstancesPolicy</code>.",
+                  "key": "LaunchConfigurationName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The launch template and version to use to specify the updates. If you specify <code>LaunchTemplate</code> in your update request, you can't specify <code>LaunchConfigurationName</code> or <code>MixedInstancesPolicy</code>.",
+                  "key": "LaunchTemplateId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The launch template and version to use to specify the updates. If you specify <code>LaunchTemplate</code> in your update request, you can't specify <code>LaunchConfigurationName</code> or <code>MixedInstancesPolicy</code>.",
+                  "key": "LaunchTemplateName",
+                  "value": "MMMM"
+                },
+                {
+                  "description": "The launch template and version to use to specify the updates. If you specify <code>LaunchTemplate</code> in your update request, you can't specify <code>LaunchConfigurationName</code> or <code>MixedInstancesPolicy</code>.",
+                  "key": "Version",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The mixed instances policy. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html\">Auto Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                  "key": "LaunchTemplate",
+                  "value": "[object Object]"
+                },
+                {
+                  "description": "The mixed instances policy. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html\">Auto Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                  "key": "InstancesDistribution",
+                  "value": "[object Object]"
+                },
+                {
+                  "description": "The minimum size of the Auto Scaling group.",
+                  "key": "MinSize",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "<p>The maximum size of the Auto Scaling group.</p> <note> <p>With a mixed instances policy that uses instance weighting, Amazon EC2 Auto Scaling may need to go above <code>MaxSize</code> to meet your capacity requirements. In this event, Amazon EC2 Auto Scaling will never go above <code>MaxSize</code> by more than your largest instance weight (weights that define how many units each instance contributes to the desired capacity of the group).</p> </note>",
+                  "key": "MaxSize",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "The desired capacity is the initial capacity of the Auto Scaling group after this operation completes and the capacity it attempts to maintain. This number must be greater than or equal to the minimum size of the group and less than or equal to the maximum size of the group.",
+                  "key": "DesiredCapacity",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "<p> <i>Only needed if you use simple scaling policies.</i> </p> <p>The amount of time, in seconds, between one scaling activity ending and another one starting due to simple scaling policies. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html\">Scaling cooldowns for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>",
+                  "key": "DefaultCooldown",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "One or more Availability Zones for the group.",
+                  "key": "AvailabilityZones",
+                  "value": "<string>"
+                },
+                {
+                  "description": "One or more Availability Zones for the group.",
+                  "key": "AvailabilityZones",
+                  "value": "<string>"
+                },
+                {
+                  "description": "<p>A comma-separated value string of one or more health check types.</p> <p>The valid values are <code>EC2</code>, <code>ELB</code>, and <code>VPC_LATTICE</code>. <code>EC2</code> is the default health check and cannot be disabled. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html\">Health checks for Auto Scaling instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>Only specify <code>EC2</code> if you must clear a value that was previously set.</p>",
+                  "key": "HealthCheckType",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service and marking it unhealthy due to a failed health check. This is useful if your instances do not immediately pass their health checks after they enter the <code>InService</code> state. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/health-check-grace-period.html\">Set the health check grace period for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                  "key": "HealthCheckGracePeriod",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "<p>The name of an existing placement group into which to launch your instances. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html\">Placement groups</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> <note> <p>A <i>cluster</i> placement group is a logical grouping of instances within a single Availability Zone. You cannot specify multiple Availability Zones and a cluster placement group. </p> </note>",
+                  "key": "PlacementGroup",
+                  "value": "<string>"
+                },
+                {
+                  "description": "A comma-separated list of subnet IDs for a virtual private cloud (VPC). If you specify <code>VPCZoneIdentifier</code> with <code>AvailabilityZones</code>, the subnets that you specify must reside in those Availability Zones.",
+                  "key": "VPCZoneIdentifier",
+                  "value": "<string>"
+                },
+                {
+                  "description": "<p>A policy or a list of policies that are used to select the instances to terminate. The policies are executed in the order that you list them. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html\">Work with Amazon EC2 Auto Scaling termination policies</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>Valid values: <code>Default</code> | <code>AllocationStrategy</code> | <code>ClosestToNextInstanceHour</code> | <code>NewestInstance</code> | <code>OldestInstance</code> | <code>OldestLaunchConfiguration</code> | <code>OldestLaunchTemplate</code> | <code>arn:aws:lambda:region:account-id:function:my-function:my-alias</code> </p>",
+                  "key": "TerminationPolicies",
+                  "value": "<string>"
+                },
+                {
+                  "description": "<p>A policy or a list of policies that are used to select the instances to terminate. The policies are executed in the order that you list them. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html\">Work with Amazon EC2 Auto Scaling termination policies</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>Valid values: <code>Default</code> | <code>AllocationStrategy</code> | <code>ClosestToNextInstanceHour</code> | <code>NewestInstance</code> | <code>OldestInstance</code> | <code>OldestLaunchConfiguration</code> | <code>OldestLaunchTemplate</code> | <code>arn:aws:lambda:region:account-id:function:my-function:my-alias</code> </p>",
+                  "key": "TerminationPolicies",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in. For more information about preventing instances from terminating on scale in, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html\">Using instance scale-in protection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                  "key": "NewInstancesProtectedFromScaleIn",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other Amazon Web Services on your behalf. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html\">Service-linked roles</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                  "key": "ServiceLinkedRoleARN",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The maximum amount of time, in seconds, that an instance can be in service. The default is null. If specified, the value must be either 0 or a number equal to or greater than 86,400 seconds (1 day). To clear a previously set value, specify a new value of 0. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html\">Replacing Auto Scaling instances based on maximum instance lifetime</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                  "key": "MaxInstanceLifetime",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Enables or disables Capacity Rebalancing. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html\">Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                  "key": "CapacityRebalance",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "Reserved.",
+                  "key": "Context",
+                  "value": "<string>"
+                },
+                {
+                  "description": "<p>The unit of measurement for the value specified for desired capacity. Amazon EC2 Auto Scaling supports <code>DesiredCapacityType</code> for attribute-based instance type selection only. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html\">Creating an Auto Scaling group using attribute-based instance type selection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>By default, Amazon EC2 Auto Scaling specifies <code>units</code>, which translates into number of instances.</p> <p>Valid values: <code>units</code> | <code>vcpu</code> | <code>memory-mib</code> </p>",
+                  "key": "DesiredCapacityType",
+                  "value": "<string>"
+                },
+                {
+                  "description": "<p>The amount of time, in seconds, until a new instance is considered to have finished initializing and resource consumption to become stable after it enters the <code>InService</code> state. </p> <p>During an instance refresh, Amazon EC2 Auto Scaling waits for the warm-up period after it replaces an instance before it moves on to replacing the next instance. Amazon EC2 Auto Scaling also waits for the warm-up period before aggregating the metrics for new instances with existing instances in the Amazon CloudWatch metrics that are used for scaling, resulting in more reliable usage data. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html\">Set the default instance warmup for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <important> <p>To manage various warm-up settings at the group level, we recommend that you set the default instance warmup, <i>even if it is set to 0 seconds</i>. To remove a value that you previously set, include the property but specify <code>-1</code> for the value. However, we strongly recommend keeping the default instance warmup enabled by specifying a value of <code>0</code> or other nominal value.</p> </important>",
+                  "key": "DefaultInstanceWarmup",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "UpdateAutoScalingGroup"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2011-01-01"
+                }
+              ],
+              "hash": "Action=UpdateAutoScalingGroup"
+            },
+            "description": "<p> <b>We strongly recommend that all Auto Scaling groups use launch templates to ensure full functionality for Amazon EC2 Auto Scaling and Amazon EC2.</b> </p> <p>Updates the configuration for the specified Auto Scaling group.</p> <p>To update an Auto Scaling group, specify the name of the group and the property that you want to change. Any properties that you don't specify are not changed by this update request. The new settings take effect on any scaling activities after this call returns. </p> <p>If you associate a new launch configuration or template with an Auto Scaling group, all new instances will get the updated configuration. Existing instances continue to run with the configuration that they were originally launched with. When you update a group to specify a mixed instances policy instead of a launch configuration or template, existing instances may be replaced to match the new purchasing options that you specified in the policy. For example, if the group currently has 100% On-Demand capacity and the policy specifies 50% Spot capacity, this means that half of your instances will be gradually terminated and relaunched as Spot Instances. When replacing instances, Amazon EC2 Auto Scaling launches new instances before terminating the old ones, so that updating your group does not compromise the performance or availability of your application.</p> <p>Note the following about changing <code>DesiredCapacity</code>, <code>MaxSize</code>, or <code>MinSize</code>:</p> <ul> <li> <p>If a scale-in activity occurs as a result of a new <code>DesiredCapacity</code> value that is lower than the current size of the group, the Auto Scaling group uses its termination policy to determine which instances to terminate.</p> </li> <li> <p>If you specify a new value for <code>MinSize</code> without specifying a value for <code>DesiredCapacity</code>, and the new <code>MinSize</code> is larger than the current size of the group, this sets the group's <code>DesiredCapacity</code> to the new <code>MinSize</code> value.</p> </li> <li> <p>If you specify a new value for <code>MaxSize</code> without specifying a value for <code>DesiredCapacity</code>, and the new <code>MaxSize</code> is smaller than the current size of the group, this sets the group's <code>DesiredCapacity</code> to the new <code>MaxSize</code> value.</p> </li> </ul> <p>To see which properties have been set, call the <a>DescribeAutoScalingGroups</a> API. To view the scaling policies for an Auto Scaling group, call the <a>DescribePolicies</a> API. If the group has scaling policies, you can update them by calling the <a>PutScalingPolicy</a> API.</p>"
+          },
+          "response": [
+            {
+              "id": "50e58668-e93c-4945-8bf1-a9ad214054c0",
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?AutoScalingGroupName=<string>&LaunchConfigurationName=<string>&LaunchTemplateId=<string>&LaunchTemplateName=MMMM&Version=2011-01-01&LaunchTemplate=[object Object]&InstancesDistribution=[object Object]&MinSize=<integer>&MaxSize=<integer>&DesiredCapacity=<integer>&DefaultCooldown=<integer>&AvailabilityZones=<string>&HealthCheckType=<string>&HealthCheckGracePeriod=<integer>&PlacementGroup=<string>&VPCZoneIdentifier=<string>&TerminationPolicies=<string>&NewInstancesProtectedFromScaleIn=<boolean>&ServiceLinkedRoleARN=<string>&MaxInstanceLifetime=<integer>&CapacityRebalance=<boolean>&Context=<string>&DesiredCapacityType=<string>&DefaultInstanceWarmup=<integer>&Action=UpdateAutoScalingGroup#Action=UpdateAutoScalingGroup",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The name of the Auto Scaling group.",
+                      "key": "AutoScalingGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name of the launch configuration. If you specify <code>LaunchConfigurationName</code> in your update request, you can't specify <code>LaunchTemplate</code> or <code>MixedInstancesPolicy</code>.",
+                      "key": "LaunchConfigurationName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The launch template and version to use to specify the updates. If you specify <code>LaunchTemplate</code> in your update request, you can't specify <code>LaunchConfigurationName</code> or <code>MixedInstancesPolicy</code>.",
+                      "key": "LaunchTemplateId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The launch template and version to use to specify the updates. If you specify <code>LaunchTemplate</code> in your update request, you can't specify <code>LaunchConfigurationName</code> or <code>MixedInstancesPolicy</code>.",
+                      "key": "LaunchTemplateName",
+                      "value": "MMMM"
+                    },
+                    {
+                      "description": "The launch template and version to use to specify the updates. If you specify <code>LaunchTemplate</code> in your update request, you can't specify <code>LaunchConfigurationName</code> or <code>MixedInstancesPolicy</code>.",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    },
+                    {
+                      "description": "The mixed instances policy. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html\">Auto Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "LaunchTemplate",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "The mixed instances policy. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html\">Auto Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "InstancesDistribution",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "The minimum size of the Auto Scaling group.",
+                      "key": "MinSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>The maximum size of the Auto Scaling group.</p> <note> <p>With a mixed instances policy that uses instance weighting, Amazon EC2 Auto Scaling may need to go above <code>MaxSize</code> to meet your capacity requirements. In this event, Amazon EC2 Auto Scaling will never go above <code>MaxSize</code> by more than your largest instance weight (weights that define how many units each instance contributes to the desired capacity of the group).</p> </note>",
+                      "key": "MaxSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The desired capacity is the initial capacity of the Auto Scaling group after this operation completes and the capacity it attempts to maintain. This number must be greater than or equal to the minimum size of the group and less than or equal to the maximum size of the group.",
+                      "key": "DesiredCapacity",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p> <i>Only needed if you use simple scaling policies.</i> </p> <p>The amount of time, in seconds, between one scaling activity ending and another one starting due to simple scaling policies. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html\">Scaling cooldowns for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>",
+                      "key": "DefaultCooldown",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "One or more Availability Zones for the group.",
+                      "key": "AvailabilityZones",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>A comma-separated value string of one or more health check types.</p> <p>The valid values are <code>EC2</code>, <code>ELB</code>, and <code>VPC_LATTICE</code>. <code>EC2</code> is the default health check and cannot be disabled. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html\">Health checks for Auto Scaling instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>Only specify <code>EC2</code> if you must clear a value that was previously set.</p>",
+                      "key": "HealthCheckType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service and marking it unhealthy due to a failed health check. This is useful if your instances do not immediately pass their health checks after they enter the <code>InService</code> state. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/health-check-grace-period.html\">Set the health check grace period for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "HealthCheckGracePeriod",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>The name of an existing placement group into which to launch your instances. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html\">Placement groups</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> <note> <p>A <i>cluster</i> placement group is a logical grouping of instances within a single Availability Zone. You cannot specify multiple Availability Zones and a cluster placement group. </p> </note>",
+                      "key": "PlacementGroup",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A comma-separated list of subnet IDs for a virtual private cloud (VPC). If you specify <code>VPCZoneIdentifier</code> with <code>AvailabilityZones</code>, the subnets that you specify must reside in those Availability Zones.",
+                      "key": "VPCZoneIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>A policy or a list of policies that are used to select the instances to terminate. The policies are executed in the order that you list them. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html\">Work with Amazon EC2 Auto Scaling termination policies</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>Valid values: <code>Default</code> | <code>AllocationStrategy</code> | <code>ClosestToNextInstanceHour</code> | <code>NewestInstance</code> | <code>OldestInstance</code> | <code>OldestLaunchConfiguration</code> | <code>OldestLaunchTemplate</code> | <code>arn:aws:lambda:region:account-id:function:my-function:my-alias</code> </p>",
+                      "key": "TerminationPolicies",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in. For more information about preventing instances from terminating on scale in, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html\">Using instance scale-in protection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "NewInstancesProtectedFromScaleIn",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other Amazon Web Services on your behalf. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html\">Service-linked roles</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "ServiceLinkedRoleARN",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum amount of time, in seconds, that an instance can be in service. The default is null. If specified, the value must be either 0 or a number equal to or greater than 86,400 seconds (1 day). To clear a previously set value, specify a new value of 0. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html\">Replacing Auto Scaling instances based on maximum instance lifetime</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "MaxInstanceLifetime",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Enables or disables Capacity Rebalancing. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html\">Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "CapacityRebalance",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Reserved.",
+                      "key": "Context",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>The unit of measurement for the value specified for desired capacity. Amazon EC2 Auto Scaling supports <code>DesiredCapacityType</code> for attribute-based instance type selection only. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html\">Creating an Auto Scaling group using attribute-based instance type selection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>By default, Amazon EC2 Auto Scaling specifies <code>units</code>, which translates into number of instances.</p> <p>Valid values: <code>units</code> | <code>vcpu</code> | <code>memory-mib</code> </p>",
+                      "key": "DesiredCapacityType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>The amount of time, in seconds, until a new instance is considered to have finished initializing and resource consumption to become stable after it enters the <code>InService</code> state. </p> <p>During an instance refresh, Amazon EC2 Auto Scaling waits for the warm-up period after it replaces an instance before it moves on to replacing the next instance. Amazon EC2 Auto Scaling also waits for the warm-up period before aggregating the metrics for new instances with existing instances in the Amazon CloudWatch metrics that are used for scaling, resulting in more reliable usage data. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html\">Set the default instance warmup for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <important> <p>To manage various warm-up settings at the group level, we recommend that you set the default instance warmup, <i>even if it is set to 0 seconds</i>. To remove a value that you previously set, include the property but specify <code>-1</code> for the value. However, we strongly recommend keeping the default instance warmup enabled by specifying a value of <code>0</code> or other nominal value.</p> </important>",
+                      "key": "DefaultInstanceWarmup",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "UpdateAutoScalingGroup"
+                    }
+                  ],
+                  "hash": "Action=UpdateAutoScalingGroup"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T10:20:12.000Z",
+              "updatedAt": "2026-07-28T10:20:12.000Z",
+              "uid": "35240-50e58668-e93c-4945-8bf1-a9ad214054c0"
+            },
+            {
+              "id": "ac5665ef-eec1-4273-99bc-3fc8e56d852a",
+              "name": "ScalingActivityInProgressFault",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?AutoScalingGroupName=<string>&LaunchConfigurationName=<string>&LaunchTemplateId=<string>&LaunchTemplateName=MMMM&Version=2011-01-01&LaunchTemplate=[object Object]&InstancesDistribution=[object Object]&MinSize=<integer>&MaxSize=<integer>&DesiredCapacity=<integer>&DefaultCooldown=<integer>&AvailabilityZones=<string>&HealthCheckType=<string>&HealthCheckGracePeriod=<integer>&PlacementGroup=<string>&VPCZoneIdentifier=<string>&TerminationPolicies=<string>&NewInstancesProtectedFromScaleIn=<boolean>&ServiceLinkedRoleARN=<string>&MaxInstanceLifetime=<integer>&CapacityRebalance=<boolean>&Context=<string>&DesiredCapacityType=<string>&DefaultInstanceWarmup=<integer>&Action=UpdateAutoScalingGroup#Action=UpdateAutoScalingGroup",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The name of the Auto Scaling group.",
+                      "key": "AutoScalingGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name of the launch configuration. If you specify <code>LaunchConfigurationName</code> in your update request, you can't specify <code>LaunchTemplate</code> or <code>MixedInstancesPolicy</code>.",
+                      "key": "LaunchConfigurationName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The launch template and version to use to specify the updates. If you specify <code>LaunchTemplate</code> in your update request, you can't specify <code>LaunchConfigurationName</code> or <code>MixedInstancesPolicy</code>.",
+                      "key": "LaunchTemplateId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The launch template and version to use to specify the updates. If you specify <code>LaunchTemplate</code> in your update request, you can't specify <code>LaunchConfigurationName</code> or <code>MixedInstancesPolicy</code>.",
+                      "key": "LaunchTemplateName",
+                      "value": "MMMM"
+                    },
+                    {
+                      "description": "The launch template and version to use to specify the updates. If you specify <code>LaunchTemplate</code> in your update request, you can't specify <code>LaunchConfigurationName</code> or <code>MixedInstancesPolicy</code>.",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    },
+                    {
+                      "description": "The mixed instances policy. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html\">Auto Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "LaunchTemplate",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "The mixed instances policy. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html\">Auto Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "InstancesDistribution",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "The minimum size of the Auto Scaling group.",
+                      "key": "MinSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>The maximum size of the Auto Scaling group.</p> <note> <p>With a mixed instances policy that uses instance weighting, Amazon EC2 Auto Scaling may need to go above <code>MaxSize</code> to meet your capacity requirements. In this event, Amazon EC2 Auto Scaling will never go above <code>MaxSize</code> by more than your largest instance weight (weights that define how many units each instance contributes to the desired capacity of the group).</p> </note>",
+                      "key": "MaxSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The desired capacity is the initial capacity of the Auto Scaling group after this operation completes and the capacity it attempts to maintain. This number must be greater than or equal to the minimum size of the group and less than or equal to the maximum size of the group.",
+                      "key": "DesiredCapacity",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p> <i>Only needed if you use simple scaling policies.</i> </p> <p>The amount of time, in seconds, between one scaling activity ending and another one starting due to simple scaling policies. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html\">Scaling cooldowns for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>",
+                      "key": "DefaultCooldown",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "One or more Availability Zones for the group.",
+                      "key": "AvailabilityZones",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>A comma-separated value string of one or more health check types.</p> <p>The valid values are <code>EC2</code>, <code>ELB</code>, and <code>VPC_LATTICE</code>. <code>EC2</code> is the default health check and cannot be disabled. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html\">Health checks for Auto Scaling instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>Only specify <code>EC2</code> if you must clear a value that was previously set.</p>",
+                      "key": "HealthCheckType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service and marking it unhealthy due to a failed health check. This is useful if your instances do not immediately pass their health checks after they enter the <code>InService</code> state. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/health-check-grace-period.html\">Set the health check grace period for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "HealthCheckGracePeriod",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>The name of an existing placement group into which to launch your instances. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html\">Placement groups</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> <note> <p>A <i>cluster</i> placement group is a logical grouping of instances within a single Availability Zone. You cannot specify multiple Availability Zones and a cluster placement group. </p> </note>",
+                      "key": "PlacementGroup",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A comma-separated list of subnet IDs for a virtual private cloud (VPC). If you specify <code>VPCZoneIdentifier</code> with <code>AvailabilityZones</code>, the subnets that you specify must reside in those Availability Zones.",
+                      "key": "VPCZoneIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>A policy or a list of policies that are used to select the instances to terminate. The policies are executed in the order that you list them. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html\">Work with Amazon EC2 Auto Scaling termination policies</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>Valid values: <code>Default</code> | <code>AllocationStrategy</code> | <code>ClosestToNextInstanceHour</code> | <code>NewestInstance</code> | <code>OldestInstance</code> | <code>OldestLaunchConfiguration</code> | <code>OldestLaunchTemplate</code> | <code>arn:aws:lambda:region:account-id:function:my-function:my-alias</code> </p>",
+                      "key": "TerminationPolicies",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in. For more information about preventing instances from terminating on scale in, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html\">Using instance scale-in protection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "NewInstancesProtectedFromScaleIn",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other Amazon Web Services on your behalf. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html\">Service-linked roles</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "ServiceLinkedRoleARN",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum amount of time, in seconds, that an instance can be in service. The default is null. If specified, the value must be either 0 or a number equal to or greater than 86,400 seconds (1 day). To clear a previously set value, specify a new value of 0. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html\">Replacing Auto Scaling instances based on maximum instance lifetime</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "MaxInstanceLifetime",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Enables or disables Capacity Rebalancing. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html\">Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "CapacityRebalance",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Reserved.",
+                      "key": "Context",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>The unit of measurement for the value specified for desired capacity. Amazon EC2 Auto Scaling supports <code>DesiredCapacityType</code> for attribute-based instance type selection only. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html\">Creating an Auto Scaling group using attribute-based instance type selection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>By default, Amazon EC2 Auto Scaling specifies <code>units</code>, which translates into number of instances.</p> <p>Valid values: <code>units</code> | <code>vcpu</code> | <code>memory-mib</code> </p>",
+                      "key": "DesiredCapacityType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>The amount of time, in seconds, until a new instance is considered to have finished initializing and resource consumption to become stable after it enters the <code>InService</code> state. </p> <p>During an instance refresh, Amazon EC2 Auto Scaling waits for the warm-up period after it replaces an instance before it moves on to replacing the next instance. Amazon EC2 Auto Scaling also waits for the warm-up period before aggregating the metrics for new instances with existing instances in the Amazon CloudWatch metrics that are used for scaling, resulting in more reliable usage data. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html\">Set the default instance warmup for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <important> <p>To manage various warm-up settings at the group level, we recommend that you set the default instance warmup, <i>even if it is set to 0 seconds</i>. To remove a value that you previously set, include the property but specify <code>-1</code> for the value. However, we strongly recommend keeping the default instance warmup enabled by specifying a value of <code>0</code> or other nominal value.</p> </important>",
+                      "key": "DefaultInstanceWarmup",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "UpdateAutoScalingGroup"
+                    }
+                  ],
+                  "hash": "Action=UpdateAutoScalingGroup"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:20:12.000Z",
+              "updatedAt": "2026-07-28T10:20:12.000Z",
+              "uid": "35240-ac5665ef-eec1-4273-99bc-3fc8e56d852a"
+            },
+            {
+              "id": "e3b67ee3-ce80-4fe5-b5f3-0bdb8b99430c",
+              "name": "ResourceContentionFault",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?AutoScalingGroupName=<string>&LaunchConfigurationName=<string>&LaunchTemplateId=<string>&LaunchTemplateName=MMMM&Version=2011-01-01&LaunchTemplate=[object Object]&InstancesDistribution=[object Object]&MinSize=<integer>&MaxSize=<integer>&DesiredCapacity=<integer>&DefaultCooldown=<integer>&AvailabilityZones=<string>&HealthCheckType=<string>&HealthCheckGracePeriod=<integer>&PlacementGroup=<string>&VPCZoneIdentifier=<string>&TerminationPolicies=<string>&NewInstancesProtectedFromScaleIn=<boolean>&ServiceLinkedRoleARN=<string>&MaxInstanceLifetime=<integer>&CapacityRebalance=<boolean>&Context=<string>&DesiredCapacityType=<string>&DefaultInstanceWarmup=<integer>&Action=UpdateAutoScalingGroup#Action=UpdateAutoScalingGroup",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The name of the Auto Scaling group.",
+                      "key": "AutoScalingGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name of the launch configuration. If you specify <code>LaunchConfigurationName</code> in your update request, you can't specify <code>LaunchTemplate</code> or <code>MixedInstancesPolicy</code>.",
+                      "key": "LaunchConfigurationName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The launch template and version to use to specify the updates. If you specify <code>LaunchTemplate</code> in your update request, you can't specify <code>LaunchConfigurationName</code> or <code>MixedInstancesPolicy</code>.",
+                      "key": "LaunchTemplateId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The launch template and version to use to specify the updates. If you specify <code>LaunchTemplate</code> in your update request, you can't specify <code>LaunchConfigurationName</code> or <code>MixedInstancesPolicy</code>.",
+                      "key": "LaunchTemplateName",
+                      "value": "MMMM"
+                    },
+                    {
+                      "description": "The launch template and version to use to specify the updates. If you specify <code>LaunchTemplate</code> in your update request, you can't specify <code>LaunchConfigurationName</code> or <code>MixedInstancesPolicy</code>.",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    },
+                    {
+                      "description": "The mixed instances policy. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html\">Auto Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "LaunchTemplate",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "The mixed instances policy. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html\">Auto Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "InstancesDistribution",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "The minimum size of the Auto Scaling group.",
+                      "key": "MinSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>The maximum size of the Auto Scaling group.</p> <note> <p>With a mixed instances policy that uses instance weighting, Amazon EC2 Auto Scaling may need to go above <code>MaxSize</code> to meet your capacity requirements. In this event, Amazon EC2 Auto Scaling will never go above <code>MaxSize</code> by more than your largest instance weight (weights that define how many units each instance contributes to the desired capacity of the group).</p> </note>",
+                      "key": "MaxSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The desired capacity is the initial capacity of the Auto Scaling group after this operation completes and the capacity it attempts to maintain. This number must be greater than or equal to the minimum size of the group and less than or equal to the maximum size of the group.",
+                      "key": "DesiredCapacity",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p> <i>Only needed if you use simple scaling policies.</i> </p> <p>The amount of time, in seconds, between one scaling activity ending and another one starting due to simple scaling policies. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html\">Scaling cooldowns for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>",
+                      "key": "DefaultCooldown",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "One or more Availability Zones for the group.",
+                      "key": "AvailabilityZones",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>A comma-separated value string of one or more health check types.</p> <p>The valid values are <code>EC2</code>, <code>ELB</code>, and <code>VPC_LATTICE</code>. <code>EC2</code> is the default health check and cannot be disabled. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html\">Health checks for Auto Scaling instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>Only specify <code>EC2</code> if you must clear a value that was previously set.</p>",
+                      "key": "HealthCheckType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service and marking it unhealthy due to a failed health check. This is useful if your instances do not immediately pass their health checks after they enter the <code>InService</code> state. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/health-check-grace-period.html\">Set the health check grace period for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "HealthCheckGracePeriod",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>The name of an existing placement group into which to launch your instances. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html\">Placement groups</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> <note> <p>A <i>cluster</i> placement group is a logical grouping of instances within a single Availability Zone. You cannot specify multiple Availability Zones and a cluster placement group. </p> </note>",
+                      "key": "PlacementGroup",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A comma-separated list of subnet IDs for a virtual private cloud (VPC). If you specify <code>VPCZoneIdentifier</code> with <code>AvailabilityZones</code>, the subnets that you specify must reside in those Availability Zones.",
+                      "key": "VPCZoneIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>A policy or a list of policies that are used to select the instances to terminate. The policies are executed in the order that you list them. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html\">Work with Amazon EC2 Auto Scaling termination policies</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>Valid values: <code>Default</code> | <code>AllocationStrategy</code> | <code>ClosestToNextInstanceHour</code> | <code>NewestInstance</code> | <code>OldestInstance</code> | <code>OldestLaunchConfiguration</code> | <code>OldestLaunchTemplate</code> | <code>arn:aws:lambda:region:account-id:function:my-function:my-alias</code> </p>",
+                      "key": "TerminationPolicies",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in. For more information about preventing instances from terminating on scale in, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html\">Using instance scale-in protection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "NewInstancesProtectedFromScaleIn",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other Amazon Web Services on your behalf. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html\">Service-linked roles</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "ServiceLinkedRoleARN",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum amount of time, in seconds, that an instance can be in service. The default is null. If specified, the value must be either 0 or a number equal to or greater than 86,400 seconds (1 day). To clear a previously set value, specify a new value of 0. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html\">Replacing Auto Scaling instances based on maximum instance lifetime</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "MaxInstanceLifetime",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Enables or disables Capacity Rebalancing. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html\">Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "CapacityRebalance",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Reserved.",
+                      "key": "Context",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>The unit of measurement for the value specified for desired capacity. Amazon EC2 Auto Scaling supports <code>DesiredCapacityType</code> for attribute-based instance type selection only. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html\">Creating an Auto Scaling group using attribute-based instance type selection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>By default, Amazon EC2 Auto Scaling specifies <code>units</code>, which translates into number of instances.</p> <p>Valid values: <code>units</code> | <code>vcpu</code> | <code>memory-mib</code> </p>",
+                      "key": "DesiredCapacityType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>The amount of time, in seconds, until a new instance is considered to have finished initializing and resource consumption to become stable after it enters the <code>InService</code> state. </p> <p>During an instance refresh, Amazon EC2 Auto Scaling waits for the warm-up period after it replaces an instance before it moves on to replacing the next instance. Amazon EC2 Auto Scaling also waits for the warm-up period before aggregating the metrics for new instances with existing instances in the Amazon CloudWatch metrics that are used for scaling, resulting in more reliable usage data. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html\">Set the default instance warmup for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <important> <p>To manage various warm-up settings at the group level, we recommend that you set the default instance warmup, <i>even if it is set to 0 seconds</i>. To remove a value that you previously set, include the property but specify <code>-1</code> for the value. However, we strongly recommend keeping the default instance warmup enabled by specifying a value of <code>0</code> or other nominal value.</p> </important>",
+                      "key": "DefaultInstanceWarmup",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "UpdateAutoScalingGroup"
+                    }
+                  ],
+                  "hash": "Action=UpdateAutoScalingGroup"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:20:12.000Z",
+              "updatedAt": "2026-07-28T10:20:12.000Z",
+              "uid": "35240-e3b67ee3-ce80-4fe5-b5f3-0bdb8b99430c"
+            },
+            {
+              "id": "e5c4511c-9b3d-43e9-8817-eaa45629b964",
+              "name": "ServiceLinkedRoleFailure",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?AutoScalingGroupName=<string>&LaunchConfigurationName=<string>&LaunchTemplateId=<string>&LaunchTemplateName=MMMM&Version=2011-01-01&LaunchTemplate=[object Object]&InstancesDistribution=[object Object]&MinSize=<integer>&MaxSize=<integer>&DesiredCapacity=<integer>&DefaultCooldown=<integer>&AvailabilityZones=<string>&HealthCheckType=<string>&HealthCheckGracePeriod=<integer>&PlacementGroup=<string>&VPCZoneIdentifier=<string>&TerminationPolicies=<string>&NewInstancesProtectedFromScaleIn=<boolean>&ServiceLinkedRoleARN=<string>&MaxInstanceLifetime=<integer>&CapacityRebalance=<boolean>&Context=<string>&DesiredCapacityType=<string>&DefaultInstanceWarmup=<integer>&Action=UpdateAutoScalingGroup#Action=UpdateAutoScalingGroup",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The name of the Auto Scaling group.",
+                      "key": "AutoScalingGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name of the launch configuration. If you specify <code>LaunchConfigurationName</code> in your update request, you can't specify <code>LaunchTemplate</code> or <code>MixedInstancesPolicy</code>.",
+                      "key": "LaunchConfigurationName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The launch template and version to use to specify the updates. If you specify <code>LaunchTemplate</code> in your update request, you can't specify <code>LaunchConfigurationName</code> or <code>MixedInstancesPolicy</code>.",
+                      "key": "LaunchTemplateId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The launch template and version to use to specify the updates. If you specify <code>LaunchTemplate</code> in your update request, you can't specify <code>LaunchConfigurationName</code> or <code>MixedInstancesPolicy</code>.",
+                      "key": "LaunchTemplateName",
+                      "value": "MMMM"
+                    },
+                    {
+                      "description": "The launch template and version to use to specify the updates. If you specify <code>LaunchTemplate</code> in your update request, you can't specify <code>LaunchConfigurationName</code> or <code>MixedInstancesPolicy</code>.",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    },
+                    {
+                      "description": "The mixed instances policy. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html\">Auto Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "LaunchTemplate",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "The mixed instances policy. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html\">Auto Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "InstancesDistribution",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "The minimum size of the Auto Scaling group.",
+                      "key": "MinSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>The maximum size of the Auto Scaling group.</p> <note> <p>With a mixed instances policy that uses instance weighting, Amazon EC2 Auto Scaling may need to go above <code>MaxSize</code> to meet your capacity requirements. In this event, Amazon EC2 Auto Scaling will never go above <code>MaxSize</code> by more than your largest instance weight (weights that define how many units each instance contributes to the desired capacity of the group).</p> </note>",
+                      "key": "MaxSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The desired capacity is the initial capacity of the Auto Scaling group after this operation completes and the capacity it attempts to maintain. This number must be greater than or equal to the minimum size of the group and less than or equal to the maximum size of the group.",
+                      "key": "DesiredCapacity",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p> <i>Only needed if you use simple scaling policies.</i> </p> <p>The amount of time, in seconds, between one scaling activity ending and another one starting due to simple scaling policies. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html\">Scaling cooldowns for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>",
+                      "key": "DefaultCooldown",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "One or more Availability Zones for the group.",
+                      "key": "AvailabilityZones",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>A comma-separated value string of one or more health check types.</p> <p>The valid values are <code>EC2</code>, <code>ELB</code>, and <code>VPC_LATTICE</code>. <code>EC2</code> is the default health check and cannot be disabled. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html\">Health checks for Auto Scaling instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>Only specify <code>EC2</code> if you must clear a value that was previously set.</p>",
+                      "key": "HealthCheckType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service and marking it unhealthy due to a failed health check. This is useful if your instances do not immediately pass their health checks after they enter the <code>InService</code> state. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/health-check-grace-period.html\">Set the health check grace period for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "HealthCheckGracePeriod",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>The name of an existing placement group into which to launch your instances. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html\">Placement groups</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> <note> <p>A <i>cluster</i> placement group is a logical grouping of instances within a single Availability Zone. You cannot specify multiple Availability Zones and a cluster placement group. </p> </note>",
+                      "key": "PlacementGroup",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A comma-separated list of subnet IDs for a virtual private cloud (VPC). If you specify <code>VPCZoneIdentifier</code> with <code>AvailabilityZones</code>, the subnets that you specify must reside in those Availability Zones.",
+                      "key": "VPCZoneIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>A policy or a list of policies that are used to select the instances to terminate. The policies are executed in the order that you list them. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html\">Work with Amazon EC2 Auto Scaling termination policies</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>Valid values: <code>Default</code> | <code>AllocationStrategy</code> | <code>ClosestToNextInstanceHour</code> | <code>NewestInstance</code> | <code>OldestInstance</code> | <code>OldestLaunchConfiguration</code> | <code>OldestLaunchTemplate</code> | <code>arn:aws:lambda:region:account-id:function:my-function:my-alias</code> </p>",
+                      "key": "TerminationPolicies",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in. For more information about preventing instances from terminating on scale in, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html\">Using instance scale-in protection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "NewInstancesProtectedFromScaleIn",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other Amazon Web Services on your behalf. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html\">Service-linked roles</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "ServiceLinkedRoleARN",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum amount of time, in seconds, that an instance can be in service. The default is null. If specified, the value must be either 0 or a number equal to or greater than 86,400 seconds (1 day). To clear a previously set value, specify a new value of 0. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html\">Replacing Auto Scaling instances based on maximum instance lifetime</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "MaxInstanceLifetime",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Enables or disables Capacity Rebalancing. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html\">Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "CapacityRebalance",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Reserved.",
+                      "key": "Context",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>The unit of measurement for the value specified for desired capacity. Amazon EC2 Auto Scaling supports <code>DesiredCapacityType</code> for attribute-based instance type selection only. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html\">Creating an Auto Scaling group using attribute-based instance type selection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>By default, Amazon EC2 Auto Scaling specifies <code>units</code>, which translates into number of instances.</p> <p>Valid values: <code>units</code> | <code>vcpu</code> | <code>memory-mib</code> </p>",
+                      "key": "DesiredCapacityType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>The amount of time, in seconds, until a new instance is considered to have finished initializing and resource consumption to become stable after it enters the <code>InService</code> state. </p> <p>During an instance refresh, Amazon EC2 Auto Scaling waits for the warm-up period after it replaces an instance before it moves on to replacing the next instance. Amazon EC2 Auto Scaling also waits for the warm-up period before aggregating the metrics for new instances with existing instances in the Amazon CloudWatch metrics that are used for scaling, resulting in more reliable usage data. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html\">Set the default instance warmup for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <important> <p>To manage various warm-up settings at the group level, we recommend that you set the default instance warmup, <i>even if it is set to 0 seconds</i>. To remove a value that you previously set, include the property but specify <code>-1</code> for the value. However, we strongly recommend keeping the default instance warmup enabled by specifying a value of <code>0</code> or other nominal value.</p> </important>",
+                      "key": "DefaultInstanceWarmup",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "UpdateAutoScalingGroup"
+                    }
+                  ],
+                  "hash": "Action=UpdateAutoScalingGroup"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:20:12.000Z",
+              "updatedAt": "2026-07-28T10:20:12.000Z",
+              "uid": "35240-e5c4511c-9b3d-43e9-8817-eaa45629b964"
+            }
+          ],
+          "createdAt": "2026-07-28T10:20:12.000Z",
+          "updatedAt": "2026-07-28T10:20:12.000Z",
+          "uid": "35240-e9ec00e2-e9a3-43ae-8fca-b837980e02bf"
+        },
+        {
+          "name": "Amazon EC2 Auto Scaling POST_ Update Auto Scaling Group",
+          "id": "7b026d5b-0b2b-4e9e-8a3d-5f1a758ea77f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "text/xml"
+              },
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <LaunchConfigurationName>(string)</LaunchConfigurationName>\n  <LaunchTemplate>\n    <LaunchTemplateId>(string)</LaunchTemplateId>\n    <LaunchTemplateName>(string)</LaunchTemplateName>\n    <Version>(string)</Version>\n  </LaunchTemplate>\n  <MixedInstancesPolicy>\n    <LaunchTemplate>\n      <LaunchTemplateSpecification>\n        <LaunchTemplateId>(string)</LaunchTemplateId>\n        <LaunchTemplateName>(string)</LaunchTemplateName>\n        <Version>(string)</Version>\n      </LaunchTemplateSpecification>\n      <Overrides>\n        <InstanceType>(string)</InstanceType>\n        <WeightedCapacity>(string)</WeightedCapacity>\n        <LaunchTemplateSpecification>\n          <LaunchTemplateId>(string)</LaunchTemplateId>\n          <LaunchTemplateName>(string)</LaunchTemplateName>\n          <Version>(string)</Version>\n        </LaunchTemplateSpecification>\n        <InstanceRequirements>\n          <VCpuCount>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </VCpuCount>\n          <MemoryMiB>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </MemoryMiB>\n          <CpuManufacturers>(string)</CpuManufacturers>\n          <CpuManufacturers>(string)</CpuManufacturers>\n          <MemoryGiBPerVCpu>\n            <Min>(number)</Min>\n            <Max>(number)</Max>\n          </MemoryGiBPerVCpu>\n          <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n          <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n          <InstanceGenerations>(string)</InstanceGenerations>\n          <InstanceGenerations>(string)</InstanceGenerations>\n          <SpotMaxPricePercentageOverLowestPrice>(integer)</SpotMaxPricePercentageOverLowestPrice>\n          <OnDemandMaxPricePercentageOverLowestPrice>(integer)</OnDemandMaxPricePercentageOverLowestPrice>\n          <BareMetal>(string)</BareMetal>\n          <BurstablePerformance>(string)</BurstablePerformance>\n          <RequireHibernateSupport>(boolean)</RequireHibernateSupport>\n          <NetworkInterfaceCount>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </NetworkInterfaceCount>\n          <LocalStorage>(string)</LocalStorage>\n          <LocalStorageTypes>(string)</LocalStorageTypes>\n          <LocalStorageTypes>(string)</LocalStorageTypes>\n          <TotalLocalStorageGB>\n            <Min>(number)</Min>\n            <Max>(number)</Max>\n          </TotalLocalStorageGB>\n          <BaselineEbsBandwidthMbps>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </BaselineEbsBandwidthMbps>\n          <AcceleratorTypes>(string)</AcceleratorTypes>\n          <AcceleratorTypes>(string)</AcceleratorTypes>\n          <AcceleratorCount>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </AcceleratorCount>\n          <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n          <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n          <AcceleratorNames>(string)</AcceleratorNames>\n          <AcceleratorNames>(string)</AcceleratorNames>\n          <AcceleratorTotalMemoryMiB>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </AcceleratorTotalMemoryMiB>\n          <NetworkBandwidthGbps>\n            <Min>(number)</Min>\n            <Max>(number)</Max>\n          </NetworkBandwidthGbps>\n          <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n          <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n        </InstanceRequirements>\n      </Overrides>\n      <Overrides>\n        <InstanceType>(string)</InstanceType>\n        <WeightedCapacity>(string)</WeightedCapacity>\n        <LaunchTemplateSpecification>\n          <LaunchTemplateId>(string)</LaunchTemplateId>\n          <LaunchTemplateName>(string)</LaunchTemplateName>\n          <Version>(string)</Version>\n        </LaunchTemplateSpecification>\n        <InstanceRequirements>\n          <VCpuCount>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </VCpuCount>\n          <MemoryMiB>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </MemoryMiB>\n          <CpuManufacturers>(string)</CpuManufacturers>\n          <CpuManufacturers>(string)</CpuManufacturers>\n          <MemoryGiBPerVCpu>\n            <Min>(number)</Min>\n            <Max>(number)</Max>\n          </MemoryGiBPerVCpu>\n          <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n          <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n          <InstanceGenerations>(string)</InstanceGenerations>\n          <InstanceGenerations>(string)</InstanceGenerations>\n          <SpotMaxPricePercentageOverLowestPrice>(integer)</SpotMaxPricePercentageOverLowestPrice>\n          <OnDemandMaxPricePercentageOverLowestPrice>(integer)</OnDemandMaxPricePercentageOverLowestPrice>\n          <BareMetal>(string)</BareMetal>\n          <BurstablePerformance>(string)</BurstablePerformance>\n          <RequireHibernateSupport>(boolean)</RequireHibernateSupport>\n          <NetworkInterfaceCount>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </NetworkInterfaceCount>\n          <LocalStorage>(string)</LocalStorage>\n          <LocalStorageTypes>(string)</LocalStorageTypes>\n          <LocalStorageTypes>(string)</LocalStorageTypes>\n          <TotalLocalStorageGB>\n            <Min>(number)</Min>\n            <Max>(number)</Max>\n          </TotalLocalStorageGB>\n          <BaselineEbsBandwidthMbps>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </BaselineEbsBandwidthMbps>\n          <AcceleratorTypes>(string)</AcceleratorTypes>\n          <AcceleratorTypes>(string)</AcceleratorTypes>\n          <AcceleratorCount>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </AcceleratorCount>\n          <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n          <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n          <AcceleratorNames>(string)</AcceleratorNames>\n          <AcceleratorNames>(string)</AcceleratorNames>\n          <AcceleratorTotalMemoryMiB>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </AcceleratorTotalMemoryMiB>\n          <NetworkBandwidthGbps>\n            <Min>(number)</Min>\n            <Max>(number)</Max>\n          </NetworkBandwidthGbps>\n          <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n          <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n        </InstanceRequirements>\n      </Overrides>\n    </LaunchTemplate>\n    <InstancesDistribution>\n      <OnDemandAllocationStrategy>(string)</OnDemandAllocationStrategy>\n      <OnDemandBaseCapacity>(integer)</OnDemandBaseCapacity>\n      <OnDemandPercentageAboveBaseCapacity>(integer)</OnDemandPercentageAboveBaseCapacity>\n      <SpotAllocationStrategy>(string)</SpotAllocationStrategy>\n      <SpotInstancePools>(integer)</SpotInstancePools>\n      <SpotMaxPrice>(string)</SpotMaxPrice>\n    </InstancesDistribution>\n  </MixedInstancesPolicy>\n  <MinSize>(integer)</MinSize>\n  <MaxSize>(integer)</MaxSize>\n  <DesiredCapacity>(integer)</DesiredCapacity>\n  <DefaultCooldown>(integer)</DefaultCooldown>\n  <AvailabilityZones>(string)</AvailabilityZones>\n  <AvailabilityZones>(string)</AvailabilityZones>\n  <HealthCheckType>(string)</HealthCheckType>\n  <HealthCheckGracePeriod>(integer)</HealthCheckGracePeriod>\n  <PlacementGroup>(string)</PlacementGroup>\n  <VPCZoneIdentifier>(string)</VPCZoneIdentifier>\n  <TerminationPolicies>(string)</TerminationPolicies>\n  <TerminationPolicies>(string)</TerminationPolicies>\n  <NewInstancesProtectedFromScaleIn>(boolean)</NewInstancesProtectedFromScaleIn>\n  <ServiceLinkedRoleARN>(string)</ServiceLinkedRoleARN>\n  <MaxInstanceLifetime>(integer)</MaxInstanceLifetime>\n  <CapacityRebalance>(boolean)</CapacityRebalance>\n  <Context>(string)</Context>\n  <DesiredCapacityType>(string)</DesiredCapacityType>\n  <DefaultInstanceWarmup>(integer)</DefaultInstanceWarmup>\n</element>",
+              "options": {
+                "raw": {
+                  "headerFamily": "xml",
+                  "language": "xml"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/?Action=UpdateAutoScalingGroup&Version=2011-01-01#Action=UpdateAutoScalingGroup",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "UpdateAutoScalingGroup"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2011-01-01"
+                }
+              ],
+              "hash": "Action=UpdateAutoScalingGroup"
+            },
+            "description": "<p> <b>We strongly recommend that all Auto Scaling groups use launch templates to ensure full functionality for Amazon EC2 Auto Scaling and Amazon EC2.</b> </p> <p>Updates the configuration for the specified Auto Scaling group.</p> <p>To update an Auto Scaling group, specify the name of the group and the property that you want to change. Any properties that you don't specify are not changed by this update request. The new settings take effect on any scaling activities after this call returns. </p> <p>If you associate a new launch configuration or template with an Auto Scaling group, all new instances will get the updated configuration. Existing instances continue to run with the configuration that they were originally launched with. When you update a group to specify a mixed instances policy instead of a launch configuration or template, existing instances may be replaced to match the new purchasing options that you specified in the policy. For example, if the group currently has 100% On-Demand capacity and the policy specifies 50% Spot capacity, this means that half of your instances will be gradually terminated and relaunched as Spot Instances. When replacing instances, Amazon EC2 Auto Scaling launches new instances before terminating the old ones, so that updating your group does not compromise the performance or availability of your application.</p> <p>Note the following about changing <code>DesiredCapacity</code>, <code>MaxSize</code>, or <code>MinSize</code>:</p> <ul> <li> <p>If a scale-in activity occurs as a result of a new <code>DesiredCapacity</code> value that is lower than the current size of the group, the Auto Scaling group uses its termination policy to determine which instances to terminate.</p> </li> <li> <p>If you specify a new value for <code>MinSize</code> without specifying a value for <code>DesiredCapacity</code>, and the new <code>MinSize</code> is larger than the current size of the group, this sets the group's <code>DesiredCapacity</code> to the new <code>MinSize</code> value.</p> </li> <li> <p>If you specify a new value for <code>MaxSize</code> without specifying a value for <code>DesiredCapacity</code>, and the new <code>MaxSize</code> is smaller than the current size of the group, this sets the group's <code>DesiredCapacity</code> to the new <code>MaxSize</code> value.</p> </li> </ul> <p>To see which properties have been set, call the <a>DescribeAutoScalingGroups</a> API. To view the scaling policies for an Auto Scaling group, call the <a>DescribePolicies</a> API. If the group has scaling policies, you can update them by calling the <a>PutScalingPolicy</a> API.</p>"
+          },
+          "response": [
+            {
+              "id": "d3526021-ffc1-477f-a1ca-e76491a9d7f2",
+              "name": "Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <LaunchConfigurationName>(string)</LaunchConfigurationName>\n  <LaunchTemplate>\n    <LaunchTemplateId>(string)</LaunchTemplateId>\n    <LaunchTemplateName>(string)</LaunchTemplateName>\n    <Version>(string)</Version>\n  </LaunchTemplate>\n  <MixedInstancesPolicy>\n    <LaunchTemplate>\n      <LaunchTemplateSpecification>\n        <LaunchTemplateId>(string)</LaunchTemplateId>\n        <LaunchTemplateName>(string)</LaunchTemplateName>\n        <Version>(string)</Version>\n      </LaunchTemplateSpecification>\n      <Overrides>\n        <InstanceType>(string)</InstanceType>\n        <WeightedCapacity>(string)</WeightedCapacity>\n        <LaunchTemplateSpecification>\n          <LaunchTemplateId>(string)</LaunchTemplateId>\n          <LaunchTemplateName>(string)</LaunchTemplateName>\n          <Version>(string)</Version>\n        </LaunchTemplateSpecification>\n        <InstanceRequirements>\n          <VCpuCount>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </VCpuCount>\n          <MemoryMiB>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </MemoryMiB>\n          <CpuManufacturers>(string)</CpuManufacturers>\n          <CpuManufacturers>(string)</CpuManufacturers>\n          <MemoryGiBPerVCpu>\n            <Min>(number)</Min>\n            <Max>(number)</Max>\n          </MemoryGiBPerVCpu>\n          <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n          <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n          <InstanceGenerations>(string)</InstanceGenerations>\n          <InstanceGenerations>(string)</InstanceGenerations>\n          <SpotMaxPricePercentageOverLowestPrice>(integer)</SpotMaxPricePercentageOverLowestPrice>\n          <OnDemandMaxPricePercentageOverLowestPrice>(integer)</OnDemandMaxPricePercentageOverLowestPrice>\n          <BareMetal>(string)</BareMetal>\n          <BurstablePerformance>(string)</BurstablePerformance>\n          <RequireHibernateSupport>(boolean)</RequireHibernateSupport>\n          <NetworkInterfaceCount>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </NetworkInterfaceCount>\n          <LocalStorage>(string)</LocalStorage>\n          <LocalStorageTypes>(string)</LocalStorageTypes>\n          <LocalStorageTypes>(string)</LocalStorageTypes>\n          <TotalLocalStorageGB>\n            <Min>(number)</Min>\n            <Max>(number)</Max>\n          </TotalLocalStorageGB>\n          <BaselineEbsBandwidthMbps>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </BaselineEbsBandwidthMbps>\n          <AcceleratorTypes>(string)</AcceleratorTypes>\n          <AcceleratorTypes>(string)</AcceleratorTypes>\n          <AcceleratorCount>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </AcceleratorCount>\n          <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n          <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n          <AcceleratorNames>(string)</AcceleratorNames>\n          <AcceleratorNames>(string)</AcceleratorNames>\n          <AcceleratorTotalMemoryMiB>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </AcceleratorTotalMemoryMiB>\n          <NetworkBandwidthGbps>\n            <Min>(number)</Min>\n            <Max>(number)</Max>\n          </NetworkBandwidthGbps>\n          <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n          <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n        </InstanceRequirements>\n      </Overrides>\n      <Overrides>\n        <InstanceType>(string)</InstanceType>\n        <WeightedCapacity>(string)</WeightedCapacity>\n        <LaunchTemplateSpecification>\n          <LaunchTemplateId>(string)</LaunchTemplateId>\n          <LaunchTemplateName>(string)</LaunchTemplateName>\n          <Version>(string)</Version>\n        </LaunchTemplateSpecification>\n        <InstanceRequirements>\n          <VCpuCount>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </VCpuCount>\n          <MemoryMiB>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </MemoryMiB>\n          <CpuManufacturers>(string)</CpuManufacturers>\n          <CpuManufacturers>(string)</CpuManufacturers>\n          <MemoryGiBPerVCpu>\n            <Min>(number)</Min>\n            <Max>(number)</Max>\n          </MemoryGiBPerVCpu>\n          <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n          <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n          <InstanceGenerations>(string)</InstanceGenerations>\n          <InstanceGenerations>(string)</InstanceGenerations>\n          <SpotMaxPricePercentageOverLowestPrice>(integer)</SpotMaxPricePercentageOverLowestPrice>\n          <OnDemandMaxPricePercentageOverLowestPrice>(integer)</OnDemandMaxPricePercentageOverLowestPrice>\n          <BareMetal>(string)</BareMetal>\n          <BurstablePerformance>(string)</BurstablePerformance>\n          <RequireHibernateSupport>(boolean)</RequireHibernateSupport>\n          <NetworkInterfaceCount>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </NetworkInterfaceCount>\n          <LocalStorage>(string)</LocalStorage>\n          <LocalStorageTypes>(string)</LocalStorageTypes>\n          <LocalStorageTypes>(string)</LocalStorageTypes>\n          <TotalLocalStorageGB>\n            <Min>(number)</Min>\n            <Max>(number)</Max>\n          </TotalLocalStorageGB>\n          <BaselineEbsBandwidthMbps>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </BaselineEbsBandwidthMbps>\n          <AcceleratorTypes>(string)</AcceleratorTypes>\n          <AcceleratorTypes>(string)</AcceleratorTypes>\n          <AcceleratorCount>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </AcceleratorCount>\n          <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n          <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n          <AcceleratorNames>(string)</AcceleratorNames>\n          <AcceleratorNames>(string)</AcceleratorNames>\n          <AcceleratorTotalMemoryMiB>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </AcceleratorTotalMemoryMiB>\n          <NetworkBandwidthGbps>\n            <Min>(number)</Min>\n            <Max>(number)</Max>\n          </NetworkBandwidthGbps>\n          <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n          <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n        </InstanceRequirements>\n      </Overrides>\n    </LaunchTemplate>\n    <InstancesDistribution>\n      <OnDemandAllocationStrategy>(string)</OnDemandAllocationStrategy>\n      <OnDemandBaseCapacity>(integer)</OnDemandBaseCapacity>\n      <OnDemandPercentageAboveBaseCapacity>(integer)</OnDemandPercentageAboveBaseCapacity>\n      <SpotAllocationStrategy>(string)</SpotAllocationStrategy>\n      <SpotInstancePools>(integer)</SpotInstancePools>\n      <SpotMaxPrice>(string)</SpotMaxPrice>\n    </InstancesDistribution>\n  </MixedInstancesPolicy>\n  <MinSize>(integer)</MinSize>\n  <MaxSize>(integer)</MaxSize>\n  <DesiredCapacity>(integer)</DesiredCapacity>\n  <DefaultCooldown>(integer)</DefaultCooldown>\n  <AvailabilityZones>(string)</AvailabilityZones>\n  <AvailabilityZones>(string)</AvailabilityZones>\n  <HealthCheckType>(string)</HealthCheckType>\n  <HealthCheckGracePeriod>(integer)</HealthCheckGracePeriod>\n  <PlacementGroup>(string)</PlacementGroup>\n  <VPCZoneIdentifier>(string)</VPCZoneIdentifier>\n  <TerminationPolicies>(string)</TerminationPolicies>\n  <TerminationPolicies>(string)</TerminationPolicies>\n  <NewInstancesProtectedFromScaleIn>(boolean)</NewInstancesProtectedFromScaleIn>\n  <ServiceLinkedRoleARN>(string)</ServiceLinkedRoleARN>\n  <MaxInstanceLifetime>(integer)</MaxInstanceLifetime>\n  <CapacityRebalance>(boolean)</CapacityRebalance>\n  <Context>(string)</Context>\n  <DesiredCapacityType>(string)</DesiredCapacityType>\n  <DefaultInstanceWarmup>(integer)</DefaultInstanceWarmup>\n</element>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "xml",
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=UpdateAutoScalingGroup&Version=2011-01-01#Action=UpdateAutoScalingGroup",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "UpdateAutoScalingGroup"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=UpdateAutoScalingGroup"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T10:20:12.000Z",
+              "updatedAt": "2026-07-28T10:20:12.000Z",
+              "uid": "35240-d3526021-ffc1-477f-a1ca-e76491a9d7f2"
+            },
+            {
+              "id": "20c7c25a-e4d5-4a08-b6fe-a6a57d53fee4",
+              "name": "ScalingActivityInProgressFault",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <LaunchConfigurationName>(string)</LaunchConfigurationName>\n  <LaunchTemplate>\n    <LaunchTemplateId>(string)</LaunchTemplateId>\n    <LaunchTemplateName>(string)</LaunchTemplateName>\n    <Version>(string)</Version>\n  </LaunchTemplate>\n  <MixedInstancesPolicy>\n    <LaunchTemplate>\n      <LaunchTemplateSpecification>\n        <LaunchTemplateId>(string)</LaunchTemplateId>\n        <LaunchTemplateName>(string)</LaunchTemplateName>\n        <Version>(string)</Version>\n      </LaunchTemplateSpecification>\n      <Overrides>\n        <InstanceType>(string)</InstanceType>\n        <WeightedCapacity>(string)</WeightedCapacity>\n        <LaunchTemplateSpecification>\n          <LaunchTemplateId>(string)</LaunchTemplateId>\n          <LaunchTemplateName>(string)</LaunchTemplateName>\n          <Version>(string)</Version>\n        </LaunchTemplateSpecification>\n        <InstanceRequirements>\n          <VCpuCount>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </VCpuCount>\n          <MemoryMiB>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </MemoryMiB>\n          <CpuManufacturers>(string)</CpuManufacturers>\n          <CpuManufacturers>(string)</CpuManufacturers>\n          <MemoryGiBPerVCpu>\n            <Min>(number)</Min>\n            <Max>(number)</Max>\n          </MemoryGiBPerVCpu>\n          <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n          <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n          <InstanceGenerations>(string)</InstanceGenerations>\n          <InstanceGenerations>(string)</InstanceGenerations>\n          <SpotMaxPricePercentageOverLowestPrice>(integer)</SpotMaxPricePercentageOverLowestPrice>\n          <OnDemandMaxPricePercentageOverLowestPrice>(integer)</OnDemandMaxPricePercentageOverLowestPrice>\n          <BareMetal>(string)</BareMetal>\n          <BurstablePerformance>(string)</BurstablePerformance>\n          <RequireHibernateSupport>(boolean)</RequireHibernateSupport>\n          <NetworkInterfaceCount>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </NetworkInterfaceCount>\n          <LocalStorage>(string)</LocalStorage>\n          <LocalStorageTypes>(string)</LocalStorageTypes>\n          <LocalStorageTypes>(string)</LocalStorageTypes>\n          <TotalLocalStorageGB>\n            <Min>(number)</Min>\n            <Max>(number)</Max>\n          </TotalLocalStorageGB>\n          <BaselineEbsBandwidthMbps>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </BaselineEbsBandwidthMbps>\n          <AcceleratorTypes>(string)</AcceleratorTypes>\n          <AcceleratorTypes>(string)</AcceleratorTypes>\n          <AcceleratorCount>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </AcceleratorCount>\n          <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n          <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n          <AcceleratorNames>(string)</AcceleratorNames>\n          <AcceleratorNames>(string)</AcceleratorNames>\n          <AcceleratorTotalMemoryMiB>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </AcceleratorTotalMemoryMiB>\n          <NetworkBandwidthGbps>\n            <Min>(number)</Min>\n            <Max>(number)</Max>\n          </NetworkBandwidthGbps>\n          <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n          <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n        </InstanceRequirements>\n      </Overrides>\n      <Overrides>\n        <InstanceType>(string)</InstanceType>\n        <WeightedCapacity>(string)</WeightedCapacity>\n        <LaunchTemplateSpecification>\n          <LaunchTemplateId>(string)</LaunchTemplateId>\n          <LaunchTemplateName>(string)</LaunchTemplateName>\n          <Version>(string)</Version>\n        </LaunchTemplateSpecification>\n        <InstanceRequirements>\n          <VCpuCount>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </VCpuCount>\n          <MemoryMiB>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </MemoryMiB>\n          <CpuManufacturers>(string)</CpuManufacturers>\n          <CpuManufacturers>(string)</CpuManufacturers>\n          <MemoryGiBPerVCpu>\n            <Min>(number)</Min>\n            <Max>(number)</Max>\n          </MemoryGiBPerVCpu>\n          <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n          <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n          <InstanceGenerations>(string)</InstanceGenerations>\n          <InstanceGenerations>(string)</InstanceGenerations>\n          <SpotMaxPricePercentageOverLowestPrice>(integer)</SpotMaxPricePercentageOverLowestPrice>\n          <OnDemandMaxPricePercentageOverLowestPrice>(integer)</OnDemandMaxPricePercentageOverLowestPrice>\n          <BareMetal>(string)</BareMetal>\n          <BurstablePerformance>(string)</BurstablePerformance>\n          <RequireHibernateSupport>(boolean)</RequireHibernateSupport>\n          <NetworkInterfaceCount>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </NetworkInterfaceCount>\n          <LocalStorage>(string)</LocalStorage>\n          <LocalStorageTypes>(string)</LocalStorageTypes>\n          <LocalStorageTypes>(string)</LocalStorageTypes>\n          <TotalLocalStorageGB>\n            <Min>(number)</Min>\n            <Max>(number)</Max>\n          </TotalLocalStorageGB>\n          <BaselineEbsBandwidthMbps>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </BaselineEbsBandwidthMbps>\n          <AcceleratorTypes>(string)</AcceleratorTypes>\n          <AcceleratorTypes>(string)</AcceleratorTypes>\n          <AcceleratorCount>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </AcceleratorCount>\n          <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n          <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n          <AcceleratorNames>(string)</AcceleratorNames>\n          <AcceleratorNames>(string)</AcceleratorNames>\n          <AcceleratorTotalMemoryMiB>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </AcceleratorTotalMemoryMiB>\n          <NetworkBandwidthGbps>\n            <Min>(number)</Min>\n            <Max>(number)</Max>\n          </NetworkBandwidthGbps>\n          <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n          <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n        </InstanceRequirements>\n      </Overrides>\n    </LaunchTemplate>\n    <InstancesDistribution>\n      <OnDemandAllocationStrategy>(string)</OnDemandAllocationStrategy>\n      <OnDemandBaseCapacity>(integer)</OnDemandBaseCapacity>\n      <OnDemandPercentageAboveBaseCapacity>(integer)</OnDemandPercentageAboveBaseCapacity>\n      <SpotAllocationStrategy>(string)</SpotAllocationStrategy>\n      <SpotInstancePools>(integer)</SpotInstancePools>\n      <SpotMaxPrice>(string)</SpotMaxPrice>\n    </InstancesDistribution>\n  </MixedInstancesPolicy>\n  <MinSize>(integer)</MinSize>\n  <MaxSize>(integer)</MaxSize>\n  <DesiredCapacity>(integer)</DesiredCapacity>\n  <DefaultCooldown>(integer)</DefaultCooldown>\n  <AvailabilityZones>(string)</AvailabilityZones>\n  <AvailabilityZones>(string)</AvailabilityZones>\n  <HealthCheckType>(string)</HealthCheckType>\n  <HealthCheckGracePeriod>(integer)</HealthCheckGracePeriod>\n  <PlacementGroup>(string)</PlacementGroup>\n  <VPCZoneIdentifier>(string)</VPCZoneIdentifier>\n  <TerminationPolicies>(string)</TerminationPolicies>\n  <TerminationPolicies>(string)</TerminationPolicies>\n  <NewInstancesProtectedFromScaleIn>(boolean)</NewInstancesProtectedFromScaleIn>\n  <ServiceLinkedRoleARN>(string)</ServiceLinkedRoleARN>\n  <MaxInstanceLifetime>(integer)</MaxInstanceLifetime>\n  <CapacityRebalance>(boolean)</CapacityRebalance>\n  <Context>(string)</Context>\n  <DesiredCapacityType>(string)</DesiredCapacityType>\n  <DefaultInstanceWarmup>(integer)</DefaultInstanceWarmup>\n</element>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "xml",
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=UpdateAutoScalingGroup&Version=2011-01-01#Action=UpdateAutoScalingGroup",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "UpdateAutoScalingGroup"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=UpdateAutoScalingGroup"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:20:12.000Z",
+              "updatedAt": "2026-07-28T10:20:12.000Z",
+              "uid": "35240-20c7c25a-e4d5-4a08-b6fe-a6a57d53fee4"
+            },
+            {
+              "id": "ff7f104f-f6b7-4498-a85e-7769bb29ef42",
+              "name": "ResourceContentionFault",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <LaunchConfigurationName>(string)</LaunchConfigurationName>\n  <LaunchTemplate>\n    <LaunchTemplateId>(string)</LaunchTemplateId>\n    <LaunchTemplateName>(string)</LaunchTemplateName>\n    <Version>(string)</Version>\n  </LaunchTemplate>\n  <MixedInstancesPolicy>\n    <LaunchTemplate>\n      <LaunchTemplateSpecification>\n        <LaunchTemplateId>(string)</LaunchTemplateId>\n        <LaunchTemplateName>(string)</LaunchTemplateName>\n        <Version>(string)</Version>\n      </LaunchTemplateSpecification>\n      <Overrides>\n        <InstanceType>(string)</InstanceType>\n        <WeightedCapacity>(string)</WeightedCapacity>\n        <LaunchTemplateSpecification>\n          <LaunchTemplateId>(string)</LaunchTemplateId>\n          <LaunchTemplateName>(string)</LaunchTemplateName>\n          <Version>(string)</Version>\n        </LaunchTemplateSpecification>\n        <InstanceRequirements>\n          <VCpuCount>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </VCpuCount>\n          <MemoryMiB>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </MemoryMiB>\n          <CpuManufacturers>(string)</CpuManufacturers>\n          <CpuManufacturers>(string)</CpuManufacturers>\n          <MemoryGiBPerVCpu>\n            <Min>(number)</Min>\n            <Max>(number)</Max>\n          </MemoryGiBPerVCpu>\n          <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n          <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n          <InstanceGenerations>(string)</InstanceGenerations>\n          <InstanceGenerations>(string)</InstanceGenerations>\n          <SpotMaxPricePercentageOverLowestPrice>(integer)</SpotMaxPricePercentageOverLowestPrice>\n          <OnDemandMaxPricePercentageOverLowestPrice>(integer)</OnDemandMaxPricePercentageOverLowestPrice>\n          <BareMetal>(string)</BareMetal>\n          <BurstablePerformance>(string)</BurstablePerformance>\n          <RequireHibernateSupport>(boolean)</RequireHibernateSupport>\n          <NetworkInterfaceCount>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </NetworkInterfaceCount>\n          <LocalStorage>(string)</LocalStorage>\n          <LocalStorageTypes>(string)</LocalStorageTypes>\n          <LocalStorageTypes>(string)</LocalStorageTypes>\n          <TotalLocalStorageGB>\n            <Min>(number)</Min>\n            <Max>(number)</Max>\n          </TotalLocalStorageGB>\n          <BaselineEbsBandwidthMbps>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </BaselineEbsBandwidthMbps>\n          <AcceleratorTypes>(string)</AcceleratorTypes>\n          <AcceleratorTypes>(string)</AcceleratorTypes>\n          <AcceleratorCount>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </AcceleratorCount>\n          <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n          <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n          <AcceleratorNames>(string)</AcceleratorNames>\n          <AcceleratorNames>(string)</AcceleratorNames>\n          <AcceleratorTotalMemoryMiB>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </AcceleratorTotalMemoryMiB>\n          <NetworkBandwidthGbps>\n            <Min>(number)</Min>\n            <Max>(number)</Max>\n          </NetworkBandwidthGbps>\n          <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n          <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n        </InstanceRequirements>\n      </Overrides>\n      <Overrides>\n        <InstanceType>(string)</InstanceType>\n        <WeightedCapacity>(string)</WeightedCapacity>\n        <LaunchTemplateSpecification>\n          <LaunchTemplateId>(string)</LaunchTemplateId>\n          <LaunchTemplateName>(string)</LaunchTemplateName>\n          <Version>(string)</Version>\n        </LaunchTemplateSpecification>\n        <InstanceRequirements>\n          <VCpuCount>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </VCpuCount>\n          <MemoryMiB>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </MemoryMiB>\n          <CpuManufacturers>(string)</CpuManufacturers>\n          <CpuManufacturers>(string)</CpuManufacturers>\n          <MemoryGiBPerVCpu>\n            <Min>(number)</Min>\n            <Max>(number)</Max>\n          </MemoryGiBPerVCpu>\n          <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n          <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n          <InstanceGenerations>(string)</InstanceGenerations>\n          <InstanceGenerations>(string)</InstanceGenerations>\n          <SpotMaxPricePercentageOverLowestPrice>(integer)</SpotMaxPricePercentageOverLowestPrice>\n          <OnDemandMaxPricePercentageOverLowestPrice>(integer)</OnDemandMaxPricePercentageOverLowestPrice>\n          <BareMetal>(string)</BareMetal>\n          <BurstablePerformance>(string)</BurstablePerformance>\n          <RequireHibernateSupport>(boolean)</RequireHibernateSupport>\n          <NetworkInterfaceCount>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </NetworkInterfaceCount>\n          <LocalStorage>(string)</LocalStorage>\n          <LocalStorageTypes>(string)</LocalStorageTypes>\n          <LocalStorageTypes>(string)</LocalStorageTypes>\n          <TotalLocalStorageGB>\n            <Min>(number)</Min>\n            <Max>(number)</Max>\n          </TotalLocalStorageGB>\n          <BaselineEbsBandwidthMbps>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </BaselineEbsBandwidthMbps>\n          <AcceleratorTypes>(string)</AcceleratorTypes>\n          <AcceleratorTypes>(string)</AcceleratorTypes>\n          <AcceleratorCount>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </AcceleratorCount>\n          <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n          <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n          <AcceleratorNames>(string)</AcceleratorNames>\n          <AcceleratorNames>(string)</AcceleratorNames>\n          <AcceleratorTotalMemoryMiB>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </AcceleratorTotalMemoryMiB>\n          <NetworkBandwidthGbps>\n            <Min>(number)</Min>\n            <Max>(number)</Max>\n          </NetworkBandwidthGbps>\n          <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n          <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n        </InstanceRequirements>\n      </Overrides>\n    </LaunchTemplate>\n    <InstancesDistribution>\n      <OnDemandAllocationStrategy>(string)</OnDemandAllocationStrategy>\n      <OnDemandBaseCapacity>(integer)</OnDemandBaseCapacity>\n      <OnDemandPercentageAboveBaseCapacity>(integer)</OnDemandPercentageAboveBaseCapacity>\n      <SpotAllocationStrategy>(string)</SpotAllocationStrategy>\n      <SpotInstancePools>(integer)</SpotInstancePools>\n      <SpotMaxPrice>(string)</SpotMaxPrice>\n    </InstancesDistribution>\n  </MixedInstancesPolicy>\n  <MinSize>(integer)</MinSize>\n  <MaxSize>(integer)</MaxSize>\n  <DesiredCapacity>(integer)</DesiredCapacity>\n  <DefaultCooldown>(integer)</DefaultCooldown>\n  <AvailabilityZones>(string)</AvailabilityZones>\n  <AvailabilityZones>(string)</AvailabilityZones>\n  <HealthCheckType>(string)</HealthCheckType>\n  <HealthCheckGracePeriod>(integer)</HealthCheckGracePeriod>\n  <PlacementGroup>(string)</PlacementGroup>\n  <VPCZoneIdentifier>(string)</VPCZoneIdentifier>\n  <TerminationPolicies>(string)</TerminationPolicies>\n  <TerminationPolicies>(string)</TerminationPolicies>\n  <NewInstancesProtectedFromScaleIn>(boolean)</NewInstancesProtectedFromScaleIn>\n  <ServiceLinkedRoleARN>(string)</ServiceLinkedRoleARN>\n  <MaxInstanceLifetime>(integer)</MaxInstanceLifetime>\n  <CapacityRebalance>(boolean)</CapacityRebalance>\n  <Context>(string)</Context>\n  <DesiredCapacityType>(string)</DesiredCapacityType>\n  <DefaultInstanceWarmup>(integer)</DefaultInstanceWarmup>\n</element>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "xml",
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=UpdateAutoScalingGroup&Version=2011-01-01#Action=UpdateAutoScalingGroup",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "UpdateAutoScalingGroup"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=UpdateAutoScalingGroup"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:20:12.000Z",
+              "updatedAt": "2026-07-28T10:20:12.000Z",
+              "uid": "35240-ff7f104f-f6b7-4498-a85e-7769bb29ef42"
+            },
+            {
+              "id": "688605f8-3ac5-4b24-9a49-2ae15b5b82a8",
+              "name": "ServiceLinkedRoleFailure",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <LaunchConfigurationName>(string)</LaunchConfigurationName>\n  <LaunchTemplate>\n    <LaunchTemplateId>(string)</LaunchTemplateId>\n    <LaunchTemplateName>(string)</LaunchTemplateName>\n    <Version>(string)</Version>\n  </LaunchTemplate>\n  <MixedInstancesPolicy>\n    <LaunchTemplate>\n      <LaunchTemplateSpecification>\n        <LaunchTemplateId>(string)</LaunchTemplateId>\n        <LaunchTemplateName>(string)</LaunchTemplateName>\n        <Version>(string)</Version>\n      </LaunchTemplateSpecification>\n      <Overrides>\n        <InstanceType>(string)</InstanceType>\n        <WeightedCapacity>(string)</WeightedCapacity>\n        <LaunchTemplateSpecification>\n          <LaunchTemplateId>(string)</LaunchTemplateId>\n          <LaunchTemplateName>(string)</LaunchTemplateName>\n          <Version>(string)</Version>\n        </LaunchTemplateSpecification>\n        <InstanceRequirements>\n          <VCpuCount>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </VCpuCount>\n          <MemoryMiB>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </MemoryMiB>\n          <CpuManufacturers>(string)</CpuManufacturers>\n          <CpuManufacturers>(string)</CpuManufacturers>\n          <MemoryGiBPerVCpu>\n            <Min>(number)</Min>\n            <Max>(number)</Max>\n          </MemoryGiBPerVCpu>\n          <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n          <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n          <InstanceGenerations>(string)</InstanceGenerations>\n          <InstanceGenerations>(string)</InstanceGenerations>\n          <SpotMaxPricePercentageOverLowestPrice>(integer)</SpotMaxPricePercentageOverLowestPrice>\n          <OnDemandMaxPricePercentageOverLowestPrice>(integer)</OnDemandMaxPricePercentageOverLowestPrice>\n          <BareMetal>(string)</BareMetal>\n          <BurstablePerformance>(string)</BurstablePerformance>\n          <RequireHibernateSupport>(boolean)</RequireHibernateSupport>\n          <NetworkInterfaceCount>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </NetworkInterfaceCount>\n          <LocalStorage>(string)</LocalStorage>\n          <LocalStorageTypes>(string)</LocalStorageTypes>\n          <LocalStorageTypes>(string)</LocalStorageTypes>\n          <TotalLocalStorageGB>\n            <Min>(number)</Min>\n            <Max>(number)</Max>\n          </TotalLocalStorageGB>\n          <BaselineEbsBandwidthMbps>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </BaselineEbsBandwidthMbps>\n          <AcceleratorTypes>(string)</AcceleratorTypes>\n          <AcceleratorTypes>(string)</AcceleratorTypes>\n          <AcceleratorCount>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </AcceleratorCount>\n          <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n          <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n          <AcceleratorNames>(string)</AcceleratorNames>\n          <AcceleratorNames>(string)</AcceleratorNames>\n          <AcceleratorTotalMemoryMiB>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </AcceleratorTotalMemoryMiB>\n          <NetworkBandwidthGbps>\n            <Min>(number)</Min>\n            <Max>(number)</Max>\n          </NetworkBandwidthGbps>\n          <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n          <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n        </InstanceRequirements>\n      </Overrides>\n      <Overrides>\n        <InstanceType>(string)</InstanceType>\n        <WeightedCapacity>(string)</WeightedCapacity>\n        <LaunchTemplateSpecification>\n          <LaunchTemplateId>(string)</LaunchTemplateId>\n          <LaunchTemplateName>(string)</LaunchTemplateName>\n          <Version>(string)</Version>\n        </LaunchTemplateSpecification>\n        <InstanceRequirements>\n          <VCpuCount>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </VCpuCount>\n          <MemoryMiB>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </MemoryMiB>\n          <CpuManufacturers>(string)</CpuManufacturers>\n          <CpuManufacturers>(string)</CpuManufacturers>\n          <MemoryGiBPerVCpu>\n            <Min>(number)</Min>\n            <Max>(number)</Max>\n          </MemoryGiBPerVCpu>\n          <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n          <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n          <InstanceGenerations>(string)</InstanceGenerations>\n          <InstanceGenerations>(string)</InstanceGenerations>\n          <SpotMaxPricePercentageOverLowestPrice>(integer)</SpotMaxPricePercentageOverLowestPrice>\n          <OnDemandMaxPricePercentageOverLowestPrice>(integer)</OnDemandMaxPricePercentageOverLowestPrice>\n          <BareMetal>(string)</BareMetal>\n          <BurstablePerformance>(string)</BurstablePerformance>\n          <RequireHibernateSupport>(boolean)</RequireHibernateSupport>\n          <NetworkInterfaceCount>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </NetworkInterfaceCount>\n          <LocalStorage>(string)</LocalStorage>\n          <LocalStorageTypes>(string)</LocalStorageTypes>\n          <LocalStorageTypes>(string)</LocalStorageTypes>\n          <TotalLocalStorageGB>\n            <Min>(number)</Min>\n            <Max>(number)</Max>\n          </TotalLocalStorageGB>\n          <BaselineEbsBandwidthMbps>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </BaselineEbsBandwidthMbps>\n          <AcceleratorTypes>(string)</AcceleratorTypes>\n          <AcceleratorTypes>(string)</AcceleratorTypes>\n          <AcceleratorCount>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </AcceleratorCount>\n          <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n          <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n          <AcceleratorNames>(string)</AcceleratorNames>\n          <AcceleratorNames>(string)</AcceleratorNames>\n          <AcceleratorTotalMemoryMiB>\n            <Min>(integer)</Min>\n            <Max>(integer)</Max>\n          </AcceleratorTotalMemoryMiB>\n          <NetworkBandwidthGbps>\n            <Min>(number)</Min>\n            <Max>(number)</Max>\n          </NetworkBandwidthGbps>\n          <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n          <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n        </InstanceRequirements>\n      </Overrides>\n    </LaunchTemplate>\n    <InstancesDistribution>\n      <OnDemandAllocationStrategy>(string)</OnDemandAllocationStrategy>\n      <OnDemandBaseCapacity>(integer)</OnDemandBaseCapacity>\n      <OnDemandPercentageAboveBaseCapacity>(integer)</OnDemandPercentageAboveBaseCapacity>\n      <SpotAllocationStrategy>(string)</SpotAllocationStrategy>\n      <SpotInstancePools>(integer)</SpotInstancePools>\n      <SpotMaxPrice>(string)</SpotMaxPrice>\n    </InstancesDistribution>\n  </MixedInstancesPolicy>\n  <MinSize>(integer)</MinSize>\n  <MaxSize>(integer)</MaxSize>\n  <DesiredCapacity>(integer)</DesiredCapacity>\n  <DefaultCooldown>(integer)</DefaultCooldown>\n  <AvailabilityZones>(string)</AvailabilityZones>\n  <AvailabilityZones>(string)</AvailabilityZones>\n  <HealthCheckType>(string)</HealthCheckType>\n  <HealthCheckGracePeriod>(integer)</HealthCheckGracePeriod>\n  <PlacementGroup>(string)</PlacementGroup>\n  <VPCZoneIdentifier>(string)</VPCZoneIdentifier>\n  <TerminationPolicies>(string)</TerminationPolicies>\n  <TerminationPolicies>(string)</TerminationPolicies>\n  <NewInstancesProtectedFromScaleIn>(boolean)</NewInstancesProtectedFromScaleIn>\n  <ServiceLinkedRoleARN>(string)</ServiceLinkedRoleARN>\n  <MaxInstanceLifetime>(integer)</MaxInstanceLifetime>\n  <CapacityRebalance>(boolean)</CapacityRebalance>\n  <Context>(string)</Context>\n  <DesiredCapacityType>(string)</DesiredCapacityType>\n  <DefaultInstanceWarmup>(integer)</DefaultInstanceWarmup>\n</element>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "xml",
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=UpdateAutoScalingGroup&Version=2011-01-01#Action=UpdateAutoScalingGroup",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "UpdateAutoScalingGroup"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=UpdateAutoScalingGroup"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:20:12.000Z",
+              "updatedAt": "2026-07-28T10:20:12.000Z",
+              "uid": "35240-688605f8-3ac5-4b24-9a49-2ae15b5b82a8"
+            }
+          ],
+          "createdAt": "2026-07-28T10:20:12.000Z",
+          "updatedAt": "2026-07-28T10:20:12.000Z",
+          "uid": "35240-7b026d5b-0b2b-4e9e-8a3d-5f1a758ea77f"
+        }
+      ],
+      "id": "5e7c924b-b42d-4bce-ad64-515abf6ad682",
+      "createdAt": "2026-07-28T10:20:12.000Z",
+      "updatedAt": "2026-07-28T10:20:12.000Z",
+      "uid": "35240-5e7c924b-b42d-4bce-ad64-515abf6ad682"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://autoscaling.{{region}}.amazonaws.com"
+    }
+  ]
+}

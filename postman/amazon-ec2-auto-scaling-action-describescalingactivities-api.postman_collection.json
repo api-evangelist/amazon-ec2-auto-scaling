@@ -1,0 +1,888 @@
+{
+  "info": {
+    "_postman_id": "d45d683d-f9c9-447e-8381-174de6c31848",
+    "name": "Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=DescribeScalingActivities API",
+    "description": "<fullname>Amazon EC2 Auto Scaling</fullname> <p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.</p> <p>For more information, see the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/\">Amazon EC2 Auto Scaling User Guide</a> and the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html\">Amazon EC2 Auto Scaling API Reference</a>.</p>\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:18:59.000Z",
+    "updatedAt": "2026-07-28T10:18:59.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d45d683d-f9c9-447e-8381-174de6c31848"
+  },
+  "item": [
+    {
+      "name": "#Action=DescribeScalingActivities",
+      "item": [
+        {
+          "name": "Amazon EC2 Auto Scaling GET_ Describe Scaling Activities",
+          "id": "98a87d0a-9403-4e33-8d6d-23025ab6de9d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?ActivityIds=<string>&ActivityIds=<string>&AutoScalingGroupName=<string>&IncludeDeletedGroups=<boolean>&MaxRecords=<integer>&NextToken=<string>&Action=DescribeScalingActivities&Version=2011-01-01#Action=DescribeScalingActivities",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "<p>The activity IDs of the desired scaling activities. If you omit this property, all activities for the past six weeks are described. If unknown activities are requested, they are ignored with no error. If you specify an Auto Scaling group, the results are limited to that group.</p> <p>Array Members: Maximum number of 50 IDs.</p>",
+                  "key": "ActivityIds",
+                  "value": "<string>"
+                },
+                {
+                  "description": "<p>The activity IDs of the desired scaling activities. If you omit this property, all activities for the past six weeks are described. If unknown activities are requested, they are ignored with no error. If you specify an Auto Scaling group, the results are limited to that group.</p> <p>Array Members: Maximum number of 50 IDs.</p>",
+                  "key": "ActivityIds",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The name of the Auto Scaling group.",
+                  "key": "AutoScalingGroupName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Indicates whether to include scaling activity from deleted Auto Scaling groups.",
+                  "key": "IncludeDeletedGroups",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "The maximum number of items to return with this call. The default value is <code>100</code> and the maximum value is <code>100</code>.",
+                  "key": "MaxRecords",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "The token for the next set of items to return. (You received this token from a previous call.)",
+                  "key": "NextToken",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "DescribeScalingActivities"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2011-01-01"
+                }
+              ],
+              "hash": "Action=DescribeScalingActivities"
+            },
+            "description": "<p>Gets information about the scaling activities in the account and Region.</p> <p>When scaling events occur, you see a record of the scaling activity in the scaling activities. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html\">Verifying a scaling activity for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>If the scaling event succeeds, the value of the <code>StatusCode</code> element in the response is <code>Successful</code>. If an attempt to launch instances failed, the <code>StatusCode</code> value is <code>Failed</code> or <code>Cancelled</code> and the <code>StatusMessage</code> element in the response indicates the cause of the failure. For help interpreting the <code>StatusMessage</code>, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/CHAP_Troubleshooting.html\">Troubleshooting Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>"
+          },
+          "response": [
+            {
+              "id": "b00e9d8a-7d42-450f-82dc-9d63b7f82092",
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?ActivityIds=<string>&AutoScalingGroupName=<string>&IncludeDeletedGroups=<boolean>&MaxRecords=<integer>&NextToken=<string>&Action=DescribeScalingActivities&Version=2011-01-01#Action=DescribeScalingActivities",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "<p>The activity IDs of the desired scaling activities. If you omit this property, all activities for the past six weeks are described. If unknown activities are requested, they are ignored with no error. If you specify an Auto Scaling group, the results are limited to that group.</p> <p>Array Members: Maximum number of 50 IDs.</p>",
+                      "key": "ActivityIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name of the Auto Scaling group.",
+                      "key": "AutoScalingGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Indicates whether to include scaling activity from deleted Auto Scaling groups.",
+                      "key": "IncludeDeletedGroups",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The maximum number of items to return with this call. The default value is <code>100</code> and the maximum value is <code>100</code>.",
+                      "key": "MaxRecords",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The token for the next set of items to return. (You received this token from a previous call.)",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribeScalingActivities"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=DescribeScalingActivities"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <Activities>\n    <ActivityId>(string)</ActivityId>\n    <AutoScalingGroupName>(string)</AutoScalingGroupName>\n    <Description>(string)</Description>\n    <Cause>(string)</Cause>\n    <StartTime>(string)</StartTime>\n    <EndTime>(string)</EndTime>\n    <StatusCode>(string)</StatusCode>\n    <StatusMessage>(string)</StatusMessage>\n    <Progress>(integer)</Progress>\n    <Details>(string)</Details>\n    <AutoScalingGroupState>(string)</AutoScalingGroupState>\n    <AutoScalingGroupARN>(string)</AutoScalingGroupARN>\n  </Activities>\n  <Activities>\n    <ActivityId>(string)</ActivityId>\n    <AutoScalingGroupName>(string)</AutoScalingGroupName>\n    <Description>(string)</Description>\n    <Cause>(string)</Cause>\n    <StartTime>(string)</StartTime>\n    <EndTime>(string)</EndTime>\n    <StatusCode>(string)</StatusCode>\n    <StatusMessage>(string)</StatusMessage>\n    <Progress>(integer)</Progress>\n    <Details>(string)</Details>\n    <AutoScalingGroupState>(string)</AutoScalingGroupState>\n    <AutoScalingGroupARN>(string)</AutoScalingGroupARN>\n  </Activities>\n  <NextToken>(string)</NextToken>\n</element>",
+              "createdAt": "2026-07-28T10:18:59.000Z",
+              "updatedAt": "2026-07-28T10:18:59.000Z",
+              "uid": "35240-b00e9d8a-7d42-450f-82dc-9d63b7f82092"
+            },
+            {
+              "id": "24c5398b-fb27-4cfe-9cbe-8c7db288611c",
+              "name": "InvalidNextToken",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?ActivityIds=<string>&AutoScalingGroupName=<string>&IncludeDeletedGroups=<boolean>&MaxRecords=<integer>&NextToken=<string>&Action=DescribeScalingActivities&Version=2011-01-01#Action=DescribeScalingActivities",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "<p>The activity IDs of the desired scaling activities. If you omit this property, all activities for the past six weeks are described. If unknown activities are requested, they are ignored with no error. If you specify an Auto Scaling group, the results are limited to that group.</p> <p>Array Members: Maximum number of 50 IDs.</p>",
+                      "key": "ActivityIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name of the Auto Scaling group.",
+                      "key": "AutoScalingGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Indicates whether to include scaling activity from deleted Auto Scaling groups.",
+                      "key": "IncludeDeletedGroups",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The maximum number of items to return with this call. The default value is <code>100</code> and the maximum value is <code>100</code>.",
+                      "key": "MaxRecords",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The token for the next set of items to return. (You received this token from a previous call.)",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribeScalingActivities"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=DescribeScalingActivities"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:18:59.000Z",
+              "updatedAt": "2026-07-28T10:18:59.000Z",
+              "uid": "35240-24c5398b-fb27-4cfe-9cbe-8c7db288611c"
+            },
+            {
+              "id": "17818f32-c4eb-48f7-b700-60ab75834a77",
+              "name": "ResourceContentionFault",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?ActivityIds=<string>&AutoScalingGroupName=<string>&IncludeDeletedGroups=<boolean>&MaxRecords=<integer>&NextToken=<string>&Action=DescribeScalingActivities&Version=2011-01-01#Action=DescribeScalingActivities",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "<p>The activity IDs of the desired scaling activities. If you omit this property, all activities for the past six weeks are described. If unknown activities are requested, they are ignored with no error. If you specify an Auto Scaling group, the results are limited to that group.</p> <p>Array Members: Maximum number of 50 IDs.</p>",
+                      "key": "ActivityIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name of the Auto Scaling group.",
+                      "key": "AutoScalingGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Indicates whether to include scaling activity from deleted Auto Scaling groups.",
+                      "key": "IncludeDeletedGroups",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The maximum number of items to return with this call. The default value is <code>100</code> and the maximum value is <code>100</code>.",
+                      "key": "MaxRecords",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The token for the next set of items to return. (You received this token from a previous call.)",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribeScalingActivities"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=DescribeScalingActivities"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:18:59.000Z",
+              "updatedAt": "2026-07-28T10:18:59.000Z",
+              "uid": "35240-17818f32-c4eb-48f7-b700-60ab75834a77"
+            }
+          ],
+          "createdAt": "2026-07-28T10:18:59.000Z",
+          "updatedAt": "2026-07-28T10:18:59.000Z",
+          "uid": "35240-98a87d0a-9403-4e33-8d6d-23025ab6de9d"
+        },
+        {
+          "name": "Amazon EC2 Auto Scaling POST_ Describe Scaling Activities",
+          "id": "887d9026-6ccf-4260-855e-ac2a95da9646",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "text/xml"
+              },
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <ActivityIds>(string)</ActivityIds>\n  <ActivityIds>(string)</ActivityIds>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <IncludeDeletedGroups>(boolean)</IncludeDeletedGroups>\n  <MaxRecords>(integer)</MaxRecords>\n  <NextToken>(string)</NextToken>\n</element>",
+              "options": {
+                "raw": {
+                  "headerFamily": "xml",
+                  "language": "xml"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/?MaxRecords=<string>&NextToken=<string>&Action=DescribeScalingActivities&Version=2011-01-01#Action=DescribeScalingActivities",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "Pagination limit",
+                  "key": "MaxRecords",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Pagination token",
+                  "key": "NextToken",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "DescribeScalingActivities"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2011-01-01"
+                }
+              ],
+              "hash": "Action=DescribeScalingActivities"
+            },
+            "description": "<p>Gets information about the scaling activities in the account and Region.</p> <p>When scaling events occur, you see a record of the scaling activity in the scaling activities. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html\">Verifying a scaling activity for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>If the scaling event succeeds, the value of the <code>StatusCode</code> element in the response is <code>Successful</code>. If an attempt to launch instances failed, the <code>StatusCode</code> value is <code>Failed</code> or <code>Cancelled</code> and the <code>StatusMessage</code> element in the response indicates the cause of the failure. For help interpreting the <code>StatusMessage</code>, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/CHAP_Troubleshooting.html\">Troubleshooting Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>"
+          },
+          "response": [
+            {
+              "id": "59cf6aaf-1306-4f2a-8582-7dfcc6d3aa66",
+              "name": "Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <ActivityIds>(string)</ActivityIds>\n  <ActivityIds>(string)</ActivityIds>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <IncludeDeletedGroups>(boolean)</IncludeDeletedGroups>\n  <MaxRecords>(integer)</MaxRecords>\n  <NextToken>(string)</NextToken>\n</element>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "xml",
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?MaxRecords=<string>&NextToken=<string>&Action=DescribeScalingActivities&Version=2011-01-01#Action=DescribeScalingActivities",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "Pagination limit",
+                      "key": "MaxRecords",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination token",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribeScalingActivities"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=DescribeScalingActivities"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <Activities>\n    <ActivityId>(string)</ActivityId>\n    <AutoScalingGroupName>(string)</AutoScalingGroupName>\n    <Description>(string)</Description>\n    <Cause>(string)</Cause>\n    <StartTime>(string)</StartTime>\n    <EndTime>(string)</EndTime>\n    <StatusCode>(string)</StatusCode>\n    <StatusMessage>(string)</StatusMessage>\n    <Progress>(integer)</Progress>\n    <Details>(string)</Details>\n    <AutoScalingGroupState>(string)</AutoScalingGroupState>\n    <AutoScalingGroupARN>(string)</AutoScalingGroupARN>\n  </Activities>\n  <Activities>\n    <ActivityId>(string)</ActivityId>\n    <AutoScalingGroupName>(string)</AutoScalingGroupName>\n    <Description>(string)</Description>\n    <Cause>(string)</Cause>\n    <StartTime>(string)</StartTime>\n    <EndTime>(string)</EndTime>\n    <StatusCode>(string)</StatusCode>\n    <StatusMessage>(string)</StatusMessage>\n    <Progress>(integer)</Progress>\n    <Details>(string)</Details>\n    <AutoScalingGroupState>(string)</AutoScalingGroupState>\n    <AutoScalingGroupARN>(string)</AutoScalingGroupARN>\n  </Activities>\n  <NextToken>(string)</NextToken>\n</element>",
+              "createdAt": "2026-07-28T10:18:59.000Z",
+              "updatedAt": "2026-07-28T10:18:59.000Z",
+              "uid": "35240-59cf6aaf-1306-4f2a-8582-7dfcc6d3aa66"
+            },
+            {
+              "id": "c629f8e3-9c34-40f5-b629-43edfcdd2348",
+              "name": "InvalidNextToken",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <ActivityIds>(string)</ActivityIds>\n  <ActivityIds>(string)</ActivityIds>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <IncludeDeletedGroups>(boolean)</IncludeDeletedGroups>\n  <MaxRecords>(integer)</MaxRecords>\n  <NextToken>(string)</NextToken>\n</element>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "xml",
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?MaxRecords=<string>&NextToken=<string>&Action=DescribeScalingActivities&Version=2011-01-01#Action=DescribeScalingActivities",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "Pagination limit",
+                      "key": "MaxRecords",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination token",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribeScalingActivities"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=DescribeScalingActivities"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:18:59.000Z",
+              "updatedAt": "2026-07-28T10:18:59.000Z",
+              "uid": "35240-c629f8e3-9c34-40f5-b629-43edfcdd2348"
+            },
+            {
+              "id": "521a91c3-5b85-4234-916d-3074b66feb0e",
+              "name": "ResourceContentionFault",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <ActivityIds>(string)</ActivityIds>\n  <ActivityIds>(string)</ActivityIds>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <IncludeDeletedGroups>(boolean)</IncludeDeletedGroups>\n  <MaxRecords>(integer)</MaxRecords>\n  <NextToken>(string)</NextToken>\n</element>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "xml",
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?MaxRecords=<string>&NextToken=<string>&Action=DescribeScalingActivities&Version=2011-01-01#Action=DescribeScalingActivities",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "Pagination limit",
+                      "key": "MaxRecords",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination token",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribeScalingActivities"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=DescribeScalingActivities"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:18:59.000Z",
+              "updatedAt": "2026-07-28T10:18:59.000Z",
+              "uid": "35240-521a91c3-5b85-4234-916d-3074b66feb0e"
+            }
+          ],
+          "createdAt": "2026-07-28T10:18:59.000Z",
+          "updatedAt": "2026-07-28T10:18:59.000Z",
+          "uid": "35240-887d9026-6ccf-4260-855e-ac2a95da9646"
+        }
+      ],
+      "id": "6d90cc48-c883-431f-a442-b8d4c9549f46",
+      "createdAt": "2026-07-28T10:18:59.000Z",
+      "updatedAt": "2026-07-28T10:18:59.000Z",
+      "uid": "35240-6d90cc48-c883-431f-a442-b8d4c9549f46"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://autoscaling.{{region}}.amazonaws.com"
+    }
+  ]
+}

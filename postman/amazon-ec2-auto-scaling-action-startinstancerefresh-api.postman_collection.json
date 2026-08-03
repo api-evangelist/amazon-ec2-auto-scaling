@@ -1,0 +1,1219 @@
+{
+  "info": {
+    "_postman_id": "31c73ace-b1e5-4e0e-959d-7a9829e9791a",
+    "name": "Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=StartInstanceRefresh API",
+    "description": "<fullname>Amazon EC2 Auto Scaling</fullname> <p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.</p> <p>For more information, see the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/\">Amazon EC2 Auto Scaling User Guide</a> and the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html\">Amazon EC2 Auto Scaling API Reference</a>.</p>\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:20:08.000Z",
+    "updatedAt": "2026-07-28T10:20:08.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-31c73ace-b1e5-4e0e-959d-7a9829e9791a"
+  },
+  "item": [
+    {
+      "name": "#Action=StartInstanceRefresh",
+      "item": [
+        {
+          "name": "Amazon EC2 Auto Scaling GET_ Start Instance Refresh",
+          "id": "14258922-dc89-4099-9bc3-272a7cb82079",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?AutoScalingGroupName=<string>&Strategy=Rolling&LaunchTemplate=[object Object]&MixedInstancesPolicy=[object Object]&MinHealthyPercentage=<integer>&InstanceWarmup=<integer>&CheckpointPercentages=<integer>,<integer>&CheckpointDelay=<integer>&SkipMatching=<boolean>&AutoRollback=<boolean>&ScaleInProtectedInstances=Ignore&StandbyInstances=Terminate&Action=StartInstanceRefresh&Version=2011-01-01#Action=StartInstanceRefresh",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "(Required) The name of the Auto Scaling group.",
+                  "key": "AutoScalingGroupName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The strategy to use for the instance refresh. The only valid value is <code>Rolling</code>.",
+                  "key": "Strategy",
+                  "value": "Rolling"
+                },
+                {
+                  "description": "<p>The desired configuration. For example, the desired configuration can specify a new launch template or a new version of the current launch template.</p> <p>Once the instance refresh succeeds, Amazon EC2 Auto Scaling updates the settings of the Auto Scaling group to reflect the new desired configuration. </p> <note> <p>When you specify a new launch template or a new version of the current launch template for your desired configuration, consider enabling the <code>SkipMatching</code> property in preferences. If it's enabled, Amazon EC2 Auto Scaling skips replacing instances that already use the specified launch template and instance types. This can help you reduce the number of replacements that are required to apply updates. </p> </note>",
+                  "key": "LaunchTemplate",
+                  "value": "[object Object]"
+                },
+                {
+                  "description": "<p>The desired configuration. For example, the desired configuration can specify a new launch template or a new version of the current launch template.</p> <p>Once the instance refresh succeeds, Amazon EC2 Auto Scaling updates the settings of the Auto Scaling group to reflect the new desired configuration. </p> <note> <p>When you specify a new launch template or a new version of the current launch template for your desired configuration, consider enabling the <code>SkipMatching</code> property in preferences. If it's enabled, Amazon EC2 Auto Scaling skips replacing instances that already use the specified launch template and instance types. This can help you reduce the number of replacements that are required to apply updates. </p> </note>",
+                  "key": "MixedInstancesPolicy",
+                  "value": "[object Object]"
+                },
+                {
+                  "description": "<p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum healthy percentage, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p> <ul> <li> <p>Auto rollback</p> </li> <li> <p>Checkpoints</p> </li> <li> <p>Skip matching</p> </li> </ul>",
+                  "key": "MinHealthyPercentage",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "<p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum healthy percentage, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p> <ul> <li> <p>Auto rollback</p> </li> <li> <p>Checkpoints</p> </li> <li> <p>Skip matching</p> </li> </ul>",
+                  "key": "InstanceWarmup",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "<p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum healthy percentage, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p> <ul> <li> <p>Auto rollback</p> </li> <li> <p>Checkpoints</p> </li> <li> <p>Skip matching</p> </li> </ul>",
+                  "key": "CheckpointPercentages",
+                  "value": "<integer>,<integer>"
+                },
+                {
+                  "description": "<p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum healthy percentage, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p> <ul> <li> <p>Auto rollback</p> </li> <li> <p>Checkpoints</p> </li> <li> <p>Skip matching</p> </li> </ul>",
+                  "key": "CheckpointDelay",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "<p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum healthy percentage, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p> <ul> <li> <p>Auto rollback</p> </li> <li> <p>Checkpoints</p> </li> <li> <p>Skip matching</p> </li> </ul>",
+                  "key": "SkipMatching",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "<p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum healthy percentage, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p> <ul> <li> <p>Auto rollback</p> </li> <li> <p>Checkpoints</p> </li> <li> <p>Skip matching</p> </li> </ul>",
+                  "key": "AutoRollback",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "<p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum healthy percentage, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p> <ul> <li> <p>Auto rollback</p> </li> <li> <p>Checkpoints</p> </li> <li> <p>Skip matching</p> </li> </ul>",
+                  "key": "ScaleInProtectedInstances",
+                  "value": "Ignore"
+                },
+                {
+                  "description": "<p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum healthy percentage, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p> <ul> <li> <p>Auto rollback</p> </li> <li> <p>Checkpoints</p> </li> <li> <p>Skip matching</p> </li> </ul>",
+                  "key": "StandbyInstances",
+                  "value": "Terminate"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "StartInstanceRefresh"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2011-01-01"
+                }
+              ],
+              "hash": "Action=StartInstanceRefresh"
+            },
+            "description": "<p>Starts an instance refresh. During an instance refresh, Amazon EC2 Auto Scaling performs a rolling update of instances in an Auto Scaling group. Instances are terminated first and then replaced, which temporarily reduces the capacity available within your Auto Scaling group.</p> <p>This operation is part of the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html\">instance refresh feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling group. This feature is helpful, for example, when you have a new AMI or a new user data script. You just need to create a new launch template that specifies the new AMI or user data script. Then start an instance refresh to immediately begin the process of updating instances in the group. </p> <p>If successful, the request's response contains a unique ID that you can use to track the progress of the instance refresh. To query its status, call the <a>DescribeInstanceRefreshes</a> API. To describe the instance refreshes that have already run, call the <a>DescribeInstanceRefreshes</a> API. To cancel an instance refresh that is in progress, use the <a>CancelInstanceRefresh</a> API. </p> <p>An instance refresh might fail for several reasons, such as EC2 launch failures, misconfigured health checks, or not ignoring or allowing the termination of instances that are in <code>Standby</code> state or protected from scale in. You can monitor for failed EC2 launches using the scaling activities. To find the scaling activities, call the <a>DescribeScalingActivities</a> API.</p> <p>If you enable auto rollback, your Auto Scaling group will be rolled back automatically when the instance refresh fails. You can enable this feature before starting an instance refresh by specifying the <code>AutoRollback</code> property in the instance refresh preferences. Otherwise, to roll back an instance refresh before it finishes, use the <a>RollbackInstanceRefresh</a> API. </p>"
+          },
+          "response": [
+            {
+              "id": "4728e938-24d8-4b87-a461-f379f524f748",
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?AutoScalingGroupName=<string>&Strategy=Rolling&LaunchTemplate=[object Object]&MixedInstancesPolicy=[object Object]&MinHealthyPercentage=<integer>&InstanceWarmup=<integer>&CheckpointPercentages=<integer>,<integer>&CheckpointDelay=<integer>&SkipMatching=<boolean>&AutoRollback=<boolean>&ScaleInProtectedInstances=Ignore&StandbyInstances=Terminate&Action=StartInstanceRefresh&Version=2011-01-01#Action=StartInstanceRefresh",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The name of the Auto Scaling group.",
+                      "key": "AutoScalingGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The strategy to use for the instance refresh. The only valid value is <code>Rolling</code>.",
+                      "key": "Strategy",
+                      "value": "Rolling"
+                    },
+                    {
+                      "description": "<p>The desired configuration. For example, the desired configuration can specify a new launch template or a new version of the current launch template.</p> <p>Once the instance refresh succeeds, Amazon EC2 Auto Scaling updates the settings of the Auto Scaling group to reflect the new desired configuration. </p> <note> <p>When you specify a new launch template or a new version of the current launch template for your desired configuration, consider enabling the <code>SkipMatching</code> property in preferences. If it's enabled, Amazon EC2 Auto Scaling skips replacing instances that already use the specified launch template and instance types. This can help you reduce the number of replacements that are required to apply updates. </p> </note>",
+                      "key": "LaunchTemplate",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "<p>The desired configuration. For example, the desired configuration can specify a new launch template or a new version of the current launch template.</p> <p>Once the instance refresh succeeds, Amazon EC2 Auto Scaling updates the settings of the Auto Scaling group to reflect the new desired configuration. </p> <note> <p>When you specify a new launch template or a new version of the current launch template for your desired configuration, consider enabling the <code>SkipMatching</code> property in preferences. If it's enabled, Amazon EC2 Auto Scaling skips replacing instances that already use the specified launch template and instance types. This can help you reduce the number of replacements that are required to apply updates. </p> </note>",
+                      "key": "MixedInstancesPolicy",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "<p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum healthy percentage, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p> <ul> <li> <p>Auto rollback</p> </li> <li> <p>Checkpoints</p> </li> <li> <p>Skip matching</p> </li> </ul>",
+                      "key": "MinHealthyPercentage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum healthy percentage, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p> <ul> <li> <p>Auto rollback</p> </li> <li> <p>Checkpoints</p> </li> <li> <p>Skip matching</p> </li> </ul>",
+                      "key": "InstanceWarmup",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum healthy percentage, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p> <ul> <li> <p>Auto rollback</p> </li> <li> <p>Checkpoints</p> </li> <li> <p>Skip matching</p> </li> </ul>",
+                      "key": "CheckpointPercentages",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "description": "<p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum healthy percentage, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p> <ul> <li> <p>Auto rollback</p> </li> <li> <p>Checkpoints</p> </li> <li> <p>Skip matching</p> </li> </ul>",
+                      "key": "CheckpointDelay",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum healthy percentage, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p> <ul> <li> <p>Auto rollback</p> </li> <li> <p>Checkpoints</p> </li> <li> <p>Skip matching</p> </li> </ul>",
+                      "key": "SkipMatching",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "<p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum healthy percentage, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p> <ul> <li> <p>Auto rollback</p> </li> <li> <p>Checkpoints</p> </li> <li> <p>Skip matching</p> </li> </ul>",
+                      "key": "AutoRollback",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "<p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum healthy percentage, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p> <ul> <li> <p>Auto rollback</p> </li> <li> <p>Checkpoints</p> </li> <li> <p>Skip matching</p> </li> </ul>",
+                      "key": "ScaleInProtectedInstances",
+                      "value": "Ignore"
+                    },
+                    {
+                      "description": "<p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum healthy percentage, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p> <ul> <li> <p>Auto rollback</p> </li> <li> <p>Checkpoints</p> </li> <li> <p>Skip matching</p> </li> </ul>",
+                      "key": "StandbyInstances",
+                      "value": "Terminate"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "StartInstanceRefresh"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=StartInstanceRefresh"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <InstanceRefreshId>(string)</InstanceRefreshId>\n</element>",
+              "createdAt": "2026-07-28T10:20:08.000Z",
+              "updatedAt": "2026-07-28T10:20:08.000Z",
+              "uid": "35240-4728e938-24d8-4b87-a461-f379f524f748"
+            },
+            {
+              "id": "cb998402-84ec-46df-ad07-e72dd9167c70",
+              "name": "LimitExceededFault",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?AutoScalingGroupName=<string>&Strategy=Rolling&LaunchTemplate=[object Object]&MixedInstancesPolicy=[object Object]&MinHealthyPercentage=<integer>&InstanceWarmup=<integer>&CheckpointPercentages=<integer>,<integer>&CheckpointDelay=<integer>&SkipMatching=<boolean>&AutoRollback=<boolean>&ScaleInProtectedInstances=Ignore&StandbyInstances=Terminate&Action=StartInstanceRefresh&Version=2011-01-01#Action=StartInstanceRefresh",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The name of the Auto Scaling group.",
+                      "key": "AutoScalingGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The strategy to use for the instance refresh. The only valid value is <code>Rolling</code>.",
+                      "key": "Strategy",
+                      "value": "Rolling"
+                    },
+                    {
+                      "description": "<p>The desired configuration. For example, the desired configuration can specify a new launch template or a new version of the current launch template.</p> <p>Once the instance refresh succeeds, Amazon EC2 Auto Scaling updates the settings of the Auto Scaling group to reflect the new desired configuration. </p> <note> <p>When you specify a new launch template or a new version of the current launch template for your desired configuration, consider enabling the <code>SkipMatching</code> property in preferences. If it's enabled, Amazon EC2 Auto Scaling skips replacing instances that already use the specified launch template and instance types. This can help you reduce the number of replacements that are required to apply updates. </p> </note>",
+                      "key": "LaunchTemplate",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "<p>The desired configuration. For example, the desired configuration can specify a new launch template or a new version of the current launch template.</p> <p>Once the instance refresh succeeds, Amazon EC2 Auto Scaling updates the settings of the Auto Scaling group to reflect the new desired configuration. </p> <note> <p>When you specify a new launch template or a new version of the current launch template for your desired configuration, consider enabling the <code>SkipMatching</code> property in preferences. If it's enabled, Amazon EC2 Auto Scaling skips replacing instances that already use the specified launch template and instance types. This can help you reduce the number of replacements that are required to apply updates. </p> </note>",
+                      "key": "MixedInstancesPolicy",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "<p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum healthy percentage, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p> <ul> <li> <p>Auto rollback</p> </li> <li> <p>Checkpoints</p> </li> <li> <p>Skip matching</p> </li> </ul>",
+                      "key": "MinHealthyPercentage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum healthy percentage, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p> <ul> <li> <p>Auto rollback</p> </li> <li> <p>Checkpoints</p> </li> <li> <p>Skip matching</p> </li> </ul>",
+                      "key": "InstanceWarmup",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum healthy percentage, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p> <ul> <li> <p>Auto rollback</p> </li> <li> <p>Checkpoints</p> </li> <li> <p>Skip matching</p> </li> </ul>",
+                      "key": "CheckpointPercentages",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "description": "<p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum healthy percentage, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p> <ul> <li> <p>Auto rollback</p> </li> <li> <p>Checkpoints</p> </li> <li> <p>Skip matching</p> </li> </ul>",
+                      "key": "CheckpointDelay",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum healthy percentage, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p> <ul> <li> <p>Auto rollback</p> </li> <li> <p>Checkpoints</p> </li> <li> <p>Skip matching</p> </li> </ul>",
+                      "key": "SkipMatching",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "<p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum healthy percentage, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p> <ul> <li> <p>Auto rollback</p> </li> <li> <p>Checkpoints</p> </li> <li> <p>Skip matching</p> </li> </ul>",
+                      "key": "AutoRollback",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "<p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum healthy percentage, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p> <ul> <li> <p>Auto rollback</p> </li> <li> <p>Checkpoints</p> </li> <li> <p>Skip matching</p> </li> </ul>",
+                      "key": "ScaleInProtectedInstances",
+                      "value": "Ignore"
+                    },
+                    {
+                      "description": "<p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum healthy percentage, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p> <ul> <li> <p>Auto rollback</p> </li> <li> <p>Checkpoints</p> </li> <li> <p>Skip matching</p> </li> </ul>",
+                      "key": "StandbyInstances",
+                      "value": "Terminate"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "StartInstanceRefresh"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=StartInstanceRefresh"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:20:08.000Z",
+              "updatedAt": "2026-07-28T10:20:08.000Z",
+              "uid": "35240-cb998402-84ec-46df-ad07-e72dd9167c70"
+            },
+            {
+              "id": "03fc7a3d-48c3-4724-a8c4-dc53f12e1eac",
+              "name": "ResourceContentionFault",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?AutoScalingGroupName=<string>&Strategy=Rolling&LaunchTemplate=[object Object]&MixedInstancesPolicy=[object Object]&MinHealthyPercentage=<integer>&InstanceWarmup=<integer>&CheckpointPercentages=<integer>,<integer>&CheckpointDelay=<integer>&SkipMatching=<boolean>&AutoRollback=<boolean>&ScaleInProtectedInstances=Ignore&StandbyInstances=Terminate&Action=StartInstanceRefresh&Version=2011-01-01#Action=StartInstanceRefresh",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The name of the Auto Scaling group.",
+                      "key": "AutoScalingGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The strategy to use for the instance refresh. The only valid value is <code>Rolling</code>.",
+                      "key": "Strategy",
+                      "value": "Rolling"
+                    },
+                    {
+                      "description": "<p>The desired configuration. For example, the desired configuration can specify a new launch template or a new version of the current launch template.</p> <p>Once the instance refresh succeeds, Amazon EC2 Auto Scaling updates the settings of the Auto Scaling group to reflect the new desired configuration. </p> <note> <p>When you specify a new launch template or a new version of the current launch template for your desired configuration, consider enabling the <code>SkipMatching</code> property in preferences. If it's enabled, Amazon EC2 Auto Scaling skips replacing instances that already use the specified launch template and instance types. This can help you reduce the number of replacements that are required to apply updates. </p> </note>",
+                      "key": "LaunchTemplate",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "<p>The desired configuration. For example, the desired configuration can specify a new launch template or a new version of the current launch template.</p> <p>Once the instance refresh succeeds, Amazon EC2 Auto Scaling updates the settings of the Auto Scaling group to reflect the new desired configuration. </p> <note> <p>When you specify a new launch template or a new version of the current launch template for your desired configuration, consider enabling the <code>SkipMatching</code> property in preferences. If it's enabled, Amazon EC2 Auto Scaling skips replacing instances that already use the specified launch template and instance types. This can help you reduce the number of replacements that are required to apply updates. </p> </note>",
+                      "key": "MixedInstancesPolicy",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "<p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum healthy percentage, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p> <ul> <li> <p>Auto rollback</p> </li> <li> <p>Checkpoints</p> </li> <li> <p>Skip matching</p> </li> </ul>",
+                      "key": "MinHealthyPercentage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum healthy percentage, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p> <ul> <li> <p>Auto rollback</p> </li> <li> <p>Checkpoints</p> </li> <li> <p>Skip matching</p> </li> </ul>",
+                      "key": "InstanceWarmup",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum healthy percentage, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p> <ul> <li> <p>Auto rollback</p> </li> <li> <p>Checkpoints</p> </li> <li> <p>Skip matching</p> </li> </ul>",
+                      "key": "CheckpointPercentages",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "description": "<p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum healthy percentage, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p> <ul> <li> <p>Auto rollback</p> </li> <li> <p>Checkpoints</p> </li> <li> <p>Skip matching</p> </li> </ul>",
+                      "key": "CheckpointDelay",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum healthy percentage, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p> <ul> <li> <p>Auto rollback</p> </li> <li> <p>Checkpoints</p> </li> <li> <p>Skip matching</p> </li> </ul>",
+                      "key": "SkipMatching",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "<p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum healthy percentage, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p> <ul> <li> <p>Auto rollback</p> </li> <li> <p>Checkpoints</p> </li> <li> <p>Skip matching</p> </li> </ul>",
+                      "key": "AutoRollback",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "<p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum healthy percentage, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p> <ul> <li> <p>Auto rollback</p> </li> <li> <p>Checkpoints</p> </li> <li> <p>Skip matching</p> </li> </ul>",
+                      "key": "ScaleInProtectedInstances",
+                      "value": "Ignore"
+                    },
+                    {
+                      "description": "<p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum healthy percentage, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p> <ul> <li> <p>Auto rollback</p> </li> <li> <p>Checkpoints</p> </li> <li> <p>Skip matching</p> </li> </ul>",
+                      "key": "StandbyInstances",
+                      "value": "Terminate"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "StartInstanceRefresh"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=StartInstanceRefresh"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:20:08.000Z",
+              "updatedAt": "2026-07-28T10:20:08.000Z",
+              "uid": "35240-03fc7a3d-48c3-4724-a8c4-dc53f12e1eac"
+            },
+            {
+              "id": "059ed783-828e-4169-bf46-86ba0ae21f0e",
+              "name": "InstanceRefreshInProgressFault",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?AutoScalingGroupName=<string>&Strategy=Rolling&LaunchTemplate=[object Object]&MixedInstancesPolicy=[object Object]&MinHealthyPercentage=<integer>&InstanceWarmup=<integer>&CheckpointPercentages=<integer>,<integer>&CheckpointDelay=<integer>&SkipMatching=<boolean>&AutoRollback=<boolean>&ScaleInProtectedInstances=Ignore&StandbyInstances=Terminate&Action=StartInstanceRefresh&Version=2011-01-01#Action=StartInstanceRefresh",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The name of the Auto Scaling group.",
+                      "key": "AutoScalingGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The strategy to use for the instance refresh. The only valid value is <code>Rolling</code>.",
+                      "key": "Strategy",
+                      "value": "Rolling"
+                    },
+                    {
+                      "description": "<p>The desired configuration. For example, the desired configuration can specify a new launch template or a new version of the current launch template.</p> <p>Once the instance refresh succeeds, Amazon EC2 Auto Scaling updates the settings of the Auto Scaling group to reflect the new desired configuration. </p> <note> <p>When you specify a new launch template or a new version of the current launch template for your desired configuration, consider enabling the <code>SkipMatching</code> property in preferences. If it's enabled, Amazon EC2 Auto Scaling skips replacing instances that already use the specified launch template and instance types. This can help you reduce the number of replacements that are required to apply updates. </p> </note>",
+                      "key": "LaunchTemplate",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "<p>The desired configuration. For example, the desired configuration can specify a new launch template or a new version of the current launch template.</p> <p>Once the instance refresh succeeds, Amazon EC2 Auto Scaling updates the settings of the Auto Scaling group to reflect the new desired configuration. </p> <note> <p>When you specify a new launch template or a new version of the current launch template for your desired configuration, consider enabling the <code>SkipMatching</code> property in preferences. If it's enabled, Amazon EC2 Auto Scaling skips replacing instances that already use the specified launch template and instance types. This can help you reduce the number of replacements that are required to apply updates. </p> </note>",
+                      "key": "MixedInstancesPolicy",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "<p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum healthy percentage, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p> <ul> <li> <p>Auto rollback</p> </li> <li> <p>Checkpoints</p> </li> <li> <p>Skip matching</p> </li> </ul>",
+                      "key": "MinHealthyPercentage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum healthy percentage, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p> <ul> <li> <p>Auto rollback</p> </li> <li> <p>Checkpoints</p> </li> <li> <p>Skip matching</p> </li> </ul>",
+                      "key": "InstanceWarmup",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum healthy percentage, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p> <ul> <li> <p>Auto rollback</p> </li> <li> <p>Checkpoints</p> </li> <li> <p>Skip matching</p> </li> </ul>",
+                      "key": "CheckpointPercentages",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "description": "<p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum healthy percentage, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p> <ul> <li> <p>Auto rollback</p> </li> <li> <p>Checkpoints</p> </li> <li> <p>Skip matching</p> </li> </ul>",
+                      "key": "CheckpointDelay",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum healthy percentage, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p> <ul> <li> <p>Auto rollback</p> </li> <li> <p>Checkpoints</p> </li> <li> <p>Skip matching</p> </li> </ul>",
+                      "key": "SkipMatching",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "<p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum healthy percentage, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p> <ul> <li> <p>Auto rollback</p> </li> <li> <p>Checkpoints</p> </li> <li> <p>Skip matching</p> </li> </ul>",
+                      "key": "AutoRollback",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "<p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum healthy percentage, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p> <ul> <li> <p>Auto rollback</p> </li> <li> <p>Checkpoints</p> </li> <li> <p>Skip matching</p> </li> </ul>",
+                      "key": "ScaleInProtectedInstances",
+                      "value": "Ignore"
+                    },
+                    {
+                      "description": "<p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum healthy percentage, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p> <ul> <li> <p>Auto rollback</p> </li> <li> <p>Checkpoints</p> </li> <li> <p>Skip matching</p> </li> </ul>",
+                      "key": "StandbyInstances",
+                      "value": "Terminate"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "StartInstanceRefresh"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=StartInstanceRefresh"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:20:08.000Z",
+              "updatedAt": "2026-07-28T10:20:08.000Z",
+              "uid": "35240-059ed783-828e-4169-bf46-86ba0ae21f0e"
+            }
+          ],
+          "createdAt": "2026-07-28T10:20:08.000Z",
+          "updatedAt": "2026-07-28T10:20:08.000Z",
+          "uid": "35240-14258922-dc89-4099-9bc3-272a7cb82079"
+        },
+        {
+          "name": "Amazon EC2 Auto Scaling POST_ Start Instance Refresh",
+          "id": "6ca3a387-3493-42e0-9471-583937af78bb",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "text/xml"
+              },
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <Strategy>(string)</Strategy>\n  <DesiredConfiguration>\n    <LaunchTemplate>\n      <LaunchTemplateId>(string)</LaunchTemplateId>\n      <LaunchTemplateName>(string)</LaunchTemplateName>\n      <Version>(string)</Version>\n    </LaunchTemplate>\n    <MixedInstancesPolicy>\n      <LaunchTemplate>\n        <LaunchTemplateSpecification>\n          <LaunchTemplateId>(string)</LaunchTemplateId>\n          <LaunchTemplateName>(string)</LaunchTemplateName>\n          <Version>(string)</Version>\n        </LaunchTemplateSpecification>\n        <Overrides>\n          <InstanceType>(string)</InstanceType>\n          <WeightedCapacity>(string)</WeightedCapacity>\n          <LaunchTemplateSpecification>\n            <LaunchTemplateId>(string)</LaunchTemplateId>\n            <LaunchTemplateName>(string)</LaunchTemplateName>\n            <Version>(string)</Version>\n          </LaunchTemplateSpecification>\n          <InstanceRequirements>\n            <VCpuCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </VCpuCount>\n            <MemoryMiB>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </MemoryMiB>\n            <CpuManufacturers>(string)</CpuManufacturers>\n            <CpuManufacturers>(string)</CpuManufacturers>\n            <MemoryGiBPerVCpu>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </MemoryGiBPerVCpu>\n            <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n            <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n            <InstanceGenerations>(string)</InstanceGenerations>\n            <InstanceGenerations>(string)</InstanceGenerations>\n            <SpotMaxPricePercentageOverLowestPrice>(integer)</SpotMaxPricePercentageOverLowestPrice>\n            <OnDemandMaxPricePercentageOverLowestPrice>(integer)</OnDemandMaxPricePercentageOverLowestPrice>\n            <BareMetal>(string)</BareMetal>\n            <BurstablePerformance>(string)</BurstablePerformance>\n            <RequireHibernateSupport>(boolean)</RequireHibernateSupport>\n            <NetworkInterfaceCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </NetworkInterfaceCount>\n            <LocalStorage>(string)</LocalStorage>\n            <LocalStorageTypes>(string)</LocalStorageTypes>\n            <LocalStorageTypes>(string)</LocalStorageTypes>\n            <TotalLocalStorageGB>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </TotalLocalStorageGB>\n            <BaselineEbsBandwidthMbps>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </BaselineEbsBandwidthMbps>\n            <AcceleratorTypes>(string)</AcceleratorTypes>\n            <AcceleratorTypes>(string)</AcceleratorTypes>\n            <AcceleratorCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </AcceleratorCount>\n            <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n            <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n            <AcceleratorNames>(string)</AcceleratorNames>\n            <AcceleratorNames>(string)</AcceleratorNames>\n            <AcceleratorTotalMemoryMiB>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </AcceleratorTotalMemoryMiB>\n            <NetworkBandwidthGbps>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </NetworkBandwidthGbps>\n            <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n            <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n          </InstanceRequirements>\n        </Overrides>\n        <Overrides>\n          <InstanceType>(string)</InstanceType>\n          <WeightedCapacity>(string)</WeightedCapacity>\n          <LaunchTemplateSpecification>\n            <LaunchTemplateId>(string)</LaunchTemplateId>\n            <LaunchTemplateName>(string)</LaunchTemplateName>\n            <Version>(string)</Version>\n          </LaunchTemplateSpecification>\n          <InstanceRequirements>\n            <VCpuCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </VCpuCount>\n            <MemoryMiB>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </MemoryMiB>\n            <CpuManufacturers>(string)</CpuManufacturers>\n            <CpuManufacturers>(string)</CpuManufacturers>\n            <MemoryGiBPerVCpu>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </MemoryGiBPerVCpu>\n            <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n            <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n            <InstanceGenerations>(string)</InstanceGenerations>\n            <InstanceGenerations>(string)</InstanceGenerations>\n            <SpotMaxPricePercentageOverLowestPrice>(integer)</SpotMaxPricePercentageOverLowestPrice>\n            <OnDemandMaxPricePercentageOverLowestPrice>(integer)</OnDemandMaxPricePercentageOverLowestPrice>\n            <BareMetal>(string)</BareMetal>\n            <BurstablePerformance>(string)</BurstablePerformance>\n            <RequireHibernateSupport>(boolean)</RequireHibernateSupport>\n            <NetworkInterfaceCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </NetworkInterfaceCount>\n            <LocalStorage>(string)</LocalStorage>\n            <LocalStorageTypes>(string)</LocalStorageTypes>\n            <LocalStorageTypes>(string)</LocalStorageTypes>\n            <TotalLocalStorageGB>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </TotalLocalStorageGB>\n            <BaselineEbsBandwidthMbps>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </BaselineEbsBandwidthMbps>\n            <AcceleratorTypes>(string)</AcceleratorTypes>\n            <AcceleratorTypes>(string)</AcceleratorTypes>\n            <AcceleratorCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </AcceleratorCount>\n            <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n            <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n            <AcceleratorNames>(string)</AcceleratorNames>\n            <AcceleratorNames>(string)</AcceleratorNames>\n            <AcceleratorTotalMemoryMiB>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </AcceleratorTotalMemoryMiB>\n            <NetworkBandwidthGbps>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </NetworkBandwidthGbps>\n            <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n            <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n          </InstanceRequirements>\n        </Overrides>\n      </LaunchTemplate>\n      <InstancesDistribution>\n        <OnDemandAllocationStrategy>(string)</OnDemandAllocationStrategy>\n        <OnDemandBaseCapacity>(integer)</OnDemandBaseCapacity>\n        <OnDemandPercentageAboveBaseCapacity>(integer)</OnDemandPercentageAboveBaseCapacity>\n        <SpotAllocationStrategy>(string)</SpotAllocationStrategy>\n        <SpotInstancePools>(integer)</SpotInstancePools>\n        <SpotMaxPrice>(string)</SpotMaxPrice>\n      </InstancesDistribution>\n    </MixedInstancesPolicy>\n  </DesiredConfiguration>\n  <Preferences>\n    <MinHealthyPercentage>(integer)</MinHealthyPercentage>\n    <InstanceWarmup>(integer)</InstanceWarmup>\n    <CheckpointPercentages>(integer)</CheckpointPercentages>\n    <CheckpointPercentages>(integer)</CheckpointPercentages>\n    <CheckpointDelay>(integer)</CheckpointDelay>\n    <SkipMatching>(boolean)</SkipMatching>\n    <AutoRollback>(boolean)</AutoRollback>\n    <ScaleInProtectedInstances>(string)</ScaleInProtectedInstances>\n    <StandbyInstances>(string)</StandbyInstances>\n  </Preferences>\n</element>",
+              "options": {
+                "raw": {
+                  "headerFamily": "xml",
+                  "language": "xml"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/?Action=StartInstanceRefresh&Version=2011-01-01#Action=StartInstanceRefresh",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "StartInstanceRefresh"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2011-01-01"
+                }
+              ],
+              "hash": "Action=StartInstanceRefresh"
+            },
+            "description": "<p>Starts an instance refresh. During an instance refresh, Amazon EC2 Auto Scaling performs a rolling update of instances in an Auto Scaling group. Instances are terminated first and then replaced, which temporarily reduces the capacity available within your Auto Scaling group.</p> <p>This operation is part of the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html\">instance refresh feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling group. This feature is helpful, for example, when you have a new AMI or a new user data script. You just need to create a new launch template that specifies the new AMI or user data script. Then start an instance refresh to immediately begin the process of updating instances in the group. </p> <p>If successful, the request's response contains a unique ID that you can use to track the progress of the instance refresh. To query its status, call the <a>DescribeInstanceRefreshes</a> API. To describe the instance refreshes that have already run, call the <a>DescribeInstanceRefreshes</a> API. To cancel an instance refresh that is in progress, use the <a>CancelInstanceRefresh</a> API. </p> <p>An instance refresh might fail for several reasons, such as EC2 launch failures, misconfigured health checks, or not ignoring or allowing the termination of instances that are in <code>Standby</code> state or protected from scale in. You can monitor for failed EC2 launches using the scaling activities. To find the scaling activities, call the <a>DescribeScalingActivities</a> API.</p> <p>If you enable auto rollback, your Auto Scaling group will be rolled back automatically when the instance refresh fails. You can enable this feature before starting an instance refresh by specifying the <code>AutoRollback</code> property in the instance refresh preferences. Otherwise, to roll back an instance refresh before it finishes, use the <a>RollbackInstanceRefresh</a> API. </p>"
+          },
+          "response": [
+            {
+              "id": "3313c2f2-fa69-4440-954d-7d52db8ca09e",
+              "name": "Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <Strategy>(string)</Strategy>\n  <DesiredConfiguration>\n    <LaunchTemplate>\n      <LaunchTemplateId>(string)</LaunchTemplateId>\n      <LaunchTemplateName>(string)</LaunchTemplateName>\n      <Version>(string)</Version>\n    </LaunchTemplate>\n    <MixedInstancesPolicy>\n      <LaunchTemplate>\n        <LaunchTemplateSpecification>\n          <LaunchTemplateId>(string)</LaunchTemplateId>\n          <LaunchTemplateName>(string)</LaunchTemplateName>\n          <Version>(string)</Version>\n        </LaunchTemplateSpecification>\n        <Overrides>\n          <InstanceType>(string)</InstanceType>\n          <WeightedCapacity>(string)</WeightedCapacity>\n          <LaunchTemplateSpecification>\n            <LaunchTemplateId>(string)</LaunchTemplateId>\n            <LaunchTemplateName>(string)</LaunchTemplateName>\n            <Version>(string)</Version>\n          </LaunchTemplateSpecification>\n          <InstanceRequirements>\n            <VCpuCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </VCpuCount>\n            <MemoryMiB>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </MemoryMiB>\n            <CpuManufacturers>(string)</CpuManufacturers>\n            <CpuManufacturers>(string)</CpuManufacturers>\n            <MemoryGiBPerVCpu>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </MemoryGiBPerVCpu>\n            <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n            <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n            <InstanceGenerations>(string)</InstanceGenerations>\n            <InstanceGenerations>(string)</InstanceGenerations>\n            <SpotMaxPricePercentageOverLowestPrice>(integer)</SpotMaxPricePercentageOverLowestPrice>\n            <OnDemandMaxPricePercentageOverLowestPrice>(integer)</OnDemandMaxPricePercentageOverLowestPrice>\n            <BareMetal>(string)</BareMetal>\n            <BurstablePerformance>(string)</BurstablePerformance>\n            <RequireHibernateSupport>(boolean)</RequireHibernateSupport>\n            <NetworkInterfaceCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </NetworkInterfaceCount>\n            <LocalStorage>(string)</LocalStorage>\n            <LocalStorageTypes>(string)</LocalStorageTypes>\n            <LocalStorageTypes>(string)</LocalStorageTypes>\n            <TotalLocalStorageGB>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </TotalLocalStorageGB>\n            <BaselineEbsBandwidthMbps>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </BaselineEbsBandwidthMbps>\n            <AcceleratorTypes>(string)</AcceleratorTypes>\n            <AcceleratorTypes>(string)</AcceleratorTypes>\n            <AcceleratorCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </AcceleratorCount>\n            <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n            <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n            <AcceleratorNames>(string)</AcceleratorNames>\n            <AcceleratorNames>(string)</AcceleratorNames>\n            <AcceleratorTotalMemoryMiB>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </AcceleratorTotalMemoryMiB>\n            <NetworkBandwidthGbps>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </NetworkBandwidthGbps>\n            <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n            <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n          </InstanceRequirements>\n        </Overrides>\n        <Overrides>\n          <InstanceType>(string)</InstanceType>\n          <WeightedCapacity>(string)</WeightedCapacity>\n          <LaunchTemplateSpecification>\n            <LaunchTemplateId>(string)</LaunchTemplateId>\n            <LaunchTemplateName>(string)</LaunchTemplateName>\n            <Version>(string)</Version>\n          </LaunchTemplateSpecification>\n          <InstanceRequirements>\n            <VCpuCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </VCpuCount>\n            <MemoryMiB>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </MemoryMiB>\n            <CpuManufacturers>(string)</CpuManufacturers>\n            <CpuManufacturers>(string)</CpuManufacturers>\n            <MemoryGiBPerVCpu>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </MemoryGiBPerVCpu>\n            <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n            <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n            <InstanceGenerations>(string)</InstanceGenerations>\n            <InstanceGenerations>(string)</InstanceGenerations>\n            <SpotMaxPricePercentageOverLowestPrice>(integer)</SpotMaxPricePercentageOverLowestPrice>\n            <OnDemandMaxPricePercentageOverLowestPrice>(integer)</OnDemandMaxPricePercentageOverLowestPrice>\n            <BareMetal>(string)</BareMetal>\n            <BurstablePerformance>(string)</BurstablePerformance>\n            <RequireHibernateSupport>(boolean)</RequireHibernateSupport>\n            <NetworkInterfaceCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </NetworkInterfaceCount>\n            <LocalStorage>(string)</LocalStorage>\n            <LocalStorageTypes>(string)</LocalStorageTypes>\n            <LocalStorageTypes>(string)</LocalStorageTypes>\n            <TotalLocalStorageGB>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </TotalLocalStorageGB>\n            <BaselineEbsBandwidthMbps>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </BaselineEbsBandwidthMbps>\n            <AcceleratorTypes>(string)</AcceleratorTypes>\n            <AcceleratorTypes>(string)</AcceleratorTypes>\n            <AcceleratorCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </AcceleratorCount>\n            <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n            <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n            <AcceleratorNames>(string)</AcceleratorNames>\n            <AcceleratorNames>(string)</AcceleratorNames>\n            <AcceleratorTotalMemoryMiB>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </AcceleratorTotalMemoryMiB>\n            <NetworkBandwidthGbps>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </NetworkBandwidthGbps>\n            <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n            <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n          </InstanceRequirements>\n        </Overrides>\n      </LaunchTemplate>\n      <InstancesDistribution>\n        <OnDemandAllocationStrategy>(string)</OnDemandAllocationStrategy>\n        <OnDemandBaseCapacity>(integer)</OnDemandBaseCapacity>\n        <OnDemandPercentageAboveBaseCapacity>(integer)</OnDemandPercentageAboveBaseCapacity>\n        <SpotAllocationStrategy>(string)</SpotAllocationStrategy>\n        <SpotInstancePools>(integer)</SpotInstancePools>\n        <SpotMaxPrice>(string)</SpotMaxPrice>\n      </InstancesDistribution>\n    </MixedInstancesPolicy>\n  </DesiredConfiguration>\n  <Preferences>\n    <MinHealthyPercentage>(integer)</MinHealthyPercentage>\n    <InstanceWarmup>(integer)</InstanceWarmup>\n    <CheckpointPercentages>(integer)</CheckpointPercentages>\n    <CheckpointPercentages>(integer)</CheckpointPercentages>\n    <CheckpointDelay>(integer)</CheckpointDelay>\n    <SkipMatching>(boolean)</SkipMatching>\n    <AutoRollback>(boolean)</AutoRollback>\n    <ScaleInProtectedInstances>(string)</ScaleInProtectedInstances>\n    <StandbyInstances>(string)</StandbyInstances>\n  </Preferences>\n</element>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "xml",
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=StartInstanceRefresh&Version=2011-01-01#Action=StartInstanceRefresh",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "StartInstanceRefresh"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=StartInstanceRefresh"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <InstanceRefreshId>(string)</InstanceRefreshId>\n</element>",
+              "createdAt": "2026-07-28T10:20:08.000Z",
+              "updatedAt": "2026-07-28T10:20:08.000Z",
+              "uid": "35240-3313c2f2-fa69-4440-954d-7d52db8ca09e"
+            },
+            {
+              "id": "0d771015-c49b-4fee-9398-b496732f2c3a",
+              "name": "LimitExceededFault",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <Strategy>(string)</Strategy>\n  <DesiredConfiguration>\n    <LaunchTemplate>\n      <LaunchTemplateId>(string)</LaunchTemplateId>\n      <LaunchTemplateName>(string)</LaunchTemplateName>\n      <Version>(string)</Version>\n    </LaunchTemplate>\n    <MixedInstancesPolicy>\n      <LaunchTemplate>\n        <LaunchTemplateSpecification>\n          <LaunchTemplateId>(string)</LaunchTemplateId>\n          <LaunchTemplateName>(string)</LaunchTemplateName>\n          <Version>(string)</Version>\n        </LaunchTemplateSpecification>\n        <Overrides>\n          <InstanceType>(string)</InstanceType>\n          <WeightedCapacity>(string)</WeightedCapacity>\n          <LaunchTemplateSpecification>\n            <LaunchTemplateId>(string)</LaunchTemplateId>\n            <LaunchTemplateName>(string)</LaunchTemplateName>\n            <Version>(string)</Version>\n          </LaunchTemplateSpecification>\n          <InstanceRequirements>\n            <VCpuCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </VCpuCount>\n            <MemoryMiB>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </MemoryMiB>\n            <CpuManufacturers>(string)</CpuManufacturers>\n            <CpuManufacturers>(string)</CpuManufacturers>\n            <MemoryGiBPerVCpu>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </MemoryGiBPerVCpu>\n            <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n            <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n            <InstanceGenerations>(string)</InstanceGenerations>\n            <InstanceGenerations>(string)</InstanceGenerations>\n            <SpotMaxPricePercentageOverLowestPrice>(integer)</SpotMaxPricePercentageOverLowestPrice>\n            <OnDemandMaxPricePercentageOverLowestPrice>(integer)</OnDemandMaxPricePercentageOverLowestPrice>\n            <BareMetal>(string)</BareMetal>\n            <BurstablePerformance>(string)</BurstablePerformance>\n            <RequireHibernateSupport>(boolean)</RequireHibernateSupport>\n            <NetworkInterfaceCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </NetworkInterfaceCount>\n            <LocalStorage>(string)</LocalStorage>\n            <LocalStorageTypes>(string)</LocalStorageTypes>\n            <LocalStorageTypes>(string)</LocalStorageTypes>\n            <TotalLocalStorageGB>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </TotalLocalStorageGB>\n            <BaselineEbsBandwidthMbps>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </BaselineEbsBandwidthMbps>\n            <AcceleratorTypes>(string)</AcceleratorTypes>\n            <AcceleratorTypes>(string)</AcceleratorTypes>\n            <AcceleratorCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </AcceleratorCount>\n            <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n            <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n            <AcceleratorNames>(string)</AcceleratorNames>\n            <AcceleratorNames>(string)</AcceleratorNames>\n            <AcceleratorTotalMemoryMiB>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </AcceleratorTotalMemoryMiB>\n            <NetworkBandwidthGbps>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </NetworkBandwidthGbps>\n            <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n            <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n          </InstanceRequirements>\n        </Overrides>\n        <Overrides>\n          <InstanceType>(string)</InstanceType>\n          <WeightedCapacity>(string)</WeightedCapacity>\n          <LaunchTemplateSpecification>\n            <LaunchTemplateId>(string)</LaunchTemplateId>\n            <LaunchTemplateName>(string)</LaunchTemplateName>\n            <Version>(string)</Version>\n          </LaunchTemplateSpecification>\n          <InstanceRequirements>\n            <VCpuCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </VCpuCount>\n            <MemoryMiB>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </MemoryMiB>\n            <CpuManufacturers>(string)</CpuManufacturers>\n            <CpuManufacturers>(string)</CpuManufacturers>\n            <MemoryGiBPerVCpu>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </MemoryGiBPerVCpu>\n            <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n            <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n            <InstanceGenerations>(string)</InstanceGenerations>\n            <InstanceGenerations>(string)</InstanceGenerations>\n            <SpotMaxPricePercentageOverLowestPrice>(integer)</SpotMaxPricePercentageOverLowestPrice>\n            <OnDemandMaxPricePercentageOverLowestPrice>(integer)</OnDemandMaxPricePercentageOverLowestPrice>\n            <BareMetal>(string)</BareMetal>\n            <BurstablePerformance>(string)</BurstablePerformance>\n            <RequireHibernateSupport>(boolean)</RequireHibernateSupport>\n            <NetworkInterfaceCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </NetworkInterfaceCount>\n            <LocalStorage>(string)</LocalStorage>\n            <LocalStorageTypes>(string)</LocalStorageTypes>\n            <LocalStorageTypes>(string)</LocalStorageTypes>\n            <TotalLocalStorageGB>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </TotalLocalStorageGB>\n            <BaselineEbsBandwidthMbps>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </BaselineEbsBandwidthMbps>\n            <AcceleratorTypes>(string)</AcceleratorTypes>\n            <AcceleratorTypes>(string)</AcceleratorTypes>\n            <AcceleratorCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </AcceleratorCount>\n            <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n            <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n            <AcceleratorNames>(string)</AcceleratorNames>\n            <AcceleratorNames>(string)</AcceleratorNames>\n            <AcceleratorTotalMemoryMiB>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </AcceleratorTotalMemoryMiB>\n            <NetworkBandwidthGbps>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </NetworkBandwidthGbps>\n            <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n            <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n          </InstanceRequirements>\n        </Overrides>\n      </LaunchTemplate>\n      <InstancesDistribution>\n        <OnDemandAllocationStrategy>(string)</OnDemandAllocationStrategy>\n        <OnDemandBaseCapacity>(integer)</OnDemandBaseCapacity>\n        <OnDemandPercentageAboveBaseCapacity>(integer)</OnDemandPercentageAboveBaseCapacity>\n        <SpotAllocationStrategy>(string)</SpotAllocationStrategy>\n        <SpotInstancePools>(integer)</SpotInstancePools>\n        <SpotMaxPrice>(string)</SpotMaxPrice>\n      </InstancesDistribution>\n    </MixedInstancesPolicy>\n  </DesiredConfiguration>\n  <Preferences>\n    <MinHealthyPercentage>(integer)</MinHealthyPercentage>\n    <InstanceWarmup>(integer)</InstanceWarmup>\n    <CheckpointPercentages>(integer)</CheckpointPercentages>\n    <CheckpointPercentages>(integer)</CheckpointPercentages>\n    <CheckpointDelay>(integer)</CheckpointDelay>\n    <SkipMatching>(boolean)</SkipMatching>\n    <AutoRollback>(boolean)</AutoRollback>\n    <ScaleInProtectedInstances>(string)</ScaleInProtectedInstances>\n    <StandbyInstances>(string)</StandbyInstances>\n  </Preferences>\n</element>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "xml",
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=StartInstanceRefresh&Version=2011-01-01#Action=StartInstanceRefresh",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "StartInstanceRefresh"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=StartInstanceRefresh"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:20:08.000Z",
+              "updatedAt": "2026-07-28T10:20:08.000Z",
+              "uid": "35240-0d771015-c49b-4fee-9398-b496732f2c3a"
+            },
+            {
+              "id": "9907097b-7510-4171-a55a-7f31bce27add",
+              "name": "ResourceContentionFault",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <Strategy>(string)</Strategy>\n  <DesiredConfiguration>\n    <LaunchTemplate>\n      <LaunchTemplateId>(string)</LaunchTemplateId>\n      <LaunchTemplateName>(string)</LaunchTemplateName>\n      <Version>(string)</Version>\n    </LaunchTemplate>\n    <MixedInstancesPolicy>\n      <LaunchTemplate>\n        <LaunchTemplateSpecification>\n          <LaunchTemplateId>(string)</LaunchTemplateId>\n          <LaunchTemplateName>(string)</LaunchTemplateName>\n          <Version>(string)</Version>\n        </LaunchTemplateSpecification>\n        <Overrides>\n          <InstanceType>(string)</InstanceType>\n          <WeightedCapacity>(string)</WeightedCapacity>\n          <LaunchTemplateSpecification>\n            <LaunchTemplateId>(string)</LaunchTemplateId>\n            <LaunchTemplateName>(string)</LaunchTemplateName>\n            <Version>(string)</Version>\n          </LaunchTemplateSpecification>\n          <InstanceRequirements>\n            <VCpuCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </VCpuCount>\n            <MemoryMiB>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </MemoryMiB>\n            <CpuManufacturers>(string)</CpuManufacturers>\n            <CpuManufacturers>(string)</CpuManufacturers>\n            <MemoryGiBPerVCpu>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </MemoryGiBPerVCpu>\n            <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n            <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n            <InstanceGenerations>(string)</InstanceGenerations>\n            <InstanceGenerations>(string)</InstanceGenerations>\n            <SpotMaxPricePercentageOverLowestPrice>(integer)</SpotMaxPricePercentageOverLowestPrice>\n            <OnDemandMaxPricePercentageOverLowestPrice>(integer)</OnDemandMaxPricePercentageOverLowestPrice>\n            <BareMetal>(string)</BareMetal>\n            <BurstablePerformance>(string)</BurstablePerformance>\n            <RequireHibernateSupport>(boolean)</RequireHibernateSupport>\n            <NetworkInterfaceCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </NetworkInterfaceCount>\n            <LocalStorage>(string)</LocalStorage>\n            <LocalStorageTypes>(string)</LocalStorageTypes>\n            <LocalStorageTypes>(string)</LocalStorageTypes>\n            <TotalLocalStorageGB>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </TotalLocalStorageGB>\n            <BaselineEbsBandwidthMbps>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </BaselineEbsBandwidthMbps>\n            <AcceleratorTypes>(string)</AcceleratorTypes>\n            <AcceleratorTypes>(string)</AcceleratorTypes>\n            <AcceleratorCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </AcceleratorCount>\n            <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n            <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n            <AcceleratorNames>(string)</AcceleratorNames>\n            <AcceleratorNames>(string)</AcceleratorNames>\n            <AcceleratorTotalMemoryMiB>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </AcceleratorTotalMemoryMiB>\n            <NetworkBandwidthGbps>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </NetworkBandwidthGbps>\n            <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n            <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n          </InstanceRequirements>\n        </Overrides>\n        <Overrides>\n          <InstanceType>(string)</InstanceType>\n          <WeightedCapacity>(string)</WeightedCapacity>\n          <LaunchTemplateSpecification>\n            <LaunchTemplateId>(string)</LaunchTemplateId>\n            <LaunchTemplateName>(string)</LaunchTemplateName>\n            <Version>(string)</Version>\n          </LaunchTemplateSpecification>\n          <InstanceRequirements>\n            <VCpuCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </VCpuCount>\n            <MemoryMiB>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </MemoryMiB>\n            <CpuManufacturers>(string)</CpuManufacturers>\n            <CpuManufacturers>(string)</CpuManufacturers>\n            <MemoryGiBPerVCpu>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </MemoryGiBPerVCpu>\n            <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n            <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n            <InstanceGenerations>(string)</InstanceGenerations>\n            <InstanceGenerations>(string)</InstanceGenerations>\n            <SpotMaxPricePercentageOverLowestPrice>(integer)</SpotMaxPricePercentageOverLowestPrice>\n            <OnDemandMaxPricePercentageOverLowestPrice>(integer)</OnDemandMaxPricePercentageOverLowestPrice>\n            <BareMetal>(string)</BareMetal>\n            <BurstablePerformance>(string)</BurstablePerformance>\n            <RequireHibernateSupport>(boolean)</RequireHibernateSupport>\n            <NetworkInterfaceCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </NetworkInterfaceCount>\n            <LocalStorage>(string)</LocalStorage>\n            <LocalStorageTypes>(string)</LocalStorageTypes>\n            <LocalStorageTypes>(string)</LocalStorageTypes>\n            <TotalLocalStorageGB>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </TotalLocalStorageGB>\n            <BaselineEbsBandwidthMbps>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </BaselineEbsBandwidthMbps>\n            <AcceleratorTypes>(string)</AcceleratorTypes>\n            <AcceleratorTypes>(string)</AcceleratorTypes>\n            <AcceleratorCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </AcceleratorCount>\n            <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n            <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n            <AcceleratorNames>(string)</AcceleratorNames>\n            <AcceleratorNames>(string)</AcceleratorNames>\n            <AcceleratorTotalMemoryMiB>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </AcceleratorTotalMemoryMiB>\n            <NetworkBandwidthGbps>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </NetworkBandwidthGbps>\n            <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n            <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n          </InstanceRequirements>\n        </Overrides>\n      </LaunchTemplate>\n      <InstancesDistribution>\n        <OnDemandAllocationStrategy>(string)</OnDemandAllocationStrategy>\n        <OnDemandBaseCapacity>(integer)</OnDemandBaseCapacity>\n        <OnDemandPercentageAboveBaseCapacity>(integer)</OnDemandPercentageAboveBaseCapacity>\n        <SpotAllocationStrategy>(string)</SpotAllocationStrategy>\n        <SpotInstancePools>(integer)</SpotInstancePools>\n        <SpotMaxPrice>(string)</SpotMaxPrice>\n      </InstancesDistribution>\n    </MixedInstancesPolicy>\n  </DesiredConfiguration>\n  <Preferences>\n    <MinHealthyPercentage>(integer)</MinHealthyPercentage>\n    <InstanceWarmup>(integer)</InstanceWarmup>\n    <CheckpointPercentages>(integer)</CheckpointPercentages>\n    <CheckpointPercentages>(integer)</CheckpointPercentages>\n    <CheckpointDelay>(integer)</CheckpointDelay>\n    <SkipMatching>(boolean)</SkipMatching>\n    <AutoRollback>(boolean)</AutoRollback>\n    <ScaleInProtectedInstances>(string)</ScaleInProtectedInstances>\n    <StandbyInstances>(string)</StandbyInstances>\n  </Preferences>\n</element>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "xml",
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=StartInstanceRefresh&Version=2011-01-01#Action=StartInstanceRefresh",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "StartInstanceRefresh"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=StartInstanceRefresh"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:20:08.000Z",
+              "updatedAt": "2026-07-28T10:20:08.000Z",
+              "uid": "35240-9907097b-7510-4171-a55a-7f31bce27add"
+            },
+            {
+              "id": "534728c3-6fe3-44d5-ba3c-e2ad7909aef7",
+              "name": "InstanceRefreshInProgressFault",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <Strategy>(string)</Strategy>\n  <DesiredConfiguration>\n    <LaunchTemplate>\n      <LaunchTemplateId>(string)</LaunchTemplateId>\n      <LaunchTemplateName>(string)</LaunchTemplateName>\n      <Version>(string)</Version>\n    </LaunchTemplate>\n    <MixedInstancesPolicy>\n      <LaunchTemplate>\n        <LaunchTemplateSpecification>\n          <LaunchTemplateId>(string)</LaunchTemplateId>\n          <LaunchTemplateName>(string)</LaunchTemplateName>\n          <Version>(string)</Version>\n        </LaunchTemplateSpecification>\n        <Overrides>\n          <InstanceType>(string)</InstanceType>\n          <WeightedCapacity>(string)</WeightedCapacity>\n          <LaunchTemplateSpecification>\n            <LaunchTemplateId>(string)</LaunchTemplateId>\n            <LaunchTemplateName>(string)</LaunchTemplateName>\n            <Version>(string)</Version>\n          </LaunchTemplateSpecification>\n          <InstanceRequirements>\n            <VCpuCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </VCpuCount>\n            <MemoryMiB>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </MemoryMiB>\n            <CpuManufacturers>(string)</CpuManufacturers>\n            <CpuManufacturers>(string)</CpuManufacturers>\n            <MemoryGiBPerVCpu>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </MemoryGiBPerVCpu>\n            <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n            <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n            <InstanceGenerations>(string)</InstanceGenerations>\n            <InstanceGenerations>(string)</InstanceGenerations>\n            <SpotMaxPricePercentageOverLowestPrice>(integer)</SpotMaxPricePercentageOverLowestPrice>\n            <OnDemandMaxPricePercentageOverLowestPrice>(integer)</OnDemandMaxPricePercentageOverLowestPrice>\n            <BareMetal>(string)</BareMetal>\n            <BurstablePerformance>(string)</BurstablePerformance>\n            <RequireHibernateSupport>(boolean)</RequireHibernateSupport>\n            <NetworkInterfaceCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </NetworkInterfaceCount>\n            <LocalStorage>(string)</LocalStorage>\n            <LocalStorageTypes>(string)</LocalStorageTypes>\n            <LocalStorageTypes>(string)</LocalStorageTypes>\n            <TotalLocalStorageGB>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </TotalLocalStorageGB>\n            <BaselineEbsBandwidthMbps>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </BaselineEbsBandwidthMbps>\n            <AcceleratorTypes>(string)</AcceleratorTypes>\n            <AcceleratorTypes>(string)</AcceleratorTypes>\n            <AcceleratorCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </AcceleratorCount>\n            <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n            <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n            <AcceleratorNames>(string)</AcceleratorNames>\n            <AcceleratorNames>(string)</AcceleratorNames>\n            <AcceleratorTotalMemoryMiB>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </AcceleratorTotalMemoryMiB>\n            <NetworkBandwidthGbps>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </NetworkBandwidthGbps>\n            <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n            <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n          </InstanceRequirements>\n        </Overrides>\n        <Overrides>\n          <InstanceType>(string)</InstanceType>\n          <WeightedCapacity>(string)</WeightedCapacity>\n          <LaunchTemplateSpecification>\n            <LaunchTemplateId>(string)</LaunchTemplateId>\n            <LaunchTemplateName>(string)</LaunchTemplateName>\n            <Version>(string)</Version>\n          </LaunchTemplateSpecification>\n          <InstanceRequirements>\n            <VCpuCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </VCpuCount>\n            <MemoryMiB>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </MemoryMiB>\n            <CpuManufacturers>(string)</CpuManufacturers>\n            <CpuManufacturers>(string)</CpuManufacturers>\n            <MemoryGiBPerVCpu>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </MemoryGiBPerVCpu>\n            <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n            <ExcludedInstanceTypes>(string)</ExcludedInstanceTypes>\n            <InstanceGenerations>(string)</InstanceGenerations>\n            <InstanceGenerations>(string)</InstanceGenerations>\n            <SpotMaxPricePercentageOverLowestPrice>(integer)</SpotMaxPricePercentageOverLowestPrice>\n            <OnDemandMaxPricePercentageOverLowestPrice>(integer)</OnDemandMaxPricePercentageOverLowestPrice>\n            <BareMetal>(string)</BareMetal>\n            <BurstablePerformance>(string)</BurstablePerformance>\n            <RequireHibernateSupport>(boolean)</RequireHibernateSupport>\n            <NetworkInterfaceCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </NetworkInterfaceCount>\n            <LocalStorage>(string)</LocalStorage>\n            <LocalStorageTypes>(string)</LocalStorageTypes>\n            <LocalStorageTypes>(string)</LocalStorageTypes>\n            <TotalLocalStorageGB>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </TotalLocalStorageGB>\n            <BaselineEbsBandwidthMbps>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </BaselineEbsBandwidthMbps>\n            <AcceleratorTypes>(string)</AcceleratorTypes>\n            <AcceleratorTypes>(string)</AcceleratorTypes>\n            <AcceleratorCount>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </AcceleratorCount>\n            <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n            <AcceleratorManufacturers>(string)</AcceleratorManufacturers>\n            <AcceleratorNames>(string)</AcceleratorNames>\n            <AcceleratorNames>(string)</AcceleratorNames>\n            <AcceleratorTotalMemoryMiB>\n              <Min>(integer)</Min>\n              <Max>(integer)</Max>\n            </AcceleratorTotalMemoryMiB>\n            <NetworkBandwidthGbps>\n              <Min>(number)</Min>\n              <Max>(number)</Max>\n            </NetworkBandwidthGbps>\n            <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n            <AllowedInstanceTypes>(string)</AllowedInstanceTypes>\n          </InstanceRequirements>\n        </Overrides>\n      </LaunchTemplate>\n      <InstancesDistribution>\n        <OnDemandAllocationStrategy>(string)</OnDemandAllocationStrategy>\n        <OnDemandBaseCapacity>(integer)</OnDemandBaseCapacity>\n        <OnDemandPercentageAboveBaseCapacity>(integer)</OnDemandPercentageAboveBaseCapacity>\n        <SpotAllocationStrategy>(string)</SpotAllocationStrategy>\n        <SpotInstancePools>(integer)</SpotInstancePools>\n        <SpotMaxPrice>(string)</SpotMaxPrice>\n      </InstancesDistribution>\n    </MixedInstancesPolicy>\n  </DesiredConfiguration>\n  <Preferences>\n    <MinHealthyPercentage>(integer)</MinHealthyPercentage>\n    <InstanceWarmup>(integer)</InstanceWarmup>\n    <CheckpointPercentages>(integer)</CheckpointPercentages>\n    <CheckpointPercentages>(integer)</CheckpointPercentages>\n    <CheckpointDelay>(integer)</CheckpointDelay>\n    <SkipMatching>(boolean)</SkipMatching>\n    <AutoRollback>(boolean)</AutoRollback>\n    <ScaleInProtectedInstances>(string)</ScaleInProtectedInstances>\n    <StandbyInstances>(string)</StandbyInstances>\n  </Preferences>\n</element>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "xml",
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=StartInstanceRefresh&Version=2011-01-01#Action=StartInstanceRefresh",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "StartInstanceRefresh"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=StartInstanceRefresh"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:20:08.000Z",
+              "updatedAt": "2026-07-28T10:20:08.000Z",
+              "uid": "35240-534728c3-6fe3-44d5-ba3c-e2ad7909aef7"
+            }
+          ],
+          "createdAt": "2026-07-28T10:20:08.000Z",
+          "updatedAt": "2026-07-28T10:20:08.000Z",
+          "uid": "35240-6ca3a387-3493-42e0-9471-583937af78bb"
+        }
+      ],
+      "id": "1905db7a-3183-4785-acf6-5d672342a059",
+      "createdAt": "2026-07-28T10:20:08.000Z",
+      "updatedAt": "2026-07-28T10:20:08.000Z",
+      "uid": "35240-1905db7a-3183-4785-acf6-5d672342a059"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://autoscaling.{{region}}.amazonaws.com"
+    }
+  ]
+}

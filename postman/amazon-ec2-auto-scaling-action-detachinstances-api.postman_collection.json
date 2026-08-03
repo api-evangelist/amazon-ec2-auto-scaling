@@ -1,0 +1,617 @@
+{
+  "info": {
+    "_postman_id": "42515a01-4c21-45a9-b924-db3bfa0a94c6",
+    "name": "Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=DetachInstances API",
+    "description": "<fullname>Amazon EC2 Auto Scaling</fullname> <p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.</p> <p>For more information, see the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/\">Amazon EC2 Auto Scaling User Guide</a> and the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html\">Amazon EC2 Auto Scaling API Reference</a>.</p>\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:19:29.000Z",
+    "updatedAt": "2026-07-28T10:19:29.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-42515a01-4c21-45a9-b924-db3bfa0a94c6"
+  },
+  "item": [
+    {
+      "name": "#Action=DetachInstances",
+      "item": [
+        {
+          "name": "Amazon EC2 Auto Scaling GET_ Detach Instances",
+          "id": "d589ba08-fab3-4fa1-a420-91c2899c8299",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?InstanceIds=<string>&InstanceIds=<string>&AutoScalingGroupName=<string>&ShouldDecrementDesiredCapacity=<boolean>&Action=DetachInstances&Version=2011-01-01#Action=DetachInstances",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "The IDs of the instances. You can specify up to 20 instances.",
+                  "key": "InstanceIds",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The IDs of the instances. You can specify up to 20 instances.",
+                  "key": "InstanceIds",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) The name of the Auto Scaling group.",
+                  "key": "AutoScalingGroupName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) Indicates whether the Auto Scaling group decrements the desired capacity value by the number of instances detached.",
+                  "key": "ShouldDecrementDesiredCapacity",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "DetachInstances"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2011-01-01"
+                }
+              ],
+              "hash": "Action=DetachInstances"
+            },
+            "description": "<p>Removes one or more instances from the specified Auto Scaling group.</p> <p>After the instances are detached, you can manage them independent of the Auto Scaling group.</p> <p>If you do not specify the option to decrement the desired capacity, Amazon EC2 Auto Scaling launches instances to replace the ones that are detached.</p> <p>If there is a Classic Load Balancer attached to the Auto Scaling group, the instances are deregistered from the load balancer. If there are target groups attached to the Auto Scaling group, the instances are deregistered from the target groups.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/detach-instance-asg.html\">Detach EC2 instances from your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>"
+          },
+          "response": [
+            {
+              "id": "8c5fc24a-c193-4e7d-bcb9-acad876f884e",
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?InstanceIds=<string>&AutoScalingGroupName=<string>&ShouldDecrementDesiredCapacity=<boolean>&Action=DetachInstances&Version=2011-01-01#Action=DetachInstances",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "The IDs of the instances. You can specify up to 20 instances.",
+                      "key": "InstanceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The name of the Auto Scaling group.",
+                      "key": "AutoScalingGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Indicates whether the Auto Scaling group decrements the desired capacity value by the number of instances detached.",
+                      "key": "ShouldDecrementDesiredCapacity",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DetachInstances"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=DetachInstances"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <Activities>\n    <ActivityId>(string)</ActivityId>\n    <AutoScalingGroupName>(string)</AutoScalingGroupName>\n    <Description>(string)</Description>\n    <Cause>(string)</Cause>\n    <StartTime>(string)</StartTime>\n    <EndTime>(string)</EndTime>\n    <StatusCode>(string)</StatusCode>\n    <StatusMessage>(string)</StatusMessage>\n    <Progress>(integer)</Progress>\n    <Details>(string)</Details>\n    <AutoScalingGroupState>(string)</AutoScalingGroupState>\n    <AutoScalingGroupARN>(string)</AutoScalingGroupARN>\n  </Activities>\n  <Activities>\n    <ActivityId>(string)</ActivityId>\n    <AutoScalingGroupName>(string)</AutoScalingGroupName>\n    <Description>(string)</Description>\n    <Cause>(string)</Cause>\n    <StartTime>(string)</StartTime>\n    <EndTime>(string)</EndTime>\n    <StatusCode>(string)</StatusCode>\n    <StatusMessage>(string)</StatusMessage>\n    <Progress>(integer)</Progress>\n    <Details>(string)</Details>\n    <AutoScalingGroupState>(string)</AutoScalingGroupState>\n    <AutoScalingGroupARN>(string)</AutoScalingGroupARN>\n  </Activities>\n</element>",
+              "createdAt": "2026-07-28T10:19:30.000Z",
+              "updatedAt": "2026-07-28T10:19:30.000Z",
+              "uid": "35240-8c5fc24a-c193-4e7d-bcb9-acad876f884e"
+            },
+            {
+              "id": "86c798d7-1fc7-449b-b399-2c2154af917c",
+              "name": "ResourceContentionFault",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?InstanceIds=<string>&AutoScalingGroupName=<string>&ShouldDecrementDesiredCapacity=<boolean>&Action=DetachInstances&Version=2011-01-01#Action=DetachInstances",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "The IDs of the instances. You can specify up to 20 instances.",
+                      "key": "InstanceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The name of the Auto Scaling group.",
+                      "key": "AutoScalingGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Indicates whether the Auto Scaling group decrements the desired capacity value by the number of instances detached.",
+                      "key": "ShouldDecrementDesiredCapacity",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DetachInstances"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=DetachInstances"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:19:30.000Z",
+              "updatedAt": "2026-07-28T10:19:30.000Z",
+              "uid": "35240-86c798d7-1fc7-449b-b399-2c2154af917c"
+            }
+          ],
+          "createdAt": "2026-07-28T10:19:30.000Z",
+          "updatedAt": "2026-07-28T10:19:30.000Z",
+          "uid": "35240-d589ba08-fab3-4fa1-a420-91c2899c8299"
+        },
+        {
+          "name": "Amazon EC2 Auto Scaling POST_ Detach Instances",
+          "id": "7f2f1a03-fa7e-4292-9daa-d227fab3813c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "text/xml"
+              },
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <InstanceIds>(string)</InstanceIds>\n  <InstanceIds>(string)</InstanceIds>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <ShouldDecrementDesiredCapacity>(boolean)</ShouldDecrementDesiredCapacity>\n</element>",
+              "options": {
+                "raw": {
+                  "headerFamily": "xml",
+                  "language": "xml"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/?Action=DetachInstances&Version=2011-01-01#Action=DetachInstances",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "DetachInstances"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2011-01-01"
+                }
+              ],
+              "hash": "Action=DetachInstances"
+            },
+            "description": "<p>Removes one or more instances from the specified Auto Scaling group.</p> <p>After the instances are detached, you can manage them independent of the Auto Scaling group.</p> <p>If you do not specify the option to decrement the desired capacity, Amazon EC2 Auto Scaling launches instances to replace the ones that are detached.</p> <p>If there is a Classic Load Balancer attached to the Auto Scaling group, the instances are deregistered from the load balancer. If there are target groups attached to the Auto Scaling group, the instances are deregistered from the target groups.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/detach-instance-asg.html\">Detach EC2 instances from your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>"
+          },
+          "response": [
+            {
+              "id": "e09ae9b5-05a9-43fa-9caf-e6848e6fc3e6",
+              "name": "Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <InstanceIds>(string)</InstanceIds>\n  <InstanceIds>(string)</InstanceIds>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <ShouldDecrementDesiredCapacity>(boolean)</ShouldDecrementDesiredCapacity>\n</element>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "xml",
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=DetachInstances&Version=2011-01-01#Action=DetachInstances",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DetachInstances"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=DetachInstances"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <Activities>\n    <ActivityId>(string)</ActivityId>\n    <AutoScalingGroupName>(string)</AutoScalingGroupName>\n    <Description>(string)</Description>\n    <Cause>(string)</Cause>\n    <StartTime>(string)</StartTime>\n    <EndTime>(string)</EndTime>\n    <StatusCode>(string)</StatusCode>\n    <StatusMessage>(string)</StatusMessage>\n    <Progress>(integer)</Progress>\n    <Details>(string)</Details>\n    <AutoScalingGroupState>(string)</AutoScalingGroupState>\n    <AutoScalingGroupARN>(string)</AutoScalingGroupARN>\n  </Activities>\n  <Activities>\n    <ActivityId>(string)</ActivityId>\n    <AutoScalingGroupName>(string)</AutoScalingGroupName>\n    <Description>(string)</Description>\n    <Cause>(string)</Cause>\n    <StartTime>(string)</StartTime>\n    <EndTime>(string)</EndTime>\n    <StatusCode>(string)</StatusCode>\n    <StatusMessage>(string)</StatusMessage>\n    <Progress>(integer)</Progress>\n    <Details>(string)</Details>\n    <AutoScalingGroupState>(string)</AutoScalingGroupState>\n    <AutoScalingGroupARN>(string)</AutoScalingGroupARN>\n  </Activities>\n</element>",
+              "createdAt": "2026-07-28T10:19:30.000Z",
+              "updatedAt": "2026-07-28T10:19:30.000Z",
+              "uid": "35240-e09ae9b5-05a9-43fa-9caf-e6848e6fc3e6"
+            },
+            {
+              "id": "fc34a568-3ad4-4b99-9d59-fce94fcaa011",
+              "name": "ResourceContentionFault",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <InstanceIds>(string)</InstanceIds>\n  <InstanceIds>(string)</InstanceIds>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <ShouldDecrementDesiredCapacity>(boolean)</ShouldDecrementDesiredCapacity>\n</element>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "xml",
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=DetachInstances&Version=2011-01-01#Action=DetachInstances",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DetachInstances"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=DetachInstances"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:19:30.000Z",
+              "updatedAt": "2026-07-28T10:19:30.000Z",
+              "uid": "35240-fc34a568-3ad4-4b99-9d59-fce94fcaa011"
+            }
+          ],
+          "createdAt": "2026-07-28T10:19:30.000Z",
+          "updatedAt": "2026-07-28T10:19:30.000Z",
+          "uid": "35240-7f2f1a03-fa7e-4292-9daa-d227fab3813c"
+        }
+      ],
+      "id": "1c2208a4-3826-41b6-803b-6937da4d5640",
+      "createdAt": "2026-07-28T10:19:30.000Z",
+      "updatedAt": "2026-07-28T10:19:30.000Z",
+      "uid": "35240-1c2208a4-3826-41b6-803b-6937da4d5640"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://autoscaling.{{region}}.amazonaws.com"
+    }
+  ]
+}

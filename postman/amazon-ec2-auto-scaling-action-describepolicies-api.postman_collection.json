@@ -1,0 +1,1104 @@
+{
+  "info": {
+    "_postman_id": "ae2a9b07-0f21-4c19-b25d-217b02433a04",
+    "name": "Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=DescribePolicies API",
+    "description": "<fullname>Amazon EC2 Auto Scaling</fullname> <p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.</p> <p>For more information, see the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/\">Amazon EC2 Auto Scaling User Guide</a> and the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html\">Amazon EC2 Auto Scaling API Reference</a>.</p>\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:18:57.000Z",
+    "updatedAt": "2026-07-28T10:18:58.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ae2a9b07-0f21-4c19-b25d-217b02433a04"
+  },
+  "item": [
+    {
+      "name": "#Action=DescribePolicies",
+      "item": [
+        {
+          "name": "Amazon EC2 Auto Scaling GET_ Describe Policies",
+          "id": "1a22841d-e34c-44c5-b763-e5c8b943212b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?AutoScalingGroupName=<string>&PolicyNames=<string>&PolicyNames=<string>&PolicyTypes=<string>&PolicyTypes=<string>&NextToken=<string>&MaxRecords=<integer>&Action=DescribePolicies&Version=2011-01-01#Action=DescribePolicies",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "The name of the Auto Scaling group.",
+                  "key": "AutoScalingGroupName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "<p>The names of one or more policies. If you omit this property, all policies are described. If a group name is provided, the results are limited to that group. If you specify an unknown policy name, it is ignored with no error.</p> <p>Array Members: Maximum number of 50 items.</p>",
+                  "key": "PolicyNames",
+                  "value": "<string>"
+                },
+                {
+                  "description": "<p>The names of one or more policies. If you omit this property, all policies are described. If a group name is provided, the results are limited to that group. If you specify an unknown policy name, it is ignored with no error.</p> <p>Array Members: Maximum number of 50 items.</p>",
+                  "key": "PolicyNames",
+                  "value": "<string>"
+                },
+                {
+                  "description": "One or more policy types. The valid values are <code>SimpleScaling</code>, <code>StepScaling</code>, <code>TargetTrackingScaling</code>, and <code>PredictiveScaling</code>.",
+                  "key": "PolicyTypes",
+                  "value": "<string>"
+                },
+                {
+                  "description": "One or more policy types. The valid values are <code>SimpleScaling</code>, <code>StepScaling</code>, <code>TargetTrackingScaling</code>, and <code>PredictiveScaling</code>.",
+                  "key": "PolicyTypes",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The token for the next set of items to return. (You received this token from a previous call.)",
+                  "key": "NextToken",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The maximum number of items to be returned with each call. The default value is <code>50</code> and the maximum value is <code>100</code>.",
+                  "key": "MaxRecords",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "DescribePolicies"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2011-01-01"
+                }
+              ],
+              "hash": "Action=DescribePolicies"
+            },
+            "description": "Gets information about the scaling policies in the account and Region."
+          },
+          "response": [
+            {
+              "id": "2b44fbc4-5ef1-4dfa-85e8-966b22dc6a09",
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?AutoScalingGroupName=<string>&PolicyNames=<string>&PolicyTypes=<string>&NextToken=<string>&MaxRecords=<integer>&Action=DescribePolicies&Version=2011-01-01#Action=DescribePolicies",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "The name of the Auto Scaling group.",
+                      "key": "AutoScalingGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>The names of one or more policies. If you omit this property, all policies are described. If a group name is provided, the results are limited to that group. If you specify an unknown policy name, it is ignored with no error.</p> <p>Array Members: Maximum number of 50 items.</p>",
+                      "key": "PolicyNames",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "One or more policy types. The valid values are <code>SimpleScaling</code>, <code>StepScaling</code>, <code>TargetTrackingScaling</code>, and <code>PredictiveScaling</code>.",
+                      "key": "PolicyTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The token for the next set of items to return. (You received this token from a previous call.)",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum number of items to be returned with each call. The default value is <code>50</code> and the maximum value is <code>100</code>.",
+                      "key": "MaxRecords",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribePolicies"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=DescribePolicies"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <ScalingPolicies>\n    <AutoScalingGroupName>(string)</AutoScalingGroupName>\n    <PolicyName>(string)</PolicyName>\n    <PolicyARN>(string)</PolicyARN>\n    <PolicyType>(string)</PolicyType>\n    <AdjustmentType>(string)</AdjustmentType>\n    <MinAdjustmentStep>(integer)</MinAdjustmentStep>\n    <MinAdjustmentMagnitude>(integer)</MinAdjustmentMagnitude>\n    <ScalingAdjustment>(integer)</ScalingAdjustment>\n    <Cooldown>(integer)</Cooldown>\n    <StepAdjustments>\n      <MetricIntervalLowerBound>(number)</MetricIntervalLowerBound>\n      <MetricIntervalUpperBound>(number)</MetricIntervalUpperBound>\n      <ScalingAdjustment>(integer)</ScalingAdjustment>\n    </StepAdjustments>\n    <StepAdjustments>\n      <MetricIntervalLowerBound>(number)</MetricIntervalLowerBound>\n      <MetricIntervalUpperBound>(number)</MetricIntervalUpperBound>\n      <ScalingAdjustment>(integer)</ScalingAdjustment>\n    </StepAdjustments>\n    <MetricAggregationType>(string)</MetricAggregationType>\n    <EstimatedInstanceWarmup>(integer)</EstimatedInstanceWarmup>\n    <Alarms>\n      <AlarmName>(string)</AlarmName>\n      <AlarmARN>(string)</AlarmARN>\n    </Alarms>\n    <Alarms>\n      <AlarmName>(string)</AlarmName>\n      <AlarmARN>(string)</AlarmARN>\n    </Alarms>\n    <TargetTrackingConfiguration>\n      <PredefinedMetricSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedMetricSpecification>\n      <CustomizedMetricSpecification>\n        <MetricName>(string)</MetricName>\n        <Namespace>(string)</Namespace>\n        <Dimensions>\n          <Name>(string)</Name>\n          <Value>(string)</Value>\n        </Dimensions>\n        <Dimensions>\n          <Name>(string)</Name>\n          <Value>(string)</Value>\n        </Dimensions>\n        <Statistic>(string)</Statistic>\n        <Unit>(string)</Unit>\n        <Metrics>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </Metrics>\n        <Metrics>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </Metrics>\n      </CustomizedMetricSpecification>\n      <TargetValue>(number)</TargetValue>\n      <DisableScaleIn>(boolean)</DisableScaleIn>\n    </TargetTrackingConfiguration>\n    <Enabled>(boolean)</Enabled>\n    <PredictiveScalingConfiguration>\n      <MetricSpecifications>\n        <TargetValue>(number)</TargetValue>\n        <PredefinedMetricPairSpecification>\n          <PredefinedMetricType>(string)</PredefinedMetricType>\n          <ResourceLabel>(string)</ResourceLabel>\n        </PredefinedMetricPairSpecification>\n        <PredefinedScalingMetricSpecification>\n          <PredefinedMetricType>(string)</PredefinedMetricType>\n          <ResourceLabel>(string)</ResourceLabel>\n        </PredefinedScalingMetricSpecification>\n        <PredefinedLoadMetricSpecification>\n          <PredefinedMetricType>(string)</PredefinedMetricType>\n          <ResourceLabel>(string)</ResourceLabel>\n        </PredefinedLoadMetricSpecification>\n        <CustomizedScalingMetricSpecification>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n        </CustomizedScalingMetricSpecification>\n        <CustomizedLoadMetricSpecification>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n        </CustomizedLoadMetricSpecification>\n        <CustomizedCapacityMetricSpecification>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n        </CustomizedCapacityMetricSpecification>\n      </MetricSpecifications>\n      <MetricSpecifications>\n        <TargetValue>(number)</TargetValue>\n        <PredefinedMetricPairSpecification>\n          <PredefinedMetricType>(string)</PredefinedMetricType>\n          <ResourceLabel>(string)</ResourceLabel>\n        </PredefinedMetricPairSpecification>\n        <PredefinedScalingMetricSpecification>\n          <PredefinedMetricType>(string)</PredefinedMetricType>\n          <ResourceLabel>(string)</ResourceLabel>\n        </PredefinedScalingMetricSpecification>\n        <PredefinedLoadMetricSpecification>\n          <PredefinedMetricType>(string)</PredefinedMetricType>\n          <ResourceLabel>(string)</ResourceLabel>\n        </PredefinedLoadMetricSpecification>\n        <CustomizedScalingMetricSpecification>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n        </CustomizedScalingMetricSpecification>\n        <CustomizedLoadMetricSpecification>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n        </CustomizedLoadMetricSpecification>\n        <CustomizedCapacityMetricSpecification>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n        </CustomizedCapacityMetricSpecification>\n      </MetricSpecifications>\n      <Mode>(string)</Mode>\n      <SchedulingBufferTime>(integer)</SchedulingBufferTime>\n      <MaxCapacityBreachBehavior>(string)</MaxCapacityBreachBehavior>\n      <MaxCapacityBuffer>(integer)</MaxCapacityBuffer>\n    </PredictiveScalingConfiguration>\n  </ScalingPolicies>\n  <ScalingPolicies>\n    <AutoScalingGroupName>(string)</AutoScalingGroupName>\n    <PolicyName>(string)</PolicyName>\n    <PolicyARN>(string)</PolicyARN>\n    <PolicyType>(string)</PolicyType>\n    <AdjustmentType>(string)</AdjustmentType>\n    <MinAdjustmentStep>(integer)</MinAdjustmentStep>\n    <MinAdjustmentMagnitude>(integer)</MinAdjustmentMagnitude>\n    <ScalingAdjustment>(integer)</ScalingAdjustment>\n    <Cooldown>(integer)</Cooldown>\n    <StepAdjustments>\n      <MetricIntervalLowerBound>(number)</MetricIntervalLowerBound>\n      <MetricIntervalUpperBound>(number)</MetricIntervalUpperBound>\n      <ScalingAdjustment>(integer)</ScalingAdjustment>\n    </StepAdjustments>\n    <StepAdjustments>\n      <MetricIntervalLowerBound>(number)</MetricIntervalLowerBound>\n      <MetricIntervalUpperBound>(number)</MetricIntervalUpperBound>\n      <ScalingAdjustment>(integer)</ScalingAdjustment>\n    </StepAdjustments>\n    <MetricAggregationType>(string)</MetricAggregationType>\n    <EstimatedInstanceWarmup>(integer)</EstimatedInstanceWarmup>\n    <Alarms>\n      <AlarmName>(string)</AlarmName>\n      <AlarmARN>(string)</AlarmARN>\n    </Alarms>\n    <Alarms>\n      <AlarmName>(string)</AlarmName>\n      <AlarmARN>(string)</AlarmARN>\n    </Alarms>\n    <TargetTrackingConfiguration>\n      <PredefinedMetricSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedMetricSpecification>\n      <CustomizedMetricSpecification>\n        <MetricName>(string)</MetricName>\n        <Namespace>(string)</Namespace>\n        <Dimensions>\n          <Name>(string)</Name>\n          <Value>(string)</Value>\n        </Dimensions>\n        <Dimensions>\n          <Name>(string)</Name>\n          <Value>(string)</Value>\n        </Dimensions>\n        <Statistic>(string)</Statistic>\n        <Unit>(string)</Unit>\n        <Metrics>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </Metrics>\n        <Metrics>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </Metrics>\n      </CustomizedMetricSpecification>\n      <TargetValue>(number)</TargetValue>\n      <DisableScaleIn>(boolean)</DisableScaleIn>\n    </TargetTrackingConfiguration>\n    <Enabled>(boolean)</Enabled>\n    <PredictiveScalingConfiguration>\n      <MetricSpecifications>\n        <TargetValue>(number)</TargetValue>\n        <PredefinedMetricPairSpecification>\n          <PredefinedMetricType>(string)</PredefinedMetricType>\n          <ResourceLabel>(string)</ResourceLabel>\n        </PredefinedMetricPairSpecification>\n        <PredefinedScalingMetricSpecification>\n          <PredefinedMetricType>(string)</PredefinedMetricType>\n          <ResourceLabel>(string)</ResourceLabel>\n        </PredefinedScalingMetricSpecification>\n        <PredefinedLoadMetricSpecification>\n          <PredefinedMetricType>(string)</PredefinedMetricType>\n          <ResourceLabel>(string)</ResourceLabel>\n        </PredefinedLoadMetricSpecification>\n        <CustomizedScalingMetricSpecification>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n        </CustomizedScalingMetricSpecification>\n        <CustomizedLoadMetricSpecification>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n        </CustomizedLoadMetricSpecification>\n        <CustomizedCapacityMetricSpecification>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n        </CustomizedCapacityMetricSpecification>\n      </MetricSpecifications>\n      <MetricSpecifications>\n        <TargetValue>(number)</TargetValue>\n        <PredefinedMetricPairSpecification>\n          <PredefinedMetricType>(string)</PredefinedMetricType>\n          <ResourceLabel>(string)</ResourceLabel>\n        </PredefinedMetricPairSpecification>\n        <PredefinedScalingMetricSpecification>\n          <PredefinedMetricType>(string)</PredefinedMetricType>\n          <ResourceLabel>(string)</ResourceLabel>\n        </PredefinedScalingMetricSpecification>\n        <PredefinedLoadMetricSpecification>\n          <PredefinedMetricType>(string)</PredefinedMetricType>\n          <ResourceLabel>(string)</ResourceLabel>\n        </PredefinedLoadMetricSpecification>\n        <CustomizedScalingMetricSpecification>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n        </CustomizedScalingMetricSpecification>\n        <CustomizedLoadMetricSpecification>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n        </CustomizedLoadMetricSpecification>\n        <CustomizedCapacityMetricSpecification>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n        </CustomizedCapacityMetricSpecification>\n      </MetricSpecifications>\n      <Mode>(string)</Mode>\n      <SchedulingBufferTime>(integer)</SchedulingBufferTime>\n      <MaxCapacityBreachBehavior>(string)</MaxCapacityBreachBehavior>\n      <MaxCapacityBuffer>(integer)</MaxCapacityBuffer>\n    </PredictiveScalingConfiguration>\n  </ScalingPolicies>\n  <NextToken>(string)</NextToken>\n</element>",
+              "createdAt": "2026-07-28T10:18:58.000Z",
+              "updatedAt": "2026-07-28T10:18:58.000Z",
+              "uid": "35240-2b44fbc4-5ef1-4dfa-85e8-966b22dc6a09"
+            },
+            {
+              "id": "cd3dc72c-175c-4d6e-aa3c-471870e2d2c5",
+              "name": "InvalidNextToken",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?AutoScalingGroupName=<string>&PolicyNames=<string>&PolicyTypes=<string>&NextToken=<string>&MaxRecords=<integer>&Action=DescribePolicies&Version=2011-01-01#Action=DescribePolicies",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "The name of the Auto Scaling group.",
+                      "key": "AutoScalingGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>The names of one or more policies. If you omit this property, all policies are described. If a group name is provided, the results are limited to that group. If you specify an unknown policy name, it is ignored with no error.</p> <p>Array Members: Maximum number of 50 items.</p>",
+                      "key": "PolicyNames",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "One or more policy types. The valid values are <code>SimpleScaling</code>, <code>StepScaling</code>, <code>TargetTrackingScaling</code>, and <code>PredictiveScaling</code>.",
+                      "key": "PolicyTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The token for the next set of items to return. (You received this token from a previous call.)",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum number of items to be returned with each call. The default value is <code>50</code> and the maximum value is <code>100</code>.",
+                      "key": "MaxRecords",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribePolicies"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=DescribePolicies"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:18:58.000Z",
+              "updatedAt": "2026-07-28T10:18:58.000Z",
+              "uid": "35240-cd3dc72c-175c-4d6e-aa3c-471870e2d2c5"
+            },
+            {
+              "id": "ca389f93-508a-4a9d-934b-4b46ac284009",
+              "name": "ResourceContentionFault",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?AutoScalingGroupName=<string>&PolicyNames=<string>&PolicyTypes=<string>&NextToken=<string>&MaxRecords=<integer>&Action=DescribePolicies&Version=2011-01-01#Action=DescribePolicies",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "The name of the Auto Scaling group.",
+                      "key": "AutoScalingGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>The names of one or more policies. If you omit this property, all policies are described. If a group name is provided, the results are limited to that group. If you specify an unknown policy name, it is ignored with no error.</p> <p>Array Members: Maximum number of 50 items.</p>",
+                      "key": "PolicyNames",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "One or more policy types. The valid values are <code>SimpleScaling</code>, <code>StepScaling</code>, <code>TargetTrackingScaling</code>, and <code>PredictiveScaling</code>.",
+                      "key": "PolicyTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The token for the next set of items to return. (You received this token from a previous call.)",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum number of items to be returned with each call. The default value is <code>50</code> and the maximum value is <code>100</code>.",
+                      "key": "MaxRecords",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribePolicies"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=DescribePolicies"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:18:58.000Z",
+              "updatedAt": "2026-07-28T10:18:58.000Z",
+              "uid": "35240-ca389f93-508a-4a9d-934b-4b46ac284009"
+            },
+            {
+              "id": "5fedfced-0a9c-46f1-a9a5-a59113f15121",
+              "name": "ServiceLinkedRoleFailure",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?AutoScalingGroupName=<string>&PolicyNames=<string>&PolicyTypes=<string>&NextToken=<string>&MaxRecords=<integer>&Action=DescribePolicies&Version=2011-01-01#Action=DescribePolicies",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "The name of the Auto Scaling group.",
+                      "key": "AutoScalingGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>The names of one or more policies. If you omit this property, all policies are described. If a group name is provided, the results are limited to that group. If you specify an unknown policy name, it is ignored with no error.</p> <p>Array Members: Maximum number of 50 items.</p>",
+                      "key": "PolicyNames",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "One or more policy types. The valid values are <code>SimpleScaling</code>, <code>StepScaling</code>, <code>TargetTrackingScaling</code>, and <code>PredictiveScaling</code>.",
+                      "key": "PolicyTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The token for the next set of items to return. (You received this token from a previous call.)",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum number of items to be returned with each call. The default value is <code>50</code> and the maximum value is <code>100</code>.",
+                      "key": "MaxRecords",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribePolicies"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=DescribePolicies"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:18:58.000Z",
+              "updatedAt": "2026-07-28T10:18:58.000Z",
+              "uid": "35240-5fedfced-0a9c-46f1-a9a5-a59113f15121"
+            }
+          ],
+          "createdAt": "2026-07-28T10:18:58.000Z",
+          "updatedAt": "2026-07-28T10:18:58.000Z",
+          "uid": "35240-1a22841d-e34c-44c5-b763-e5c8b943212b"
+        },
+        {
+          "name": "Amazon EC2 Auto Scaling POST_ Describe Policies",
+          "id": "7dbf6e11-d621-4148-9d47-8831b2dc3fd1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "text/xml"
+              },
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <PolicyNames>(string)</PolicyNames>\n  <PolicyNames>(string)</PolicyNames>\n  <PolicyTypes>(string)</PolicyTypes>\n  <PolicyTypes>(string)</PolicyTypes>\n  <NextToken>(string)</NextToken>\n  <MaxRecords>(integer)</MaxRecords>\n</element>",
+              "options": {
+                "raw": {
+                  "headerFamily": "xml",
+                  "language": "xml"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/?MaxRecords=<string>&NextToken=<string>&Action=DescribePolicies&Version=2011-01-01#Action=DescribePolicies",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "Pagination limit",
+                  "key": "MaxRecords",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Pagination token",
+                  "key": "NextToken",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "DescribePolicies"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2011-01-01"
+                }
+              ],
+              "hash": "Action=DescribePolicies"
+            },
+            "description": "Gets information about the scaling policies in the account and Region."
+          },
+          "response": [
+            {
+              "id": "40f45db4-35b3-4e57-aa85-e71af66ec5eb",
+              "name": "Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <PolicyNames>(string)</PolicyNames>\n  <PolicyNames>(string)</PolicyNames>\n  <PolicyTypes>(string)</PolicyTypes>\n  <PolicyTypes>(string)</PolicyTypes>\n  <NextToken>(string)</NextToken>\n  <MaxRecords>(integer)</MaxRecords>\n</element>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "xml",
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?MaxRecords=<string>&NextToken=<string>&Action=DescribePolicies&Version=2011-01-01#Action=DescribePolicies",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "Pagination limit",
+                      "key": "MaxRecords",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination token",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribePolicies"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=DescribePolicies"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <ScalingPolicies>\n    <AutoScalingGroupName>(string)</AutoScalingGroupName>\n    <PolicyName>(string)</PolicyName>\n    <PolicyARN>(string)</PolicyARN>\n    <PolicyType>(string)</PolicyType>\n    <AdjustmentType>(string)</AdjustmentType>\n    <MinAdjustmentStep>(integer)</MinAdjustmentStep>\n    <MinAdjustmentMagnitude>(integer)</MinAdjustmentMagnitude>\n    <ScalingAdjustment>(integer)</ScalingAdjustment>\n    <Cooldown>(integer)</Cooldown>\n    <StepAdjustments>\n      <MetricIntervalLowerBound>(number)</MetricIntervalLowerBound>\n      <MetricIntervalUpperBound>(number)</MetricIntervalUpperBound>\n      <ScalingAdjustment>(integer)</ScalingAdjustment>\n    </StepAdjustments>\n    <StepAdjustments>\n      <MetricIntervalLowerBound>(number)</MetricIntervalLowerBound>\n      <MetricIntervalUpperBound>(number)</MetricIntervalUpperBound>\n      <ScalingAdjustment>(integer)</ScalingAdjustment>\n    </StepAdjustments>\n    <MetricAggregationType>(string)</MetricAggregationType>\n    <EstimatedInstanceWarmup>(integer)</EstimatedInstanceWarmup>\n    <Alarms>\n      <AlarmName>(string)</AlarmName>\n      <AlarmARN>(string)</AlarmARN>\n    </Alarms>\n    <Alarms>\n      <AlarmName>(string)</AlarmName>\n      <AlarmARN>(string)</AlarmARN>\n    </Alarms>\n    <TargetTrackingConfiguration>\n      <PredefinedMetricSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedMetricSpecification>\n      <CustomizedMetricSpecification>\n        <MetricName>(string)</MetricName>\n        <Namespace>(string)</Namespace>\n        <Dimensions>\n          <Name>(string)</Name>\n          <Value>(string)</Value>\n        </Dimensions>\n        <Dimensions>\n          <Name>(string)</Name>\n          <Value>(string)</Value>\n        </Dimensions>\n        <Statistic>(string)</Statistic>\n        <Unit>(string)</Unit>\n        <Metrics>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </Metrics>\n        <Metrics>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </Metrics>\n      </CustomizedMetricSpecification>\n      <TargetValue>(number)</TargetValue>\n      <DisableScaleIn>(boolean)</DisableScaleIn>\n    </TargetTrackingConfiguration>\n    <Enabled>(boolean)</Enabled>\n    <PredictiveScalingConfiguration>\n      <MetricSpecifications>\n        <TargetValue>(number)</TargetValue>\n        <PredefinedMetricPairSpecification>\n          <PredefinedMetricType>(string)</PredefinedMetricType>\n          <ResourceLabel>(string)</ResourceLabel>\n        </PredefinedMetricPairSpecification>\n        <PredefinedScalingMetricSpecification>\n          <PredefinedMetricType>(string)</PredefinedMetricType>\n          <ResourceLabel>(string)</ResourceLabel>\n        </PredefinedScalingMetricSpecification>\n        <PredefinedLoadMetricSpecification>\n          <PredefinedMetricType>(string)</PredefinedMetricType>\n          <ResourceLabel>(string)</ResourceLabel>\n        </PredefinedLoadMetricSpecification>\n        <CustomizedScalingMetricSpecification>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n        </CustomizedScalingMetricSpecification>\n        <CustomizedLoadMetricSpecification>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n        </CustomizedLoadMetricSpecification>\n        <CustomizedCapacityMetricSpecification>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n        </CustomizedCapacityMetricSpecification>\n      </MetricSpecifications>\n      <MetricSpecifications>\n        <TargetValue>(number)</TargetValue>\n        <PredefinedMetricPairSpecification>\n          <PredefinedMetricType>(string)</PredefinedMetricType>\n          <ResourceLabel>(string)</ResourceLabel>\n        </PredefinedMetricPairSpecification>\n        <PredefinedScalingMetricSpecification>\n          <PredefinedMetricType>(string)</PredefinedMetricType>\n          <ResourceLabel>(string)</ResourceLabel>\n        </PredefinedScalingMetricSpecification>\n        <PredefinedLoadMetricSpecification>\n          <PredefinedMetricType>(string)</PredefinedMetricType>\n          <ResourceLabel>(string)</ResourceLabel>\n        </PredefinedLoadMetricSpecification>\n        <CustomizedScalingMetricSpecification>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n        </CustomizedScalingMetricSpecification>\n        <CustomizedLoadMetricSpecification>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n        </CustomizedLoadMetricSpecification>\n        <CustomizedCapacityMetricSpecification>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n        </CustomizedCapacityMetricSpecification>\n      </MetricSpecifications>\n      <Mode>(string)</Mode>\n      <SchedulingBufferTime>(integer)</SchedulingBufferTime>\n      <MaxCapacityBreachBehavior>(string)</MaxCapacityBreachBehavior>\n      <MaxCapacityBuffer>(integer)</MaxCapacityBuffer>\n    </PredictiveScalingConfiguration>\n  </ScalingPolicies>\n  <ScalingPolicies>\n    <AutoScalingGroupName>(string)</AutoScalingGroupName>\n    <PolicyName>(string)</PolicyName>\n    <PolicyARN>(string)</PolicyARN>\n    <PolicyType>(string)</PolicyType>\n    <AdjustmentType>(string)</AdjustmentType>\n    <MinAdjustmentStep>(integer)</MinAdjustmentStep>\n    <MinAdjustmentMagnitude>(integer)</MinAdjustmentMagnitude>\n    <ScalingAdjustment>(integer)</ScalingAdjustment>\n    <Cooldown>(integer)</Cooldown>\n    <StepAdjustments>\n      <MetricIntervalLowerBound>(number)</MetricIntervalLowerBound>\n      <MetricIntervalUpperBound>(number)</MetricIntervalUpperBound>\n      <ScalingAdjustment>(integer)</ScalingAdjustment>\n    </StepAdjustments>\n    <StepAdjustments>\n      <MetricIntervalLowerBound>(number)</MetricIntervalLowerBound>\n      <MetricIntervalUpperBound>(number)</MetricIntervalUpperBound>\n      <ScalingAdjustment>(integer)</ScalingAdjustment>\n    </StepAdjustments>\n    <MetricAggregationType>(string)</MetricAggregationType>\n    <EstimatedInstanceWarmup>(integer)</EstimatedInstanceWarmup>\n    <Alarms>\n      <AlarmName>(string)</AlarmName>\n      <AlarmARN>(string)</AlarmARN>\n    </Alarms>\n    <Alarms>\n      <AlarmName>(string)</AlarmName>\n      <AlarmARN>(string)</AlarmARN>\n    </Alarms>\n    <TargetTrackingConfiguration>\n      <PredefinedMetricSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedMetricSpecification>\n      <CustomizedMetricSpecification>\n        <MetricName>(string)</MetricName>\n        <Namespace>(string)</Namespace>\n        <Dimensions>\n          <Name>(string)</Name>\n          <Value>(string)</Value>\n        </Dimensions>\n        <Dimensions>\n          <Name>(string)</Name>\n          <Value>(string)</Value>\n        </Dimensions>\n        <Statistic>(string)</Statistic>\n        <Unit>(string)</Unit>\n        <Metrics>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </Metrics>\n        <Metrics>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </Metrics>\n      </CustomizedMetricSpecification>\n      <TargetValue>(number)</TargetValue>\n      <DisableScaleIn>(boolean)</DisableScaleIn>\n    </TargetTrackingConfiguration>\n    <Enabled>(boolean)</Enabled>\n    <PredictiveScalingConfiguration>\n      <MetricSpecifications>\n        <TargetValue>(number)</TargetValue>\n        <PredefinedMetricPairSpecification>\n          <PredefinedMetricType>(string)</PredefinedMetricType>\n          <ResourceLabel>(string)</ResourceLabel>\n        </PredefinedMetricPairSpecification>\n        <PredefinedScalingMetricSpecification>\n          <PredefinedMetricType>(string)</PredefinedMetricType>\n          <ResourceLabel>(string)</ResourceLabel>\n        </PredefinedScalingMetricSpecification>\n        <PredefinedLoadMetricSpecification>\n          <PredefinedMetricType>(string)</PredefinedMetricType>\n          <ResourceLabel>(string)</ResourceLabel>\n        </PredefinedLoadMetricSpecification>\n        <CustomizedScalingMetricSpecification>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n        </CustomizedScalingMetricSpecification>\n        <CustomizedLoadMetricSpecification>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n        </CustomizedLoadMetricSpecification>\n        <CustomizedCapacityMetricSpecification>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n        </CustomizedCapacityMetricSpecification>\n      </MetricSpecifications>\n      <MetricSpecifications>\n        <TargetValue>(number)</TargetValue>\n        <PredefinedMetricPairSpecification>\n          <PredefinedMetricType>(string)</PredefinedMetricType>\n          <ResourceLabel>(string)</ResourceLabel>\n        </PredefinedMetricPairSpecification>\n        <PredefinedScalingMetricSpecification>\n          <PredefinedMetricType>(string)</PredefinedMetricType>\n          <ResourceLabel>(string)</ResourceLabel>\n        </PredefinedScalingMetricSpecification>\n        <PredefinedLoadMetricSpecification>\n          <PredefinedMetricType>(string)</PredefinedMetricType>\n          <ResourceLabel>(string)</ResourceLabel>\n        </PredefinedLoadMetricSpecification>\n        <CustomizedScalingMetricSpecification>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n        </CustomizedScalingMetricSpecification>\n        <CustomizedLoadMetricSpecification>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n        </CustomizedLoadMetricSpecification>\n        <CustomizedCapacityMetricSpecification>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n          <MetricDataQueries>\n            <Id>(string)</Id>\n            <Expression>(string)</Expression>\n            <MetricStat>\n              <Metric>\n                <Namespace>(string)</Namespace>\n                <MetricName>(string)</MetricName>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n                <Dimensions>\n                  <Name>(string)</Name>\n                  <Value>(string)</Value>\n                </Dimensions>\n              </Metric>\n              <Stat>(string)</Stat>\n              <Unit>(string)</Unit>\n            </MetricStat>\n            <Label>(string)</Label>\n            <ReturnData>(boolean)</ReturnData>\n          </MetricDataQueries>\n        </CustomizedCapacityMetricSpecification>\n      </MetricSpecifications>\n      <Mode>(string)</Mode>\n      <SchedulingBufferTime>(integer)</SchedulingBufferTime>\n      <MaxCapacityBreachBehavior>(string)</MaxCapacityBreachBehavior>\n      <MaxCapacityBuffer>(integer)</MaxCapacityBuffer>\n    </PredictiveScalingConfiguration>\n  </ScalingPolicies>\n  <NextToken>(string)</NextToken>\n</element>",
+              "createdAt": "2026-07-28T10:18:58.000Z",
+              "updatedAt": "2026-07-28T10:18:58.000Z",
+              "uid": "35240-40f45db4-35b3-4e57-aa85-e71af66ec5eb"
+            },
+            {
+              "id": "5148c53c-9b63-4955-8826-0604d03f48f7",
+              "name": "InvalidNextToken",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <PolicyNames>(string)</PolicyNames>\n  <PolicyNames>(string)</PolicyNames>\n  <PolicyTypes>(string)</PolicyTypes>\n  <PolicyTypes>(string)</PolicyTypes>\n  <NextToken>(string)</NextToken>\n  <MaxRecords>(integer)</MaxRecords>\n</element>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "xml",
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?MaxRecords=<string>&NextToken=<string>&Action=DescribePolicies&Version=2011-01-01#Action=DescribePolicies",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "Pagination limit",
+                      "key": "MaxRecords",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination token",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribePolicies"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=DescribePolicies"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:18:58.000Z",
+              "updatedAt": "2026-07-28T10:18:58.000Z",
+              "uid": "35240-5148c53c-9b63-4955-8826-0604d03f48f7"
+            },
+            {
+              "id": "01d91271-d250-4d48-98c2-7b75b75ea1d9",
+              "name": "ResourceContentionFault",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <PolicyNames>(string)</PolicyNames>\n  <PolicyNames>(string)</PolicyNames>\n  <PolicyTypes>(string)</PolicyTypes>\n  <PolicyTypes>(string)</PolicyTypes>\n  <NextToken>(string)</NextToken>\n  <MaxRecords>(integer)</MaxRecords>\n</element>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "xml",
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?MaxRecords=<string>&NextToken=<string>&Action=DescribePolicies&Version=2011-01-01#Action=DescribePolicies",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "Pagination limit",
+                      "key": "MaxRecords",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination token",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribePolicies"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=DescribePolicies"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:18:58.000Z",
+              "updatedAt": "2026-07-28T10:18:58.000Z",
+              "uid": "35240-01d91271-d250-4d48-98c2-7b75b75ea1d9"
+            },
+            {
+              "id": "c2f62003-3291-41fe-9a44-21a3a4071571",
+              "name": "ServiceLinkedRoleFailure",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <PolicyNames>(string)</PolicyNames>\n  <PolicyNames>(string)</PolicyNames>\n  <PolicyTypes>(string)</PolicyTypes>\n  <PolicyTypes>(string)</PolicyTypes>\n  <NextToken>(string)</NextToken>\n  <MaxRecords>(integer)</MaxRecords>\n</element>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "xml",
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?MaxRecords=<string>&NextToken=<string>&Action=DescribePolicies&Version=2011-01-01#Action=DescribePolicies",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "Pagination limit",
+                      "key": "MaxRecords",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination token",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribePolicies"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=DescribePolicies"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:18:58.000Z",
+              "updatedAt": "2026-07-28T10:18:58.000Z",
+              "uid": "35240-c2f62003-3291-41fe-9a44-21a3a4071571"
+            }
+          ],
+          "createdAt": "2026-07-28T10:18:58.000Z",
+          "updatedAt": "2026-07-28T10:18:58.000Z",
+          "uid": "35240-7dbf6e11-d621-4148-9d47-8831b2dc3fd1"
+        }
+      ],
+      "id": "d842ba32-58d2-41c9-bbeb-2c27fc53e396",
+      "createdAt": "2026-07-28T10:18:58.000Z",
+      "updatedAt": "2026-07-28T10:18:58.000Z",
+      "uid": "35240-d842ba32-58d2-41c9-bbeb-2c27fc53e396"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://autoscaling.{{region}}.amazonaws.com"
+    }
+  ]
+}

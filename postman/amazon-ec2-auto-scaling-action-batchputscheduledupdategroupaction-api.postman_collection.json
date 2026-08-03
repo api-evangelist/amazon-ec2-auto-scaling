@@ -1,0 +1,974 @@
+{
+  "info": {
+    "_postman_id": "7303f32c-d364-40eb-872d-f8f51f1fb3a2",
+    "name": "Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=BatchPutScheduledUpdateGroupAction API",
+    "description": "<fullname>Amazon EC2 Auto Scaling</fullname> <p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.</p> <p>For more information, see the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/\">Amazon EC2 Auto Scaling User Guide</a> and the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html\">Amazon EC2 Auto Scaling API Reference</a>.</p>\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:17:46.000Z",
+    "updatedAt": "2026-07-28T10:17:46.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7303f32c-d364-40eb-872d-f8f51f1fb3a2"
+  },
+  "item": [
+    {
+      "name": "#Action=BatchPutScheduledUpdateGroupAction",
+      "item": [
+        {
+          "name": "Amazon EC2 Auto Scaling GET_ Batch Put Scheduled Update Group Action",
+          "id": "9f24263e-0ac5-43cc-be49-247c8f8095a5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?AutoScalingGroupName=<string>&ScheduledUpdateGroupActions=[object Object]&ScheduledUpdateGroupActions=[object Object]&Action=BatchPutScheduledUpdateGroupAction&Version=2011-01-01#Action=BatchPutScheduledUpdateGroupAction",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "(Required) The name of the Auto Scaling group.",
+                  "key": "AutoScalingGroupName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) One or more scheduled actions. The maximum number allowed is 50.",
+                  "key": "ScheduledUpdateGroupActions",
+                  "value": "[object Object]"
+                },
+                {
+                  "description": "(Required) One or more scheduled actions. The maximum number allowed is 50.",
+                  "key": "ScheduledUpdateGroupActions",
+                  "value": "[object Object]"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "BatchPutScheduledUpdateGroupAction"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2011-01-01"
+                }
+              ],
+              "hash": "Action=BatchPutScheduledUpdateGroupAction"
+            },
+            "description": "Creates or updates one or more scheduled scaling actions for an Auto Scaling group."
+          },
+          "response": [
+            {
+              "id": "51f78f73-6fe9-44dd-aebb-68136bbef21a",
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?AutoScalingGroupName=<string>&ScheduledUpdateGroupActions=[object Object]&Action=BatchPutScheduledUpdateGroupAction&Version=2011-01-01#Action=BatchPutScheduledUpdateGroupAction",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The name of the Auto Scaling group.",
+                      "key": "AutoScalingGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) One or more scheduled actions. The maximum number allowed is 50.",
+                      "key": "ScheduledUpdateGroupActions",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "BatchPutScheduledUpdateGroupAction"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=BatchPutScheduledUpdateGroupAction"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <FailedScheduledUpdateGroupActions>\n    <ScheduledActionName>(string)</ScheduledActionName>\n    <ErrorCode>(string)</ErrorCode>\n    <ErrorMessage>(string)</ErrorMessage>\n  </FailedScheduledUpdateGroupActions>\n  <FailedScheduledUpdateGroupActions>\n    <ScheduledActionName>(string)</ScheduledActionName>\n    <ErrorCode>(string)</ErrorCode>\n    <ErrorMessage>(string)</ErrorMessage>\n  </FailedScheduledUpdateGroupActions>\n</element>",
+              "createdAt": "2026-07-28T10:17:46.000Z",
+              "updatedAt": "2026-07-28T10:17:46.000Z",
+              "uid": "35240-51f78f73-6fe9-44dd-aebb-68136bbef21a"
+            },
+            {
+              "id": "e8f0a36f-d122-4040-8b47-92db66621c27",
+              "name": "AlreadyExistsFault",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?AutoScalingGroupName=<string>&ScheduledUpdateGroupActions=[object Object]&Action=BatchPutScheduledUpdateGroupAction&Version=2011-01-01#Action=BatchPutScheduledUpdateGroupAction",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The name of the Auto Scaling group.",
+                      "key": "AutoScalingGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) One or more scheduled actions. The maximum number allowed is 50.",
+                      "key": "ScheduledUpdateGroupActions",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "BatchPutScheduledUpdateGroupAction"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=BatchPutScheduledUpdateGroupAction"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:17:46.000Z",
+              "updatedAt": "2026-07-28T10:17:46.000Z",
+              "uid": "35240-e8f0a36f-d122-4040-8b47-92db66621c27"
+            },
+            {
+              "id": "353801d6-cf19-4d3c-a0b0-9a3864468c4b",
+              "name": "LimitExceededFault",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?AutoScalingGroupName=<string>&ScheduledUpdateGroupActions=[object Object]&Action=BatchPutScheduledUpdateGroupAction&Version=2011-01-01#Action=BatchPutScheduledUpdateGroupAction",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The name of the Auto Scaling group.",
+                      "key": "AutoScalingGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) One or more scheduled actions. The maximum number allowed is 50.",
+                      "key": "ScheduledUpdateGroupActions",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "BatchPutScheduledUpdateGroupAction"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=BatchPutScheduledUpdateGroupAction"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:17:46.000Z",
+              "updatedAt": "2026-07-28T10:17:46.000Z",
+              "uid": "35240-353801d6-cf19-4d3c-a0b0-9a3864468c4b"
+            },
+            {
+              "id": "60317ab9-6181-408b-aeb2-8b570cbcddc8",
+              "name": "ResourceContentionFault",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?AutoScalingGroupName=<string>&ScheduledUpdateGroupActions=[object Object]&Action=BatchPutScheduledUpdateGroupAction&Version=2011-01-01#Action=BatchPutScheduledUpdateGroupAction",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The name of the Auto Scaling group.",
+                      "key": "AutoScalingGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) One or more scheduled actions. The maximum number allowed is 50.",
+                      "key": "ScheduledUpdateGroupActions",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "BatchPutScheduledUpdateGroupAction"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=BatchPutScheduledUpdateGroupAction"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:17:46.000Z",
+              "updatedAt": "2026-07-28T10:17:46.000Z",
+              "uid": "35240-60317ab9-6181-408b-aeb2-8b570cbcddc8"
+            }
+          ],
+          "createdAt": "2026-07-28T10:17:46.000Z",
+          "updatedAt": "2026-07-28T10:17:46.000Z",
+          "uid": "35240-9f24263e-0ac5-43cc-be49-247c8f8095a5"
+        },
+        {
+          "name": "Amazon EC2 Auto Scaling POST_ Batch Put Scheduled Update Group Action",
+          "id": "f9e227bf-fec1-4ead-a23b-63e2f5940836",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "text/xml"
+              },
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <ScheduledUpdateGroupActions>\n    <ScheduledActionName>(string)</ScheduledActionName>\n    <StartTime>(string)</StartTime>\n    <EndTime>(string)</EndTime>\n    <Recurrence>(string)</Recurrence>\n    <MinSize>(integer)</MinSize>\n    <MaxSize>(integer)</MaxSize>\n    <DesiredCapacity>(integer)</DesiredCapacity>\n    <TimeZone>(string)</TimeZone>\n  </ScheduledUpdateGroupActions>\n  <ScheduledUpdateGroupActions>\n    <ScheduledActionName>(string)</ScheduledActionName>\n    <StartTime>(string)</StartTime>\n    <EndTime>(string)</EndTime>\n    <Recurrence>(string)</Recurrence>\n    <MinSize>(integer)</MinSize>\n    <MaxSize>(integer)</MaxSize>\n    <DesiredCapacity>(integer)</DesiredCapacity>\n    <TimeZone>(string)</TimeZone>\n  </ScheduledUpdateGroupActions>\n</element>",
+              "options": {
+                "raw": {
+                  "headerFamily": "xml",
+                  "language": "xml"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/?Action=BatchPutScheduledUpdateGroupAction&Version=2011-01-01#Action=BatchPutScheduledUpdateGroupAction",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "BatchPutScheduledUpdateGroupAction"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2011-01-01"
+                }
+              ],
+              "hash": "Action=BatchPutScheduledUpdateGroupAction"
+            },
+            "description": "Creates or updates one or more scheduled scaling actions for an Auto Scaling group."
+          },
+          "response": [
+            {
+              "id": "decfee2b-bc52-4d5e-bde3-1b8940fe9473",
+              "name": "Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <ScheduledUpdateGroupActions>\n    <ScheduledActionName>(string)</ScheduledActionName>\n    <StartTime>(string)</StartTime>\n    <EndTime>(string)</EndTime>\n    <Recurrence>(string)</Recurrence>\n    <MinSize>(integer)</MinSize>\n    <MaxSize>(integer)</MaxSize>\n    <DesiredCapacity>(integer)</DesiredCapacity>\n    <TimeZone>(string)</TimeZone>\n  </ScheduledUpdateGroupActions>\n  <ScheduledUpdateGroupActions>\n    <ScheduledActionName>(string)</ScheduledActionName>\n    <StartTime>(string)</StartTime>\n    <EndTime>(string)</EndTime>\n    <Recurrence>(string)</Recurrence>\n    <MinSize>(integer)</MinSize>\n    <MaxSize>(integer)</MaxSize>\n    <DesiredCapacity>(integer)</DesiredCapacity>\n    <TimeZone>(string)</TimeZone>\n  </ScheduledUpdateGroupActions>\n</element>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "xml",
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=BatchPutScheduledUpdateGroupAction&Version=2011-01-01#Action=BatchPutScheduledUpdateGroupAction",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "BatchPutScheduledUpdateGroupAction"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=BatchPutScheduledUpdateGroupAction"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <FailedScheduledUpdateGroupActions>\n    <ScheduledActionName>(string)</ScheduledActionName>\n    <ErrorCode>(string)</ErrorCode>\n    <ErrorMessage>(string)</ErrorMessage>\n  </FailedScheduledUpdateGroupActions>\n  <FailedScheduledUpdateGroupActions>\n    <ScheduledActionName>(string)</ScheduledActionName>\n    <ErrorCode>(string)</ErrorCode>\n    <ErrorMessage>(string)</ErrorMessage>\n  </FailedScheduledUpdateGroupActions>\n</element>",
+              "createdAt": "2026-07-28T10:17:46.000Z",
+              "updatedAt": "2026-07-28T10:17:46.000Z",
+              "uid": "35240-decfee2b-bc52-4d5e-bde3-1b8940fe9473"
+            },
+            {
+              "id": "09953853-771a-4027-b1cf-15df0cc89192",
+              "name": "AlreadyExistsFault",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <ScheduledUpdateGroupActions>\n    <ScheduledActionName>(string)</ScheduledActionName>\n    <StartTime>(string)</StartTime>\n    <EndTime>(string)</EndTime>\n    <Recurrence>(string)</Recurrence>\n    <MinSize>(integer)</MinSize>\n    <MaxSize>(integer)</MaxSize>\n    <DesiredCapacity>(integer)</DesiredCapacity>\n    <TimeZone>(string)</TimeZone>\n  </ScheduledUpdateGroupActions>\n  <ScheduledUpdateGroupActions>\n    <ScheduledActionName>(string)</ScheduledActionName>\n    <StartTime>(string)</StartTime>\n    <EndTime>(string)</EndTime>\n    <Recurrence>(string)</Recurrence>\n    <MinSize>(integer)</MinSize>\n    <MaxSize>(integer)</MaxSize>\n    <DesiredCapacity>(integer)</DesiredCapacity>\n    <TimeZone>(string)</TimeZone>\n  </ScheduledUpdateGroupActions>\n</element>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "xml",
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=BatchPutScheduledUpdateGroupAction&Version=2011-01-01#Action=BatchPutScheduledUpdateGroupAction",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "BatchPutScheduledUpdateGroupAction"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=BatchPutScheduledUpdateGroupAction"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:17:46.000Z",
+              "updatedAt": "2026-07-28T10:17:46.000Z",
+              "uid": "35240-09953853-771a-4027-b1cf-15df0cc89192"
+            },
+            {
+              "id": "3661decc-2dd0-4acf-a935-ccb25b64a531",
+              "name": "LimitExceededFault",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <ScheduledUpdateGroupActions>\n    <ScheduledActionName>(string)</ScheduledActionName>\n    <StartTime>(string)</StartTime>\n    <EndTime>(string)</EndTime>\n    <Recurrence>(string)</Recurrence>\n    <MinSize>(integer)</MinSize>\n    <MaxSize>(integer)</MaxSize>\n    <DesiredCapacity>(integer)</DesiredCapacity>\n    <TimeZone>(string)</TimeZone>\n  </ScheduledUpdateGroupActions>\n  <ScheduledUpdateGroupActions>\n    <ScheduledActionName>(string)</ScheduledActionName>\n    <StartTime>(string)</StartTime>\n    <EndTime>(string)</EndTime>\n    <Recurrence>(string)</Recurrence>\n    <MinSize>(integer)</MinSize>\n    <MaxSize>(integer)</MaxSize>\n    <DesiredCapacity>(integer)</DesiredCapacity>\n    <TimeZone>(string)</TimeZone>\n  </ScheduledUpdateGroupActions>\n</element>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "xml",
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=BatchPutScheduledUpdateGroupAction&Version=2011-01-01#Action=BatchPutScheduledUpdateGroupAction",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "BatchPutScheduledUpdateGroupAction"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=BatchPutScheduledUpdateGroupAction"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:17:46.000Z",
+              "updatedAt": "2026-07-28T10:17:46.000Z",
+              "uid": "35240-3661decc-2dd0-4acf-a935-ccb25b64a531"
+            },
+            {
+              "id": "cae254ea-2dd4-4420-9834-acf2d973cdaf",
+              "name": "ResourceContentionFault",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <ScheduledUpdateGroupActions>\n    <ScheduledActionName>(string)</ScheduledActionName>\n    <StartTime>(string)</StartTime>\n    <EndTime>(string)</EndTime>\n    <Recurrence>(string)</Recurrence>\n    <MinSize>(integer)</MinSize>\n    <MaxSize>(integer)</MaxSize>\n    <DesiredCapacity>(integer)</DesiredCapacity>\n    <TimeZone>(string)</TimeZone>\n  </ScheduledUpdateGroupActions>\n  <ScheduledUpdateGroupActions>\n    <ScheduledActionName>(string)</ScheduledActionName>\n    <StartTime>(string)</StartTime>\n    <EndTime>(string)</EndTime>\n    <Recurrence>(string)</Recurrence>\n    <MinSize>(integer)</MinSize>\n    <MaxSize>(integer)</MaxSize>\n    <DesiredCapacity>(integer)</DesiredCapacity>\n    <TimeZone>(string)</TimeZone>\n  </ScheduledUpdateGroupActions>\n</element>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "xml",
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=BatchPutScheduledUpdateGroupAction&Version=2011-01-01#Action=BatchPutScheduledUpdateGroupAction",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "BatchPutScheduledUpdateGroupAction"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=BatchPutScheduledUpdateGroupAction"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:17:46.000Z",
+              "updatedAt": "2026-07-28T10:17:46.000Z",
+              "uid": "35240-cae254ea-2dd4-4420-9834-acf2d973cdaf"
+            }
+          ],
+          "createdAt": "2026-07-28T10:17:46.000Z",
+          "updatedAt": "2026-07-28T10:17:46.000Z",
+          "uid": "35240-f9e227bf-fec1-4ead-a23b-63e2f5940836"
+        }
+      ],
+      "id": "aef6aed5-e85c-4cea-818a-dfad94a8ba5e",
+      "createdAt": "2026-07-28T10:17:46.000Z",
+      "updatedAt": "2026-07-28T10:17:46.000Z",
+      "uid": "35240-aef6aed5-e85c-4cea-818a-dfad94a8ba5e"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://autoscaling.{{region}}.amazonaws.com"
+    }
+  ]
+}

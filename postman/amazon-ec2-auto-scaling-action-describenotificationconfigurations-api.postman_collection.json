@@ -1,0 +1,848 @@
+{
+  "info": {
+    "_postman_id": "921504b7-7d21-4f9d-a995-697055229e0d",
+    "name": "Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=DescribeNotificationConfigurations API",
+    "description": "<fullname>Amazon EC2 Auto Scaling</fullname> <p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.</p> <p>For more information, see the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/\">Amazon EC2 Auto Scaling User Guide</a> and the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html\">Amazon EC2 Auto Scaling API Reference</a>.</p>\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:18:56.000Z",
+    "updatedAt": "2026-07-28T10:18:57.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-921504b7-7d21-4f9d-a995-697055229e0d"
+  },
+  "item": [
+    {
+      "name": "#Action=DescribeNotificationConfigurations",
+      "item": [
+        {
+          "name": "Amazon EC2 Auto Scaling GET_ Describe Notification Configurations",
+          "id": "3a37a57d-06b7-4375-94ab-83be108f1b60",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?AutoScalingGroupNames=<string>&AutoScalingGroupNames=<string>&NextToken=<string>&MaxRecords=<integer>&Action=DescribeNotificationConfigurations&Version=2011-01-01#Action=DescribeNotificationConfigurations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "The name of the Auto Scaling group.",
+                  "key": "AutoScalingGroupNames",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The name of the Auto Scaling group.",
+                  "key": "AutoScalingGroupNames",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The token for the next set of items to return. (You received this token from a previous call.)",
+                  "key": "NextToken",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The maximum number of items to return with this call. The default value is <code>50</code> and the maximum value is <code>100</code>.",
+                  "key": "MaxRecords",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "DescribeNotificationConfigurations"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2011-01-01"
+                }
+              ],
+              "hash": "Action=DescribeNotificationConfigurations"
+            },
+            "description": "Gets information about the Amazon SNS notifications that are configured for one or more Auto Scaling groups."
+          },
+          "response": [
+            {
+              "id": "3c9863f3-c2e7-432e-b7bf-55dd7133dbfc",
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?AutoScalingGroupNames=<string>&NextToken=<string>&MaxRecords=<integer>&Action=DescribeNotificationConfigurations&Version=2011-01-01#Action=DescribeNotificationConfigurations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "The name of the Auto Scaling group.",
+                      "key": "AutoScalingGroupNames",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The token for the next set of items to return. (You received this token from a previous call.)",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum number of items to return with this call. The default value is <code>50</code> and the maximum value is <code>100</code>.",
+                      "key": "MaxRecords",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribeNotificationConfigurations"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=DescribeNotificationConfigurations"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <NotificationConfigurations>\n    <AutoScalingGroupName>(string)</AutoScalingGroupName>\n    <TopicARN>(string)</TopicARN>\n    <NotificationType>(string)</NotificationType>\n  </NotificationConfigurations>\n  <NotificationConfigurations>\n    <AutoScalingGroupName>(string)</AutoScalingGroupName>\n    <TopicARN>(string)</TopicARN>\n    <NotificationType>(string)</NotificationType>\n  </NotificationConfigurations>\n  <NextToken>(string)</NextToken>\n</element>",
+              "createdAt": "2026-07-28T10:18:57.000Z",
+              "updatedAt": "2026-07-28T10:18:57.000Z",
+              "uid": "35240-3c9863f3-c2e7-432e-b7bf-55dd7133dbfc"
+            },
+            {
+              "id": "bb1cf719-1982-4ab0-8d00-c328394c6cf5",
+              "name": "InvalidNextToken",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?AutoScalingGroupNames=<string>&NextToken=<string>&MaxRecords=<integer>&Action=DescribeNotificationConfigurations&Version=2011-01-01#Action=DescribeNotificationConfigurations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "The name of the Auto Scaling group.",
+                      "key": "AutoScalingGroupNames",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The token for the next set of items to return. (You received this token from a previous call.)",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum number of items to return with this call. The default value is <code>50</code> and the maximum value is <code>100</code>.",
+                      "key": "MaxRecords",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribeNotificationConfigurations"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=DescribeNotificationConfigurations"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:18:57.000Z",
+              "updatedAt": "2026-07-28T10:18:57.000Z",
+              "uid": "35240-bb1cf719-1982-4ab0-8d00-c328394c6cf5"
+            },
+            {
+              "id": "2932b1a3-b6e0-4445-964d-e16cb9a008a6",
+              "name": "ResourceContentionFault",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?AutoScalingGroupNames=<string>&NextToken=<string>&MaxRecords=<integer>&Action=DescribeNotificationConfigurations&Version=2011-01-01#Action=DescribeNotificationConfigurations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "The name of the Auto Scaling group.",
+                      "key": "AutoScalingGroupNames",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The token for the next set of items to return. (You received this token from a previous call.)",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum number of items to return with this call. The default value is <code>50</code> and the maximum value is <code>100</code>.",
+                      "key": "MaxRecords",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribeNotificationConfigurations"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=DescribeNotificationConfigurations"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:18:57.000Z",
+              "updatedAt": "2026-07-28T10:18:57.000Z",
+              "uid": "35240-2932b1a3-b6e0-4445-964d-e16cb9a008a6"
+            }
+          ],
+          "createdAt": "2026-07-28T10:18:57.000Z",
+          "updatedAt": "2026-07-28T10:18:57.000Z",
+          "uid": "35240-3a37a57d-06b7-4375-94ab-83be108f1b60"
+        },
+        {
+          "name": "Amazon EC2 Auto Scaling POST_ Describe Notification Configurations",
+          "id": "4b948297-195e-48e5-9b43-77c0b7349f2e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "text/xml"
+              },
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupNames>(string)</AutoScalingGroupNames>\n  <AutoScalingGroupNames>(string)</AutoScalingGroupNames>\n  <NextToken>(string)</NextToken>\n  <MaxRecords>(integer)</MaxRecords>\n</element>",
+              "options": {
+                "raw": {
+                  "headerFamily": "xml",
+                  "language": "xml"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/?MaxRecords=<string>&NextToken=<string>&Action=DescribeNotificationConfigurations&Version=2011-01-01#Action=DescribeNotificationConfigurations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "Pagination limit",
+                  "key": "MaxRecords",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Pagination token",
+                  "key": "NextToken",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "DescribeNotificationConfigurations"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2011-01-01"
+                }
+              ],
+              "hash": "Action=DescribeNotificationConfigurations"
+            },
+            "description": "Gets information about the Amazon SNS notifications that are configured for one or more Auto Scaling groups."
+          },
+          "response": [
+            {
+              "id": "cbde651a-c2c0-438d-ba42-0c61e9785686",
+              "name": "Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupNames>(string)</AutoScalingGroupNames>\n  <AutoScalingGroupNames>(string)</AutoScalingGroupNames>\n  <NextToken>(string)</NextToken>\n  <MaxRecords>(integer)</MaxRecords>\n</element>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "xml",
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?MaxRecords=<string>&NextToken=<string>&Action=DescribeNotificationConfigurations&Version=2011-01-01#Action=DescribeNotificationConfigurations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "Pagination limit",
+                      "key": "MaxRecords",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination token",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribeNotificationConfigurations"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=DescribeNotificationConfigurations"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <NotificationConfigurations>\n    <AutoScalingGroupName>(string)</AutoScalingGroupName>\n    <TopicARN>(string)</TopicARN>\n    <NotificationType>(string)</NotificationType>\n  </NotificationConfigurations>\n  <NotificationConfigurations>\n    <AutoScalingGroupName>(string)</AutoScalingGroupName>\n    <TopicARN>(string)</TopicARN>\n    <NotificationType>(string)</NotificationType>\n  </NotificationConfigurations>\n  <NextToken>(string)</NextToken>\n</element>",
+              "createdAt": "2026-07-28T10:18:57.000Z",
+              "updatedAt": "2026-07-28T10:18:57.000Z",
+              "uid": "35240-cbde651a-c2c0-438d-ba42-0c61e9785686"
+            },
+            {
+              "id": "3b9ef29c-4acb-4469-a7db-6cb819dbd8d5",
+              "name": "InvalidNextToken",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupNames>(string)</AutoScalingGroupNames>\n  <AutoScalingGroupNames>(string)</AutoScalingGroupNames>\n  <NextToken>(string)</NextToken>\n  <MaxRecords>(integer)</MaxRecords>\n</element>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "xml",
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?MaxRecords=<string>&NextToken=<string>&Action=DescribeNotificationConfigurations&Version=2011-01-01#Action=DescribeNotificationConfigurations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "Pagination limit",
+                      "key": "MaxRecords",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination token",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribeNotificationConfigurations"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=DescribeNotificationConfigurations"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:18:57.000Z",
+              "updatedAt": "2026-07-28T10:18:57.000Z",
+              "uid": "35240-3b9ef29c-4acb-4469-a7db-6cb819dbd8d5"
+            },
+            {
+              "id": "7fdb56bb-4962-43ad-924a-f475c51d66be",
+              "name": "ResourceContentionFault",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupNames>(string)</AutoScalingGroupNames>\n  <AutoScalingGroupNames>(string)</AutoScalingGroupNames>\n  <NextToken>(string)</NextToken>\n  <MaxRecords>(integer)</MaxRecords>\n</element>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "xml",
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?MaxRecords=<string>&NextToken=<string>&Action=DescribeNotificationConfigurations&Version=2011-01-01#Action=DescribeNotificationConfigurations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "Pagination limit",
+                      "key": "MaxRecords",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination token",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribeNotificationConfigurations"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=DescribeNotificationConfigurations"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:18:57.000Z",
+              "updatedAt": "2026-07-28T10:18:57.000Z",
+              "uid": "35240-7fdb56bb-4962-43ad-924a-f475c51d66be"
+            }
+          ],
+          "createdAt": "2026-07-28T10:18:57.000Z",
+          "updatedAt": "2026-07-28T10:18:57.000Z",
+          "uid": "35240-4b948297-195e-48e5-9b43-77c0b7349f2e"
+        }
+      ],
+      "id": "7ce8c127-f24f-47bd-877f-5809aa338322",
+      "createdAt": "2026-07-28T10:18:57.000Z",
+      "updatedAt": "2026-07-28T10:18:57.000Z",
+      "uid": "35240-7ce8c127-f24f-47bd-877f-5809aa338322"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://autoscaling.{{region}}.amazonaws.com"
+    }
+  ]
+}

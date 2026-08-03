@@ -1,0 +1,627 @@
+{
+  "info": {
+    "_postman_id": "99000a01-f88d-41d1-9531-9c56e9c0b72c",
+    "name": "Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=GetPredictiveScalingForecast API",
+    "description": "<fullname>Amazon EC2 Auto Scaling</fullname> <p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.</p> <p>For more information, see the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/\">Amazon EC2 Auto Scaling User Guide</a> and the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html\">Amazon EC2 Auto Scaling API Reference</a>.</p>\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:19:51.000Z",
+    "updatedAt": "2026-07-28T10:19:51.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-99000a01-f88d-41d1-9531-9c56e9c0b72c"
+  },
+  "item": [
+    {
+      "name": "#Action=GetPredictiveScalingForecast",
+      "item": [
+        {
+          "name": "Amazon EC2 Auto Scaling GET_ Get Predictive Scaling Forecast",
+          "id": "3afc5e49-a28e-45a9-a573-68a73b2ccb0a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?AutoScalingGroupName=<string>&PolicyName=<string>&StartTime=<dateTime>&EndTime=<dateTime>&Action=GetPredictiveScalingForecast&Version=2011-01-01#Action=GetPredictiveScalingForecast",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "(Required) The name of the Auto Scaling group.",
+                  "key": "AutoScalingGroupName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) The name of the policy.",
+                  "key": "PolicyName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) The inclusive start time of the time range for the forecast data to get. At most, the date and time can be one year before the current date and time.",
+                  "key": "StartTime",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "(Required) <p>The exclusive end time of the time range for the forecast data to get. The maximum time duration between the start and end time is 30 days. </p> <p>Although this parameter can accept a date and time that is more than two days in the future, the availability of forecast data has limits. Amazon EC2 Auto Scaling only issues forecasts for periods of two days in advance.</p>",
+                  "key": "EndTime",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "GetPredictiveScalingForecast"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2011-01-01"
+                }
+              ],
+              "hash": "Action=GetPredictiveScalingForecast"
+            },
+            "description": "<p>Retrieves the forecast data for a predictive scaling policy.</p> <p>Load forecasts are predictions of the hourly load values using historical load data from CloudWatch and an analysis of historical trends. Capacity forecasts are represented as predicted values for the minimum capacity that is needed on an hourly basis, based on the hourly load forecast.</p> <p>A minimum of 24 hours of data is required to create the initial forecasts. However, having a full 14 days of historical data results in more accurate forecasts.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-predictive-scaling.html\">Predictive scaling for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>"
+          },
+          "response": [
+            {
+              "id": "c1d332a8-4a14-4ffe-8fca-4609e4b22b31",
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?AutoScalingGroupName=<string>&PolicyName=<string>&StartTime=<dateTime>&EndTime=<dateTime>&Action=GetPredictiveScalingForecast&Version=2011-01-01#Action=GetPredictiveScalingForecast",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The name of the Auto Scaling group.",
+                      "key": "AutoScalingGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The name of the policy.",
+                      "key": "PolicyName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The inclusive start time of the time range for the forecast data to get. At most, the date and time can be one year before the current date and time.",
+                      "key": "StartTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "(Required) <p>The exclusive end time of the time range for the forecast data to get. The maximum time duration between the start and end time is 30 days. </p> <p>Although this parameter can accept a date and time that is more than two days in the future, the availability of forecast data has limits. Amazon EC2 Auto Scaling only issues forecasts for periods of two days in advance.</p>",
+                      "key": "EndTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "GetPredictiveScalingForecast"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=GetPredictiveScalingForecast"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <LoadForecast>\n    <Timestamps>(string)</Timestamps>\n    <Timestamps>(string)</Timestamps>\n    <Values>(number)</Values>\n    <Values>(number)</Values>\n    <MetricSpecification>\n      <TargetValue>(number)</TargetValue>\n      <PredefinedMetricPairSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedMetricPairSpecification>\n      <PredefinedScalingMetricSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedScalingMetricSpecification>\n      <PredefinedLoadMetricSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedLoadMetricSpecification>\n      <CustomizedScalingMetricSpecification>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n              </Dimensions>\n              <Dimensions>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n              </Dimensions>\n              <Dimensions>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n      </CustomizedScalingMetricSpecification>\n      <CustomizedLoadMetricSpecification>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n              </Dimensions>\n              <Dimensions>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n              </Dimensions>\n              <Dimensions>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n      </CustomizedLoadMetricSpecification>\n      <CustomizedCapacityMetricSpecification>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n              </Dimensions>\n              <Dimensions>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n              </Dimensions>\n              <Dimensions>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n      </CustomizedCapacityMetricSpecification>\n    </MetricSpecification>\n  </LoadForecast>\n  <LoadForecast>\n    <Timestamps>(string)</Timestamps>\n    <Timestamps>(string)</Timestamps>\n    <Values>(number)</Values>\n    <Values>(number)</Values>\n    <MetricSpecification>\n      <TargetValue>(number)</TargetValue>\n      <PredefinedMetricPairSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedMetricPairSpecification>\n      <PredefinedScalingMetricSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedScalingMetricSpecification>\n      <PredefinedLoadMetricSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedLoadMetricSpecification>\n      <CustomizedScalingMetricSpecification>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n              </Dimensions>\n              <Dimensions>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n              </Dimensions>\n              <Dimensions>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n      </CustomizedScalingMetricSpecification>\n      <CustomizedLoadMetricSpecification>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n              </Dimensions>\n              <Dimensions>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n              </Dimensions>\n              <Dimensions>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n      </CustomizedLoadMetricSpecification>\n      <CustomizedCapacityMetricSpecification>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n              </Dimensions>\n              <Dimensions>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n              </Dimensions>\n              <Dimensions>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n      </CustomizedCapacityMetricSpecification>\n    </MetricSpecification>\n  </LoadForecast>\n  <CapacityForecast>\n    <Timestamps>(string)</Timestamps>\n    <Timestamps>(string)</Timestamps>\n    <Values>(number)</Values>\n    <Values>(number)</Values>\n  </CapacityForecast>\n  <UpdateTime>(string)</UpdateTime>\n</element>",
+              "createdAt": "2026-07-28T10:19:52.000Z",
+              "updatedAt": "2026-07-28T10:19:52.000Z",
+              "uid": "35240-c1d332a8-4a14-4ffe-8fca-4609e4b22b31"
+            },
+            {
+              "id": "6888fdb2-fa5e-4eb2-8697-8339fdf7c2d3",
+              "name": "ResourceContentionFault",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?AutoScalingGroupName=<string>&PolicyName=<string>&StartTime=<dateTime>&EndTime=<dateTime>&Action=GetPredictiveScalingForecast&Version=2011-01-01#Action=GetPredictiveScalingForecast",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The name of the Auto Scaling group.",
+                      "key": "AutoScalingGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The name of the policy.",
+                      "key": "PolicyName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The inclusive start time of the time range for the forecast data to get. At most, the date and time can be one year before the current date and time.",
+                      "key": "StartTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "(Required) <p>The exclusive end time of the time range for the forecast data to get. The maximum time duration between the start and end time is 30 days. </p> <p>Although this parameter can accept a date and time that is more than two days in the future, the availability of forecast data has limits. Amazon EC2 Auto Scaling only issues forecasts for periods of two days in advance.</p>",
+                      "key": "EndTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "GetPredictiveScalingForecast"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=GetPredictiveScalingForecast"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:19:52.000Z",
+              "updatedAt": "2026-07-28T10:19:52.000Z",
+              "uid": "35240-6888fdb2-fa5e-4eb2-8697-8339fdf7c2d3"
+            }
+          ],
+          "createdAt": "2026-07-28T10:19:52.000Z",
+          "updatedAt": "2026-07-28T10:19:52.000Z",
+          "uid": "35240-3afc5e49-a28e-45a9-a573-68a73b2ccb0a"
+        },
+        {
+          "name": "Amazon EC2 Auto Scaling POST_ Get Predictive Scaling Forecast",
+          "id": "563c5e2e-43c3-4730-8664-9b62fa02f963",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "text/xml"
+              },
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <PolicyName>(string)</PolicyName>\n  <StartTime>(string)</StartTime>\n  <EndTime>(string)</EndTime>\n</element>",
+              "options": {
+                "raw": {
+                  "headerFamily": "xml",
+                  "language": "xml"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/?Action=GetPredictiveScalingForecast&Version=2011-01-01#Action=GetPredictiveScalingForecast",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "GetPredictiveScalingForecast"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2011-01-01"
+                }
+              ],
+              "hash": "Action=GetPredictiveScalingForecast"
+            },
+            "description": "<p>Retrieves the forecast data for a predictive scaling policy.</p> <p>Load forecasts are predictions of the hourly load values using historical load data from CloudWatch and an analysis of historical trends. Capacity forecasts are represented as predicted values for the minimum capacity that is needed on an hourly basis, based on the hourly load forecast.</p> <p>A minimum of 24 hours of data is required to create the initial forecasts. However, having a full 14 days of historical data results in more accurate forecasts.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-predictive-scaling.html\">Predictive scaling for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>"
+          },
+          "response": [
+            {
+              "id": "f3219877-0c1d-4d12-9d29-45d4c3accc5c",
+              "name": "Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <PolicyName>(string)</PolicyName>\n  <StartTime>(string)</StartTime>\n  <EndTime>(string)</EndTime>\n</element>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "xml",
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=GetPredictiveScalingForecast&Version=2011-01-01#Action=GetPredictiveScalingForecast",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "GetPredictiveScalingForecast"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=GetPredictiveScalingForecast"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <LoadForecast>\n    <Timestamps>(string)</Timestamps>\n    <Timestamps>(string)</Timestamps>\n    <Values>(number)</Values>\n    <Values>(number)</Values>\n    <MetricSpecification>\n      <TargetValue>(number)</TargetValue>\n      <PredefinedMetricPairSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedMetricPairSpecification>\n      <PredefinedScalingMetricSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedScalingMetricSpecification>\n      <PredefinedLoadMetricSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedLoadMetricSpecification>\n      <CustomizedScalingMetricSpecification>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n              </Dimensions>\n              <Dimensions>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n              </Dimensions>\n              <Dimensions>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n      </CustomizedScalingMetricSpecification>\n      <CustomizedLoadMetricSpecification>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n              </Dimensions>\n              <Dimensions>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n              </Dimensions>\n              <Dimensions>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n      </CustomizedLoadMetricSpecification>\n      <CustomizedCapacityMetricSpecification>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n              </Dimensions>\n              <Dimensions>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n              </Dimensions>\n              <Dimensions>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n      </CustomizedCapacityMetricSpecification>\n    </MetricSpecification>\n  </LoadForecast>\n  <LoadForecast>\n    <Timestamps>(string)</Timestamps>\n    <Timestamps>(string)</Timestamps>\n    <Values>(number)</Values>\n    <Values>(number)</Values>\n    <MetricSpecification>\n      <TargetValue>(number)</TargetValue>\n      <PredefinedMetricPairSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedMetricPairSpecification>\n      <PredefinedScalingMetricSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedScalingMetricSpecification>\n      <PredefinedLoadMetricSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedLoadMetricSpecification>\n      <CustomizedScalingMetricSpecification>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n              </Dimensions>\n              <Dimensions>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n              </Dimensions>\n              <Dimensions>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n      </CustomizedScalingMetricSpecification>\n      <CustomizedLoadMetricSpecification>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n              </Dimensions>\n              <Dimensions>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n              </Dimensions>\n              <Dimensions>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n      </CustomizedLoadMetricSpecification>\n      <CustomizedCapacityMetricSpecification>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n              </Dimensions>\n              <Dimensions>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n              </Dimensions>\n              <Dimensions>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n      </CustomizedCapacityMetricSpecification>\n    </MetricSpecification>\n  </LoadForecast>\n  <CapacityForecast>\n    <Timestamps>(string)</Timestamps>\n    <Timestamps>(string)</Timestamps>\n    <Values>(number)</Values>\n    <Values>(number)</Values>\n  </CapacityForecast>\n  <UpdateTime>(string)</UpdateTime>\n</element>",
+              "createdAt": "2026-07-28T10:19:52.000Z",
+              "updatedAt": "2026-07-28T10:19:52.000Z",
+              "uid": "35240-f3219877-0c1d-4d12-9d29-45d4c3accc5c"
+            },
+            {
+              "id": "53bb7638-703f-4213-83aa-82f3a53f9013",
+              "name": "ResourceContentionFault",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <PolicyName>(string)</PolicyName>\n  <StartTime>(string)</StartTime>\n  <EndTime>(string)</EndTime>\n</element>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "xml",
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=GetPredictiveScalingForecast&Version=2011-01-01#Action=GetPredictiveScalingForecast",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "GetPredictiveScalingForecast"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=GetPredictiveScalingForecast"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:19:52.000Z",
+              "updatedAt": "2026-07-28T10:19:52.000Z",
+              "uid": "35240-53bb7638-703f-4213-83aa-82f3a53f9013"
+            }
+          ],
+          "createdAt": "2026-07-28T10:19:52.000Z",
+          "updatedAt": "2026-07-28T10:19:52.000Z",
+          "uid": "35240-563c5e2e-43c3-4730-8664-9b62fa02f963"
+        }
+      ],
+      "id": "385f18a4-0511-419d-9076-18655b888fa5",
+      "createdAt": "2026-07-28T10:19:52.000Z",
+      "updatedAt": "2026-07-28T10:19:52.000Z",
+      "uid": "35240-385f18a4-0511-419d-9076-18655b888fa5"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://autoscaling.{{region}}.amazonaws.com"
+    }
+  ]
+}

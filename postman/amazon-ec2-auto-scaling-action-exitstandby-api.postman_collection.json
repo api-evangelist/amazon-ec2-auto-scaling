@@ -1,0 +1,602 @@
+{
+  "info": {
+    "_postman_id": "3b63d74d-2c59-45db-ad4a-e8ac3fbabfb2",
+    "name": "Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=ExitStandby API",
+    "description": "<fullname>Amazon EC2 Auto Scaling</fullname> <p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.</p> <p>For more information, see the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/\">Amazon EC2 Auto Scaling User Guide</a> and the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html\">Amazon EC2 Auto Scaling API Reference</a>.</p>\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:19:49.000Z",
+    "updatedAt": "2026-07-28T10:19:49.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-3b63d74d-2c59-45db-ad4a-e8ac3fbabfb2"
+  },
+  "item": [
+    {
+      "name": "#Action=ExitStandby",
+      "item": [
+        {
+          "name": "Amazon EC2 Auto Scaling GET_ Exit Standby",
+          "id": "c54e5f12-f28a-4328-a807-d31898214073",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?InstanceIds=<string>&InstanceIds=<string>&AutoScalingGroupName=<string>&Action=ExitStandby&Version=2011-01-01#Action=ExitStandby",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "The IDs of the instances. You can specify up to 20 instances.",
+                  "key": "InstanceIds",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The IDs of the instances. You can specify up to 20 instances.",
+                  "key": "InstanceIds",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) The name of the Auto Scaling group.",
+                  "key": "AutoScalingGroupName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "ExitStandby"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2011-01-01"
+                }
+              ],
+              "hash": "Action=ExitStandby"
+            },
+            "description": "<p>Moves the specified instances out of the standby state.</p> <p>After you put the instances back in service, the desired capacity is incremented.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enter-exit-standby.html\">Temporarily removing instances from your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>"
+          },
+          "response": [
+            {
+              "id": "e9c76ddc-42c9-45a8-84c2-d31378745ac1",
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?InstanceIds=<string>&AutoScalingGroupName=<string>&Action=ExitStandby&Version=2011-01-01#Action=ExitStandby",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "The IDs of the instances. You can specify up to 20 instances.",
+                      "key": "InstanceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The name of the Auto Scaling group.",
+                      "key": "AutoScalingGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "ExitStandby"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=ExitStandby"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <Activities>\n    <ActivityId>(string)</ActivityId>\n    <AutoScalingGroupName>(string)</AutoScalingGroupName>\n    <Description>(string)</Description>\n    <Cause>(string)</Cause>\n    <StartTime>(string)</StartTime>\n    <EndTime>(string)</EndTime>\n    <StatusCode>(string)</StatusCode>\n    <StatusMessage>(string)</StatusMessage>\n    <Progress>(integer)</Progress>\n    <Details>(string)</Details>\n    <AutoScalingGroupState>(string)</AutoScalingGroupState>\n    <AutoScalingGroupARN>(string)</AutoScalingGroupARN>\n  </Activities>\n  <Activities>\n    <ActivityId>(string)</ActivityId>\n    <AutoScalingGroupName>(string)</AutoScalingGroupName>\n    <Description>(string)</Description>\n    <Cause>(string)</Cause>\n    <StartTime>(string)</StartTime>\n    <EndTime>(string)</EndTime>\n    <StatusCode>(string)</StatusCode>\n    <StatusMessage>(string)</StatusMessage>\n    <Progress>(integer)</Progress>\n    <Details>(string)</Details>\n    <AutoScalingGroupState>(string)</AutoScalingGroupState>\n    <AutoScalingGroupARN>(string)</AutoScalingGroupARN>\n  </Activities>\n</element>",
+              "createdAt": "2026-07-28T10:19:49.000Z",
+              "updatedAt": "2026-07-28T10:19:49.000Z",
+              "uid": "35240-e9c76ddc-42c9-45a8-84c2-d31378745ac1"
+            },
+            {
+              "id": "3b69a9b5-9008-4f95-8406-7bc02ae2a501",
+              "name": "ResourceContentionFault",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?InstanceIds=<string>&AutoScalingGroupName=<string>&Action=ExitStandby&Version=2011-01-01#Action=ExitStandby",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "The IDs of the instances. You can specify up to 20 instances.",
+                      "key": "InstanceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The name of the Auto Scaling group.",
+                      "key": "AutoScalingGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "ExitStandby"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=ExitStandby"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:19:49.000Z",
+              "updatedAt": "2026-07-28T10:19:49.000Z",
+              "uid": "35240-3b69a9b5-9008-4f95-8406-7bc02ae2a501"
+            }
+          ],
+          "createdAt": "2026-07-28T10:19:49.000Z",
+          "updatedAt": "2026-07-28T10:19:49.000Z",
+          "uid": "35240-c54e5f12-f28a-4328-a807-d31898214073"
+        },
+        {
+          "name": "Amazon EC2 Auto Scaling POST_ Exit Standby",
+          "id": "67922701-c7fb-4799-a3ef-9a38df9d99f5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "text/xml"
+              },
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <InstanceIds>(string)</InstanceIds>\n  <InstanceIds>(string)</InstanceIds>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n</element>",
+              "options": {
+                "raw": {
+                  "headerFamily": "xml",
+                  "language": "xml"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/?Action=ExitStandby&Version=2011-01-01#Action=ExitStandby",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "ExitStandby"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2011-01-01"
+                }
+              ],
+              "hash": "Action=ExitStandby"
+            },
+            "description": "<p>Moves the specified instances out of the standby state.</p> <p>After you put the instances back in service, the desired capacity is incremented.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enter-exit-standby.html\">Temporarily removing instances from your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>"
+          },
+          "response": [
+            {
+              "id": "2061d93c-8262-4059-8a5d-872c8bcf9893",
+              "name": "Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <InstanceIds>(string)</InstanceIds>\n  <InstanceIds>(string)</InstanceIds>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n</element>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "xml",
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=ExitStandby&Version=2011-01-01#Action=ExitStandby",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "ExitStandby"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=ExitStandby"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <Activities>\n    <ActivityId>(string)</ActivityId>\n    <AutoScalingGroupName>(string)</AutoScalingGroupName>\n    <Description>(string)</Description>\n    <Cause>(string)</Cause>\n    <StartTime>(string)</StartTime>\n    <EndTime>(string)</EndTime>\n    <StatusCode>(string)</StatusCode>\n    <StatusMessage>(string)</StatusMessage>\n    <Progress>(integer)</Progress>\n    <Details>(string)</Details>\n    <AutoScalingGroupState>(string)</AutoScalingGroupState>\n    <AutoScalingGroupARN>(string)</AutoScalingGroupARN>\n  </Activities>\n  <Activities>\n    <ActivityId>(string)</ActivityId>\n    <AutoScalingGroupName>(string)</AutoScalingGroupName>\n    <Description>(string)</Description>\n    <Cause>(string)</Cause>\n    <StartTime>(string)</StartTime>\n    <EndTime>(string)</EndTime>\n    <StatusCode>(string)</StatusCode>\n    <StatusMessage>(string)</StatusMessage>\n    <Progress>(integer)</Progress>\n    <Details>(string)</Details>\n    <AutoScalingGroupState>(string)</AutoScalingGroupState>\n    <AutoScalingGroupARN>(string)</AutoScalingGroupARN>\n  </Activities>\n</element>",
+              "createdAt": "2026-07-28T10:19:49.000Z",
+              "updatedAt": "2026-07-28T10:19:49.000Z",
+              "uid": "35240-2061d93c-8262-4059-8a5d-872c8bcf9893"
+            },
+            {
+              "id": "e814c47a-44cf-4c73-9b0d-cef69dfe352c",
+              "name": "ResourceContentionFault",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <InstanceIds>(string)</InstanceIds>\n  <InstanceIds>(string)</InstanceIds>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n</element>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "xml",
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=ExitStandby&Version=2011-01-01#Action=ExitStandby",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "ExitStandby"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=ExitStandby"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:19:49.000Z",
+              "updatedAt": "2026-07-28T10:19:49.000Z",
+              "uid": "35240-e814c47a-44cf-4c73-9b0d-cef69dfe352c"
+            }
+          ],
+          "createdAt": "2026-07-28T10:19:49.000Z",
+          "updatedAt": "2026-07-28T10:19:49.000Z",
+          "uid": "35240-67922701-c7fb-4799-a3ef-9a38df9d99f5"
+        }
+      ],
+      "id": "7952b313-54d7-4113-9408-6a0cdcc62d5f",
+      "createdAt": "2026-07-28T10:19:49.000Z",
+      "updatedAt": "2026-07-28T10:19:49.000Z",
+      "uid": "35240-7952b313-54d7-4113-9408-6a0cdcc62d5f"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://autoscaling.{{region}}.amazonaws.com"
+    }
+  ]
+}

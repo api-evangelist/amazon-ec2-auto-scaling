@@ -1,0 +1,1441 @@
+{
+  "info": {
+    "_postman_id": "4ddce376-2d3e-4501-ba1c-31b2de990946",
+    "name": "Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=CreateLaunchConfiguration API",
+    "description": "<fullname>Amazon EC2 Auto Scaling</fullname> <p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.</p> <p>For more information, see the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/\">Amazon EC2 Auto Scaling User Guide</a> and the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html\">Amazon EC2 Auto Scaling API Reference</a>.</p>\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:17:58.000Z",
+    "updatedAt": "2026-07-28T10:17:58.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-4ddce376-2d3e-4501-ba1c-31b2de990946"
+  },
+  "item": [
+    {
+      "name": "#Action=CreateLaunchConfiguration",
+      "item": [
+        {
+          "name": "Amazon EC2 Auto Scaling GET_ Create Launch Configuration",
+          "id": "9983801e-ad1c-432c-8911-9b7a227dbd57",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?LaunchConfigurationName=<string>&ImageId=<string>&KeyName=<string>&SecurityGroups=<string>&SecurityGroups=<string>&ClassicLinkVPCId=<string>&ClassicLinkVPCSecurityGroups=<string>&ClassicLinkVPCSecurityGroups=<string>&UserData=<string>&InstanceId=<string>&InstanceType=<string>&KernelId=<string>&RamdiskId=<string>&BlockDeviceMappings=[object Object]&BlockDeviceMappings=[object Object]&Enabled=<boolean>&SpotPrice=<string>&IamInstanceProfile=<string>&EbsOptimized=<boolean>&AssociatePublicIpAddress=<boolean>&PlacementTenancy=<string>&HttpTokens=optional&HttpPutResponseHopLimit=<integer>&HttpEndpoint=disabled&Action=CreateLaunchConfiguration&Version=2011-01-01#Action=CreateLaunchConfiguration",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "(Required) The name of the launch configuration. This name must be unique per Region per account.",
+                  "key": "LaunchConfigurationName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "<p>The ID of the Amazon Machine Image (AMI) that was assigned during registration. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html\">Finding a Linux AMI</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> <p>If you specify <code>InstanceId</code>, an <code>ImageId</code> is not required.</p>",
+                  "key": "ImageId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The name of the key pair. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html\">Amazon EC2 key pairs and Linux instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.",
+                  "key": "KeyName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "A list that contains the security group IDs to assign to the instances in the Auto Scaling group. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html\">Control traffic to resources using security groups</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.",
+                  "key": "SecurityGroups",
+                  "value": "<string>"
+                },
+                {
+                  "description": "A list that contains the security group IDs to assign to the instances in the Auto Scaling group. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html\">Control traffic to resources using security groups</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.",
+                  "key": "SecurityGroups",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Available for backward compatibility.",
+                  "key": "ClassicLinkVPCId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Available for backward compatibility.",
+                  "key": "ClassicLinkVPCSecurityGroups",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Available for backward compatibility.",
+                  "key": "ClassicLinkVPCSecurityGroups",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The user data to make available to the launched EC2 instances. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html\">Instance metadata and user data</a> (Linux) and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html\">Instance metadata and user data</a> (Windows). If you are using a command line tool, base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide base64-encoded text. User data is limited to 16 KB.",
+                  "key": "UserData",
+                  "value": "<string>"
+                },
+                {
+                  "description": "<p>The ID of the instance to use to create the launch configuration. The new launch configuration derives attributes from the instance, except for the block device mapping.</p> <p>To create a launch configuration with a block device mapping or override any other instance attributes, specify them as part of the same request.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-lc-with-instanceID.html\">Creating a launch configuration using an EC2 instance</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>",
+                  "key": "InstanceId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "<p>Specifies the instance type of the EC2 instance. For information about available instance types, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes\">Available instance types</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> <p>If you specify <code>InstanceId</code>, an <code>InstanceType</code> is not required.</p>",
+                  "key": "InstanceType",
+                  "value": "<string>"
+                },
+                {
+                  "description": "<p>The ID of the kernel associated with the AMI.</p> <note> <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html\">User provided kernels</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> </note>",
+                  "key": "KernelId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "<p>The ID of the RAM disk to select.</p> <note> <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html\">User provided kernels</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> </note>",
+                  "key": "RamdiskId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The block device mapping entries that define the block devices to attach to the instances at launch. By default, the block devices specified in the block device mapping for the AMI are used. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html\">Block device mappings</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.",
+                  "key": "BlockDeviceMappings",
+                  "value": "[object Object]"
+                },
+                {
+                  "description": "The block device mapping entries that define the block devices to attach to the instances at launch. By default, the block devices specified in the block device mapping for the AMI are used. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html\">Block device mappings</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.",
+                  "key": "BlockDeviceMappings",
+                  "value": "[object Object]"
+                },
+                {
+                  "description": "<p>Controls whether instances in this group are launched with detailed (<code>true</code>) or basic (<code>false</code>) monitoring.</p> <p>The default value is <code>true</code> (enabled).</p> <important> <p>When detailed monitoring is enabled, Amazon CloudWatch generates metrics every minute and your account is charged a fee. When you disable detailed monitoring, CloudWatch generates metrics every 5 minutes. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/latest/userguide/enable-as-instance-metrics.html\">Configure Monitoring for Auto Scaling Instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> </important>",
+                  "key": "Enabled",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "<p>The maximum hourly price to be paid for any Spot Instance launched to fulfill the request. Spot Instances are launched when the price you specify exceeds the current Spot price. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-template-spot-instances.html\">Request Spot Instances for fault-tolerant and flexible applications</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>Valid Range: Minimum value of 0.001</p> <note> <p>When you change your maximum price by creating a new launch configuration, running instances will continue to run as long as the maximum price for those running instances is higher than the current Spot price.</p> </note>",
+                  "key": "SpotPrice",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance. The instance profile contains the IAM role. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/us-iam-role.html\">IAM role for applications that run on Amazon EC2 instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                  "key": "IamInstanceProfile",
+                  "value": "<string>"
+                },
+                {
+                  "description": "<p>Specifies whether the launch configuration is optimized for EBS I/O (<code>true</code>) or not (<code>false</code>). The optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization is not available with all instance types. Additional fees are incurred when you enable EBS optimization for an instance type that is not EBS-optimized by default. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html\">Amazon EBS-optimized instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> <p>The default value is <code>false</code>.</p>",
+                  "key": "EbsOptimized",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "<p>Specifies whether to assign a public IPv4 address to the group's instances. If the instance is launched into a default subnet, the default is to assign a public IPv4 address, unless you disabled the option to assign a public IPv4 address on the subnet. If the instance is launched into a nondefault subnet, the default is not to assign a public IPv4 address, unless you enabled the option to assign a public IPv4 address on the subnet.</p> <p>If you specify <code>true</code>, each instance in the Auto Scaling group receives a unique public IPv4 address. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html\">Launching Auto Scaling instances in a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>If you specify this property, you must specify at least one subnet for <code>VPCZoneIdentifier</code> when you create your group.</p>",
+                  "key": "AssociatePublicIpAddress",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "<p>The tenancy of the instance, either <code>default</code> or <code>dedicated</code>. An instance with <code>dedicated</code> tenancy runs on isolated, single-tenant hardware and can only be launched into a VPC. To launch dedicated instances into a shared tenancy VPC (a VPC with the instance placement tenancy attribute set to <code>default</code>), you must set the value of this property to <code>dedicated</code>. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-dedicated-instances.html\">Configuring instance tenancy with Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>If you specify <code>PlacementTenancy</code>, you must specify at least one subnet for <code>VPCZoneIdentifier</code> when you create your group.</p> <p>Valid values: <code>default</code> | <code>dedicated</code> </p>",
+                  "key": "PlacementTenancy",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The metadata options for the instances. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds\">Configuring the Instance Metadata Options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                  "key": "HttpTokens",
+                  "value": "optional"
+                },
+                {
+                  "description": "The metadata options for the instances. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds\">Configuring the Instance Metadata Options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                  "key": "HttpPutResponseHopLimit",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "The metadata options for the instances. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds\">Configuring the Instance Metadata Options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                  "key": "HttpEndpoint",
+                  "value": "disabled"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "CreateLaunchConfiguration"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2011-01-01"
+                }
+              ],
+              "hash": "Action=CreateLaunchConfiguration"
+            },
+            "description": "<p>Creates a launch configuration.</p> <p>If you exceed your maximum limit of launch configurations, the call fails. To query this limit, call the <a>DescribeAccountLimits</a> API. For information about updating this limit, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html\">Quotas for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchConfiguration.html\">Launch configurations</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <note> <p>Amazon EC2 Auto Scaling configures instances launched as part of an Auto Scaling group using either a launch template or a launch configuration. We strongly recommend that you do not use launch configurations. They do not provide full functionality for Amazon EC2 Auto Scaling or Amazon EC2. For information about using launch templates, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-templates.html\">Launch templates</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> </note>"
+          },
+          "response": [
+            {
+              "id": "1d35e666-b7b8-4487-9e29-c2040e66cc73",
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?LaunchConfigurationName=<string>&ImageId=<string>&KeyName=<string>&SecurityGroups=<string>&ClassicLinkVPCId=<string>&ClassicLinkVPCSecurityGroups=<string>&UserData=<string>&InstanceId=<string>&InstanceType=<string>&KernelId=<string>&RamdiskId=<string>&BlockDeviceMappings=[object Object]&Enabled=<boolean>&SpotPrice=<string>&IamInstanceProfile=<string>&EbsOptimized=<boolean>&AssociatePublicIpAddress=<boolean>&PlacementTenancy=<string>&HttpTokens=optional&HttpPutResponseHopLimit=<integer>&HttpEndpoint=disabled&Action=CreateLaunchConfiguration&Version=2011-01-01#Action=CreateLaunchConfiguration",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The name of the launch configuration. This name must be unique per Region per account.",
+                      "key": "LaunchConfigurationName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>The ID of the Amazon Machine Image (AMI) that was assigned during registration. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html\">Finding a Linux AMI</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> <p>If you specify <code>InstanceId</code>, an <code>ImageId</code> is not required.</p>",
+                      "key": "ImageId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name of the key pair. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html\">Amazon EC2 key pairs and Linux instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.",
+                      "key": "KeyName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A list that contains the security group IDs to assign to the instances in the Auto Scaling group. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html\">Control traffic to resources using security groups</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.",
+                      "key": "SecurityGroups",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Available for backward compatibility.",
+                      "key": "ClassicLinkVPCId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Available for backward compatibility.",
+                      "key": "ClassicLinkVPCSecurityGroups",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The user data to make available to the launched EC2 instances. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html\">Instance metadata and user data</a> (Linux) and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html\">Instance metadata and user data</a> (Windows). If you are using a command line tool, base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide base64-encoded text. User data is limited to 16 KB.",
+                      "key": "UserData",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>The ID of the instance to use to create the launch configuration. The new launch configuration derives attributes from the instance, except for the block device mapping.</p> <p>To create a launch configuration with a block device mapping or override any other instance attributes, specify them as part of the same request.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-lc-with-instanceID.html\">Creating a launch configuration using an EC2 instance</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>",
+                      "key": "InstanceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>Specifies the instance type of the EC2 instance. For information about available instance types, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes\">Available instance types</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> <p>If you specify <code>InstanceId</code>, an <code>InstanceType</code> is not required.</p>",
+                      "key": "InstanceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>The ID of the kernel associated with the AMI.</p> <note> <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html\">User provided kernels</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> </note>",
+                      "key": "KernelId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>The ID of the RAM disk to select.</p> <note> <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html\">User provided kernels</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> </note>",
+                      "key": "RamdiskId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The block device mapping entries that define the block devices to attach to the instances at launch. By default, the block devices specified in the block device mapping for the AMI are used. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html\">Block device mappings</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.",
+                      "key": "BlockDeviceMappings",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "<p>Controls whether instances in this group are launched with detailed (<code>true</code>) or basic (<code>false</code>) monitoring.</p> <p>The default value is <code>true</code> (enabled).</p> <important> <p>When detailed monitoring is enabled, Amazon CloudWatch generates metrics every minute and your account is charged a fee. When you disable detailed monitoring, CloudWatch generates metrics every 5 minutes. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/latest/userguide/enable-as-instance-metrics.html\">Configure Monitoring for Auto Scaling Instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> </important>",
+                      "key": "Enabled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "<p>The maximum hourly price to be paid for any Spot Instance launched to fulfill the request. Spot Instances are launched when the price you specify exceeds the current Spot price. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-template-spot-instances.html\">Request Spot Instances for fault-tolerant and flexible applications</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>Valid Range: Minimum value of 0.001</p> <note> <p>When you change your maximum price by creating a new launch configuration, running instances will continue to run as long as the maximum price for those running instances is higher than the current Spot price.</p> </note>",
+                      "key": "SpotPrice",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance. The instance profile contains the IAM role. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/us-iam-role.html\">IAM role for applications that run on Amazon EC2 instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "IamInstanceProfile",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>Specifies whether the launch configuration is optimized for EBS I/O (<code>true</code>) or not (<code>false</code>). The optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization is not available with all instance types. Additional fees are incurred when you enable EBS optimization for an instance type that is not EBS-optimized by default. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html\">Amazon EBS-optimized instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> <p>The default value is <code>false</code>.</p>",
+                      "key": "EbsOptimized",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "<p>Specifies whether to assign a public IPv4 address to the group's instances. If the instance is launched into a default subnet, the default is to assign a public IPv4 address, unless you disabled the option to assign a public IPv4 address on the subnet. If the instance is launched into a nondefault subnet, the default is not to assign a public IPv4 address, unless you enabled the option to assign a public IPv4 address on the subnet.</p> <p>If you specify <code>true</code>, each instance in the Auto Scaling group receives a unique public IPv4 address. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html\">Launching Auto Scaling instances in a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>If you specify this property, you must specify at least one subnet for <code>VPCZoneIdentifier</code> when you create your group.</p>",
+                      "key": "AssociatePublicIpAddress",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "<p>The tenancy of the instance, either <code>default</code> or <code>dedicated</code>. An instance with <code>dedicated</code> tenancy runs on isolated, single-tenant hardware and can only be launched into a VPC. To launch dedicated instances into a shared tenancy VPC (a VPC with the instance placement tenancy attribute set to <code>default</code>), you must set the value of this property to <code>dedicated</code>. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-dedicated-instances.html\">Configuring instance tenancy with Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>If you specify <code>PlacementTenancy</code>, you must specify at least one subnet for <code>VPCZoneIdentifier</code> when you create your group.</p> <p>Valid values: <code>default</code> | <code>dedicated</code> </p>",
+                      "key": "PlacementTenancy",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The metadata options for the instances. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds\">Configuring the Instance Metadata Options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "HttpTokens",
+                      "value": "optional"
+                    },
+                    {
+                      "description": "The metadata options for the instances. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds\">Configuring the Instance Metadata Options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "HttpPutResponseHopLimit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The metadata options for the instances. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds\">Configuring the Instance Metadata Options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "HttpEndpoint",
+                      "value": "disabled"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "CreateLaunchConfiguration"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=CreateLaunchConfiguration"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T10:17:58.000Z",
+              "updatedAt": "2026-07-28T10:17:58.000Z",
+              "uid": "35240-1d35e666-b7b8-4487-9e29-c2040e66cc73"
+            },
+            {
+              "id": "e8275801-124a-4e6a-aa7c-5d29f8058505",
+              "name": "AlreadyExistsFault",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?LaunchConfigurationName=<string>&ImageId=<string>&KeyName=<string>&SecurityGroups=<string>&ClassicLinkVPCId=<string>&ClassicLinkVPCSecurityGroups=<string>&UserData=<string>&InstanceId=<string>&InstanceType=<string>&KernelId=<string>&RamdiskId=<string>&BlockDeviceMappings=[object Object]&Enabled=<boolean>&SpotPrice=<string>&IamInstanceProfile=<string>&EbsOptimized=<boolean>&AssociatePublicIpAddress=<boolean>&PlacementTenancy=<string>&HttpTokens=optional&HttpPutResponseHopLimit=<integer>&HttpEndpoint=disabled&Action=CreateLaunchConfiguration&Version=2011-01-01#Action=CreateLaunchConfiguration",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The name of the launch configuration. This name must be unique per Region per account.",
+                      "key": "LaunchConfigurationName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>The ID of the Amazon Machine Image (AMI) that was assigned during registration. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html\">Finding a Linux AMI</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> <p>If you specify <code>InstanceId</code>, an <code>ImageId</code> is not required.</p>",
+                      "key": "ImageId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name of the key pair. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html\">Amazon EC2 key pairs and Linux instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.",
+                      "key": "KeyName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A list that contains the security group IDs to assign to the instances in the Auto Scaling group. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html\">Control traffic to resources using security groups</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.",
+                      "key": "SecurityGroups",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Available for backward compatibility.",
+                      "key": "ClassicLinkVPCId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Available for backward compatibility.",
+                      "key": "ClassicLinkVPCSecurityGroups",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The user data to make available to the launched EC2 instances. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html\">Instance metadata and user data</a> (Linux) and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html\">Instance metadata and user data</a> (Windows). If you are using a command line tool, base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide base64-encoded text. User data is limited to 16 KB.",
+                      "key": "UserData",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>The ID of the instance to use to create the launch configuration. The new launch configuration derives attributes from the instance, except for the block device mapping.</p> <p>To create a launch configuration with a block device mapping or override any other instance attributes, specify them as part of the same request.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-lc-with-instanceID.html\">Creating a launch configuration using an EC2 instance</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>",
+                      "key": "InstanceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>Specifies the instance type of the EC2 instance. For information about available instance types, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes\">Available instance types</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> <p>If you specify <code>InstanceId</code>, an <code>InstanceType</code> is not required.</p>",
+                      "key": "InstanceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>The ID of the kernel associated with the AMI.</p> <note> <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html\">User provided kernels</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> </note>",
+                      "key": "KernelId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>The ID of the RAM disk to select.</p> <note> <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html\">User provided kernels</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> </note>",
+                      "key": "RamdiskId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The block device mapping entries that define the block devices to attach to the instances at launch. By default, the block devices specified in the block device mapping for the AMI are used. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html\">Block device mappings</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.",
+                      "key": "BlockDeviceMappings",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "<p>Controls whether instances in this group are launched with detailed (<code>true</code>) or basic (<code>false</code>) monitoring.</p> <p>The default value is <code>true</code> (enabled).</p> <important> <p>When detailed monitoring is enabled, Amazon CloudWatch generates metrics every minute and your account is charged a fee. When you disable detailed monitoring, CloudWatch generates metrics every 5 minutes. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/latest/userguide/enable-as-instance-metrics.html\">Configure Monitoring for Auto Scaling Instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> </important>",
+                      "key": "Enabled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "<p>The maximum hourly price to be paid for any Spot Instance launched to fulfill the request. Spot Instances are launched when the price you specify exceeds the current Spot price. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-template-spot-instances.html\">Request Spot Instances for fault-tolerant and flexible applications</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>Valid Range: Minimum value of 0.001</p> <note> <p>When you change your maximum price by creating a new launch configuration, running instances will continue to run as long as the maximum price for those running instances is higher than the current Spot price.</p> </note>",
+                      "key": "SpotPrice",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance. The instance profile contains the IAM role. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/us-iam-role.html\">IAM role for applications that run on Amazon EC2 instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "IamInstanceProfile",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>Specifies whether the launch configuration is optimized for EBS I/O (<code>true</code>) or not (<code>false</code>). The optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization is not available with all instance types. Additional fees are incurred when you enable EBS optimization for an instance type that is not EBS-optimized by default. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html\">Amazon EBS-optimized instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> <p>The default value is <code>false</code>.</p>",
+                      "key": "EbsOptimized",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "<p>Specifies whether to assign a public IPv4 address to the group's instances. If the instance is launched into a default subnet, the default is to assign a public IPv4 address, unless you disabled the option to assign a public IPv4 address on the subnet. If the instance is launched into a nondefault subnet, the default is not to assign a public IPv4 address, unless you enabled the option to assign a public IPv4 address on the subnet.</p> <p>If you specify <code>true</code>, each instance in the Auto Scaling group receives a unique public IPv4 address. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html\">Launching Auto Scaling instances in a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>If you specify this property, you must specify at least one subnet for <code>VPCZoneIdentifier</code> when you create your group.</p>",
+                      "key": "AssociatePublicIpAddress",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "<p>The tenancy of the instance, either <code>default</code> or <code>dedicated</code>. An instance with <code>dedicated</code> tenancy runs on isolated, single-tenant hardware and can only be launched into a VPC. To launch dedicated instances into a shared tenancy VPC (a VPC with the instance placement tenancy attribute set to <code>default</code>), you must set the value of this property to <code>dedicated</code>. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-dedicated-instances.html\">Configuring instance tenancy with Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>If you specify <code>PlacementTenancy</code>, you must specify at least one subnet for <code>VPCZoneIdentifier</code> when you create your group.</p> <p>Valid values: <code>default</code> | <code>dedicated</code> </p>",
+                      "key": "PlacementTenancy",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The metadata options for the instances. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds\">Configuring the Instance Metadata Options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "HttpTokens",
+                      "value": "optional"
+                    },
+                    {
+                      "description": "The metadata options for the instances. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds\">Configuring the Instance Metadata Options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "HttpPutResponseHopLimit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The metadata options for the instances. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds\">Configuring the Instance Metadata Options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "HttpEndpoint",
+                      "value": "disabled"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "CreateLaunchConfiguration"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=CreateLaunchConfiguration"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:17:58.000Z",
+              "updatedAt": "2026-07-28T10:17:58.000Z",
+              "uid": "35240-e8275801-124a-4e6a-aa7c-5d29f8058505"
+            },
+            {
+              "id": "839a08f4-e96d-453d-aa7f-bd4725daf5a2",
+              "name": "LimitExceededFault",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?LaunchConfigurationName=<string>&ImageId=<string>&KeyName=<string>&SecurityGroups=<string>&ClassicLinkVPCId=<string>&ClassicLinkVPCSecurityGroups=<string>&UserData=<string>&InstanceId=<string>&InstanceType=<string>&KernelId=<string>&RamdiskId=<string>&BlockDeviceMappings=[object Object]&Enabled=<boolean>&SpotPrice=<string>&IamInstanceProfile=<string>&EbsOptimized=<boolean>&AssociatePublicIpAddress=<boolean>&PlacementTenancy=<string>&HttpTokens=optional&HttpPutResponseHopLimit=<integer>&HttpEndpoint=disabled&Action=CreateLaunchConfiguration&Version=2011-01-01#Action=CreateLaunchConfiguration",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The name of the launch configuration. This name must be unique per Region per account.",
+                      "key": "LaunchConfigurationName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>The ID of the Amazon Machine Image (AMI) that was assigned during registration. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html\">Finding a Linux AMI</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> <p>If you specify <code>InstanceId</code>, an <code>ImageId</code> is not required.</p>",
+                      "key": "ImageId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name of the key pair. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html\">Amazon EC2 key pairs and Linux instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.",
+                      "key": "KeyName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A list that contains the security group IDs to assign to the instances in the Auto Scaling group. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html\">Control traffic to resources using security groups</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.",
+                      "key": "SecurityGroups",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Available for backward compatibility.",
+                      "key": "ClassicLinkVPCId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Available for backward compatibility.",
+                      "key": "ClassicLinkVPCSecurityGroups",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The user data to make available to the launched EC2 instances. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html\">Instance metadata and user data</a> (Linux) and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html\">Instance metadata and user data</a> (Windows). If you are using a command line tool, base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide base64-encoded text. User data is limited to 16 KB.",
+                      "key": "UserData",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>The ID of the instance to use to create the launch configuration. The new launch configuration derives attributes from the instance, except for the block device mapping.</p> <p>To create a launch configuration with a block device mapping or override any other instance attributes, specify them as part of the same request.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-lc-with-instanceID.html\">Creating a launch configuration using an EC2 instance</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>",
+                      "key": "InstanceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>Specifies the instance type of the EC2 instance. For information about available instance types, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes\">Available instance types</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> <p>If you specify <code>InstanceId</code>, an <code>InstanceType</code> is not required.</p>",
+                      "key": "InstanceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>The ID of the kernel associated with the AMI.</p> <note> <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html\">User provided kernels</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> </note>",
+                      "key": "KernelId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>The ID of the RAM disk to select.</p> <note> <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html\">User provided kernels</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> </note>",
+                      "key": "RamdiskId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The block device mapping entries that define the block devices to attach to the instances at launch. By default, the block devices specified in the block device mapping for the AMI are used. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html\">Block device mappings</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.",
+                      "key": "BlockDeviceMappings",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "<p>Controls whether instances in this group are launched with detailed (<code>true</code>) or basic (<code>false</code>) monitoring.</p> <p>The default value is <code>true</code> (enabled).</p> <important> <p>When detailed monitoring is enabled, Amazon CloudWatch generates metrics every minute and your account is charged a fee. When you disable detailed monitoring, CloudWatch generates metrics every 5 minutes. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/latest/userguide/enable-as-instance-metrics.html\">Configure Monitoring for Auto Scaling Instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> </important>",
+                      "key": "Enabled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "<p>The maximum hourly price to be paid for any Spot Instance launched to fulfill the request. Spot Instances are launched when the price you specify exceeds the current Spot price. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-template-spot-instances.html\">Request Spot Instances for fault-tolerant and flexible applications</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>Valid Range: Minimum value of 0.001</p> <note> <p>When you change your maximum price by creating a new launch configuration, running instances will continue to run as long as the maximum price for those running instances is higher than the current Spot price.</p> </note>",
+                      "key": "SpotPrice",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance. The instance profile contains the IAM role. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/us-iam-role.html\">IAM role for applications that run on Amazon EC2 instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "IamInstanceProfile",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>Specifies whether the launch configuration is optimized for EBS I/O (<code>true</code>) or not (<code>false</code>). The optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization is not available with all instance types. Additional fees are incurred when you enable EBS optimization for an instance type that is not EBS-optimized by default. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html\">Amazon EBS-optimized instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> <p>The default value is <code>false</code>.</p>",
+                      "key": "EbsOptimized",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "<p>Specifies whether to assign a public IPv4 address to the group's instances. If the instance is launched into a default subnet, the default is to assign a public IPv4 address, unless you disabled the option to assign a public IPv4 address on the subnet. If the instance is launched into a nondefault subnet, the default is not to assign a public IPv4 address, unless you enabled the option to assign a public IPv4 address on the subnet.</p> <p>If you specify <code>true</code>, each instance in the Auto Scaling group receives a unique public IPv4 address. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html\">Launching Auto Scaling instances in a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>If you specify this property, you must specify at least one subnet for <code>VPCZoneIdentifier</code> when you create your group.</p>",
+                      "key": "AssociatePublicIpAddress",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "<p>The tenancy of the instance, either <code>default</code> or <code>dedicated</code>. An instance with <code>dedicated</code> tenancy runs on isolated, single-tenant hardware and can only be launched into a VPC. To launch dedicated instances into a shared tenancy VPC (a VPC with the instance placement tenancy attribute set to <code>default</code>), you must set the value of this property to <code>dedicated</code>. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-dedicated-instances.html\">Configuring instance tenancy with Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>If you specify <code>PlacementTenancy</code>, you must specify at least one subnet for <code>VPCZoneIdentifier</code> when you create your group.</p> <p>Valid values: <code>default</code> | <code>dedicated</code> </p>",
+                      "key": "PlacementTenancy",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The metadata options for the instances. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds\">Configuring the Instance Metadata Options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "HttpTokens",
+                      "value": "optional"
+                    },
+                    {
+                      "description": "The metadata options for the instances. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds\">Configuring the Instance Metadata Options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "HttpPutResponseHopLimit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The metadata options for the instances. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds\">Configuring the Instance Metadata Options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "HttpEndpoint",
+                      "value": "disabled"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "CreateLaunchConfiguration"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=CreateLaunchConfiguration"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:17:58.000Z",
+              "updatedAt": "2026-07-28T10:17:58.000Z",
+              "uid": "35240-839a08f4-e96d-453d-aa7f-bd4725daf5a2"
+            },
+            {
+              "id": "d8021ca4-63d5-4466-8613-5ace08fa8a73",
+              "name": "ResourceContentionFault",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?LaunchConfigurationName=<string>&ImageId=<string>&KeyName=<string>&SecurityGroups=<string>&ClassicLinkVPCId=<string>&ClassicLinkVPCSecurityGroups=<string>&UserData=<string>&InstanceId=<string>&InstanceType=<string>&KernelId=<string>&RamdiskId=<string>&BlockDeviceMappings=[object Object]&Enabled=<boolean>&SpotPrice=<string>&IamInstanceProfile=<string>&EbsOptimized=<boolean>&AssociatePublicIpAddress=<boolean>&PlacementTenancy=<string>&HttpTokens=optional&HttpPutResponseHopLimit=<integer>&HttpEndpoint=disabled&Action=CreateLaunchConfiguration&Version=2011-01-01#Action=CreateLaunchConfiguration",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The name of the launch configuration. This name must be unique per Region per account.",
+                      "key": "LaunchConfigurationName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>The ID of the Amazon Machine Image (AMI) that was assigned during registration. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html\">Finding a Linux AMI</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> <p>If you specify <code>InstanceId</code>, an <code>ImageId</code> is not required.</p>",
+                      "key": "ImageId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name of the key pair. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html\">Amazon EC2 key pairs and Linux instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.",
+                      "key": "KeyName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A list that contains the security group IDs to assign to the instances in the Auto Scaling group. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html\">Control traffic to resources using security groups</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.",
+                      "key": "SecurityGroups",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Available for backward compatibility.",
+                      "key": "ClassicLinkVPCId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Available for backward compatibility.",
+                      "key": "ClassicLinkVPCSecurityGroups",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The user data to make available to the launched EC2 instances. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html\">Instance metadata and user data</a> (Linux) and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html\">Instance metadata and user data</a> (Windows). If you are using a command line tool, base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide base64-encoded text. User data is limited to 16 KB.",
+                      "key": "UserData",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>The ID of the instance to use to create the launch configuration. The new launch configuration derives attributes from the instance, except for the block device mapping.</p> <p>To create a launch configuration with a block device mapping or override any other instance attributes, specify them as part of the same request.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-lc-with-instanceID.html\">Creating a launch configuration using an EC2 instance</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>",
+                      "key": "InstanceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>Specifies the instance type of the EC2 instance. For information about available instance types, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes\">Available instance types</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> <p>If you specify <code>InstanceId</code>, an <code>InstanceType</code> is not required.</p>",
+                      "key": "InstanceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>The ID of the kernel associated with the AMI.</p> <note> <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html\">User provided kernels</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> </note>",
+                      "key": "KernelId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>The ID of the RAM disk to select.</p> <note> <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html\">User provided kernels</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> </note>",
+                      "key": "RamdiskId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The block device mapping entries that define the block devices to attach to the instances at launch. By default, the block devices specified in the block device mapping for the AMI are used. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html\">Block device mappings</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.",
+                      "key": "BlockDeviceMappings",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "<p>Controls whether instances in this group are launched with detailed (<code>true</code>) or basic (<code>false</code>) monitoring.</p> <p>The default value is <code>true</code> (enabled).</p> <important> <p>When detailed monitoring is enabled, Amazon CloudWatch generates metrics every minute and your account is charged a fee. When you disable detailed monitoring, CloudWatch generates metrics every 5 minutes. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/latest/userguide/enable-as-instance-metrics.html\">Configure Monitoring for Auto Scaling Instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> </important>",
+                      "key": "Enabled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "<p>The maximum hourly price to be paid for any Spot Instance launched to fulfill the request. Spot Instances are launched when the price you specify exceeds the current Spot price. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-template-spot-instances.html\">Request Spot Instances for fault-tolerant and flexible applications</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>Valid Range: Minimum value of 0.001</p> <note> <p>When you change your maximum price by creating a new launch configuration, running instances will continue to run as long as the maximum price for those running instances is higher than the current Spot price.</p> </note>",
+                      "key": "SpotPrice",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance. The instance profile contains the IAM role. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/us-iam-role.html\">IAM role for applications that run on Amazon EC2 instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "IamInstanceProfile",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>Specifies whether the launch configuration is optimized for EBS I/O (<code>true</code>) or not (<code>false</code>). The optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization is not available with all instance types. Additional fees are incurred when you enable EBS optimization for an instance type that is not EBS-optimized by default. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html\">Amazon EBS-optimized instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> <p>The default value is <code>false</code>.</p>",
+                      "key": "EbsOptimized",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "<p>Specifies whether to assign a public IPv4 address to the group's instances. If the instance is launched into a default subnet, the default is to assign a public IPv4 address, unless you disabled the option to assign a public IPv4 address on the subnet. If the instance is launched into a nondefault subnet, the default is not to assign a public IPv4 address, unless you enabled the option to assign a public IPv4 address on the subnet.</p> <p>If you specify <code>true</code>, each instance in the Auto Scaling group receives a unique public IPv4 address. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html\">Launching Auto Scaling instances in a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>If you specify this property, you must specify at least one subnet for <code>VPCZoneIdentifier</code> when you create your group.</p>",
+                      "key": "AssociatePublicIpAddress",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "<p>The tenancy of the instance, either <code>default</code> or <code>dedicated</code>. An instance with <code>dedicated</code> tenancy runs on isolated, single-tenant hardware and can only be launched into a VPC. To launch dedicated instances into a shared tenancy VPC (a VPC with the instance placement tenancy attribute set to <code>default</code>), you must set the value of this property to <code>dedicated</code>. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-dedicated-instances.html\">Configuring instance tenancy with Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>If you specify <code>PlacementTenancy</code>, you must specify at least one subnet for <code>VPCZoneIdentifier</code> when you create your group.</p> <p>Valid values: <code>default</code> | <code>dedicated</code> </p>",
+                      "key": "PlacementTenancy",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The metadata options for the instances. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds\">Configuring the Instance Metadata Options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "HttpTokens",
+                      "value": "optional"
+                    },
+                    {
+                      "description": "The metadata options for the instances. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds\">Configuring the Instance Metadata Options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "HttpPutResponseHopLimit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The metadata options for the instances. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds\">Configuring the Instance Metadata Options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "HttpEndpoint",
+                      "value": "disabled"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "CreateLaunchConfiguration"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=CreateLaunchConfiguration"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:17:58.000Z",
+              "updatedAt": "2026-07-28T10:17:58.000Z",
+              "uid": "35240-d8021ca4-63d5-4466-8613-5ace08fa8a73"
+            }
+          ],
+          "createdAt": "2026-07-28T10:17:58.000Z",
+          "updatedAt": "2026-07-28T10:17:58.000Z",
+          "uid": "35240-9983801e-ad1c-432c-8911-9b7a227dbd57"
+        },
+        {
+          "name": "Amazon EC2 Auto Scaling POST_ Create Launch Configuration",
+          "id": "94b26fd9-035c-474c-8067-e2615bf63395",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "text/xml"
+              },
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <LaunchConfigurationName>(string)</LaunchConfigurationName>\n  <ImageId>(string)</ImageId>\n  <KeyName>(string)</KeyName>\n  <SecurityGroups>(string)</SecurityGroups>\n  <SecurityGroups>(string)</SecurityGroups>\n  <ClassicLinkVPCId>(string)</ClassicLinkVPCId>\n  <ClassicLinkVPCSecurityGroups>(string)</ClassicLinkVPCSecurityGroups>\n  <ClassicLinkVPCSecurityGroups>(string)</ClassicLinkVPCSecurityGroups>\n  <UserData>(string)</UserData>\n  <InstanceId>(string)</InstanceId>\n  <InstanceType>(string)</InstanceType>\n  <KernelId>(string)</KernelId>\n  <RamdiskId>(string)</RamdiskId>\n  <BlockDeviceMappings>\n    <VirtualName>(string)</VirtualName>\n    <DeviceName>(string)</DeviceName>\n    <Ebs>\n      <SnapshotId>(string)</SnapshotId>\n      <VolumeSize>(integer)</VolumeSize>\n      <VolumeType>(string)</VolumeType>\n      <DeleteOnTermination>(boolean)</DeleteOnTermination>\n      <Iops>(integer)</Iops>\n      <Encrypted>(boolean)</Encrypted>\n      <Throughput>(integer)</Throughput>\n    </Ebs>\n    <NoDevice>(boolean)</NoDevice>\n  </BlockDeviceMappings>\n  <BlockDeviceMappings>\n    <VirtualName>(string)</VirtualName>\n    <DeviceName>(string)</DeviceName>\n    <Ebs>\n      <SnapshotId>(string)</SnapshotId>\n      <VolumeSize>(integer)</VolumeSize>\n      <VolumeType>(string)</VolumeType>\n      <DeleteOnTermination>(boolean)</DeleteOnTermination>\n      <Iops>(integer)</Iops>\n      <Encrypted>(boolean)</Encrypted>\n      <Throughput>(integer)</Throughput>\n    </Ebs>\n    <NoDevice>(boolean)</NoDevice>\n  </BlockDeviceMappings>\n  <InstanceMonitoring>\n    <Enabled>(boolean)</Enabled>\n  </InstanceMonitoring>\n  <SpotPrice>(string)</SpotPrice>\n  <IamInstanceProfile>(string)</IamInstanceProfile>\n  <EbsOptimized>(boolean)</EbsOptimized>\n  <AssociatePublicIpAddress>(boolean)</AssociatePublicIpAddress>\n  <PlacementTenancy>(string)</PlacementTenancy>\n  <MetadataOptions>\n    <HttpTokens>(string)</HttpTokens>\n    <HttpPutResponseHopLimit>(integer)</HttpPutResponseHopLimit>\n    <HttpEndpoint>(string)</HttpEndpoint>\n  </MetadataOptions>\n</element>",
+              "options": {
+                "raw": {
+                  "headerFamily": "xml",
+                  "language": "xml"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/?Action=CreateLaunchConfiguration&Version=2011-01-01#Action=CreateLaunchConfiguration",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "CreateLaunchConfiguration"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2011-01-01"
+                }
+              ],
+              "hash": "Action=CreateLaunchConfiguration"
+            },
+            "description": "<p>Creates a launch configuration.</p> <p>If you exceed your maximum limit of launch configurations, the call fails. To query this limit, call the <a>DescribeAccountLimits</a> API. For information about updating this limit, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html\">Quotas for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchConfiguration.html\">Launch configurations</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <note> <p>Amazon EC2 Auto Scaling configures instances launched as part of an Auto Scaling group using either a launch template or a launch configuration. We strongly recommend that you do not use launch configurations. They do not provide full functionality for Amazon EC2 Auto Scaling or Amazon EC2. For information about using launch templates, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-templates.html\">Launch templates</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> </note>"
+          },
+          "response": [
+            {
+              "id": "c0b01d23-454f-4d03-be56-95f72debfe20",
+              "name": "Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <LaunchConfigurationName>(string)</LaunchConfigurationName>\n  <ImageId>(string)</ImageId>\n  <KeyName>(string)</KeyName>\n  <SecurityGroups>(string)</SecurityGroups>\n  <SecurityGroups>(string)</SecurityGroups>\n  <ClassicLinkVPCId>(string)</ClassicLinkVPCId>\n  <ClassicLinkVPCSecurityGroups>(string)</ClassicLinkVPCSecurityGroups>\n  <ClassicLinkVPCSecurityGroups>(string)</ClassicLinkVPCSecurityGroups>\n  <UserData>(string)</UserData>\n  <InstanceId>(string)</InstanceId>\n  <InstanceType>(string)</InstanceType>\n  <KernelId>(string)</KernelId>\n  <RamdiskId>(string)</RamdiskId>\n  <BlockDeviceMappings>\n    <VirtualName>(string)</VirtualName>\n    <DeviceName>(string)</DeviceName>\n    <Ebs>\n      <SnapshotId>(string)</SnapshotId>\n      <VolumeSize>(integer)</VolumeSize>\n      <VolumeType>(string)</VolumeType>\n      <DeleteOnTermination>(boolean)</DeleteOnTermination>\n      <Iops>(integer)</Iops>\n      <Encrypted>(boolean)</Encrypted>\n      <Throughput>(integer)</Throughput>\n    </Ebs>\n    <NoDevice>(boolean)</NoDevice>\n  </BlockDeviceMappings>\n  <BlockDeviceMappings>\n    <VirtualName>(string)</VirtualName>\n    <DeviceName>(string)</DeviceName>\n    <Ebs>\n      <SnapshotId>(string)</SnapshotId>\n      <VolumeSize>(integer)</VolumeSize>\n      <VolumeType>(string)</VolumeType>\n      <DeleteOnTermination>(boolean)</DeleteOnTermination>\n      <Iops>(integer)</Iops>\n      <Encrypted>(boolean)</Encrypted>\n      <Throughput>(integer)</Throughput>\n    </Ebs>\n    <NoDevice>(boolean)</NoDevice>\n  </BlockDeviceMappings>\n  <InstanceMonitoring>\n    <Enabled>(boolean)</Enabled>\n  </InstanceMonitoring>\n  <SpotPrice>(string)</SpotPrice>\n  <IamInstanceProfile>(string)</IamInstanceProfile>\n  <EbsOptimized>(boolean)</EbsOptimized>\n  <AssociatePublicIpAddress>(boolean)</AssociatePublicIpAddress>\n  <PlacementTenancy>(string)</PlacementTenancy>\n  <MetadataOptions>\n    <HttpTokens>(string)</HttpTokens>\n    <HttpPutResponseHopLimit>(integer)</HttpPutResponseHopLimit>\n    <HttpEndpoint>(string)</HttpEndpoint>\n  </MetadataOptions>\n</element>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "xml",
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=CreateLaunchConfiguration&Version=2011-01-01#Action=CreateLaunchConfiguration",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "CreateLaunchConfiguration"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=CreateLaunchConfiguration"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T10:17:58.000Z",
+              "updatedAt": "2026-07-28T10:17:58.000Z",
+              "uid": "35240-c0b01d23-454f-4d03-be56-95f72debfe20"
+            },
+            {
+              "id": "4deebdb1-4e36-44a9-bab0-651490b604a7",
+              "name": "AlreadyExistsFault",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <LaunchConfigurationName>(string)</LaunchConfigurationName>\n  <ImageId>(string)</ImageId>\n  <KeyName>(string)</KeyName>\n  <SecurityGroups>(string)</SecurityGroups>\n  <SecurityGroups>(string)</SecurityGroups>\n  <ClassicLinkVPCId>(string)</ClassicLinkVPCId>\n  <ClassicLinkVPCSecurityGroups>(string)</ClassicLinkVPCSecurityGroups>\n  <ClassicLinkVPCSecurityGroups>(string)</ClassicLinkVPCSecurityGroups>\n  <UserData>(string)</UserData>\n  <InstanceId>(string)</InstanceId>\n  <InstanceType>(string)</InstanceType>\n  <KernelId>(string)</KernelId>\n  <RamdiskId>(string)</RamdiskId>\n  <BlockDeviceMappings>\n    <VirtualName>(string)</VirtualName>\n    <DeviceName>(string)</DeviceName>\n    <Ebs>\n      <SnapshotId>(string)</SnapshotId>\n      <VolumeSize>(integer)</VolumeSize>\n      <VolumeType>(string)</VolumeType>\n      <DeleteOnTermination>(boolean)</DeleteOnTermination>\n      <Iops>(integer)</Iops>\n      <Encrypted>(boolean)</Encrypted>\n      <Throughput>(integer)</Throughput>\n    </Ebs>\n    <NoDevice>(boolean)</NoDevice>\n  </BlockDeviceMappings>\n  <BlockDeviceMappings>\n    <VirtualName>(string)</VirtualName>\n    <DeviceName>(string)</DeviceName>\n    <Ebs>\n      <SnapshotId>(string)</SnapshotId>\n      <VolumeSize>(integer)</VolumeSize>\n      <VolumeType>(string)</VolumeType>\n      <DeleteOnTermination>(boolean)</DeleteOnTermination>\n      <Iops>(integer)</Iops>\n      <Encrypted>(boolean)</Encrypted>\n      <Throughput>(integer)</Throughput>\n    </Ebs>\n    <NoDevice>(boolean)</NoDevice>\n  </BlockDeviceMappings>\n  <InstanceMonitoring>\n    <Enabled>(boolean)</Enabled>\n  </InstanceMonitoring>\n  <SpotPrice>(string)</SpotPrice>\n  <IamInstanceProfile>(string)</IamInstanceProfile>\n  <EbsOptimized>(boolean)</EbsOptimized>\n  <AssociatePublicIpAddress>(boolean)</AssociatePublicIpAddress>\n  <PlacementTenancy>(string)</PlacementTenancy>\n  <MetadataOptions>\n    <HttpTokens>(string)</HttpTokens>\n    <HttpPutResponseHopLimit>(integer)</HttpPutResponseHopLimit>\n    <HttpEndpoint>(string)</HttpEndpoint>\n  </MetadataOptions>\n</element>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "xml",
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=CreateLaunchConfiguration&Version=2011-01-01#Action=CreateLaunchConfiguration",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "CreateLaunchConfiguration"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=CreateLaunchConfiguration"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:17:58.000Z",
+              "updatedAt": "2026-07-28T10:17:58.000Z",
+              "uid": "35240-4deebdb1-4e36-44a9-bab0-651490b604a7"
+            },
+            {
+              "id": "eb85b6b3-6166-452f-9992-b6c775f22bbb",
+              "name": "LimitExceededFault",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <LaunchConfigurationName>(string)</LaunchConfigurationName>\n  <ImageId>(string)</ImageId>\n  <KeyName>(string)</KeyName>\n  <SecurityGroups>(string)</SecurityGroups>\n  <SecurityGroups>(string)</SecurityGroups>\n  <ClassicLinkVPCId>(string)</ClassicLinkVPCId>\n  <ClassicLinkVPCSecurityGroups>(string)</ClassicLinkVPCSecurityGroups>\n  <ClassicLinkVPCSecurityGroups>(string)</ClassicLinkVPCSecurityGroups>\n  <UserData>(string)</UserData>\n  <InstanceId>(string)</InstanceId>\n  <InstanceType>(string)</InstanceType>\n  <KernelId>(string)</KernelId>\n  <RamdiskId>(string)</RamdiskId>\n  <BlockDeviceMappings>\n    <VirtualName>(string)</VirtualName>\n    <DeviceName>(string)</DeviceName>\n    <Ebs>\n      <SnapshotId>(string)</SnapshotId>\n      <VolumeSize>(integer)</VolumeSize>\n      <VolumeType>(string)</VolumeType>\n      <DeleteOnTermination>(boolean)</DeleteOnTermination>\n      <Iops>(integer)</Iops>\n      <Encrypted>(boolean)</Encrypted>\n      <Throughput>(integer)</Throughput>\n    </Ebs>\n    <NoDevice>(boolean)</NoDevice>\n  </BlockDeviceMappings>\n  <BlockDeviceMappings>\n    <VirtualName>(string)</VirtualName>\n    <DeviceName>(string)</DeviceName>\n    <Ebs>\n      <SnapshotId>(string)</SnapshotId>\n      <VolumeSize>(integer)</VolumeSize>\n      <VolumeType>(string)</VolumeType>\n      <DeleteOnTermination>(boolean)</DeleteOnTermination>\n      <Iops>(integer)</Iops>\n      <Encrypted>(boolean)</Encrypted>\n      <Throughput>(integer)</Throughput>\n    </Ebs>\n    <NoDevice>(boolean)</NoDevice>\n  </BlockDeviceMappings>\n  <InstanceMonitoring>\n    <Enabled>(boolean)</Enabled>\n  </InstanceMonitoring>\n  <SpotPrice>(string)</SpotPrice>\n  <IamInstanceProfile>(string)</IamInstanceProfile>\n  <EbsOptimized>(boolean)</EbsOptimized>\n  <AssociatePublicIpAddress>(boolean)</AssociatePublicIpAddress>\n  <PlacementTenancy>(string)</PlacementTenancy>\n  <MetadataOptions>\n    <HttpTokens>(string)</HttpTokens>\n    <HttpPutResponseHopLimit>(integer)</HttpPutResponseHopLimit>\n    <HttpEndpoint>(string)</HttpEndpoint>\n  </MetadataOptions>\n</element>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "xml",
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=CreateLaunchConfiguration&Version=2011-01-01#Action=CreateLaunchConfiguration",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "CreateLaunchConfiguration"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=CreateLaunchConfiguration"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:17:58.000Z",
+              "updatedAt": "2026-07-28T10:17:58.000Z",
+              "uid": "35240-eb85b6b3-6166-452f-9992-b6c775f22bbb"
+            },
+            {
+              "id": "b273bb4f-8147-44a7-9bdb-07f96edb20da",
+              "name": "ResourceContentionFault",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <LaunchConfigurationName>(string)</LaunchConfigurationName>\n  <ImageId>(string)</ImageId>\n  <KeyName>(string)</KeyName>\n  <SecurityGroups>(string)</SecurityGroups>\n  <SecurityGroups>(string)</SecurityGroups>\n  <ClassicLinkVPCId>(string)</ClassicLinkVPCId>\n  <ClassicLinkVPCSecurityGroups>(string)</ClassicLinkVPCSecurityGroups>\n  <ClassicLinkVPCSecurityGroups>(string)</ClassicLinkVPCSecurityGroups>\n  <UserData>(string)</UserData>\n  <InstanceId>(string)</InstanceId>\n  <InstanceType>(string)</InstanceType>\n  <KernelId>(string)</KernelId>\n  <RamdiskId>(string)</RamdiskId>\n  <BlockDeviceMappings>\n    <VirtualName>(string)</VirtualName>\n    <DeviceName>(string)</DeviceName>\n    <Ebs>\n      <SnapshotId>(string)</SnapshotId>\n      <VolumeSize>(integer)</VolumeSize>\n      <VolumeType>(string)</VolumeType>\n      <DeleteOnTermination>(boolean)</DeleteOnTermination>\n      <Iops>(integer)</Iops>\n      <Encrypted>(boolean)</Encrypted>\n      <Throughput>(integer)</Throughput>\n    </Ebs>\n    <NoDevice>(boolean)</NoDevice>\n  </BlockDeviceMappings>\n  <BlockDeviceMappings>\n    <VirtualName>(string)</VirtualName>\n    <DeviceName>(string)</DeviceName>\n    <Ebs>\n      <SnapshotId>(string)</SnapshotId>\n      <VolumeSize>(integer)</VolumeSize>\n      <VolumeType>(string)</VolumeType>\n      <DeleteOnTermination>(boolean)</DeleteOnTermination>\n      <Iops>(integer)</Iops>\n      <Encrypted>(boolean)</Encrypted>\n      <Throughput>(integer)</Throughput>\n    </Ebs>\n    <NoDevice>(boolean)</NoDevice>\n  </BlockDeviceMappings>\n  <InstanceMonitoring>\n    <Enabled>(boolean)</Enabled>\n  </InstanceMonitoring>\n  <SpotPrice>(string)</SpotPrice>\n  <IamInstanceProfile>(string)</IamInstanceProfile>\n  <EbsOptimized>(boolean)</EbsOptimized>\n  <AssociatePublicIpAddress>(boolean)</AssociatePublicIpAddress>\n  <PlacementTenancy>(string)</PlacementTenancy>\n  <MetadataOptions>\n    <HttpTokens>(string)</HttpTokens>\n    <HttpPutResponseHopLimit>(integer)</HttpPutResponseHopLimit>\n    <HttpEndpoint>(string)</HttpEndpoint>\n  </MetadataOptions>\n</element>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "xml",
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=CreateLaunchConfiguration&Version=2011-01-01#Action=CreateLaunchConfiguration",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "CreateLaunchConfiguration"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=CreateLaunchConfiguration"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:17:58.000Z",
+              "updatedAt": "2026-07-28T10:17:58.000Z",
+              "uid": "35240-b273bb4f-8147-44a7-9bdb-07f96edb20da"
+            }
+          ],
+          "createdAt": "2026-07-28T10:17:58.000Z",
+          "updatedAt": "2026-07-28T10:17:58.000Z",
+          "uid": "35240-94b26fd9-035c-474c-8067-e2615bf63395"
+        }
+      ],
+      "id": "12985099-4d13-43b5-8b29-3ff85da1d387",
+      "createdAt": "2026-07-28T10:17:58.000Z",
+      "updatedAt": "2026-07-28T10:17:58.000Z",
+      "uid": "35240-12985099-4d13-43b5-8b29-3ff85da1d387"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://autoscaling.{{region}}.amazonaws.com"
+    }
+  ]
+}

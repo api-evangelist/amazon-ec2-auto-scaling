@@ -1,0 +1,1449 @@
+{
+  "info": {
+    "_postman_id": "5aeb762b-2fbd-4ce5-8217-9c06fdae9924",
+    "name": "Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=PutScalingPolicy API",
+    "description": "<fullname>Amazon EC2 Auto Scaling</fullname> <p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.</p> <p>For more information, see the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/\">Amazon EC2 Auto Scaling User Guide</a> and the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html\">Amazon EC2 Auto Scaling API Reference</a>.</p>\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:19:56.000Z",
+    "updatedAt": "2026-07-28T10:19:56.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-5aeb762b-2fbd-4ce5-8217-9c06fdae9924"
+  },
+  "item": [
+    {
+      "name": "#Action=PutScalingPolicy",
+      "item": [
+        {
+          "name": "Amazon EC2 Auto Scaling GET_ Put Scaling Policy",
+          "id": "b24a890b-0db4-44b8-958f-fa66fdfa2dee",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?AutoScalingGroupName=<string>&PolicyName=<string>&PolicyType=<string>&AdjustmentType=<string>&MinAdjustmentStep=<integer>&MinAdjustmentMagnitude=<integer>&ScalingAdjustment=<integer>&Cooldown=<integer>&MetricAggregationType=<string>&StepAdjustments=[object Object]&StepAdjustments=[object Object]&EstimatedInstanceWarmup=<integer>&TargetValue=<double>&PredefinedMetricSpecification=[object Object]&CustomizedMetricSpecification=[object Object]&DisableScaleIn=<boolean>&Enabled=<boolean>&MetricSpecifications=[object Object],[object Object]&Mode=ForecastOnly&SchedulingBufferTime=<integer>&MaxCapacityBreachBehavior=HonorMaxCapacity&MaxCapacityBuffer=<integer>&Action=PutScalingPolicy&Version=2011-01-01#Action=PutScalingPolicy",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "(Required) The name of the Auto Scaling group.",
+                  "key": "AutoScalingGroupName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) The name of the policy.",
+                  "key": "PolicyName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "<p>One of the following policy types: </p> <ul> <li> <p> <code>TargetTrackingScaling</code> </p> </li> <li> <p> <code>StepScaling</code> </p> </li> <li> <p> <code>SimpleScaling</code> (default)</p> </li> <li> <p> <code>PredictiveScaling</code> </p> </li> </ul>",
+                  "key": "PolicyType",
+                  "value": "<string>"
+                },
+                {
+                  "description": "<p>Specifies how the scaling adjustment is interpreted (for example, an absolute number or a percentage). The valid values are <code>ChangeInCapacity</code>, <code>ExactCapacity</code>, and <code>PercentChangeInCapacity</code>.</p> <p>Required if the policy type is <code>StepScaling</code> or <code>SimpleScaling</code>. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment\">Scaling adjustment types</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>",
+                  "key": "AdjustmentType",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Available for backward compatibility. Use <code>MinAdjustmentMagnitude</code> instead.",
+                  "key": "MinAdjustmentStep",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "<p>The minimum value to scale by when the adjustment type is <code>PercentChangeInCapacity</code>. For example, suppose that you create a step scaling policy to scale out an Auto Scaling group by 25 percent and you specify a <code>MinAdjustmentMagnitude</code> of 2. If the group has 4 instances and the scaling policy is performed, 25 percent of 4 is 1. However, because you specified a <code>MinAdjustmentMagnitude</code> of 2, Amazon EC2 Auto Scaling scales out the group by 2 instances.</p> <p>Valid only if the policy type is <code>StepScaling</code> or <code>SimpleScaling</code>. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment\">Scaling adjustment types</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <note> <p>Some Auto Scaling groups use instance weights. In this case, set the <code>MinAdjustmentMagnitude</code> to a value that is at least as large as your largest instance weight.</p> </note>",
+                  "key": "MinAdjustmentMagnitude",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "<p>The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity. For exact capacity, you must specify a positive value.</p> <p>Required if the policy type is <code>SimpleScaling</code>. (Not used with any other policy type.) </p>",
+                  "key": "ScalingAdjustment",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "<p>A cooldown period, in seconds, that applies to a specific simple scaling policy. When a cooldown period is specified here, it overrides the default cooldown.</p> <p>Valid only if the policy type is <code>SimpleScaling</code>. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html\">Scaling cooldowns for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>Default: None</p>",
+                  "key": "Cooldown",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "<p>The aggregation type for the CloudWatch metrics. The valid values are <code>Minimum</code>, <code>Maximum</code>, and <code>Average</code>. If the aggregation type is null, the value is treated as <code>Average</code>.</p> <p>Valid only if the policy type is <code>StepScaling</code>.</p>",
+                  "key": "MetricAggregationType",
+                  "value": "<string>"
+                },
+                {
+                  "description": "<p>A set of adjustments that enable you to scale based on the size of the alarm breach.</p> <p>Required if the policy type is <code>StepScaling</code>. (Not used with any other policy type.) </p>",
+                  "key": "StepAdjustments",
+                  "value": "[object Object]"
+                },
+                {
+                  "description": "<p>A set of adjustments that enable you to scale based on the size of the alarm breach.</p> <p>Required if the policy type is <code>StepScaling</code>. (Not used with any other policy type.) </p>",
+                  "key": "StepAdjustments",
+                  "value": "[object Object]"
+                },
+                {
+                  "description": "<p> <i>Not needed if the default instance warmup is defined for the group.</i> </p> <p>The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics. This warm-up period applies to instances launched due to a specific target tracking or step scaling policy. When a warm-up period is specified here, it overrides the default instance warmup.</p> <p>Valid only if the policy type is <code>TargetTrackingScaling</code> or <code>StepScaling</code>.</p> <note> <p>The default is to use the value for the default instance warmup defined for the group. If default instance warmup is null, then <code>EstimatedInstanceWarmup</code> falls back to the value of default cooldown.</p> </note>",
+                  "key": "EstimatedInstanceWarmup",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "<p>A target tracking scaling policy. Provides support for predefined or custom metrics.</p> <p>The following predefined metrics are available:</p> <ul> <li> <p> <code>ASGAverageCPUUtilization</code> </p> </li> <li> <p> <code>ASGAverageNetworkIn</code> </p> </li> <li> <p> <code>ASGAverageNetworkOut</code> </p> </li> <li> <p> <code>ALBRequestCountPerTarget</code> </p> </li> </ul> <p>If you specify <code>ALBRequestCountPerTarget</code> for the metric, you must specify the <code>ResourceLabel</code> property with the <code>PredefinedMetricSpecification</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_TargetTrackingConfiguration.html\">TargetTrackingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>TargetTrackingScaling</code>.</p>",
+                  "key": "TargetValue",
+                  "value": "<double>"
+                },
+                {
+                  "description": "<p>A target tracking scaling policy. Provides support for predefined or custom metrics.</p> <p>The following predefined metrics are available:</p> <ul> <li> <p> <code>ASGAverageCPUUtilization</code> </p> </li> <li> <p> <code>ASGAverageNetworkIn</code> </p> </li> <li> <p> <code>ASGAverageNetworkOut</code> </p> </li> <li> <p> <code>ALBRequestCountPerTarget</code> </p> </li> </ul> <p>If you specify <code>ALBRequestCountPerTarget</code> for the metric, you must specify the <code>ResourceLabel</code> property with the <code>PredefinedMetricSpecification</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_TargetTrackingConfiguration.html\">TargetTrackingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>TargetTrackingScaling</code>.</p>",
+                  "key": "PredefinedMetricSpecification",
+                  "value": "[object Object]"
+                },
+                {
+                  "description": "<p>A target tracking scaling policy. Provides support for predefined or custom metrics.</p> <p>The following predefined metrics are available:</p> <ul> <li> <p> <code>ASGAverageCPUUtilization</code> </p> </li> <li> <p> <code>ASGAverageNetworkIn</code> </p> </li> <li> <p> <code>ASGAverageNetworkOut</code> </p> </li> <li> <p> <code>ALBRequestCountPerTarget</code> </p> </li> </ul> <p>If you specify <code>ALBRequestCountPerTarget</code> for the metric, you must specify the <code>ResourceLabel</code> property with the <code>PredefinedMetricSpecification</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_TargetTrackingConfiguration.html\">TargetTrackingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>TargetTrackingScaling</code>.</p>",
+                  "key": "CustomizedMetricSpecification",
+                  "value": "[object Object]"
+                },
+                {
+                  "description": "<p>A target tracking scaling policy. Provides support for predefined or custom metrics.</p> <p>The following predefined metrics are available:</p> <ul> <li> <p> <code>ASGAverageCPUUtilization</code> </p> </li> <li> <p> <code>ASGAverageNetworkIn</code> </p> </li> <li> <p> <code>ASGAverageNetworkOut</code> </p> </li> <li> <p> <code>ALBRequestCountPerTarget</code> </p> </li> </ul> <p>If you specify <code>ALBRequestCountPerTarget</code> for the metric, you must specify the <code>ResourceLabel</code> property with the <code>PredefinedMetricSpecification</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_TargetTrackingConfiguration.html\">TargetTrackingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>TargetTrackingScaling</code>.</p>",
+                  "key": "DisableScaleIn",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "Indicates whether the scaling policy is enabled or disabled. The default is enabled. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enable-disable-scaling-policy.html\">Disabling a scaling policy for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                  "key": "Enabled",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "<p>A predictive scaling policy. Provides support for predefined and custom metrics.</p> <p>Predefined metrics include CPU utilization, network in/out, and the Application Load Balancer request count.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredictiveScalingConfiguration.html\">PredictiveScalingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>PredictiveScaling</code>.</p>",
+                  "key": "MetricSpecifications",
+                  "value": "[object Object],[object Object]"
+                },
+                {
+                  "description": "<p>A predictive scaling policy. Provides support for predefined and custom metrics.</p> <p>Predefined metrics include CPU utilization, network in/out, and the Application Load Balancer request count.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredictiveScalingConfiguration.html\">PredictiveScalingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>PredictiveScaling</code>.</p>",
+                  "key": "Mode",
+                  "value": "ForecastOnly"
+                },
+                {
+                  "description": "<p>A predictive scaling policy. Provides support for predefined and custom metrics.</p> <p>Predefined metrics include CPU utilization, network in/out, and the Application Load Balancer request count.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredictiveScalingConfiguration.html\">PredictiveScalingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>PredictiveScaling</code>.</p>",
+                  "key": "SchedulingBufferTime",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "<p>A predictive scaling policy. Provides support for predefined and custom metrics.</p> <p>Predefined metrics include CPU utilization, network in/out, and the Application Load Balancer request count.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredictiveScalingConfiguration.html\">PredictiveScalingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>PredictiveScaling</code>.</p>",
+                  "key": "MaxCapacityBreachBehavior",
+                  "value": "HonorMaxCapacity"
+                },
+                {
+                  "description": "<p>A predictive scaling policy. Provides support for predefined and custom metrics.</p> <p>Predefined metrics include CPU utilization, network in/out, and the Application Load Balancer request count.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredictiveScalingConfiguration.html\">PredictiveScalingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>PredictiveScaling</code>.</p>",
+                  "key": "MaxCapacityBuffer",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "PutScalingPolicy"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2011-01-01"
+                }
+              ],
+              "hash": "Action=PutScalingPolicy"
+            },
+            "description": "<p>Creates or updates a scaling policy for an Auto Scaling group. Scaling policies are used to scale an Auto Scaling group based on configurable metrics. If no policies are defined, the dynamic scaling and predictive scaling features are not used. </p> <p>For more information about using dynamic scaling, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-target-tracking.html\">Target tracking scaling policies</a> and <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html\">Step and simple scaling policies</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>For more information about using predictive scaling, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-predictive-scaling.html\">Predictive scaling for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>You can view the scaling policies for an Auto Scaling group using the <a>DescribePolicies</a> API call. If you are no longer using a scaling policy, you can delete it by calling the <a>DeletePolicy</a> API.</p>"
+          },
+          "response": [
+            {
+              "id": "6602d681-10e4-4886-b09d-50b714a17073",
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?AutoScalingGroupName=<string>&PolicyName=<string>&PolicyType=<string>&AdjustmentType=<string>&MinAdjustmentStep=<integer>&MinAdjustmentMagnitude=<integer>&ScalingAdjustment=<integer>&Cooldown=<integer>&MetricAggregationType=<string>&StepAdjustments=[object Object]&EstimatedInstanceWarmup=<integer>&TargetValue=<double>&PredefinedMetricSpecification=[object Object]&CustomizedMetricSpecification=[object Object]&DisableScaleIn=<boolean>&Enabled=<boolean>&MetricSpecifications=[object Object],[object Object]&Mode=ForecastOnly&SchedulingBufferTime=<integer>&MaxCapacityBreachBehavior=HonorMaxCapacity&MaxCapacityBuffer=<integer>&Action=PutScalingPolicy&Version=2011-01-01#Action=PutScalingPolicy",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The name of the Auto Scaling group.",
+                      "key": "AutoScalingGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The name of the policy.",
+                      "key": "PolicyName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>One of the following policy types: </p> <ul> <li> <p> <code>TargetTrackingScaling</code> </p> </li> <li> <p> <code>StepScaling</code> </p> </li> <li> <p> <code>SimpleScaling</code> (default)</p> </li> <li> <p> <code>PredictiveScaling</code> </p> </li> </ul>",
+                      "key": "PolicyType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>Specifies how the scaling adjustment is interpreted (for example, an absolute number or a percentage). The valid values are <code>ChangeInCapacity</code>, <code>ExactCapacity</code>, and <code>PercentChangeInCapacity</code>.</p> <p>Required if the policy type is <code>StepScaling</code> or <code>SimpleScaling</code>. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment\">Scaling adjustment types</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>",
+                      "key": "AdjustmentType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Available for backward compatibility. Use <code>MinAdjustmentMagnitude</code> instead.",
+                      "key": "MinAdjustmentStep",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>The minimum value to scale by when the adjustment type is <code>PercentChangeInCapacity</code>. For example, suppose that you create a step scaling policy to scale out an Auto Scaling group by 25 percent and you specify a <code>MinAdjustmentMagnitude</code> of 2. If the group has 4 instances and the scaling policy is performed, 25 percent of 4 is 1. However, because you specified a <code>MinAdjustmentMagnitude</code> of 2, Amazon EC2 Auto Scaling scales out the group by 2 instances.</p> <p>Valid only if the policy type is <code>StepScaling</code> or <code>SimpleScaling</code>. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment\">Scaling adjustment types</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <note> <p>Some Auto Scaling groups use instance weights. In this case, set the <code>MinAdjustmentMagnitude</code> to a value that is at least as large as your largest instance weight.</p> </note>",
+                      "key": "MinAdjustmentMagnitude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity. For exact capacity, you must specify a positive value.</p> <p>Required if the policy type is <code>SimpleScaling</code>. (Not used with any other policy type.) </p>",
+                      "key": "ScalingAdjustment",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>A cooldown period, in seconds, that applies to a specific simple scaling policy. When a cooldown period is specified here, it overrides the default cooldown.</p> <p>Valid only if the policy type is <code>SimpleScaling</code>. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html\">Scaling cooldowns for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>Default: None</p>",
+                      "key": "Cooldown",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>The aggregation type for the CloudWatch metrics. The valid values are <code>Minimum</code>, <code>Maximum</code>, and <code>Average</code>. If the aggregation type is null, the value is treated as <code>Average</code>.</p> <p>Valid only if the policy type is <code>StepScaling</code>.</p>",
+                      "key": "MetricAggregationType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>A set of adjustments that enable you to scale based on the size of the alarm breach.</p> <p>Required if the policy type is <code>StepScaling</code>. (Not used with any other policy type.) </p>",
+                      "key": "StepAdjustments",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "<p> <i>Not needed if the default instance warmup is defined for the group.</i> </p> <p>The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics. This warm-up period applies to instances launched due to a specific target tracking or step scaling policy. When a warm-up period is specified here, it overrides the default instance warmup.</p> <p>Valid only if the policy type is <code>TargetTrackingScaling</code> or <code>StepScaling</code>.</p> <note> <p>The default is to use the value for the default instance warmup defined for the group. If default instance warmup is null, then <code>EstimatedInstanceWarmup</code> falls back to the value of default cooldown.</p> </note>",
+                      "key": "EstimatedInstanceWarmup",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>A target tracking scaling policy. Provides support for predefined or custom metrics.</p> <p>The following predefined metrics are available:</p> <ul> <li> <p> <code>ASGAverageCPUUtilization</code> </p> </li> <li> <p> <code>ASGAverageNetworkIn</code> </p> </li> <li> <p> <code>ASGAverageNetworkOut</code> </p> </li> <li> <p> <code>ALBRequestCountPerTarget</code> </p> </li> </ul> <p>If you specify <code>ALBRequestCountPerTarget</code> for the metric, you must specify the <code>ResourceLabel</code> property with the <code>PredefinedMetricSpecification</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_TargetTrackingConfiguration.html\">TargetTrackingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>TargetTrackingScaling</code>.</p>",
+                      "key": "TargetValue",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "<p>A target tracking scaling policy. Provides support for predefined or custom metrics.</p> <p>The following predefined metrics are available:</p> <ul> <li> <p> <code>ASGAverageCPUUtilization</code> </p> </li> <li> <p> <code>ASGAverageNetworkIn</code> </p> </li> <li> <p> <code>ASGAverageNetworkOut</code> </p> </li> <li> <p> <code>ALBRequestCountPerTarget</code> </p> </li> </ul> <p>If you specify <code>ALBRequestCountPerTarget</code> for the metric, you must specify the <code>ResourceLabel</code> property with the <code>PredefinedMetricSpecification</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_TargetTrackingConfiguration.html\">TargetTrackingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>TargetTrackingScaling</code>.</p>",
+                      "key": "PredefinedMetricSpecification",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "<p>A target tracking scaling policy. Provides support for predefined or custom metrics.</p> <p>The following predefined metrics are available:</p> <ul> <li> <p> <code>ASGAverageCPUUtilization</code> </p> </li> <li> <p> <code>ASGAverageNetworkIn</code> </p> </li> <li> <p> <code>ASGAverageNetworkOut</code> </p> </li> <li> <p> <code>ALBRequestCountPerTarget</code> </p> </li> </ul> <p>If you specify <code>ALBRequestCountPerTarget</code> for the metric, you must specify the <code>ResourceLabel</code> property with the <code>PredefinedMetricSpecification</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_TargetTrackingConfiguration.html\">TargetTrackingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>TargetTrackingScaling</code>.</p>",
+                      "key": "CustomizedMetricSpecification",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "<p>A target tracking scaling policy. Provides support for predefined or custom metrics.</p> <p>The following predefined metrics are available:</p> <ul> <li> <p> <code>ASGAverageCPUUtilization</code> </p> </li> <li> <p> <code>ASGAverageNetworkIn</code> </p> </li> <li> <p> <code>ASGAverageNetworkOut</code> </p> </li> <li> <p> <code>ALBRequestCountPerTarget</code> </p> </li> </ul> <p>If you specify <code>ALBRequestCountPerTarget</code> for the metric, you must specify the <code>ResourceLabel</code> property with the <code>PredefinedMetricSpecification</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_TargetTrackingConfiguration.html\">TargetTrackingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>TargetTrackingScaling</code>.</p>",
+                      "key": "DisableScaleIn",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Indicates whether the scaling policy is enabled or disabled. The default is enabled. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enable-disable-scaling-policy.html\">Disabling a scaling policy for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "Enabled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "<p>A predictive scaling policy. Provides support for predefined and custom metrics.</p> <p>Predefined metrics include CPU utilization, network in/out, and the Application Load Balancer request count.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredictiveScalingConfiguration.html\">PredictiveScalingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>PredictiveScaling</code>.</p>",
+                      "key": "MetricSpecifications",
+                      "value": "[object Object],[object Object]"
+                    },
+                    {
+                      "description": "<p>A predictive scaling policy. Provides support for predefined and custom metrics.</p> <p>Predefined metrics include CPU utilization, network in/out, and the Application Load Balancer request count.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredictiveScalingConfiguration.html\">PredictiveScalingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>PredictiveScaling</code>.</p>",
+                      "key": "Mode",
+                      "value": "ForecastOnly"
+                    },
+                    {
+                      "description": "<p>A predictive scaling policy. Provides support for predefined and custom metrics.</p> <p>Predefined metrics include CPU utilization, network in/out, and the Application Load Balancer request count.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredictiveScalingConfiguration.html\">PredictiveScalingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>PredictiveScaling</code>.</p>",
+                      "key": "SchedulingBufferTime",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>A predictive scaling policy. Provides support for predefined and custom metrics.</p> <p>Predefined metrics include CPU utilization, network in/out, and the Application Load Balancer request count.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredictiveScalingConfiguration.html\">PredictiveScalingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>PredictiveScaling</code>.</p>",
+                      "key": "MaxCapacityBreachBehavior",
+                      "value": "HonorMaxCapacity"
+                    },
+                    {
+                      "description": "<p>A predictive scaling policy. Provides support for predefined and custom metrics.</p> <p>Predefined metrics include CPU utilization, network in/out, and the Application Load Balancer request count.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredictiveScalingConfiguration.html\">PredictiveScalingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>PredictiveScaling</code>.</p>",
+                      "key": "MaxCapacityBuffer",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "PutScalingPolicy"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=PutScalingPolicy"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <PolicyARN>(string)</PolicyARN>\n  <Alarms>\n    <AlarmName>(string)</AlarmName>\n    <AlarmARN>(string)</AlarmARN>\n  </Alarms>\n  <Alarms>\n    <AlarmName>(string)</AlarmName>\n    <AlarmARN>(string)</AlarmARN>\n  </Alarms>\n</element>",
+              "createdAt": "2026-07-28T10:19:57.000Z",
+              "updatedAt": "2026-07-28T10:19:57.000Z",
+              "uid": "35240-6602d681-10e4-4886-b09d-50b714a17073"
+            },
+            {
+              "id": "c609ad11-5848-4598-bba1-07caeea99591",
+              "name": "LimitExceededFault",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?AutoScalingGroupName=<string>&PolicyName=<string>&PolicyType=<string>&AdjustmentType=<string>&MinAdjustmentStep=<integer>&MinAdjustmentMagnitude=<integer>&ScalingAdjustment=<integer>&Cooldown=<integer>&MetricAggregationType=<string>&StepAdjustments=[object Object]&EstimatedInstanceWarmup=<integer>&TargetValue=<double>&PredefinedMetricSpecification=[object Object]&CustomizedMetricSpecification=[object Object]&DisableScaleIn=<boolean>&Enabled=<boolean>&MetricSpecifications=[object Object],[object Object]&Mode=ForecastOnly&SchedulingBufferTime=<integer>&MaxCapacityBreachBehavior=HonorMaxCapacity&MaxCapacityBuffer=<integer>&Action=PutScalingPolicy&Version=2011-01-01#Action=PutScalingPolicy",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The name of the Auto Scaling group.",
+                      "key": "AutoScalingGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The name of the policy.",
+                      "key": "PolicyName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>One of the following policy types: </p> <ul> <li> <p> <code>TargetTrackingScaling</code> </p> </li> <li> <p> <code>StepScaling</code> </p> </li> <li> <p> <code>SimpleScaling</code> (default)</p> </li> <li> <p> <code>PredictiveScaling</code> </p> </li> </ul>",
+                      "key": "PolicyType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>Specifies how the scaling adjustment is interpreted (for example, an absolute number or a percentage). The valid values are <code>ChangeInCapacity</code>, <code>ExactCapacity</code>, and <code>PercentChangeInCapacity</code>.</p> <p>Required if the policy type is <code>StepScaling</code> or <code>SimpleScaling</code>. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment\">Scaling adjustment types</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>",
+                      "key": "AdjustmentType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Available for backward compatibility. Use <code>MinAdjustmentMagnitude</code> instead.",
+                      "key": "MinAdjustmentStep",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>The minimum value to scale by when the adjustment type is <code>PercentChangeInCapacity</code>. For example, suppose that you create a step scaling policy to scale out an Auto Scaling group by 25 percent and you specify a <code>MinAdjustmentMagnitude</code> of 2. If the group has 4 instances and the scaling policy is performed, 25 percent of 4 is 1. However, because you specified a <code>MinAdjustmentMagnitude</code> of 2, Amazon EC2 Auto Scaling scales out the group by 2 instances.</p> <p>Valid only if the policy type is <code>StepScaling</code> or <code>SimpleScaling</code>. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment\">Scaling adjustment types</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <note> <p>Some Auto Scaling groups use instance weights. In this case, set the <code>MinAdjustmentMagnitude</code> to a value that is at least as large as your largest instance weight.</p> </note>",
+                      "key": "MinAdjustmentMagnitude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity. For exact capacity, you must specify a positive value.</p> <p>Required if the policy type is <code>SimpleScaling</code>. (Not used with any other policy type.) </p>",
+                      "key": "ScalingAdjustment",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>A cooldown period, in seconds, that applies to a specific simple scaling policy. When a cooldown period is specified here, it overrides the default cooldown.</p> <p>Valid only if the policy type is <code>SimpleScaling</code>. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html\">Scaling cooldowns for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>Default: None</p>",
+                      "key": "Cooldown",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>The aggregation type for the CloudWatch metrics. The valid values are <code>Minimum</code>, <code>Maximum</code>, and <code>Average</code>. If the aggregation type is null, the value is treated as <code>Average</code>.</p> <p>Valid only if the policy type is <code>StepScaling</code>.</p>",
+                      "key": "MetricAggregationType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>A set of adjustments that enable you to scale based on the size of the alarm breach.</p> <p>Required if the policy type is <code>StepScaling</code>. (Not used with any other policy type.) </p>",
+                      "key": "StepAdjustments",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "<p> <i>Not needed if the default instance warmup is defined for the group.</i> </p> <p>The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics. This warm-up period applies to instances launched due to a specific target tracking or step scaling policy. When a warm-up period is specified here, it overrides the default instance warmup.</p> <p>Valid only if the policy type is <code>TargetTrackingScaling</code> or <code>StepScaling</code>.</p> <note> <p>The default is to use the value for the default instance warmup defined for the group. If default instance warmup is null, then <code>EstimatedInstanceWarmup</code> falls back to the value of default cooldown.</p> </note>",
+                      "key": "EstimatedInstanceWarmup",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>A target tracking scaling policy. Provides support for predefined or custom metrics.</p> <p>The following predefined metrics are available:</p> <ul> <li> <p> <code>ASGAverageCPUUtilization</code> </p> </li> <li> <p> <code>ASGAverageNetworkIn</code> </p> </li> <li> <p> <code>ASGAverageNetworkOut</code> </p> </li> <li> <p> <code>ALBRequestCountPerTarget</code> </p> </li> </ul> <p>If you specify <code>ALBRequestCountPerTarget</code> for the metric, you must specify the <code>ResourceLabel</code> property with the <code>PredefinedMetricSpecification</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_TargetTrackingConfiguration.html\">TargetTrackingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>TargetTrackingScaling</code>.</p>",
+                      "key": "TargetValue",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "<p>A target tracking scaling policy. Provides support for predefined or custom metrics.</p> <p>The following predefined metrics are available:</p> <ul> <li> <p> <code>ASGAverageCPUUtilization</code> </p> </li> <li> <p> <code>ASGAverageNetworkIn</code> </p> </li> <li> <p> <code>ASGAverageNetworkOut</code> </p> </li> <li> <p> <code>ALBRequestCountPerTarget</code> </p> </li> </ul> <p>If you specify <code>ALBRequestCountPerTarget</code> for the metric, you must specify the <code>ResourceLabel</code> property with the <code>PredefinedMetricSpecification</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_TargetTrackingConfiguration.html\">TargetTrackingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>TargetTrackingScaling</code>.</p>",
+                      "key": "PredefinedMetricSpecification",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "<p>A target tracking scaling policy. Provides support for predefined or custom metrics.</p> <p>The following predefined metrics are available:</p> <ul> <li> <p> <code>ASGAverageCPUUtilization</code> </p> </li> <li> <p> <code>ASGAverageNetworkIn</code> </p> </li> <li> <p> <code>ASGAverageNetworkOut</code> </p> </li> <li> <p> <code>ALBRequestCountPerTarget</code> </p> </li> </ul> <p>If you specify <code>ALBRequestCountPerTarget</code> for the metric, you must specify the <code>ResourceLabel</code> property with the <code>PredefinedMetricSpecification</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_TargetTrackingConfiguration.html\">TargetTrackingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>TargetTrackingScaling</code>.</p>",
+                      "key": "CustomizedMetricSpecification",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "<p>A target tracking scaling policy. Provides support for predefined or custom metrics.</p> <p>The following predefined metrics are available:</p> <ul> <li> <p> <code>ASGAverageCPUUtilization</code> </p> </li> <li> <p> <code>ASGAverageNetworkIn</code> </p> </li> <li> <p> <code>ASGAverageNetworkOut</code> </p> </li> <li> <p> <code>ALBRequestCountPerTarget</code> </p> </li> </ul> <p>If you specify <code>ALBRequestCountPerTarget</code> for the metric, you must specify the <code>ResourceLabel</code> property with the <code>PredefinedMetricSpecification</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_TargetTrackingConfiguration.html\">TargetTrackingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>TargetTrackingScaling</code>.</p>",
+                      "key": "DisableScaleIn",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Indicates whether the scaling policy is enabled or disabled. The default is enabled. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enable-disable-scaling-policy.html\">Disabling a scaling policy for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "Enabled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "<p>A predictive scaling policy. Provides support for predefined and custom metrics.</p> <p>Predefined metrics include CPU utilization, network in/out, and the Application Load Balancer request count.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredictiveScalingConfiguration.html\">PredictiveScalingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>PredictiveScaling</code>.</p>",
+                      "key": "MetricSpecifications",
+                      "value": "[object Object],[object Object]"
+                    },
+                    {
+                      "description": "<p>A predictive scaling policy. Provides support for predefined and custom metrics.</p> <p>Predefined metrics include CPU utilization, network in/out, and the Application Load Balancer request count.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredictiveScalingConfiguration.html\">PredictiveScalingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>PredictiveScaling</code>.</p>",
+                      "key": "Mode",
+                      "value": "ForecastOnly"
+                    },
+                    {
+                      "description": "<p>A predictive scaling policy. Provides support for predefined and custom metrics.</p> <p>Predefined metrics include CPU utilization, network in/out, and the Application Load Balancer request count.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredictiveScalingConfiguration.html\">PredictiveScalingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>PredictiveScaling</code>.</p>",
+                      "key": "SchedulingBufferTime",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>A predictive scaling policy. Provides support for predefined and custom metrics.</p> <p>Predefined metrics include CPU utilization, network in/out, and the Application Load Balancer request count.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredictiveScalingConfiguration.html\">PredictiveScalingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>PredictiveScaling</code>.</p>",
+                      "key": "MaxCapacityBreachBehavior",
+                      "value": "HonorMaxCapacity"
+                    },
+                    {
+                      "description": "<p>A predictive scaling policy. Provides support for predefined and custom metrics.</p> <p>Predefined metrics include CPU utilization, network in/out, and the Application Load Balancer request count.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredictiveScalingConfiguration.html\">PredictiveScalingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>PredictiveScaling</code>.</p>",
+                      "key": "MaxCapacityBuffer",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "PutScalingPolicy"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=PutScalingPolicy"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:19:57.000Z",
+              "updatedAt": "2026-07-28T10:19:57.000Z",
+              "uid": "35240-c609ad11-5848-4598-bba1-07caeea99591"
+            },
+            {
+              "id": "b772af61-2658-4173-836a-06e900f950b6",
+              "name": "ResourceContentionFault",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?AutoScalingGroupName=<string>&PolicyName=<string>&PolicyType=<string>&AdjustmentType=<string>&MinAdjustmentStep=<integer>&MinAdjustmentMagnitude=<integer>&ScalingAdjustment=<integer>&Cooldown=<integer>&MetricAggregationType=<string>&StepAdjustments=[object Object]&EstimatedInstanceWarmup=<integer>&TargetValue=<double>&PredefinedMetricSpecification=[object Object]&CustomizedMetricSpecification=[object Object]&DisableScaleIn=<boolean>&Enabled=<boolean>&MetricSpecifications=[object Object],[object Object]&Mode=ForecastOnly&SchedulingBufferTime=<integer>&MaxCapacityBreachBehavior=HonorMaxCapacity&MaxCapacityBuffer=<integer>&Action=PutScalingPolicy&Version=2011-01-01#Action=PutScalingPolicy",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The name of the Auto Scaling group.",
+                      "key": "AutoScalingGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The name of the policy.",
+                      "key": "PolicyName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>One of the following policy types: </p> <ul> <li> <p> <code>TargetTrackingScaling</code> </p> </li> <li> <p> <code>StepScaling</code> </p> </li> <li> <p> <code>SimpleScaling</code> (default)</p> </li> <li> <p> <code>PredictiveScaling</code> </p> </li> </ul>",
+                      "key": "PolicyType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>Specifies how the scaling adjustment is interpreted (for example, an absolute number or a percentage). The valid values are <code>ChangeInCapacity</code>, <code>ExactCapacity</code>, and <code>PercentChangeInCapacity</code>.</p> <p>Required if the policy type is <code>StepScaling</code> or <code>SimpleScaling</code>. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment\">Scaling adjustment types</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>",
+                      "key": "AdjustmentType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Available for backward compatibility. Use <code>MinAdjustmentMagnitude</code> instead.",
+                      "key": "MinAdjustmentStep",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>The minimum value to scale by when the adjustment type is <code>PercentChangeInCapacity</code>. For example, suppose that you create a step scaling policy to scale out an Auto Scaling group by 25 percent and you specify a <code>MinAdjustmentMagnitude</code> of 2. If the group has 4 instances and the scaling policy is performed, 25 percent of 4 is 1. However, because you specified a <code>MinAdjustmentMagnitude</code> of 2, Amazon EC2 Auto Scaling scales out the group by 2 instances.</p> <p>Valid only if the policy type is <code>StepScaling</code> or <code>SimpleScaling</code>. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment\">Scaling adjustment types</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <note> <p>Some Auto Scaling groups use instance weights. In this case, set the <code>MinAdjustmentMagnitude</code> to a value that is at least as large as your largest instance weight.</p> </note>",
+                      "key": "MinAdjustmentMagnitude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity. For exact capacity, you must specify a positive value.</p> <p>Required if the policy type is <code>SimpleScaling</code>. (Not used with any other policy type.) </p>",
+                      "key": "ScalingAdjustment",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>A cooldown period, in seconds, that applies to a specific simple scaling policy. When a cooldown period is specified here, it overrides the default cooldown.</p> <p>Valid only if the policy type is <code>SimpleScaling</code>. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html\">Scaling cooldowns for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>Default: None</p>",
+                      "key": "Cooldown",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>The aggregation type for the CloudWatch metrics. The valid values are <code>Minimum</code>, <code>Maximum</code>, and <code>Average</code>. If the aggregation type is null, the value is treated as <code>Average</code>.</p> <p>Valid only if the policy type is <code>StepScaling</code>.</p>",
+                      "key": "MetricAggregationType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>A set of adjustments that enable you to scale based on the size of the alarm breach.</p> <p>Required if the policy type is <code>StepScaling</code>. (Not used with any other policy type.) </p>",
+                      "key": "StepAdjustments",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "<p> <i>Not needed if the default instance warmup is defined for the group.</i> </p> <p>The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics. This warm-up period applies to instances launched due to a specific target tracking or step scaling policy. When a warm-up period is specified here, it overrides the default instance warmup.</p> <p>Valid only if the policy type is <code>TargetTrackingScaling</code> or <code>StepScaling</code>.</p> <note> <p>The default is to use the value for the default instance warmup defined for the group. If default instance warmup is null, then <code>EstimatedInstanceWarmup</code> falls back to the value of default cooldown.</p> </note>",
+                      "key": "EstimatedInstanceWarmup",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>A target tracking scaling policy. Provides support for predefined or custom metrics.</p> <p>The following predefined metrics are available:</p> <ul> <li> <p> <code>ASGAverageCPUUtilization</code> </p> </li> <li> <p> <code>ASGAverageNetworkIn</code> </p> </li> <li> <p> <code>ASGAverageNetworkOut</code> </p> </li> <li> <p> <code>ALBRequestCountPerTarget</code> </p> </li> </ul> <p>If you specify <code>ALBRequestCountPerTarget</code> for the metric, you must specify the <code>ResourceLabel</code> property with the <code>PredefinedMetricSpecification</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_TargetTrackingConfiguration.html\">TargetTrackingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>TargetTrackingScaling</code>.</p>",
+                      "key": "TargetValue",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "<p>A target tracking scaling policy. Provides support for predefined or custom metrics.</p> <p>The following predefined metrics are available:</p> <ul> <li> <p> <code>ASGAverageCPUUtilization</code> </p> </li> <li> <p> <code>ASGAverageNetworkIn</code> </p> </li> <li> <p> <code>ASGAverageNetworkOut</code> </p> </li> <li> <p> <code>ALBRequestCountPerTarget</code> </p> </li> </ul> <p>If you specify <code>ALBRequestCountPerTarget</code> for the metric, you must specify the <code>ResourceLabel</code> property with the <code>PredefinedMetricSpecification</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_TargetTrackingConfiguration.html\">TargetTrackingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>TargetTrackingScaling</code>.</p>",
+                      "key": "PredefinedMetricSpecification",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "<p>A target tracking scaling policy. Provides support for predefined or custom metrics.</p> <p>The following predefined metrics are available:</p> <ul> <li> <p> <code>ASGAverageCPUUtilization</code> </p> </li> <li> <p> <code>ASGAverageNetworkIn</code> </p> </li> <li> <p> <code>ASGAverageNetworkOut</code> </p> </li> <li> <p> <code>ALBRequestCountPerTarget</code> </p> </li> </ul> <p>If you specify <code>ALBRequestCountPerTarget</code> for the metric, you must specify the <code>ResourceLabel</code> property with the <code>PredefinedMetricSpecification</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_TargetTrackingConfiguration.html\">TargetTrackingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>TargetTrackingScaling</code>.</p>",
+                      "key": "CustomizedMetricSpecification",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "<p>A target tracking scaling policy. Provides support for predefined or custom metrics.</p> <p>The following predefined metrics are available:</p> <ul> <li> <p> <code>ASGAverageCPUUtilization</code> </p> </li> <li> <p> <code>ASGAverageNetworkIn</code> </p> </li> <li> <p> <code>ASGAverageNetworkOut</code> </p> </li> <li> <p> <code>ALBRequestCountPerTarget</code> </p> </li> </ul> <p>If you specify <code>ALBRequestCountPerTarget</code> for the metric, you must specify the <code>ResourceLabel</code> property with the <code>PredefinedMetricSpecification</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_TargetTrackingConfiguration.html\">TargetTrackingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>TargetTrackingScaling</code>.</p>",
+                      "key": "DisableScaleIn",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Indicates whether the scaling policy is enabled or disabled. The default is enabled. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enable-disable-scaling-policy.html\">Disabling a scaling policy for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "Enabled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "<p>A predictive scaling policy. Provides support for predefined and custom metrics.</p> <p>Predefined metrics include CPU utilization, network in/out, and the Application Load Balancer request count.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredictiveScalingConfiguration.html\">PredictiveScalingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>PredictiveScaling</code>.</p>",
+                      "key": "MetricSpecifications",
+                      "value": "[object Object],[object Object]"
+                    },
+                    {
+                      "description": "<p>A predictive scaling policy. Provides support for predefined and custom metrics.</p> <p>Predefined metrics include CPU utilization, network in/out, and the Application Load Balancer request count.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredictiveScalingConfiguration.html\">PredictiveScalingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>PredictiveScaling</code>.</p>",
+                      "key": "Mode",
+                      "value": "ForecastOnly"
+                    },
+                    {
+                      "description": "<p>A predictive scaling policy. Provides support for predefined and custom metrics.</p> <p>Predefined metrics include CPU utilization, network in/out, and the Application Load Balancer request count.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredictiveScalingConfiguration.html\">PredictiveScalingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>PredictiveScaling</code>.</p>",
+                      "key": "SchedulingBufferTime",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>A predictive scaling policy. Provides support for predefined and custom metrics.</p> <p>Predefined metrics include CPU utilization, network in/out, and the Application Load Balancer request count.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredictiveScalingConfiguration.html\">PredictiveScalingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>PredictiveScaling</code>.</p>",
+                      "key": "MaxCapacityBreachBehavior",
+                      "value": "HonorMaxCapacity"
+                    },
+                    {
+                      "description": "<p>A predictive scaling policy. Provides support for predefined and custom metrics.</p> <p>Predefined metrics include CPU utilization, network in/out, and the Application Load Balancer request count.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredictiveScalingConfiguration.html\">PredictiveScalingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>PredictiveScaling</code>.</p>",
+                      "key": "MaxCapacityBuffer",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "PutScalingPolicy"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=PutScalingPolicy"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:19:57.000Z",
+              "updatedAt": "2026-07-28T10:19:57.000Z",
+              "uid": "35240-b772af61-2658-4173-836a-06e900f950b6"
+            },
+            {
+              "id": "789f859b-5ce9-4032-9872-2e83d8561073",
+              "name": "ServiceLinkedRoleFailure",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?AutoScalingGroupName=<string>&PolicyName=<string>&PolicyType=<string>&AdjustmentType=<string>&MinAdjustmentStep=<integer>&MinAdjustmentMagnitude=<integer>&ScalingAdjustment=<integer>&Cooldown=<integer>&MetricAggregationType=<string>&StepAdjustments=[object Object]&EstimatedInstanceWarmup=<integer>&TargetValue=<double>&PredefinedMetricSpecification=[object Object]&CustomizedMetricSpecification=[object Object]&DisableScaleIn=<boolean>&Enabled=<boolean>&MetricSpecifications=[object Object],[object Object]&Mode=ForecastOnly&SchedulingBufferTime=<integer>&MaxCapacityBreachBehavior=HonorMaxCapacity&MaxCapacityBuffer=<integer>&Action=PutScalingPolicy&Version=2011-01-01#Action=PutScalingPolicy",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The name of the Auto Scaling group.",
+                      "key": "AutoScalingGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The name of the policy.",
+                      "key": "PolicyName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>One of the following policy types: </p> <ul> <li> <p> <code>TargetTrackingScaling</code> </p> </li> <li> <p> <code>StepScaling</code> </p> </li> <li> <p> <code>SimpleScaling</code> (default)</p> </li> <li> <p> <code>PredictiveScaling</code> </p> </li> </ul>",
+                      "key": "PolicyType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>Specifies how the scaling adjustment is interpreted (for example, an absolute number or a percentage). The valid values are <code>ChangeInCapacity</code>, <code>ExactCapacity</code>, and <code>PercentChangeInCapacity</code>.</p> <p>Required if the policy type is <code>StepScaling</code> or <code>SimpleScaling</code>. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment\">Scaling adjustment types</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>",
+                      "key": "AdjustmentType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Available for backward compatibility. Use <code>MinAdjustmentMagnitude</code> instead.",
+                      "key": "MinAdjustmentStep",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>The minimum value to scale by when the adjustment type is <code>PercentChangeInCapacity</code>. For example, suppose that you create a step scaling policy to scale out an Auto Scaling group by 25 percent and you specify a <code>MinAdjustmentMagnitude</code> of 2. If the group has 4 instances and the scaling policy is performed, 25 percent of 4 is 1. However, because you specified a <code>MinAdjustmentMagnitude</code> of 2, Amazon EC2 Auto Scaling scales out the group by 2 instances.</p> <p>Valid only if the policy type is <code>StepScaling</code> or <code>SimpleScaling</code>. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment\">Scaling adjustment types</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <note> <p>Some Auto Scaling groups use instance weights. In this case, set the <code>MinAdjustmentMagnitude</code> to a value that is at least as large as your largest instance weight.</p> </note>",
+                      "key": "MinAdjustmentMagnitude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity. For exact capacity, you must specify a positive value.</p> <p>Required if the policy type is <code>SimpleScaling</code>. (Not used with any other policy type.) </p>",
+                      "key": "ScalingAdjustment",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>A cooldown period, in seconds, that applies to a specific simple scaling policy. When a cooldown period is specified here, it overrides the default cooldown.</p> <p>Valid only if the policy type is <code>SimpleScaling</code>. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html\">Scaling cooldowns for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>Default: None</p>",
+                      "key": "Cooldown",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>The aggregation type for the CloudWatch metrics. The valid values are <code>Minimum</code>, <code>Maximum</code>, and <code>Average</code>. If the aggregation type is null, the value is treated as <code>Average</code>.</p> <p>Valid only if the policy type is <code>StepScaling</code>.</p>",
+                      "key": "MetricAggregationType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "<p>A set of adjustments that enable you to scale based on the size of the alarm breach.</p> <p>Required if the policy type is <code>StepScaling</code>. (Not used with any other policy type.) </p>",
+                      "key": "StepAdjustments",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "<p> <i>Not needed if the default instance warmup is defined for the group.</i> </p> <p>The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics. This warm-up period applies to instances launched due to a specific target tracking or step scaling policy. When a warm-up period is specified here, it overrides the default instance warmup.</p> <p>Valid only if the policy type is <code>TargetTrackingScaling</code> or <code>StepScaling</code>.</p> <note> <p>The default is to use the value for the default instance warmup defined for the group. If default instance warmup is null, then <code>EstimatedInstanceWarmup</code> falls back to the value of default cooldown.</p> </note>",
+                      "key": "EstimatedInstanceWarmup",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>A target tracking scaling policy. Provides support for predefined or custom metrics.</p> <p>The following predefined metrics are available:</p> <ul> <li> <p> <code>ASGAverageCPUUtilization</code> </p> </li> <li> <p> <code>ASGAverageNetworkIn</code> </p> </li> <li> <p> <code>ASGAverageNetworkOut</code> </p> </li> <li> <p> <code>ALBRequestCountPerTarget</code> </p> </li> </ul> <p>If you specify <code>ALBRequestCountPerTarget</code> for the metric, you must specify the <code>ResourceLabel</code> property with the <code>PredefinedMetricSpecification</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_TargetTrackingConfiguration.html\">TargetTrackingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>TargetTrackingScaling</code>.</p>",
+                      "key": "TargetValue",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "<p>A target tracking scaling policy. Provides support for predefined or custom metrics.</p> <p>The following predefined metrics are available:</p> <ul> <li> <p> <code>ASGAverageCPUUtilization</code> </p> </li> <li> <p> <code>ASGAverageNetworkIn</code> </p> </li> <li> <p> <code>ASGAverageNetworkOut</code> </p> </li> <li> <p> <code>ALBRequestCountPerTarget</code> </p> </li> </ul> <p>If you specify <code>ALBRequestCountPerTarget</code> for the metric, you must specify the <code>ResourceLabel</code> property with the <code>PredefinedMetricSpecification</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_TargetTrackingConfiguration.html\">TargetTrackingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>TargetTrackingScaling</code>.</p>",
+                      "key": "PredefinedMetricSpecification",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "<p>A target tracking scaling policy. Provides support for predefined or custom metrics.</p> <p>The following predefined metrics are available:</p> <ul> <li> <p> <code>ASGAverageCPUUtilization</code> </p> </li> <li> <p> <code>ASGAverageNetworkIn</code> </p> </li> <li> <p> <code>ASGAverageNetworkOut</code> </p> </li> <li> <p> <code>ALBRequestCountPerTarget</code> </p> </li> </ul> <p>If you specify <code>ALBRequestCountPerTarget</code> for the metric, you must specify the <code>ResourceLabel</code> property with the <code>PredefinedMetricSpecification</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_TargetTrackingConfiguration.html\">TargetTrackingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>TargetTrackingScaling</code>.</p>",
+                      "key": "CustomizedMetricSpecification",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "<p>A target tracking scaling policy. Provides support for predefined or custom metrics.</p> <p>The following predefined metrics are available:</p> <ul> <li> <p> <code>ASGAverageCPUUtilization</code> </p> </li> <li> <p> <code>ASGAverageNetworkIn</code> </p> </li> <li> <p> <code>ASGAverageNetworkOut</code> </p> </li> <li> <p> <code>ALBRequestCountPerTarget</code> </p> </li> </ul> <p>If you specify <code>ALBRequestCountPerTarget</code> for the metric, you must specify the <code>ResourceLabel</code> property with the <code>PredefinedMetricSpecification</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_TargetTrackingConfiguration.html\">TargetTrackingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>TargetTrackingScaling</code>.</p>",
+                      "key": "DisableScaleIn",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Indicates whether the scaling policy is enabled or disabled. The default is enabled. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enable-disable-scaling-policy.html\">Disabling a scaling policy for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.",
+                      "key": "Enabled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "<p>A predictive scaling policy. Provides support for predefined and custom metrics.</p> <p>Predefined metrics include CPU utilization, network in/out, and the Application Load Balancer request count.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredictiveScalingConfiguration.html\">PredictiveScalingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>PredictiveScaling</code>.</p>",
+                      "key": "MetricSpecifications",
+                      "value": "[object Object],[object Object]"
+                    },
+                    {
+                      "description": "<p>A predictive scaling policy. Provides support for predefined and custom metrics.</p> <p>Predefined metrics include CPU utilization, network in/out, and the Application Load Balancer request count.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredictiveScalingConfiguration.html\">PredictiveScalingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>PredictiveScaling</code>.</p>",
+                      "key": "Mode",
+                      "value": "ForecastOnly"
+                    },
+                    {
+                      "description": "<p>A predictive scaling policy. Provides support for predefined and custom metrics.</p> <p>Predefined metrics include CPU utilization, network in/out, and the Application Load Balancer request count.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredictiveScalingConfiguration.html\">PredictiveScalingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>PredictiveScaling</code>.</p>",
+                      "key": "SchedulingBufferTime",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "<p>A predictive scaling policy. Provides support for predefined and custom metrics.</p> <p>Predefined metrics include CPU utilization, network in/out, and the Application Load Balancer request count.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredictiveScalingConfiguration.html\">PredictiveScalingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>PredictiveScaling</code>.</p>",
+                      "key": "MaxCapacityBreachBehavior",
+                      "value": "HonorMaxCapacity"
+                    },
+                    {
+                      "description": "<p>A predictive scaling policy. Provides support for predefined and custom metrics.</p> <p>Predefined metrics include CPU utilization, network in/out, and the Application Load Balancer request count.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredictiveScalingConfiguration.html\">PredictiveScalingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>PredictiveScaling</code>.</p>",
+                      "key": "MaxCapacityBuffer",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "PutScalingPolicy"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=PutScalingPolicy"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:19:57.000Z",
+              "updatedAt": "2026-07-28T10:19:57.000Z",
+              "uid": "35240-789f859b-5ce9-4032-9872-2e83d8561073"
+            }
+          ],
+          "createdAt": "2026-07-28T10:19:57.000Z",
+          "updatedAt": "2026-07-28T10:19:57.000Z",
+          "uid": "35240-b24a890b-0db4-44b8-958f-fa66fdfa2dee"
+        },
+        {
+          "name": "Amazon EC2 Auto Scaling POST_ Put Scaling Policy",
+          "id": "d8653119-7d14-4bba-9382-898bc3a88b3d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "text/xml"
+              },
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <PolicyName>(string)</PolicyName>\n  <PolicyType>(string)</PolicyType>\n  <AdjustmentType>(string)</AdjustmentType>\n  <MinAdjustmentStep>(integer)</MinAdjustmentStep>\n  <MinAdjustmentMagnitude>(integer)</MinAdjustmentMagnitude>\n  <ScalingAdjustment>(integer)</ScalingAdjustment>\n  <Cooldown>(integer)</Cooldown>\n  <MetricAggregationType>(string)</MetricAggregationType>\n  <StepAdjustments>\n    <MetricIntervalLowerBound>(number)</MetricIntervalLowerBound>\n    <MetricIntervalUpperBound>(number)</MetricIntervalUpperBound>\n    <ScalingAdjustment>(integer)</ScalingAdjustment>\n  </StepAdjustments>\n  <StepAdjustments>\n    <MetricIntervalLowerBound>(number)</MetricIntervalLowerBound>\n    <MetricIntervalUpperBound>(number)</MetricIntervalUpperBound>\n    <ScalingAdjustment>(integer)</ScalingAdjustment>\n  </StepAdjustments>\n  <EstimatedInstanceWarmup>(integer)</EstimatedInstanceWarmup>\n  <TargetTrackingConfiguration>\n    <PredefinedMetricSpecification>\n      <PredefinedMetricType>(string)</PredefinedMetricType>\n      <ResourceLabel>(string)</ResourceLabel>\n    </PredefinedMetricSpecification>\n    <CustomizedMetricSpecification>\n      <MetricName>(string)</MetricName>\n      <Namespace>(string)</Namespace>\n      <Dimensions>\n        <Name>(string)</Name>\n        <Value>(string)</Value>\n      </Dimensions>\n      <Dimensions>\n        <Name>(string)</Name>\n        <Value>(string)</Value>\n      </Dimensions>\n      <Statistic>(string)</Statistic>\n      <Unit>(string)</Unit>\n      <Metrics>\n        <Id>(string)</Id>\n        <Expression>(string)</Expression>\n        <MetricStat>\n          <Metric>\n            <Namespace>(string)</Namespace>\n            <MetricName>(string)</MetricName>\n            <Dimensions>\n              <Name>(string)</Name>\n              <Value>(string)</Value>\n            </Dimensions>\n            <Dimensions>\n              <Name>(string)</Name>\n              <Value>(string)</Value>\n            </Dimensions>\n          </Metric>\n          <Stat>(string)</Stat>\n          <Unit>(string)</Unit>\n        </MetricStat>\n        <Label>(string)</Label>\n        <ReturnData>(boolean)</ReturnData>\n      </Metrics>\n      <Metrics>\n        <Id>(string)</Id>\n        <Expression>(string)</Expression>\n        <MetricStat>\n          <Metric>\n            <Namespace>(string)</Namespace>\n            <MetricName>(string)</MetricName>\n            <Dimensions>\n              <Name>(string)</Name>\n              <Value>(string)</Value>\n            </Dimensions>\n            <Dimensions>\n              <Name>(string)</Name>\n              <Value>(string)</Value>\n            </Dimensions>\n          </Metric>\n          <Stat>(string)</Stat>\n          <Unit>(string)</Unit>\n        </MetricStat>\n        <Label>(string)</Label>\n        <ReturnData>(boolean)</ReturnData>\n      </Metrics>\n    </CustomizedMetricSpecification>\n    <TargetValue>(number)</TargetValue>\n    <DisableScaleIn>(boolean)</DisableScaleIn>\n  </TargetTrackingConfiguration>\n  <Enabled>(boolean)</Enabled>\n  <PredictiveScalingConfiguration>\n    <MetricSpecifications>\n      <TargetValue>(number)</TargetValue>\n      <PredefinedMetricPairSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedMetricPairSpecification>\n      <PredefinedScalingMetricSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedScalingMetricSpecification>\n      <PredefinedLoadMetricSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedLoadMetricSpecification>\n      <CustomizedScalingMetricSpecification>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n      </CustomizedScalingMetricSpecification>\n      <CustomizedLoadMetricSpecification>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n      </CustomizedLoadMetricSpecification>\n      <CustomizedCapacityMetricSpecification>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n      </CustomizedCapacityMetricSpecification>\n    </MetricSpecifications>\n    <MetricSpecifications>\n      <TargetValue>(number)</TargetValue>\n      <PredefinedMetricPairSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedMetricPairSpecification>\n      <PredefinedScalingMetricSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedScalingMetricSpecification>\n      <PredefinedLoadMetricSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedLoadMetricSpecification>\n      <CustomizedScalingMetricSpecification>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n      </CustomizedScalingMetricSpecification>\n      <CustomizedLoadMetricSpecification>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n      </CustomizedLoadMetricSpecification>\n      <CustomizedCapacityMetricSpecification>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n      </CustomizedCapacityMetricSpecification>\n    </MetricSpecifications>\n    <Mode>(string)</Mode>\n    <SchedulingBufferTime>(integer)</SchedulingBufferTime>\n    <MaxCapacityBreachBehavior>(string)</MaxCapacityBreachBehavior>\n    <MaxCapacityBuffer>(integer)</MaxCapacityBuffer>\n  </PredictiveScalingConfiguration>\n</element>",
+              "options": {
+                "raw": {
+                  "headerFamily": "xml",
+                  "language": "xml"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/?Action=PutScalingPolicy&Version=2011-01-01#Action=PutScalingPolicy",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "PutScalingPolicy"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2011-01-01"
+                }
+              ],
+              "hash": "Action=PutScalingPolicy"
+            },
+            "description": "<p>Creates or updates a scaling policy for an Auto Scaling group. Scaling policies are used to scale an Auto Scaling group based on configurable metrics. If no policies are defined, the dynamic scaling and predictive scaling features are not used. </p> <p>For more information about using dynamic scaling, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-target-tracking.html\">Target tracking scaling policies</a> and <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html\">Step and simple scaling policies</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>For more information about using predictive scaling, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-predictive-scaling.html\">Predictive scaling for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>You can view the scaling policies for an Auto Scaling group using the <a>DescribePolicies</a> API call. If you are no longer using a scaling policy, you can delete it by calling the <a>DeletePolicy</a> API.</p>"
+          },
+          "response": [
+            {
+              "id": "7042c067-7bb1-4944-a64e-f6cff44f623c",
+              "name": "Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <PolicyName>(string)</PolicyName>\n  <PolicyType>(string)</PolicyType>\n  <AdjustmentType>(string)</AdjustmentType>\n  <MinAdjustmentStep>(integer)</MinAdjustmentStep>\n  <MinAdjustmentMagnitude>(integer)</MinAdjustmentMagnitude>\n  <ScalingAdjustment>(integer)</ScalingAdjustment>\n  <Cooldown>(integer)</Cooldown>\n  <MetricAggregationType>(string)</MetricAggregationType>\n  <StepAdjustments>\n    <MetricIntervalLowerBound>(number)</MetricIntervalLowerBound>\n    <MetricIntervalUpperBound>(number)</MetricIntervalUpperBound>\n    <ScalingAdjustment>(integer)</ScalingAdjustment>\n  </StepAdjustments>\n  <StepAdjustments>\n    <MetricIntervalLowerBound>(number)</MetricIntervalLowerBound>\n    <MetricIntervalUpperBound>(number)</MetricIntervalUpperBound>\n    <ScalingAdjustment>(integer)</ScalingAdjustment>\n  </StepAdjustments>\n  <EstimatedInstanceWarmup>(integer)</EstimatedInstanceWarmup>\n  <TargetTrackingConfiguration>\n    <PredefinedMetricSpecification>\n      <PredefinedMetricType>(string)</PredefinedMetricType>\n      <ResourceLabel>(string)</ResourceLabel>\n    </PredefinedMetricSpecification>\n    <CustomizedMetricSpecification>\n      <MetricName>(string)</MetricName>\n      <Namespace>(string)</Namespace>\n      <Dimensions>\n        <Name>(string)</Name>\n        <Value>(string)</Value>\n      </Dimensions>\n      <Dimensions>\n        <Name>(string)</Name>\n        <Value>(string)</Value>\n      </Dimensions>\n      <Statistic>(string)</Statistic>\n      <Unit>(string)</Unit>\n      <Metrics>\n        <Id>(string)</Id>\n        <Expression>(string)</Expression>\n        <MetricStat>\n          <Metric>\n            <Namespace>(string)</Namespace>\n            <MetricName>(string)</MetricName>\n            <Dimensions>\n              <Name>(string)</Name>\n              <Value>(string)</Value>\n            </Dimensions>\n            <Dimensions>\n              <Name>(string)</Name>\n              <Value>(string)</Value>\n            </Dimensions>\n          </Metric>\n          <Stat>(string)</Stat>\n          <Unit>(string)</Unit>\n        </MetricStat>\n        <Label>(string)</Label>\n        <ReturnData>(boolean)</ReturnData>\n      </Metrics>\n      <Metrics>\n        <Id>(string)</Id>\n        <Expression>(string)</Expression>\n        <MetricStat>\n          <Metric>\n            <Namespace>(string)</Namespace>\n            <MetricName>(string)</MetricName>\n            <Dimensions>\n              <Name>(string)</Name>\n              <Value>(string)</Value>\n            </Dimensions>\n            <Dimensions>\n              <Name>(string)</Name>\n              <Value>(string)</Value>\n            </Dimensions>\n          </Metric>\n          <Stat>(string)</Stat>\n          <Unit>(string)</Unit>\n        </MetricStat>\n        <Label>(string)</Label>\n        <ReturnData>(boolean)</ReturnData>\n      </Metrics>\n    </CustomizedMetricSpecification>\n    <TargetValue>(number)</TargetValue>\n    <DisableScaleIn>(boolean)</DisableScaleIn>\n  </TargetTrackingConfiguration>\n  <Enabled>(boolean)</Enabled>\n  <PredictiveScalingConfiguration>\n    <MetricSpecifications>\n      <TargetValue>(number)</TargetValue>\n      <PredefinedMetricPairSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedMetricPairSpecification>\n      <PredefinedScalingMetricSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedScalingMetricSpecification>\n      <PredefinedLoadMetricSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedLoadMetricSpecification>\n      <CustomizedScalingMetricSpecification>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n      </CustomizedScalingMetricSpecification>\n      <CustomizedLoadMetricSpecification>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n      </CustomizedLoadMetricSpecification>\n      <CustomizedCapacityMetricSpecification>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n      </CustomizedCapacityMetricSpecification>\n    </MetricSpecifications>\n    <MetricSpecifications>\n      <TargetValue>(number)</TargetValue>\n      <PredefinedMetricPairSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedMetricPairSpecification>\n      <PredefinedScalingMetricSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedScalingMetricSpecification>\n      <PredefinedLoadMetricSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedLoadMetricSpecification>\n      <CustomizedScalingMetricSpecification>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n      </CustomizedScalingMetricSpecification>\n      <CustomizedLoadMetricSpecification>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n      </CustomizedLoadMetricSpecification>\n      <CustomizedCapacityMetricSpecification>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n      </CustomizedCapacityMetricSpecification>\n    </MetricSpecifications>\n    <Mode>(string)</Mode>\n    <SchedulingBufferTime>(integer)</SchedulingBufferTime>\n    <MaxCapacityBreachBehavior>(string)</MaxCapacityBreachBehavior>\n    <MaxCapacityBuffer>(integer)</MaxCapacityBuffer>\n  </PredictiveScalingConfiguration>\n</element>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "xml",
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=PutScalingPolicy&Version=2011-01-01#Action=PutScalingPolicy",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "PutScalingPolicy"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=PutScalingPolicy"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <PolicyARN>(string)</PolicyARN>\n  <Alarms>\n    <AlarmName>(string)</AlarmName>\n    <AlarmARN>(string)</AlarmARN>\n  </Alarms>\n  <Alarms>\n    <AlarmName>(string)</AlarmName>\n    <AlarmARN>(string)</AlarmARN>\n  </Alarms>\n</element>",
+              "createdAt": "2026-07-28T10:19:57.000Z",
+              "updatedAt": "2026-07-28T10:19:57.000Z",
+              "uid": "35240-7042c067-7bb1-4944-a64e-f6cff44f623c"
+            },
+            {
+              "id": "84ca9dc3-de75-4913-b062-2992e1912278",
+              "name": "LimitExceededFault",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <PolicyName>(string)</PolicyName>\n  <PolicyType>(string)</PolicyType>\n  <AdjustmentType>(string)</AdjustmentType>\n  <MinAdjustmentStep>(integer)</MinAdjustmentStep>\n  <MinAdjustmentMagnitude>(integer)</MinAdjustmentMagnitude>\n  <ScalingAdjustment>(integer)</ScalingAdjustment>\n  <Cooldown>(integer)</Cooldown>\n  <MetricAggregationType>(string)</MetricAggregationType>\n  <StepAdjustments>\n    <MetricIntervalLowerBound>(number)</MetricIntervalLowerBound>\n    <MetricIntervalUpperBound>(number)</MetricIntervalUpperBound>\n    <ScalingAdjustment>(integer)</ScalingAdjustment>\n  </StepAdjustments>\n  <StepAdjustments>\n    <MetricIntervalLowerBound>(number)</MetricIntervalLowerBound>\n    <MetricIntervalUpperBound>(number)</MetricIntervalUpperBound>\n    <ScalingAdjustment>(integer)</ScalingAdjustment>\n  </StepAdjustments>\n  <EstimatedInstanceWarmup>(integer)</EstimatedInstanceWarmup>\n  <TargetTrackingConfiguration>\n    <PredefinedMetricSpecification>\n      <PredefinedMetricType>(string)</PredefinedMetricType>\n      <ResourceLabel>(string)</ResourceLabel>\n    </PredefinedMetricSpecification>\n    <CustomizedMetricSpecification>\n      <MetricName>(string)</MetricName>\n      <Namespace>(string)</Namespace>\n      <Dimensions>\n        <Name>(string)</Name>\n        <Value>(string)</Value>\n      </Dimensions>\n      <Dimensions>\n        <Name>(string)</Name>\n        <Value>(string)</Value>\n      </Dimensions>\n      <Statistic>(string)</Statistic>\n      <Unit>(string)</Unit>\n      <Metrics>\n        <Id>(string)</Id>\n        <Expression>(string)</Expression>\n        <MetricStat>\n          <Metric>\n            <Namespace>(string)</Namespace>\n            <MetricName>(string)</MetricName>\n            <Dimensions>\n              <Name>(string)</Name>\n              <Value>(string)</Value>\n            </Dimensions>\n            <Dimensions>\n              <Name>(string)</Name>\n              <Value>(string)</Value>\n            </Dimensions>\n          </Metric>\n          <Stat>(string)</Stat>\n          <Unit>(string)</Unit>\n        </MetricStat>\n        <Label>(string)</Label>\n        <ReturnData>(boolean)</ReturnData>\n      </Metrics>\n      <Metrics>\n        <Id>(string)</Id>\n        <Expression>(string)</Expression>\n        <MetricStat>\n          <Metric>\n            <Namespace>(string)</Namespace>\n            <MetricName>(string)</MetricName>\n            <Dimensions>\n              <Name>(string)</Name>\n              <Value>(string)</Value>\n            </Dimensions>\n            <Dimensions>\n              <Name>(string)</Name>\n              <Value>(string)</Value>\n            </Dimensions>\n          </Metric>\n          <Stat>(string)</Stat>\n          <Unit>(string)</Unit>\n        </MetricStat>\n        <Label>(string)</Label>\n        <ReturnData>(boolean)</ReturnData>\n      </Metrics>\n    </CustomizedMetricSpecification>\n    <TargetValue>(number)</TargetValue>\n    <DisableScaleIn>(boolean)</DisableScaleIn>\n  </TargetTrackingConfiguration>\n  <Enabled>(boolean)</Enabled>\n  <PredictiveScalingConfiguration>\n    <MetricSpecifications>\n      <TargetValue>(number)</TargetValue>\n      <PredefinedMetricPairSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedMetricPairSpecification>\n      <PredefinedScalingMetricSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedScalingMetricSpecification>\n      <PredefinedLoadMetricSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedLoadMetricSpecification>\n      <CustomizedScalingMetricSpecification>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n      </CustomizedScalingMetricSpecification>\n      <CustomizedLoadMetricSpecification>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n      </CustomizedLoadMetricSpecification>\n      <CustomizedCapacityMetricSpecification>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n      </CustomizedCapacityMetricSpecification>\n    </MetricSpecifications>\n    <MetricSpecifications>\n      <TargetValue>(number)</TargetValue>\n      <PredefinedMetricPairSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedMetricPairSpecification>\n      <PredefinedScalingMetricSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedScalingMetricSpecification>\n      <PredefinedLoadMetricSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedLoadMetricSpecification>\n      <CustomizedScalingMetricSpecification>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n      </CustomizedScalingMetricSpecification>\n      <CustomizedLoadMetricSpecification>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n      </CustomizedLoadMetricSpecification>\n      <CustomizedCapacityMetricSpecification>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n      </CustomizedCapacityMetricSpecification>\n    </MetricSpecifications>\n    <Mode>(string)</Mode>\n    <SchedulingBufferTime>(integer)</SchedulingBufferTime>\n    <MaxCapacityBreachBehavior>(string)</MaxCapacityBreachBehavior>\n    <MaxCapacityBuffer>(integer)</MaxCapacityBuffer>\n  </PredictiveScalingConfiguration>\n</element>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "xml",
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=PutScalingPolicy&Version=2011-01-01#Action=PutScalingPolicy",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "PutScalingPolicy"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=PutScalingPolicy"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:19:57.000Z",
+              "updatedAt": "2026-07-28T10:19:57.000Z",
+              "uid": "35240-84ca9dc3-de75-4913-b062-2992e1912278"
+            },
+            {
+              "id": "7dc5c6ff-4b77-49b4-9ea4-48b33a51e34a",
+              "name": "ResourceContentionFault",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <PolicyName>(string)</PolicyName>\n  <PolicyType>(string)</PolicyType>\n  <AdjustmentType>(string)</AdjustmentType>\n  <MinAdjustmentStep>(integer)</MinAdjustmentStep>\n  <MinAdjustmentMagnitude>(integer)</MinAdjustmentMagnitude>\n  <ScalingAdjustment>(integer)</ScalingAdjustment>\n  <Cooldown>(integer)</Cooldown>\n  <MetricAggregationType>(string)</MetricAggregationType>\n  <StepAdjustments>\n    <MetricIntervalLowerBound>(number)</MetricIntervalLowerBound>\n    <MetricIntervalUpperBound>(number)</MetricIntervalUpperBound>\n    <ScalingAdjustment>(integer)</ScalingAdjustment>\n  </StepAdjustments>\n  <StepAdjustments>\n    <MetricIntervalLowerBound>(number)</MetricIntervalLowerBound>\n    <MetricIntervalUpperBound>(number)</MetricIntervalUpperBound>\n    <ScalingAdjustment>(integer)</ScalingAdjustment>\n  </StepAdjustments>\n  <EstimatedInstanceWarmup>(integer)</EstimatedInstanceWarmup>\n  <TargetTrackingConfiguration>\n    <PredefinedMetricSpecification>\n      <PredefinedMetricType>(string)</PredefinedMetricType>\n      <ResourceLabel>(string)</ResourceLabel>\n    </PredefinedMetricSpecification>\n    <CustomizedMetricSpecification>\n      <MetricName>(string)</MetricName>\n      <Namespace>(string)</Namespace>\n      <Dimensions>\n        <Name>(string)</Name>\n        <Value>(string)</Value>\n      </Dimensions>\n      <Dimensions>\n        <Name>(string)</Name>\n        <Value>(string)</Value>\n      </Dimensions>\n      <Statistic>(string)</Statistic>\n      <Unit>(string)</Unit>\n      <Metrics>\n        <Id>(string)</Id>\n        <Expression>(string)</Expression>\n        <MetricStat>\n          <Metric>\n            <Namespace>(string)</Namespace>\n            <MetricName>(string)</MetricName>\n            <Dimensions>\n              <Name>(string)</Name>\n              <Value>(string)</Value>\n            </Dimensions>\n            <Dimensions>\n              <Name>(string)</Name>\n              <Value>(string)</Value>\n            </Dimensions>\n          </Metric>\n          <Stat>(string)</Stat>\n          <Unit>(string)</Unit>\n        </MetricStat>\n        <Label>(string)</Label>\n        <ReturnData>(boolean)</ReturnData>\n      </Metrics>\n      <Metrics>\n        <Id>(string)</Id>\n        <Expression>(string)</Expression>\n        <MetricStat>\n          <Metric>\n            <Namespace>(string)</Namespace>\n            <MetricName>(string)</MetricName>\n            <Dimensions>\n              <Name>(string)</Name>\n              <Value>(string)</Value>\n            </Dimensions>\n            <Dimensions>\n              <Name>(string)</Name>\n              <Value>(string)</Value>\n            </Dimensions>\n          </Metric>\n          <Stat>(string)</Stat>\n          <Unit>(string)</Unit>\n        </MetricStat>\n        <Label>(string)</Label>\n        <ReturnData>(boolean)</ReturnData>\n      </Metrics>\n    </CustomizedMetricSpecification>\n    <TargetValue>(number)</TargetValue>\n    <DisableScaleIn>(boolean)</DisableScaleIn>\n  </TargetTrackingConfiguration>\n  <Enabled>(boolean)</Enabled>\n  <PredictiveScalingConfiguration>\n    <MetricSpecifications>\n      <TargetValue>(number)</TargetValue>\n      <PredefinedMetricPairSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedMetricPairSpecification>\n      <PredefinedScalingMetricSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedScalingMetricSpecification>\n      <PredefinedLoadMetricSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedLoadMetricSpecification>\n      <CustomizedScalingMetricSpecification>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n      </CustomizedScalingMetricSpecification>\n      <CustomizedLoadMetricSpecification>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n      </CustomizedLoadMetricSpecification>\n      <CustomizedCapacityMetricSpecification>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n      </CustomizedCapacityMetricSpecification>\n    </MetricSpecifications>\n    <MetricSpecifications>\n      <TargetValue>(number)</TargetValue>\n      <PredefinedMetricPairSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedMetricPairSpecification>\n      <PredefinedScalingMetricSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedScalingMetricSpecification>\n      <PredefinedLoadMetricSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedLoadMetricSpecification>\n      <CustomizedScalingMetricSpecification>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n      </CustomizedScalingMetricSpecification>\n      <CustomizedLoadMetricSpecification>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n      </CustomizedLoadMetricSpecification>\n      <CustomizedCapacityMetricSpecification>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n      </CustomizedCapacityMetricSpecification>\n    </MetricSpecifications>\n    <Mode>(string)</Mode>\n    <SchedulingBufferTime>(integer)</SchedulingBufferTime>\n    <MaxCapacityBreachBehavior>(string)</MaxCapacityBreachBehavior>\n    <MaxCapacityBuffer>(integer)</MaxCapacityBuffer>\n  </PredictiveScalingConfiguration>\n</element>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "xml",
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=PutScalingPolicy&Version=2011-01-01#Action=PutScalingPolicy",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "PutScalingPolicy"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=PutScalingPolicy"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:19:57.000Z",
+              "updatedAt": "2026-07-28T10:19:57.000Z",
+              "uid": "35240-7dc5c6ff-4b77-49b4-9ea4-48b33a51e34a"
+            },
+            {
+              "id": "6389b2a7-fc8e-4a4c-9961-5dcc02951b6b",
+              "name": "ServiceLinkedRoleFailure",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <PolicyName>(string)</PolicyName>\n  <PolicyType>(string)</PolicyType>\n  <AdjustmentType>(string)</AdjustmentType>\n  <MinAdjustmentStep>(integer)</MinAdjustmentStep>\n  <MinAdjustmentMagnitude>(integer)</MinAdjustmentMagnitude>\n  <ScalingAdjustment>(integer)</ScalingAdjustment>\n  <Cooldown>(integer)</Cooldown>\n  <MetricAggregationType>(string)</MetricAggregationType>\n  <StepAdjustments>\n    <MetricIntervalLowerBound>(number)</MetricIntervalLowerBound>\n    <MetricIntervalUpperBound>(number)</MetricIntervalUpperBound>\n    <ScalingAdjustment>(integer)</ScalingAdjustment>\n  </StepAdjustments>\n  <StepAdjustments>\n    <MetricIntervalLowerBound>(number)</MetricIntervalLowerBound>\n    <MetricIntervalUpperBound>(number)</MetricIntervalUpperBound>\n    <ScalingAdjustment>(integer)</ScalingAdjustment>\n  </StepAdjustments>\n  <EstimatedInstanceWarmup>(integer)</EstimatedInstanceWarmup>\n  <TargetTrackingConfiguration>\n    <PredefinedMetricSpecification>\n      <PredefinedMetricType>(string)</PredefinedMetricType>\n      <ResourceLabel>(string)</ResourceLabel>\n    </PredefinedMetricSpecification>\n    <CustomizedMetricSpecification>\n      <MetricName>(string)</MetricName>\n      <Namespace>(string)</Namespace>\n      <Dimensions>\n        <Name>(string)</Name>\n        <Value>(string)</Value>\n      </Dimensions>\n      <Dimensions>\n        <Name>(string)</Name>\n        <Value>(string)</Value>\n      </Dimensions>\n      <Statistic>(string)</Statistic>\n      <Unit>(string)</Unit>\n      <Metrics>\n        <Id>(string)</Id>\n        <Expression>(string)</Expression>\n        <MetricStat>\n          <Metric>\n            <Namespace>(string)</Namespace>\n            <MetricName>(string)</MetricName>\n            <Dimensions>\n              <Name>(string)</Name>\n              <Value>(string)</Value>\n            </Dimensions>\n            <Dimensions>\n              <Name>(string)</Name>\n              <Value>(string)</Value>\n            </Dimensions>\n          </Metric>\n          <Stat>(string)</Stat>\n          <Unit>(string)</Unit>\n        </MetricStat>\n        <Label>(string)</Label>\n        <ReturnData>(boolean)</ReturnData>\n      </Metrics>\n      <Metrics>\n        <Id>(string)</Id>\n        <Expression>(string)</Expression>\n        <MetricStat>\n          <Metric>\n            <Namespace>(string)</Namespace>\n            <MetricName>(string)</MetricName>\n            <Dimensions>\n              <Name>(string)</Name>\n              <Value>(string)</Value>\n            </Dimensions>\n            <Dimensions>\n              <Name>(string)</Name>\n              <Value>(string)</Value>\n            </Dimensions>\n          </Metric>\n          <Stat>(string)</Stat>\n          <Unit>(string)</Unit>\n        </MetricStat>\n        <Label>(string)</Label>\n        <ReturnData>(boolean)</ReturnData>\n      </Metrics>\n    </CustomizedMetricSpecification>\n    <TargetValue>(number)</TargetValue>\n    <DisableScaleIn>(boolean)</DisableScaleIn>\n  </TargetTrackingConfiguration>\n  <Enabled>(boolean)</Enabled>\n  <PredictiveScalingConfiguration>\n    <MetricSpecifications>\n      <TargetValue>(number)</TargetValue>\n      <PredefinedMetricPairSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedMetricPairSpecification>\n      <PredefinedScalingMetricSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedScalingMetricSpecification>\n      <PredefinedLoadMetricSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedLoadMetricSpecification>\n      <CustomizedScalingMetricSpecification>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n      </CustomizedScalingMetricSpecification>\n      <CustomizedLoadMetricSpecification>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n      </CustomizedLoadMetricSpecification>\n      <CustomizedCapacityMetricSpecification>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n      </CustomizedCapacityMetricSpecification>\n    </MetricSpecifications>\n    <MetricSpecifications>\n      <TargetValue>(number)</TargetValue>\n      <PredefinedMetricPairSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedMetricPairSpecification>\n      <PredefinedScalingMetricSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedScalingMetricSpecification>\n      <PredefinedLoadMetricSpecification>\n        <PredefinedMetricType>(string)</PredefinedMetricType>\n        <ResourceLabel>(string)</ResourceLabel>\n      </PredefinedLoadMetricSpecification>\n      <CustomizedScalingMetricSpecification>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n      </CustomizedScalingMetricSpecification>\n      <CustomizedLoadMetricSpecification>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n      </CustomizedLoadMetricSpecification>\n      <CustomizedCapacityMetricSpecification>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n        <MetricDataQueries>\n          <Id>(string)</Id>\n          <Expression>(string)</Expression>\n          <MetricStat>\n            <Metric>\n              <Namespace>(string)</Namespace>\n              <MetricName>(string)</MetricName>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n              <Dimensions>\n                <Name>(string)</Name>\n                <Value>(string)</Value>\n              </Dimensions>\n            </Metric>\n            <Stat>(string)</Stat>\n            <Unit>(string)</Unit>\n          </MetricStat>\n          <Label>(string)</Label>\n          <ReturnData>(boolean)</ReturnData>\n        </MetricDataQueries>\n      </CustomizedCapacityMetricSpecification>\n    </MetricSpecifications>\n    <Mode>(string)</Mode>\n    <SchedulingBufferTime>(integer)</SchedulingBufferTime>\n    <MaxCapacityBreachBehavior>(string)</MaxCapacityBreachBehavior>\n    <MaxCapacityBuffer>(integer)</MaxCapacityBuffer>\n  </PredictiveScalingConfiguration>\n</element>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "xml",
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=PutScalingPolicy&Version=2011-01-01#Action=PutScalingPolicy",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "PutScalingPolicy"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=PutScalingPolicy"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:19:57.000Z",
+              "updatedAt": "2026-07-28T10:19:57.000Z",
+              "uid": "35240-6389b2a7-fc8e-4a4c-9961-5dcc02951b6b"
+            }
+          ],
+          "createdAt": "2026-07-28T10:19:57.000Z",
+          "updatedAt": "2026-07-28T10:19:57.000Z",
+          "uid": "35240-d8653119-7d14-4bba-9382-898bc3a88b3d"
+        }
+      ],
+      "id": "9b141ba8-5ffc-434b-b031-5e4faaf2c8dd",
+      "createdAt": "2026-07-28T10:19:57.000Z",
+      "updatedAt": "2026-07-28T10:19:57.000Z",
+      "uid": "35240-9b141ba8-5ffc-434b-b031-5e4faaf2c8dd"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://autoscaling.{{region}}.amazonaws.com"
+    }
+  ]
+}

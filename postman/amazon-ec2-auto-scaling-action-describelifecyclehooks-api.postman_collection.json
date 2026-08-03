@@ -1,0 +1,602 @@
+{
+  "info": {
+    "_postman_id": "ef9e4854-e2ea-4d52-b258-4995292b857e",
+    "name": "Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=DescribeLifecycleHooks API",
+    "description": "<fullname>Amazon EC2 Auto Scaling</fullname> <p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.</p> <p>For more information, see the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/\">Amazon EC2 Auto Scaling User Guide</a> and the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html\">Amazon EC2 Auto Scaling API Reference</a>.</p>\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:18:50.000Z",
+    "updatedAt": "2026-07-28T10:18:50.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ef9e4854-e2ea-4d52-b258-4995292b857e"
+  },
+  "item": [
+    {
+      "name": "#Action=DescribeLifecycleHooks",
+      "item": [
+        {
+          "name": "Amazon EC2 Auto Scaling GET_ Describe Lifecycle Hooks",
+          "id": "98e01ca6-127f-4577-b777-528e2069c2b0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?AutoScalingGroupName=<string>&LifecycleHookNames=U5wl-a0h97&LifecycleHookNames=uJ9nDc_nqy6&Action=DescribeLifecycleHooks&Version=2011-01-01#Action=DescribeLifecycleHooks",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "(Required) The name of the Auto Scaling group.",
+                  "key": "AutoScalingGroupName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The names of one or more lifecycle hooks. If you omit this property, all lifecycle hooks are described.",
+                  "key": "LifecycleHookNames",
+                  "value": "U5wl-a0h97"
+                },
+                {
+                  "description": "The names of one or more lifecycle hooks. If you omit this property, all lifecycle hooks are described.",
+                  "key": "LifecycleHookNames",
+                  "value": "uJ9nDc_nqy6"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "DescribeLifecycleHooks"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2011-01-01"
+                }
+              ],
+              "hash": "Action=DescribeLifecycleHooks"
+            },
+            "description": "Gets information about the lifecycle hooks for the specified Auto Scaling group."
+          },
+          "response": [
+            {
+              "id": "7ca0e37e-1b19-44a9-ab3b-d2cd6aa4e3a8",
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?AutoScalingGroupName=<string>&LifecycleHookNames=uJ9nDc_nqy6&Action=DescribeLifecycleHooks&Version=2011-01-01#Action=DescribeLifecycleHooks",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The name of the Auto Scaling group.",
+                      "key": "AutoScalingGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The names of one or more lifecycle hooks. If you omit this property, all lifecycle hooks are described.",
+                      "key": "LifecycleHookNames",
+                      "value": "uJ9nDc_nqy6"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribeLifecycleHooks"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=DescribeLifecycleHooks"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <LifecycleHooks>\n    <LifecycleHookName>(string)</LifecycleHookName>\n    <AutoScalingGroupName>(string)</AutoScalingGroupName>\n    <LifecycleTransition>(string)</LifecycleTransition>\n    <NotificationTargetARN>(string)</NotificationTargetARN>\n    <RoleARN>(string)</RoleARN>\n    <NotificationMetadata>(string)</NotificationMetadata>\n    <HeartbeatTimeout>(integer)</HeartbeatTimeout>\n    <GlobalTimeout>(integer)</GlobalTimeout>\n    <DefaultResult>(string)</DefaultResult>\n  </LifecycleHooks>\n  <LifecycleHooks>\n    <LifecycleHookName>(string)</LifecycleHookName>\n    <AutoScalingGroupName>(string)</AutoScalingGroupName>\n    <LifecycleTransition>(string)</LifecycleTransition>\n    <NotificationTargetARN>(string)</NotificationTargetARN>\n    <RoleARN>(string)</RoleARN>\n    <NotificationMetadata>(string)</NotificationMetadata>\n    <HeartbeatTimeout>(integer)</HeartbeatTimeout>\n    <GlobalTimeout>(integer)</GlobalTimeout>\n    <DefaultResult>(string)</DefaultResult>\n  </LifecycleHooks>\n</element>",
+              "createdAt": "2026-07-28T10:18:51.000Z",
+              "updatedAt": "2026-07-28T10:18:51.000Z",
+              "uid": "35240-7ca0e37e-1b19-44a9-ab3b-d2cd6aa4e3a8"
+            },
+            {
+              "id": "0928b866-8443-45d2-b274-751d9d8a8ec0",
+              "name": "ResourceContentionFault",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?AutoScalingGroupName=<string>&LifecycleHookNames=uJ9nDc_nqy6&Action=DescribeLifecycleHooks&Version=2011-01-01#Action=DescribeLifecycleHooks",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The name of the Auto Scaling group.",
+                      "key": "AutoScalingGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The names of one or more lifecycle hooks. If you omit this property, all lifecycle hooks are described.",
+                      "key": "LifecycleHookNames",
+                      "value": "uJ9nDc_nqy6"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribeLifecycleHooks"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=DescribeLifecycleHooks"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:18:51.000Z",
+              "updatedAt": "2026-07-28T10:18:51.000Z",
+              "uid": "35240-0928b866-8443-45d2-b274-751d9d8a8ec0"
+            }
+          ],
+          "createdAt": "2026-07-28T10:18:51.000Z",
+          "updatedAt": "2026-07-28T10:18:51.000Z",
+          "uid": "35240-98e01ca6-127f-4577-b777-528e2069c2b0"
+        },
+        {
+          "name": "Amazon EC2 Auto Scaling POST_ Describe Lifecycle Hooks",
+          "id": "5644185f-74c4-4779-becb-33dcad6dbb11",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "text/xml"
+              },
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <LifecycleHookNames>(string)</LifecycleHookNames>\n  <LifecycleHookNames>(string)</LifecycleHookNames>\n</element>",
+              "options": {
+                "raw": {
+                  "headerFamily": "xml",
+                  "language": "xml"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/?Action=DescribeLifecycleHooks&Version=2011-01-01#Action=DescribeLifecycleHooks",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "DescribeLifecycleHooks"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2011-01-01"
+                }
+              ],
+              "hash": "Action=DescribeLifecycleHooks"
+            },
+            "description": "Gets information about the lifecycle hooks for the specified Auto Scaling group."
+          },
+          "response": [
+            {
+              "id": "492a5efb-fe1f-4cf8-8b3f-26621bc46a5b",
+              "name": "Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <LifecycleHookNames>(string)</LifecycleHookNames>\n  <LifecycleHookNames>(string)</LifecycleHookNames>\n</element>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "xml",
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=DescribeLifecycleHooks&Version=2011-01-01#Action=DescribeLifecycleHooks",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribeLifecycleHooks"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=DescribeLifecycleHooks"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <LifecycleHooks>\n    <LifecycleHookName>(string)</LifecycleHookName>\n    <AutoScalingGroupName>(string)</AutoScalingGroupName>\n    <LifecycleTransition>(string)</LifecycleTransition>\n    <NotificationTargetARN>(string)</NotificationTargetARN>\n    <RoleARN>(string)</RoleARN>\n    <NotificationMetadata>(string)</NotificationMetadata>\n    <HeartbeatTimeout>(integer)</HeartbeatTimeout>\n    <GlobalTimeout>(integer)</GlobalTimeout>\n    <DefaultResult>(string)</DefaultResult>\n  </LifecycleHooks>\n  <LifecycleHooks>\n    <LifecycleHookName>(string)</LifecycleHookName>\n    <AutoScalingGroupName>(string)</AutoScalingGroupName>\n    <LifecycleTransition>(string)</LifecycleTransition>\n    <NotificationTargetARN>(string)</NotificationTargetARN>\n    <RoleARN>(string)</RoleARN>\n    <NotificationMetadata>(string)</NotificationMetadata>\n    <HeartbeatTimeout>(integer)</HeartbeatTimeout>\n    <GlobalTimeout>(integer)</GlobalTimeout>\n    <DefaultResult>(string)</DefaultResult>\n  </LifecycleHooks>\n</element>",
+              "createdAt": "2026-07-28T10:18:51.000Z",
+              "updatedAt": "2026-07-28T10:18:51.000Z",
+              "uid": "35240-492a5efb-fe1f-4cf8-8b3f-26621bc46a5b"
+            },
+            {
+              "id": "9269988b-4b65-48b9-9350-8e89dd0fd78e",
+              "name": "ResourceContentionFault",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <LifecycleHookNames>(string)</LifecycleHookNames>\n  <LifecycleHookNames>(string)</LifecycleHookNames>\n</element>",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "xml",
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=DescribeLifecycleHooks&Version=2011-01-01#Action=DescribeLifecycleHooks",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribeLifecycleHooks"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2011-01-01"
+                    }
+                  ],
+                  "hash": "Action=DescribeLifecycleHooks"
+                }
+              },
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T10:18:51.000Z",
+              "updatedAt": "2026-07-28T10:18:51.000Z",
+              "uid": "35240-9269988b-4b65-48b9-9350-8e89dd0fd78e"
+            }
+          ],
+          "createdAt": "2026-07-28T10:18:51.000Z",
+          "updatedAt": "2026-07-28T10:18:51.000Z",
+          "uid": "35240-5644185f-74c4-4779-becb-33dcad6dbb11"
+        }
+      ],
+      "id": "1aa46322-7964-4470-b5ee-025128762878",
+      "createdAt": "2026-07-28T10:18:51.000Z",
+      "updatedAt": "2026-07-28T10:18:51.000Z",
+      "uid": "35240-1aa46322-7964-4470-b5ee-025128762878"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://autoscaling.{{region}}.amazonaws.com"
+    }
+  ]
+}
