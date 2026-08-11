@@ -65,8 +65,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-attachloadbalancers-api
   name: 'Amazon EC2 Auto Scaling #Action=AttachLoadBalancers API'
   description: >-
@@ -104,8 +102,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: >-
     amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-attachloadbalancertargetgroups-api
   name: 'Amazon EC2 Auto Scaling #Action=AttachLoadBalancerTargetGroups API'
@@ -144,8 +140,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-attachtrafficsources-api
   name: 'Amazon EC2 Auto Scaling #Action=AttachTrafficSources API'
   description: >-
@@ -183,8 +177,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-batchdeletescheduledaction-api
   name: 'Amazon EC2 Auto Scaling #Action=BatchDeleteScheduledAction API'
   description: >-
@@ -222,8 +214,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: >-
     amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-batchputscheduledupdategroupaction-api
   name: 'Amazon EC2 Auto Scaling #Action=BatchPutScheduledUpdateGroupAction API'
@@ -264,8 +254,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-cancelinstancerefresh-api
   name: 'Amazon EC2 Auto Scaling #Action=CancelInstanceRefresh API'
   description: >-
@@ -303,8 +291,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-completelifecycleaction-api
   name: 'Amazon EC2 Auto Scaling #Action=CompleteLifecycleAction API'
   description: >-
@@ -342,8 +328,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-createautoscalinggroup-api
   name: 'Amazon EC2 Auto Scaling #Action=CreateAutoScalingGroup API'
   description: >-
@@ -381,8 +365,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-createlaunchconfiguration-api
   name: 'Amazon EC2 Auto Scaling #Action=CreateLaunchConfiguration API'
   description: >-
@@ -420,8 +402,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-createorupdatetags-api
   name: 'Amazon EC2 Auto Scaling #Action=CreateOrUpdateTags API'
   description: >-
@@ -459,8 +439,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-deleteautoscalinggroup-api
   name: 'Amazon EC2 Auto Scaling #Action=DeleteAutoScalingGroup API'
   description: >-
@@ -498,8 +476,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-deletelaunchconfiguration-api
   name: 'Amazon EC2 Auto Scaling #Action=DeleteLaunchConfiguration API'
   description: >-
@@ -537,8 +513,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-deletelifecyclehook-api
   name: 'Amazon EC2 Auto Scaling #Action=DeleteLifecycleHook API'
   description: >-
@@ -576,8 +550,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: >-
     amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-deletenotificationconfiguration-api
   name: 'Amazon EC2 Auto Scaling #Action=DeleteNotificationConfiguration API'
@@ -617,8 +589,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-deletepolicy-api
   name: 'Amazon EC2 Auto Scaling #Action=DeletePolicy API'
   description: >-
@@ -656,8 +626,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-deletescheduledaction-api
   name: 'Amazon EC2 Auto Scaling #Action=DeleteScheduledAction API'
   description: >-
@@ -695,8 +663,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-deletetags-api
   name: 'Amazon EC2 Auto Scaling #Action=DeleteTags API'
   description: >-
@@ -734,8 +700,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-deletewarmpool-api
   name: 'Amazon EC2 Auto Scaling #Action=DeleteWarmPool API'
   description: >-
@@ -773,8 +737,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-describeaccountlimits-api
   name: 'Amazon EC2 Auto Scaling #Action=DescribeAccountLimits API'
   description: >-
@@ -812,8 +774,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-describeadjustmenttypes-api
   name: 'Amazon EC2 Auto Scaling #Action=DescribeAdjustmentTypes API'
   description: >-
@@ -851,8 +811,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-describeautoscalinggroups-api
   name: 'Amazon EC2 Auto Scaling #Action=DescribeAutoScalingGroups API'
   description: >-
@@ -890,8 +848,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-describeautoscalinginstances-api
   name: 'Amazon EC2 Auto Scaling #Action=DescribeAutoScalingInstances API'
   description: >-
@@ -929,8 +885,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: >-
     amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-describeautoscalingnotificationtypes-api
   name: 'Amazon EC2 Auto Scaling #Action=DescribeAutoScalingNotificationTypes API'
@@ -971,8 +925,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-describeinstancerefreshes-api
   name: 'Amazon EC2 Auto Scaling #Action=DescribeInstanceRefreshes API'
   description: >-
@@ -1010,8 +962,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-describelaunchconfigurations-api
   name: 'Amazon EC2 Auto Scaling #Action=DescribeLaunchConfigurations API'
   description: >-
@@ -1049,8 +999,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-describelifecyclehooks-api
   name: 'Amazon EC2 Auto Scaling #Action=DescribeLifecycleHooks API'
   description: >-
@@ -1088,8 +1036,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-describelifecyclehooktypes-api
   name: 'Amazon EC2 Auto Scaling #Action=DescribeLifecycleHookTypes API'
   description: >-
@@ -1127,8 +1073,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-describeloadbalancers-api
   name: 'Amazon EC2 Auto Scaling #Action=DescribeLoadBalancers API'
   description: >-
@@ -1166,8 +1110,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: >-
     amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-describeloadbalancertargetgroups-api
   name: 'Amazon EC2 Auto Scaling #Action=DescribeLoadBalancerTargetGroups API'
@@ -1207,8 +1149,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-describemetriccollectiontypes-api
   name: 'Amazon EC2 Auto Scaling #Action=DescribeMetricCollectionTypes API'
   description: >-
@@ -1246,8 +1186,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: >-
     amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-describenotificationconfigurations-api
   name: 'Amazon EC2 Auto Scaling #Action=DescribeNotificationConfigurations API'
@@ -1288,8 +1226,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-describepolicies-api
   name: 'Amazon EC2 Auto Scaling #Action=DescribePolicies API'
   description: >-
@@ -1327,8 +1263,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-describescalingactivities-api
   name: 'Amazon EC2 Auto Scaling #Action=DescribeScalingActivities API'
   description: >-
@@ -1366,8 +1300,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-describescalingprocesstypes-api
   name: 'Amazon EC2 Auto Scaling #Action=DescribeScalingProcessTypes API'
   description: >-
@@ -1405,8 +1337,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-describescheduledactions-api
   name: 'Amazon EC2 Auto Scaling #Action=DescribeScheduledActions API'
   description: >-
@@ -1444,8 +1374,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-describetags-api
   name: 'Amazon EC2 Auto Scaling #Action=DescribeTags API'
   description: >-
@@ -1483,8 +1411,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: >-
     amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-describeterminationpolicytypes-api
   name: 'Amazon EC2 Auto Scaling #Action=DescribeTerminationPolicyTypes API'
@@ -1523,8 +1449,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-describetrafficsources-api
   name: 'Amazon EC2 Auto Scaling #Action=DescribeTrafficSources API'
   description: >-
@@ -1562,8 +1486,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-describewarmpool-api
   name: 'Amazon EC2 Auto Scaling #Action=DescribeWarmPool API'
   description: >-
@@ -1601,8 +1523,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-detachinstances-api
   name: 'Amazon EC2 Auto Scaling #Action=DetachInstances API'
   description: >-
@@ -1640,8 +1560,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-detachloadbalancers-api
   name: 'Amazon EC2 Auto Scaling #Action=DetachLoadBalancers API'
   description: >-
@@ -1679,8 +1597,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: >-
     amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-detachloadbalancertargetgroups-api
   name: 'Amazon EC2 Auto Scaling #Action=DetachLoadBalancerTargetGroups API'
@@ -1719,8 +1635,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-detachtrafficsources-api
   name: 'Amazon EC2 Auto Scaling #Action=DetachTrafficSources API'
   description: >-
@@ -1758,8 +1672,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-disablemetricscollection-api
   name: 'Amazon EC2 Auto Scaling #Action=DisableMetricsCollection API'
   description: >-
@@ -1797,8 +1709,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-enablemetricscollection-api
   name: 'Amazon EC2 Auto Scaling #Action=EnableMetricsCollection API'
   description: >-
@@ -1836,8 +1746,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-enterstandby-api
   name: 'Amazon EC2 Auto Scaling #Action=EnterStandby API'
   description: >-
@@ -1875,8 +1783,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-executepolicy-api
   name: 'Amazon EC2 Auto Scaling #Action=ExecutePolicy API'
   description: >-
@@ -1914,8 +1820,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-exitstandby-api
   name: 'Amazon EC2 Auto Scaling #Action=ExitStandby API'
   description: >-
@@ -1953,8 +1857,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-getpredictivescalingforecast-api
   name: 'Amazon EC2 Auto Scaling #Action=GetPredictiveScalingForecast API'
   description: >-
@@ -1992,8 +1894,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-putlifecyclehook-api
   name: 'Amazon EC2 Auto Scaling #Action=PutLifecycleHook API'
   description: >-
@@ -2031,8 +1931,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-putnotificationconfiguration-api
   name: 'Amazon EC2 Auto Scaling #Action=PutNotificationConfiguration API'
   description: >-
@@ -2070,8 +1968,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-putscalingpolicy-api
   name: 'Amazon EC2 Auto Scaling #Action=PutScalingPolicy API'
   description: >-
@@ -2109,8 +2005,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-putscheduledupdategroupaction-api
   name: 'Amazon EC2 Auto Scaling #Action=PutScheduledUpdateGroupAction API'
   description: >-
@@ -2148,8 +2042,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-putwarmpool-api
   name: 'Amazon EC2 Auto Scaling #Action=PutWarmPool API'
   description: >-
@@ -2187,8 +2079,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: >-
     amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-recordlifecycleactionheartbeat-api
   name: 'Amazon EC2 Auto Scaling #Action=RecordLifecycleActionHeartbeat API'
@@ -2227,8 +2117,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-resumeprocesses-api
   name: 'Amazon EC2 Auto Scaling #Action=ResumeProcesses API'
   description: >-
@@ -2266,8 +2154,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-rollbackinstancerefresh-api
   name: 'Amazon EC2 Auto Scaling #Action=RollbackInstanceRefresh API'
   description: >-
@@ -2305,8 +2191,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-setdesiredcapacity-api
   name: 'Amazon EC2 Auto Scaling #Action=SetDesiredCapacity API'
   description: >-
@@ -2344,8 +2228,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-setinstancehealth-api
   name: 'Amazon EC2 Auto Scaling #Action=SetInstanceHealth API'
   description: >-
@@ -2383,8 +2265,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-setinstanceprotection-api
   name: 'Amazon EC2 Auto Scaling #Action=SetInstanceProtection API'
   description: >-
@@ -2422,8 +2302,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-startinstancerefresh-api
   name: 'Amazon EC2 Auto Scaling #Action=StartInstanceRefresh API'
   description: >-
@@ -2461,8 +2339,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-suspendprocesses-api
   name: 'Amazon EC2 Auto Scaling #Action=SuspendProcesses API'
   description: >-
@@ -2500,8 +2376,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: >-
     amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-terminateinstanceinautoscalinggroup-api
   name: 'Amazon EC2 Auto Scaling #Action=TerminateInstanceInAutoScalingGroup API'
@@ -2542,8 +2416,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 - aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-action-updateautoscalinggroup-api
   name: 'Amazon EC2 Auto Scaling #Action=UpdateAutoScalingGroup API'
   description: >-
@@ -2581,8 +2453,6 @@ apis:
     url: json-structure/ec2-auto-scaling-accelerator-count-request-structure.json
   - type: Examples
     url: examples/ec2-auto-scaling-accelerator-count-request-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-auto-scaling.yaml
 common:
   - type: AgenticAccess
     url: agentic-access/amazon-ec2-auto-scaling-agentic-access.yml
