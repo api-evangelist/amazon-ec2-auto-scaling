@@ -1,0 +1,144 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=BatchPutScheduledUpdateGroupAction API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "#Action=BatchPutScheduledUpdateGroupAction",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon EC2 Auto Scaling GET_ Batch Put Scheduled Update Group Action",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://autoscaling.{region}.amazonaws.com/#Action=BatchPutScheduledUpdateGroupAction",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "AutoScalingGroupName",
+                "value": "",
+                "type": "query",
+                "description": "The name of the Auto Scaling group."
+              },
+              {
+                "name": "ScheduledUpdateGroupActions",
+                "value": "",
+                "type": "query",
+                "description": "One or more scheduled actions. The maximum number allowed is 50."
+              },
+              {
+                "name": "Action",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Creates or updates one or more scheduled scaling actions for an Auto Scaling group."
+        },
+        {
+          "info": {
+            "name": "Amazon EC2 Auto Scaling POST_ Batch Put Scheduled Update Group Action",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://autoscaling.{region}.amazonaws.com/#Action=BatchPutScheduledUpdateGroupAction",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "Action",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Creates or updates one or more scheduled scaling actions for an Auto Scaling group."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

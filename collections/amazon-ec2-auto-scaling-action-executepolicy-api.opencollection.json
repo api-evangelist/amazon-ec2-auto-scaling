@@ -1,0 +1,162 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=ExecutePolicy API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "#Action=ExecutePolicy",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon EC2 Auto Scaling GET_ Execute Policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://autoscaling.{region}.amazonaws.com/#Action=ExecutePolicy",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "AutoScalingGroupName",
+                "value": "",
+                "type": "query",
+                "description": "The name of the Auto Scaling group."
+              },
+              {
+                "name": "PolicyName",
+                "value": "",
+                "type": "query",
+                "description": "The name or ARN of the policy."
+              },
+              {
+                "name": "HonorCooldown",
+                "value": "",
+                "type": "query",
+                "description": "<p>Indicates whether Amazon EC2 Auto Scaling waits for the cooldown period to complete before executing the policy.</p> <p>Valid only if the policy type is <code>SimpleScaling</code>. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html\">Scaling cooldowns for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>"
+              },
+              {
+                "name": "MetricValue",
+                "value": "",
+                "type": "query",
+                "description": "<p>The metric value to compare to <code>BreachThreshold</code>. This enables you to execute a policy of type <code>StepScaling</code> and determine which step adjustment to use. For example, if the breach threshold is 50 and you want to use a step adjustment with a lower bound of 0 and an upper bound of 10, you can set the metric value to 59.</p> <p>If you specify a metric value that doesn't correspond to a step adjustment for the policy, the call returns an error.</p> <p>Required if the policy type is <code>StepScaling</code> and not supported otherwise.</p>"
+              },
+              {
+                "name": "BreachThreshold",
+                "value": "",
+                "type": "query",
+                "description": "<p>The breach threshold for the alarm.</p> <p>Required if the policy type is <code>StepScaling</code> and not supported otherwise.</p>"
+              },
+              {
+                "name": "Action",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Executes the specified policy. This can be useful for testing the design of your scaling policy."
+        },
+        {
+          "info": {
+            "name": "Amazon EC2 Auto Scaling POST_ Execute Policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://autoscaling.{region}.amazonaws.com/#Action=ExecutePolicy",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "Action",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Executes the specified policy. This can be useful for testing the design of your scaling policy."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

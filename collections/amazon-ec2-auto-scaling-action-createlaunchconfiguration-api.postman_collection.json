@@ -1,0 +1,1629 @@
+{
+  "item": [
+    {
+      "id": "f93b2055-44c8-4b14-82b4-768c33964cf7",
+      "name": "#Action=CreateLaunchConfiguration",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "885add60-96e1-41f3-a78c-a2b2438e3b36",
+          "name": "Amazon EC2 Auto Scaling GET_ Create Launch Configuration",
+          "request": {
+            "name": "Amazon EC2 Auto Scaling GET_ Create Launch Configuration",
+            "description": {
+              "content": "<p>Creates a launch configuration.</p> <p>If you exceed your maximum limit of launch configurations, the call fails. To query this limit, call the <a>DescribeAccountLimits</a> API. For information about updating this limit, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html\">Quotas for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchConfiguration.html\">Launch configurations</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <note> <p>Amazon EC2 Auto Scaling configures instances launched as part of an Auto Scaling group using either a launch template or a launch configuration. We strongly recommend that you do not use launch configurations. They do not provide full functionality for Amazon EC2 Auto Scaling or Amazon EC2. For information about using launch templates, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-templates.html\">Launch templates</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> </note>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "hash": "Action=CreateLaunchConfiguration",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "LaunchConfigurationName",
+                  "value": "<string>",
+                  "description": "(Required) The name of the launch configuration. This name must be unique per Region per account."
+                },
+                {
+                  "disabled": false,
+                  "key": "ImageId",
+                  "value": "<string>",
+                  "description": "<p>The ID of the Amazon Machine Image (AMI) that was assigned during registration. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html\">Finding a Linux AMI</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> <p>If you specify <code>InstanceId</code>, an <code>ImageId</code> is not required.</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "KeyName",
+                  "value": "<string>",
+                  "description": "The name of the key pair. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html\">Amazon EC2 key pairs and Linux instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>."
+                },
+                {
+                  "disabled": false,
+                  "key": "SecurityGroups",
+                  "value": "<string>",
+                  "description": "A list that contains the security group IDs to assign to the instances in the Auto Scaling group. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html\">Control traffic to resources using security groups</a> in the <i>Amazon Virtual Private Cloud User Guide</i>."
+                },
+                {
+                  "disabled": false,
+                  "key": "SecurityGroups",
+                  "value": "<string>",
+                  "description": "A list that contains the security group IDs to assign to the instances in the Auto Scaling group. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html\">Control traffic to resources using security groups</a> in the <i>Amazon Virtual Private Cloud User Guide</i>."
+                },
+                {
+                  "disabled": false,
+                  "key": "ClassicLinkVPCId",
+                  "value": "<string>",
+                  "description": "Available for backward compatibility."
+                },
+                {
+                  "disabled": false,
+                  "key": "ClassicLinkVPCSecurityGroups",
+                  "value": "<string>",
+                  "description": "Available for backward compatibility."
+                },
+                {
+                  "disabled": false,
+                  "key": "ClassicLinkVPCSecurityGroups",
+                  "value": "<string>",
+                  "description": "Available for backward compatibility."
+                },
+                {
+                  "disabled": false,
+                  "key": "UserData",
+                  "value": "<string>",
+                  "description": "The user data to make available to the launched EC2 instances. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html\">Instance metadata and user data</a> (Linux) and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html\">Instance metadata and user data</a> (Windows). If you are using a command line tool, base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide base64-encoded text. User data is limited to 16 KB."
+                },
+                {
+                  "disabled": false,
+                  "key": "InstanceId",
+                  "value": "<string>",
+                  "description": "<p>The ID of the instance to use to create the launch configuration. The new launch configuration derives attributes from the instance, except for the block device mapping.</p> <p>To create a launch configuration with a block device mapping or override any other instance attributes, specify them as part of the same request.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-lc-with-instanceID.html\">Creating a launch configuration using an EC2 instance</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "InstanceType",
+                  "value": "<string>",
+                  "description": "<p>Specifies the instance type of the EC2 instance. For information about available instance types, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes\">Available instance types</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> <p>If you specify <code>InstanceId</code>, an <code>InstanceType</code> is not required.</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "KernelId",
+                  "value": "<string>",
+                  "description": "<p>The ID of the kernel associated with the AMI.</p> <note> <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html\">User provided kernels</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> </note>"
+                },
+                {
+                  "disabled": false,
+                  "key": "RamdiskId",
+                  "value": "<string>",
+                  "description": "<p>The ID of the RAM disk to select.</p> <note> <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html\">User provided kernels</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> </note>"
+                },
+                {
+                  "disabled": false,
+                  "key": "BlockDeviceMappings",
+                  "value": "{\"DeviceName\":\"<string>\",\"VirtualName\":\"<string>\",\"Ebs\":{\"SnapshotId\":\"<string>\",\"VolumeSize\":\"<integer>\",\"VolumeType\":\"<string>\",\"DeleteOnTermination\":\"<boolean>\",\"Iops\":\"<integer>\",\"Encrypted\":\"<boolean>\",\"Throughput\":\"<integer>\"},\"NoDevice\":\"<boolean>\"}",
+                  "description": "The block device mapping entries that define the block devices to attach to the instances at launch. By default, the block devices specified in the block device mapping for the AMI are used. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html\">Block device mappings</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>."
+                },
+                {
+                  "disabled": false,
+                  "key": "BlockDeviceMappings",
+                  "value": "{\"DeviceName\":\"<string>\",\"VirtualName\":\"<string>\",\"Ebs\":{\"SnapshotId\":\"<string>\",\"VolumeSize\":\"<integer>\",\"VolumeType\":\"<string>\",\"DeleteOnTermination\":\"<boolean>\",\"Iops\":\"<integer>\",\"Encrypted\":\"<boolean>\",\"Throughput\":\"<integer>\"},\"NoDevice\":\"<boolean>\"}",
+                  "description": "The block device mapping entries that define the block devices to attach to the instances at launch. By default, the block devices specified in the block device mapping for the AMI are used. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html\">Block device mappings</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>."
+                },
+                {
+                  "disabled": false,
+                  "key": "Enabled",
+                  "value": "<boolean>",
+                  "description": "<p>Controls whether instances in this group are launched with detailed (<code>true</code>) or basic (<code>false</code>) monitoring.</p> <p>The default value is <code>true</code> (enabled).</p> <important> <p>When detailed monitoring is enabled, Amazon CloudWatch generates metrics every minute and your account is charged a fee. When you disable detailed monitoring, CloudWatch generates metrics every 5 minutes. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/latest/userguide/enable-as-instance-metrics.html\">Configure Monitoring for Auto Scaling Instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> </important>"
+                },
+                {
+                  "disabled": false,
+                  "key": "SpotPrice",
+                  "value": "<string>",
+                  "description": "<p>The maximum hourly price to be paid for any Spot Instance launched to fulfill the request. Spot Instances are launched when the price you specify exceeds the current Spot price. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-template-spot-instances.html\">Request Spot Instances for fault-tolerant and flexible applications</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>Valid Range: Minimum value of 0.001</p> <note> <p>When you change your maximum price by creating a new launch configuration, running instances will continue to run as long as the maximum price for those running instances is higher than the current Spot price.</p> </note>"
+                },
+                {
+                  "disabled": false,
+                  "key": "IamInstanceProfile",
+                  "value": "<string>",
+                  "description": "The name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance. The instance profile contains the IAM role. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/us-iam-role.html\">IAM role for applications that run on Amazon EC2 instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>."
+                },
+                {
+                  "disabled": false,
+                  "key": "EbsOptimized",
+                  "value": "<boolean>",
+                  "description": "<p>Specifies whether the launch configuration is optimized for EBS I/O (<code>true</code>) or not (<code>false</code>). The optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization is not available with all instance types. Additional fees are incurred when you enable EBS optimization for an instance type that is not EBS-optimized by default. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html\">Amazon EBS-optimized instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> <p>The default value is <code>false</code>.</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "AssociatePublicIpAddress",
+                  "value": "<boolean>",
+                  "description": "<p>Specifies whether to assign a public IPv4 address to the group's instances. If the instance is launched into a default subnet, the default is to assign a public IPv4 address, unless you disabled the option to assign a public IPv4 address on the subnet. If the instance is launched into a nondefault subnet, the default is not to assign a public IPv4 address, unless you enabled the option to assign a public IPv4 address on the subnet.</p> <p>If you specify <code>true</code>, each instance in the Auto Scaling group receives a unique public IPv4 address. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html\">Launching Auto Scaling instances in a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>If you specify this property, you must specify at least one subnet for <code>VPCZoneIdentifier</code> when you create your group.</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "PlacementTenancy",
+                  "value": "<string>",
+                  "description": "<p>The tenancy of the instance, either <code>default</code> or <code>dedicated</code>. An instance with <code>dedicated</code> tenancy runs on isolated, single-tenant hardware and can only be launched into a VPC. To launch dedicated instances into a shared tenancy VPC (a VPC with the instance placement tenancy attribute set to <code>default</code>), you must set the value of this property to <code>dedicated</code>. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-dedicated-instances.html\">Configuring instance tenancy with Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>If you specify <code>PlacementTenancy</code>, you must specify at least one subnet for <code>VPCZoneIdentifier</code> when you create your group.</p> <p>Valid values: <code>default</code> | <code>dedicated</code> </p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "HttpTokens",
+                  "value": "<string>",
+                  "description": "The metadata options for the instances. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds\">Configuring the Instance Metadata Options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>."
+                },
+                {
+                  "disabled": false,
+                  "key": "HttpPutResponseHopLimit",
+                  "value": "<integer>",
+                  "description": "The metadata options for the instances. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds\">Configuring the Instance Metadata Options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>."
+                },
+                {
+                  "disabled": false,
+                  "key": "HttpEndpoint",
+                  "value": "<string>",
+                  "description": "The metadata options for the instances. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds\">Configuring the Instance Metadata Options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>."
+                },
+                {
+                  "disabled": false,
+                  "key": "Action",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "Version",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The AWS region (This can only be one of us-east-1,us-east-2,us-west-1,us-west-2,us-gov-west-1,us-gov-east-1,ca-central-1,eu-north-1,eu-west-1,eu-west-2,eu-west-3,eu-central-1,eu-south-1,af-south-1,ap-northeast-1,ap-northeast-2,ap-northeast-3,ap-southeast-1,ap-southeast-2,ap-east-1,ap-south-1,sa-east-1,me-south-1)",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "disabled": false,
+                "key": "X-Amz-Date",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "disabled": false,
+                "key": "X-Amz-Algorithm",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "disabled": false,
+                "key": "X-Amz-Credential",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "disabled": false,
+                "key": "X-Amz-Security-Token",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "disabled": false,
+                "key": "X-Amz-Signature",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "disabled": false,
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1e719060-08dc-4606-8819-90617c9dfd0c",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "hash": "Action=CreateLaunchConfiguration",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "LaunchConfigurationName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ImageId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "KeyName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "SecurityGroups",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "SecurityGroups",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ClassicLinkVPCId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ClassicLinkVPCSecurityGroups",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ClassicLinkVPCSecurityGroups",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "UserData",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "InstanceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "InstanceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "KernelId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "RamdiskId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "BlockDeviceMappings",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "BlockDeviceMappings",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "Enabled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "SpotPrice",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "IamInstanceProfile",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "EbsOptimized",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "AssociatePublicIpAddress",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "PlacementTenancy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "HttpTokens",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "HttpPutResponseHopLimit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "HttpEndpoint",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The AWS region (This can only be one of us-east-1,us-east-2,us-west-1,us-west-2,us-gov-west-1,us-gov-east-1,ca-central-1,eu-north-1,eu-west-1,eu-west-2,eu-west-3,eu-central-1,eu-south-1,af-south-1,ap-northeast-1,ap-northeast-2,ap-northeast-3,ap-southeast-1,ap-southeast-2,ap-east-1,ap-south-1,sa-east-1,me-south-1)",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Date",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Credential",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Signature",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>",
+                    "description": ""
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "19c4b6ee-5891-4af6-aaa2-0aed11d88af6",
+              "name": "AlreadyExistsFault",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "hash": "Action=CreateLaunchConfiguration",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "LaunchConfigurationName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ImageId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "KeyName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "SecurityGroups",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "SecurityGroups",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ClassicLinkVPCId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ClassicLinkVPCSecurityGroups",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ClassicLinkVPCSecurityGroups",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "UserData",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "InstanceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "InstanceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "KernelId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "RamdiskId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "BlockDeviceMappings",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "BlockDeviceMappings",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "Enabled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "SpotPrice",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "IamInstanceProfile",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "EbsOptimized",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "AssociatePublicIpAddress",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "PlacementTenancy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "HttpTokens",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "HttpPutResponseHopLimit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "HttpEndpoint",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The AWS region (This can only be one of us-east-1,us-east-2,us-west-1,us-west-2,us-gov-west-1,us-gov-east-1,ca-central-1,eu-north-1,eu-west-1,eu-west-2,eu-west-3,eu-central-1,eu-south-1,af-south-1,ap-northeast-1,ap-northeast-2,ap-northeast-3,ap-southeast-1,ap-southeast-2,ap-east-1,ap-south-1,sa-east-1,me-south-1)",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Date",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Credential",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Signature",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "code": 480,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "50114b8c-c623-4865-beb9-8864b00f294d",
+              "name": "LimitExceededFault",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "hash": "Action=CreateLaunchConfiguration",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "LaunchConfigurationName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ImageId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "KeyName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "SecurityGroups",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "SecurityGroups",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ClassicLinkVPCId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ClassicLinkVPCSecurityGroups",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ClassicLinkVPCSecurityGroups",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "UserData",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "InstanceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "InstanceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "KernelId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "RamdiskId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "BlockDeviceMappings",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "BlockDeviceMappings",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "Enabled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "SpotPrice",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "IamInstanceProfile",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "EbsOptimized",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "AssociatePublicIpAddress",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "PlacementTenancy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "HttpTokens",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "HttpPutResponseHopLimit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "HttpEndpoint",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The AWS region (This can only be one of us-east-1,us-east-2,us-west-1,us-west-2,us-gov-west-1,us-gov-east-1,ca-central-1,eu-north-1,eu-west-1,eu-west-2,eu-west-3,eu-central-1,eu-south-1,af-south-1,ap-northeast-1,ap-northeast-2,ap-northeast-3,ap-southeast-1,ap-southeast-2,ap-east-1,ap-south-1,sa-east-1,me-south-1)",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Date",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Credential",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Signature",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "code": 481,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "60212e76-5c83-402a-85e9-a61cee8c6f4f",
+              "name": "ResourceContentionFault",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "hash": "Action=CreateLaunchConfiguration",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "LaunchConfigurationName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ImageId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "KeyName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "SecurityGroups",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "SecurityGroups",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ClassicLinkVPCId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ClassicLinkVPCSecurityGroups",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ClassicLinkVPCSecurityGroups",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "UserData",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "InstanceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "InstanceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "KernelId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "RamdiskId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "BlockDeviceMappings",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "BlockDeviceMappings",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "Enabled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "SpotPrice",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "IamInstanceProfile",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "EbsOptimized",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "AssociatePublicIpAddress",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "PlacementTenancy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "HttpTokens",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "HttpPutResponseHopLimit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "HttpEndpoint",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The AWS region (This can only be one of us-east-1,us-east-2,us-west-1,us-west-2,us-gov-west-1,us-gov-east-1,ca-central-1,eu-north-1,eu-west-1,eu-west-2,eu-west-3,eu-central-1,eu-south-1,af-south-1,ap-northeast-1,ap-northeast-2,ap-northeast-3,ap-southeast-1,ap-southeast-2,ap-east-1,ap-south-1,sa-east-1,me-south-1)",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Date",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Credential",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Signature",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "code": 482,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0b5d0bab-d2dd-4f09-b43c-80a633241716",
+          "name": "Amazon EC2 Auto Scaling POST_ Create Launch Configuration",
+          "request": {
+            "name": "Amazon EC2 Auto Scaling POST_ Create Launch Configuration",
+            "description": {
+              "content": "<p>Creates a launch configuration.</p> <p>If you exceed your maximum limit of launch configurations, the call fails. To query this limit, call the <a>DescribeAccountLimits</a> API. For information about updating this limit, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html\">Quotas for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchConfiguration.html\">Launch configurations</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <note> <p>Amazon EC2 Auto Scaling configures instances launched as part of an Auto Scaling group using either a launch template or a launch configuration. We strongly recommend that you do not use launch configurations. They do not provide full functionality for Amazon EC2 Auto Scaling or Amazon EC2. For information about using launch templates, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-templates.html\">Launch templates</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> </note>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "hash": "Action=CreateLaunchConfiguration",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "Action",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "Version",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The AWS region (This can only be one of us-east-1,us-east-2,us-west-1,us-west-2,us-gov-west-1,us-gov-east-1,ca-central-1,eu-north-1,eu-west-1,eu-west-2,eu-west-3,eu-central-1,eu-south-1,af-south-1,ap-northeast-1,ap-northeast-2,ap-northeast-3,ap-southeast-1,ap-southeast-2,ap-east-1,ap-south-1,sa-east-1,me-south-1)",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "disabled": false,
+                "key": "X-Amz-Date",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "disabled": false,
+                "key": "X-Amz-Algorithm",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "disabled": false,
+                "key": "X-Amz-Credential",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "disabled": false,
+                "key": "X-Amz-Security-Token",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "disabled": false,
+                "key": "X-Amz-Signature",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "disabled": false,
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Content-Type",
+                "value": "text/xml"
+              },
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <LaunchConfigurationName>(string)</LaunchConfigurationName>\n  <ImageId>(string)</ImageId>\n  <KeyName>(string)</KeyName>\n  <SecurityGroups>(string)</SecurityGroups>\n  <SecurityGroups>(string)</SecurityGroups>\n  <ClassicLinkVPCId>(string)</ClassicLinkVPCId>\n  <ClassicLinkVPCSecurityGroups>(string)</ClassicLinkVPCSecurityGroups>\n  <ClassicLinkVPCSecurityGroups>(string)</ClassicLinkVPCSecurityGroups>\n  <UserData>(string)</UserData>\n  <InstanceId>(string)</InstanceId>\n  <InstanceType>(string)</InstanceType>\n  <KernelId>(string)</KernelId>\n  <RamdiskId>(string)</RamdiskId>\n  <BlockDeviceMappings>\n    <VirtualName>(string)</VirtualName>\n    <DeviceName>(string)</DeviceName>\n    <Ebs>\n    </Ebs>\n    <NoDevice>(boolean)</NoDevice>\n  </BlockDeviceMappings>\n  <BlockDeviceMappings>\n    <VirtualName>(string)</VirtualName>\n    <DeviceName>(string)</DeviceName>\n    <Ebs>\n    </Ebs>\n    <NoDevice>(boolean)</NoDevice>\n  </BlockDeviceMappings>\n  <InstanceMonitoring>\n    <Enabled>(boolean)</Enabled>\n  </InstanceMonitoring>\n  <SpotPrice>(string)</SpotPrice>\n  <IamInstanceProfile>(string)</IamInstanceProfile>\n  <EbsOptimized>(boolean)</EbsOptimized>\n  <AssociatePublicIpAddress>(boolean)</AssociatePublicIpAddress>\n  <PlacementTenancy>(string)</PlacementTenancy>\n  <MetadataOptions>\n    <HttpTokens>(string)</HttpTokens>\n    <HttpPutResponseHopLimit>(integer)</HttpPutResponseHopLimit>\n    <HttpEndpoint>(string)</HttpEndpoint>\n  </MetadataOptions>\n</element>",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "db5b0a84-2700-4845-9b35-3b41a1ff06b6",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "hash": "Action=CreateLaunchConfiguration",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The AWS region (This can only be one of us-east-1,us-east-2,us-west-1,us-west-2,us-gov-west-1,us-gov-east-1,ca-central-1,eu-north-1,eu-west-1,eu-west-2,eu-west-3,eu-central-1,eu-south-1,af-south-1,ap-northeast-1,ap-northeast-2,ap-northeast-3,ap-southeast-1,ap-southeast-2,ap-east-1,ap-south-1,sa-east-1,me-south-1)",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Date",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Credential",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Signature",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>",
+                    "description": ""
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <LaunchConfigurationName>(string)</LaunchConfigurationName>\n  <ImageId>(string)</ImageId>\n  <KeyName>(string)</KeyName>\n  <SecurityGroups>(string)</SecurityGroups>\n  <SecurityGroups>(string)</SecurityGroups>\n  <ClassicLinkVPCId>(string)</ClassicLinkVPCId>\n  <ClassicLinkVPCSecurityGroups>(string)</ClassicLinkVPCSecurityGroups>\n  <ClassicLinkVPCSecurityGroups>(string)</ClassicLinkVPCSecurityGroups>\n  <UserData>(string)</UserData>\n  <InstanceId>(string)</InstanceId>\n  <InstanceType>(string)</InstanceType>\n  <KernelId>(string)</KernelId>\n  <RamdiskId>(string)</RamdiskId>\n  <BlockDeviceMappings>\n    <VirtualName>example-resource-name</VirtualName>\n    <DeviceName>example-resource-name</DeviceName>\nexample-string\n    <NoDevice>example-string</NoDevice>\n  </BlockDeviceMappings>\n  <BlockDeviceMappings>\n    <VirtualName>example-resource-name</VirtualName>\n    <DeviceName>example-resource-name</DeviceName>\nexample-string\n    <NoDevice>example-string</NoDevice>\n  </BlockDeviceMappings>\n  <InstanceMonitoring>\n    <Enabled>(boolean)</Enabled>\n  </InstanceMonitoring>\n  <SpotPrice>(string)</SpotPrice>\n  <IamInstanceProfile>(string)</IamInstanceProfile>\n  <EbsOptimized>(boolean)</EbsOptimized>\n  <AssociatePublicIpAddress>(boolean)</AssociatePublicIpAddress>\n  <PlacementTenancy>(string)</PlacementTenancy>\n  <MetadataOptions>\n    <HttpTokens>(string)</HttpTokens>\n    <HttpPutResponseHopLimit>(integer)</HttpPutResponseHopLimit>\n    <HttpEndpoint>(string)</HttpEndpoint>\n  </MetadataOptions>\n</element>",
+                  "options": {
+                    "raw": {
+                      "language": "xml"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5da4391a-0c31-4fd9-92f0-9dad5b0efab6",
+              "name": "AlreadyExistsFault",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "hash": "Action=CreateLaunchConfiguration",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The AWS region (This can only be one of us-east-1,us-east-2,us-west-1,us-west-2,us-gov-west-1,us-gov-east-1,ca-central-1,eu-north-1,eu-west-1,eu-west-2,eu-west-3,eu-central-1,eu-south-1,af-south-1,ap-northeast-1,ap-northeast-2,ap-northeast-3,ap-southeast-1,ap-southeast-2,ap-east-1,ap-south-1,sa-east-1,me-south-1)",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Date",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Credential",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Signature",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <LaunchConfigurationName>(string)</LaunchConfigurationName>\n  <ImageId>(string)</ImageId>\n  <KeyName>(string)</KeyName>\n  <SecurityGroups>(string)</SecurityGroups>\n  <SecurityGroups>(string)</SecurityGroups>\n  <ClassicLinkVPCId>(string)</ClassicLinkVPCId>\n  <ClassicLinkVPCSecurityGroups>(string)</ClassicLinkVPCSecurityGroups>\n  <ClassicLinkVPCSecurityGroups>(string)</ClassicLinkVPCSecurityGroups>\n  <UserData>(string)</UserData>\n  <InstanceId>(string)</InstanceId>\n  <InstanceType>(string)</InstanceType>\n  <KernelId>(string)</KernelId>\n  <RamdiskId>(string)</RamdiskId>\n  <BlockDeviceMappings>\n    <VirtualName>example-resource-name</VirtualName>\n    <DeviceName>example-resource-name</DeviceName>\nexample-string\n    <NoDevice>example-string</NoDevice>\n  </BlockDeviceMappings>\n  <BlockDeviceMappings>\n    <VirtualName>example-resource-name</VirtualName>\n    <DeviceName>example-resource-name</DeviceName>\nexample-string\n    <NoDevice>example-string</NoDevice>\n  </BlockDeviceMappings>\n  <InstanceMonitoring>\n    <Enabled>(boolean)</Enabled>\n  </InstanceMonitoring>\n  <SpotPrice>(string)</SpotPrice>\n  <IamInstanceProfile>(string)</IamInstanceProfile>\n  <EbsOptimized>(boolean)</EbsOptimized>\n  <AssociatePublicIpAddress>(boolean)</AssociatePublicIpAddress>\n  <PlacementTenancy>(string)</PlacementTenancy>\n  <MetadataOptions>\n    <HttpTokens>(string)</HttpTokens>\n    <HttpPutResponseHopLimit>(integer)</HttpPutResponseHopLimit>\n    <HttpEndpoint>(string)</HttpEndpoint>\n  </MetadataOptions>\n</element>",
+                  "options": {
+                    "raw": {
+                      "language": "xml"
+                    }
+                  }
+                }
+              },
+              "code": 480,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "a319a8db-0c6b-4603-aeba-083fffaa500a",
+              "name": "LimitExceededFault",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "hash": "Action=CreateLaunchConfiguration",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The AWS region (This can only be one of us-east-1,us-east-2,us-west-1,us-west-2,us-gov-west-1,us-gov-east-1,ca-central-1,eu-north-1,eu-west-1,eu-west-2,eu-west-3,eu-central-1,eu-south-1,af-south-1,ap-northeast-1,ap-northeast-2,ap-northeast-3,ap-southeast-1,ap-southeast-2,ap-east-1,ap-south-1,sa-east-1,me-south-1)",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Date",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Credential",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Signature",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <LaunchConfigurationName>(string)</LaunchConfigurationName>\n  <ImageId>(string)</ImageId>\n  <KeyName>(string)</KeyName>\n  <SecurityGroups>(string)</SecurityGroups>\n  <SecurityGroups>(string)</SecurityGroups>\n  <ClassicLinkVPCId>(string)</ClassicLinkVPCId>\n  <ClassicLinkVPCSecurityGroups>(string)</ClassicLinkVPCSecurityGroups>\n  <ClassicLinkVPCSecurityGroups>(string)</ClassicLinkVPCSecurityGroups>\n  <UserData>(string)</UserData>\n  <InstanceId>(string)</InstanceId>\n  <InstanceType>(string)</InstanceType>\n  <KernelId>(string)</KernelId>\n  <RamdiskId>(string)</RamdiskId>\n  <BlockDeviceMappings>\n    <VirtualName>example-resource-name</VirtualName>\n    <DeviceName>example-resource-name</DeviceName>\nexample-string\n    <NoDevice>example-string</NoDevice>\n  </BlockDeviceMappings>\n  <BlockDeviceMappings>\n    <VirtualName>example-resource-name</VirtualName>\n    <DeviceName>example-resource-name</DeviceName>\nexample-string\n    <NoDevice>example-string</NoDevice>\n  </BlockDeviceMappings>\n  <InstanceMonitoring>\n    <Enabled>(boolean)</Enabled>\n  </InstanceMonitoring>\n  <SpotPrice>(string)</SpotPrice>\n  <IamInstanceProfile>(string)</IamInstanceProfile>\n  <EbsOptimized>(boolean)</EbsOptimized>\n  <AssociatePublicIpAddress>(boolean)</AssociatePublicIpAddress>\n  <PlacementTenancy>(string)</PlacementTenancy>\n  <MetadataOptions>\n    <HttpTokens>(string)</HttpTokens>\n    <HttpPutResponseHopLimit>(integer)</HttpPutResponseHopLimit>\n    <HttpEndpoint>(string)</HttpEndpoint>\n  </MetadataOptions>\n</element>",
+                  "options": {
+                    "raw": {
+                      "language": "xml"
+                    }
+                  }
+                }
+              },
+              "code": 481,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "2d687652-9edc-42e5-b1d3-b96428966736",
+              "name": "ResourceContentionFault",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "hash": "Action=CreateLaunchConfiguration",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The AWS region (This can only be one of us-east-1,us-east-2,us-west-1,us-west-2,us-gov-west-1,us-gov-east-1,ca-central-1,eu-north-1,eu-west-1,eu-west-2,eu-west-3,eu-central-1,eu-south-1,af-south-1,ap-northeast-1,ap-northeast-2,ap-northeast-3,ap-southeast-1,ap-southeast-2,ap-east-1,ap-south-1,sa-east-1,me-south-1)",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Date",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Credential",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Signature",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <LaunchConfigurationName>(string)</LaunchConfigurationName>\n  <ImageId>(string)</ImageId>\n  <KeyName>(string)</KeyName>\n  <SecurityGroups>(string)</SecurityGroups>\n  <SecurityGroups>(string)</SecurityGroups>\n  <ClassicLinkVPCId>(string)</ClassicLinkVPCId>\n  <ClassicLinkVPCSecurityGroups>(string)</ClassicLinkVPCSecurityGroups>\n  <ClassicLinkVPCSecurityGroups>(string)</ClassicLinkVPCSecurityGroups>\n  <UserData>(string)</UserData>\n  <InstanceId>(string)</InstanceId>\n  <InstanceType>(string)</InstanceType>\n  <KernelId>(string)</KernelId>\n  <RamdiskId>(string)</RamdiskId>\n  <BlockDeviceMappings>\n    <VirtualName>example-resource-name</VirtualName>\n    <DeviceName>example-resource-name</DeviceName>\nexample-string\n    <NoDevice>example-string</NoDevice>\n  </BlockDeviceMappings>\n  <BlockDeviceMappings>\n    <VirtualName>example-resource-name</VirtualName>\n    <DeviceName>example-resource-name</DeviceName>\nexample-string\n    <NoDevice>example-string</NoDevice>\n  </BlockDeviceMappings>\n  <InstanceMonitoring>\n    <Enabled>(boolean)</Enabled>\n  </InstanceMonitoring>\n  <SpotPrice>(string)</SpotPrice>\n  <IamInstanceProfile>(string)</IamInstanceProfile>\n  <EbsOptimized>(boolean)</EbsOptimized>\n  <AssociatePublicIpAddress>(boolean)</AssociatePublicIpAddress>\n  <PlacementTenancy>(string)</PlacementTenancy>\n  <MetadataOptions>\n    <HttpTokens>(string)</HttpTokens>\n    <HttpPutResponseHopLimit>(integer)</HttpPutResponseHopLimit>\n    <HttpEndpoint>(string)</HttpEndpoint>\n  </MetadataOptions>\n</element>",
+                  "options": {
+                    "raw": {
+                      "language": "xml"
+                    }
+                  }
+                }
+              },
+              "code": 482,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "The AWS region (This can only be one of us-east-1,us-east-2,us-west-1,us-west-2,us-gov-west-1,us-gov-east-1,ca-central-1,eu-north-1,eu-west-1,eu-west-2,eu-west-3,eu-central-1,eu-south-1,af-south-1,ap-northeast-1,ap-northeast-2,ap-northeast-3,ap-southeast-1,ap-southeast-2,ap-east-1,ap-south-1,sa-east-1,me-south-1)",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "us-east-1",
+      "key": "region"
+    },
+    {
+      "type": "string",
+      "value": "http://autoscaling.{{region}}.amazonaws.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "39507ac6-0cc1-4bbb-89d0-84f74e8668c2",
+    "name": "Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=CreateLaunchConfiguration API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "<fullname>Amazon EC2 Auto Scaling</fullname> <p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.</p> <p>For more information, see the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/\">Amazon EC2 Auto Scaling User Guide</a> and the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html\">Amazon EC2 Auto Scaling API Reference</a>.</p>\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+      "type": "text/plain"
+    }
+  }
+}

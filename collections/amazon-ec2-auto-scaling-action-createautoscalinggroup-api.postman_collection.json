@@ -1,0 +1,2273 @@
+{
+  "item": [
+    {
+      "id": "e598f13c-f11f-433d-973c-44e76ce3b86b",
+      "name": "#Action=CreateAutoScalingGroup",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e95db392-4416-43a5-8961-11a6eb31a014",
+          "name": "Amazon EC2 Auto Scaling GET_ Create Auto Scaling Group",
+          "request": {
+            "name": "Amazon EC2 Auto Scaling GET_ Create Auto Scaling Group",
+            "description": {
+              "content": "<p> <b>We strongly recommend using a launch template when calling this operation to ensure full functionality for Amazon EC2 Auto Scaling and Amazon EC2.</b> </p> <p>Creates an Auto Scaling group with the specified name and attributes. </p> <p>If you exceed your maximum limit of Auto Scaling groups, the call fails. To query this limit, call the <a>DescribeAccountLimits</a> API. For information about updating this limit, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html\">Quotas for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>For introductory exercises for creating an Auto Scaling group, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/GettingStartedTutorial.html\">Getting started with Amazon EC2 Auto Scaling</a> and <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-register-lbs-with-asg.html\">Tutorial: Set up a scaled and load-balanced application</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html\">Auto Scaling groups</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>Every Auto Scaling group has three size properties (<code>DesiredCapacity</code>, <code>MaxSize</code>, and <code>MinSize</code>). Usually, you set these sizes based on a specific number of instances. However, if you configure a mixed instances policy that defines weights for the instance types, you must specify these sizes with the same units that you use for weighting instances.</p>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "hash": "Action=CreateAutoScalingGroup",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "AutoScalingGroupName",
+                  "value": "<string>",
+                  "description": "(Required) <p>The name of the Auto Scaling group. This name must be unique per Region per account.</p> <p>The name can contain any ASCII character 33 to 126 including most punctuation characters, digits, and upper and lowercased letters.</p> <note> <p>You cannot use a colon (:) in the name.</p> </note>"
+                },
+                {
+                  "disabled": false,
+                  "key": "LaunchConfigurationName",
+                  "value": "<string>",
+                  "description": "<p>The name of the launch configuration to use to launch instances. </p> <p>Conditional: You must specify either a launch template (<code>LaunchTemplate</code> or <code>MixedInstancesPolicy</code>) or a launch configuration (<code>LaunchConfigurationName</code> or <code>InstanceId</code>).</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "LaunchTemplateId",
+                  "value": "<string>",
+                  "description": "<p>Information used to specify the launch template and version to use to launch instances. </p> <p>Conditional: You must specify either a launch template (<code>LaunchTemplate</code> or <code>MixedInstancesPolicy</code>) or a launch configuration (<code>LaunchConfigurationName</code> or <code>InstanceId</code>).</p> <note> <p>The launch template that is specified must be configured for use with an Auto Scaling group. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html\">Creating a launch template for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> </note>"
+                },
+                {
+                  "disabled": false,
+                  "key": "LaunchTemplateName",
+                  "value": "<string>",
+                  "description": "<p>Information used to specify the launch template and version to use to launch instances. </p> <p>Conditional: You must specify either a launch template (<code>LaunchTemplate</code> or <code>MixedInstancesPolicy</code>) or a launch configuration (<code>LaunchConfigurationName</code> or <code>InstanceId</code>).</p> <note> <p>The launch template that is specified must be configured for use with an Auto Scaling group. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html\">Creating a launch template for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> </note>"
+                },
+                {
+                  "disabled": false,
+                  "key": "Version",
+                  "value": "<string>",
+                  "description": "<p>Information used to specify the launch template and version to use to launch instances. </p> <p>Conditional: You must specify either a launch template (<code>LaunchTemplate</code> or <code>MixedInstancesPolicy</code>) or a launch configuration (<code>LaunchConfigurationName</code> or <code>InstanceId</code>).</p> <note> <p>The launch template that is specified must be configured for use with an Auto Scaling group. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html\">Creating a launch template for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> </note>"
+                },
+                {
+                  "disabled": false,
+                  "key": "LaunchTemplate",
+                  "value": "{\"LaunchTemplateSpecification\":{\"LaunchTemplateId\":\"<string>\",\"LaunchTemplateName\":\"<string>\",\"Version\":\"<string>\"},\"Overrides\":[{\"InstanceType\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"WeightedCapacity\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"LaunchTemplateSpecification\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"InstanceRequirements\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},{\"InstanceType\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"WeightedCapacity\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"LaunchTemplateSpecification\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"InstanceRequirements\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}}]}",
+                  "description": "The mixed instances policy. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html\">Auto Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>."
+                },
+                {
+                  "disabled": false,
+                  "key": "InstancesDistribution",
+                  "value": "{\"OnDemandAllocationStrategy\":\"<string>\",\"OnDemandBaseCapacity\":\"<integer>\",\"OnDemandPercentageAboveBaseCapacity\":\"<integer>\",\"SpotAllocationStrategy\":\"<string>\",\"SpotInstancePools\":\"<integer>\",\"SpotMaxPrice\":\"<string>\"}",
+                  "description": "The mixed instances policy. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html\">Auto Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>."
+                },
+                {
+                  "disabled": false,
+                  "key": "InstanceId",
+                  "value": "<string>",
+                  "description": "The ID of the instance used to base the launch configuration on. If specified, Amazon EC2 Auto Scaling uses the configuration values from the specified instance to create a new launch configuration. To get the instance ID, use the Amazon EC2 <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html\">DescribeInstances</a> API operation. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-from-instance.html\">Creating an Auto Scaling group using an EC2 instance</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>."
+                },
+                {
+                  "disabled": false,
+                  "key": "MinSize",
+                  "value": "<integer>",
+                  "description": "(Required) The minimum size of the group."
+                },
+                {
+                  "disabled": false,
+                  "key": "MaxSize",
+                  "value": "<integer>",
+                  "description": "(Required) <p>The maximum size of the group.</p> <note> <p>With a mixed instances policy that uses instance weighting, Amazon EC2 Auto Scaling may need to go above <code>MaxSize</code> to meet your capacity requirements. In this event, Amazon EC2 Auto Scaling will never go above <code>MaxSize</code> by more than your largest instance weight (weights that define how many units each instance contributes to the desired capacity of the group).</p> </note>"
+                },
+                {
+                  "disabled": false,
+                  "key": "DesiredCapacity",
+                  "value": "<integer>",
+                  "description": "The desired capacity is the initial capacity of the Auto Scaling group at the time of its creation and the capacity it attempts to maintain. It can scale beyond this capacity if you configure auto scaling. This number must be greater than or equal to the minimum size of the group and less than or equal to the maximum size of the group. If you do not specify a desired capacity, the default is the minimum size of the group."
+                },
+                {
+                  "disabled": false,
+                  "key": "DefaultCooldown",
+                  "value": "<integer>",
+                  "description": "<p> <i>Only needed if you use simple scaling policies.</i> </p> <p>The amount of time, in seconds, between one scaling activity ending and another one starting due to simple scaling policies. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html\">Scaling cooldowns for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>Default: <code>300</code> seconds</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "AvailabilityZones",
+                  "value": "<string>",
+                  "description": "A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the <code>VPCZoneIdentifier</code> property, or for attaching a network interface when an existing network interface ID is specified in a launch template."
+                },
+                {
+                  "disabled": false,
+                  "key": "AvailabilityZones",
+                  "value": "<string>",
+                  "description": "A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the <code>VPCZoneIdentifier</code> property, or for attaching a network interface when an existing network interface ID is specified in a launch template."
+                },
+                {
+                  "disabled": false,
+                  "key": "LoadBalancerNames",
+                  "value": "<string>",
+                  "description": "A list of Classic Load Balancers associated with this Auto Scaling group. For Application Load Balancers, Network Load Balancers, and Gateway Load Balancers, specify the <code>TargetGroupARNs</code> property instead."
+                },
+                {
+                  "disabled": false,
+                  "key": "LoadBalancerNames",
+                  "value": "<string>",
+                  "description": "A list of Classic Load Balancers associated with this Auto Scaling group. For Application Load Balancers, Network Load Balancers, and Gateway Load Balancers, specify the <code>TargetGroupARNs</code> property instead."
+                },
+                {
+                  "disabled": false,
+                  "key": "TargetGroupARNs",
+                  "value": "<string>",
+                  "description": "The Amazon Resource Names (ARN) of the Elastic Load Balancing target groups to associate with the Auto Scaling group. Instances are registered as targets with the target groups. The target groups receive incoming traffic and route requests to one or more registered targets. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html\">Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>."
+                },
+                {
+                  "disabled": false,
+                  "key": "TargetGroupARNs",
+                  "value": "<string>",
+                  "description": "The Amazon Resource Names (ARN) of the Elastic Load Balancing target groups to associate with the Auto Scaling group. Instances are registered as targets with the target groups. The target groups receive incoming traffic and route requests to one or more registered targets. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html\">Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>."
+                },
+                {
+                  "disabled": false,
+                  "key": "HealthCheckType",
+                  "value": "<string>",
+                  "description": "<p>A comma-separated value string of one or more health check types.</p> <p>The valid values are <code>EC2</code>, <code>ELB</code>, and <code>VPC_LATTICE</code>. <code>EC2</code> is the default health check and cannot be disabled. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html\">Health checks for Auto Scaling instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>Only specify <code>EC2</code> if you must clear a value that was previously set.</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "HealthCheckGracePeriod",
+                  "value": "<integer>",
+                  "description": "<p>The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service and marking it unhealthy due to a failed health check. This is useful if your instances do not immediately pass their health checks after they enter the <code>InService</code> state. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/health-check-grace-period.html\">Set the health check grace period for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>Default: <code>0</code> seconds</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "PlacementGroup",
+                  "value": "<string>",
+                  "description": "<p>The name of the placement group into which to launch your instances. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html\">Placement groups</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> <note> <p>A <i>cluster</i> placement group is a logical grouping of instances within a single Availability Zone. You cannot specify multiple Availability Zones and a cluster placement group. </p> </note>"
+                },
+                {
+                  "disabled": false,
+                  "key": "VPCZoneIdentifier",
+                  "value": "<string>",
+                  "description": "A comma-separated list of subnet IDs for a virtual private cloud (VPC) where instances in the Auto Scaling group can be created. If you specify <code>VPCZoneIdentifier</code> with <code>AvailabilityZones</code>, the subnets that you specify must reside in those Availability Zones."
+                },
+                {
+                  "disabled": false,
+                  "key": "TerminationPolicies",
+                  "value": "<string>",
+                  "description": "<p>A policy or a list of policies that are used to select the instance to terminate. These policies are executed in the order that you list them. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html\">Work with Amazon EC2 Auto Scaling termination policies</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>Valid values: <code>Default</code> | <code>AllocationStrategy</code> | <code>ClosestToNextInstanceHour</code> | <code>NewestInstance</code> | <code>OldestInstance</code> | <code>OldestLaunchConfiguration</code> | <code>OldestLaunchTemplate</code> | <code>arn:aws:lambda:region:account-id:function:my-function:my-alias</code> </p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "TerminationPolicies",
+                  "value": "<string>",
+                  "description": "<p>A policy or a list of policies that are used to select the instance to terminate. These policies are executed in the order that you list them. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html\">Work with Amazon EC2 Auto Scaling termination policies</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>Valid values: <code>Default</code> | <code>AllocationStrategy</code> | <code>ClosestToNextInstanceHour</code> | <code>NewestInstance</code> | <code>OldestInstance</code> | <code>OldestLaunchConfiguration</code> | <code>OldestLaunchTemplate</code> | <code>arn:aws:lambda:region:account-id:function:my-function:my-alias</code> </p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "NewInstancesProtectedFromScaleIn",
+                  "value": "<boolean>",
+                  "description": "Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in. For more information about preventing instances from terminating on scale in, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html\">Using instance scale-in protection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>."
+                },
+                {
+                  "disabled": false,
+                  "key": "CapacityRebalance",
+                  "value": "<boolean>",
+                  "description": "Indicates whether Capacity Rebalancing is enabled. Otherwise, Capacity Rebalancing is disabled. When you turn on Capacity Rebalancing, Amazon EC2 Auto Scaling attempts to launch a Spot Instance whenever Amazon EC2 notifies that a Spot Instance is at an elevated risk of interruption. After launching a new instance, it then terminates an old instance. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html\">Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions</a> in the in the <i>Amazon EC2 Auto Scaling User Guide</i>."
+                },
+                {
+                  "disabled": false,
+                  "key": "LifecycleHookSpecificationList",
+                  "value": "{\"LifecycleHookName\":\"<string>\",\"LifecycleTransition\":\"<string>\",\"NotificationMetadata\":\"<string>\",\"HeartbeatTimeout\":\"<integer>\",\"DefaultResult\":\"<string>\",\"NotificationTargetARN\":\"<string>\",\"RoleARN\":\"<string>\"}",
+                  "description": "One or more lifecycle hooks to add to the Auto Scaling group before instances are launched."
+                },
+                {
+                  "disabled": false,
+                  "key": "LifecycleHookSpecificationList",
+                  "value": "{\"LifecycleHookName\":\"<string>\",\"LifecycleTransition\":\"<string>\",\"NotificationMetadata\":\"<string>\",\"HeartbeatTimeout\":\"<integer>\",\"DefaultResult\":\"<string>\",\"NotificationTargetARN\":\"<string>\",\"RoleARN\":\"<string>\"}",
+                  "description": "One or more lifecycle hooks to add to the Auto Scaling group before instances are launched."
+                },
+                {
+                  "disabled": false,
+                  "key": "Tags",
+                  "value": "{\"Key\":\"<string>\",\"ResourceId\":\"<string>\",\"ResourceType\":\"<string>\",\"Value\":\"<string>\",\"PropagateAtLaunch\":\"<boolean>\"}",
+                  "description": "One or more tags. You can tag your Auto Scaling group and propagate the tags to the Amazon EC2 instances it launches. Tags are not propagated to Amazon EBS volumes. To add tags to Amazon EBS volumes, specify the tags in a launch template but use caution. If the launch template specifies an instance tag with a key that is also specified for the Auto Scaling group, Amazon EC2 Auto Scaling overrides the value of that instance tag with the value specified by the Auto Scaling group. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-tagging.html\">Tag Auto Scaling groups and instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>."
+                },
+                {
+                  "disabled": false,
+                  "key": "Tags",
+                  "value": "{\"Key\":\"<string>\",\"ResourceId\":\"<string>\",\"ResourceType\":\"<string>\",\"Value\":\"<string>\",\"PropagateAtLaunch\":\"<boolean>\"}",
+                  "description": "One or more tags. You can tag your Auto Scaling group and propagate the tags to the Amazon EC2 instances it launches. Tags are not propagated to Amazon EBS volumes. To add tags to Amazon EBS volumes, specify the tags in a launch template but use caution. If the launch template specifies an instance tag with a key that is also specified for the Auto Scaling group, Amazon EC2 Auto Scaling overrides the value of that instance tag with the value specified by the Auto Scaling group. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-tagging.html\">Tag Auto Scaling groups and instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>."
+                },
+                {
+                  "disabled": false,
+                  "key": "ServiceLinkedRoleARN",
+                  "value": "<string>",
+                  "description": "The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other Amazon Web Services service on your behalf. By default, Amazon EC2 Auto Scaling uses a service-linked role named <code>AWSServiceRoleForAutoScaling</code>, which it creates if it does not exist. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html\">Service-linked roles</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>."
+                },
+                {
+                  "disabled": false,
+                  "key": "MaxInstanceLifetime",
+                  "value": "<integer>",
+                  "description": "The maximum amount of time, in seconds, that an instance can be in service. The default is null. If specified, the value must be either 0 or a number equal to or greater than 86,400 seconds (1 day). For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html\">Replacing Auto Scaling instances based on maximum instance lifetime</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>."
+                },
+                {
+                  "disabled": false,
+                  "key": "Context",
+                  "value": "<string>",
+                  "description": "Reserved."
+                },
+                {
+                  "disabled": false,
+                  "key": "DesiredCapacityType",
+                  "value": "<string>",
+                  "description": "<p>The unit of measurement for the value specified for desired capacity. Amazon EC2 Auto Scaling supports <code>DesiredCapacityType</code> for attribute-based instance type selection only. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html\">Creating an Auto Scaling group using attribute-based instance type selection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>By default, Amazon EC2 Auto Scaling specifies <code>units</code>, which translates into number of instances.</p> <p>Valid values: <code>units</code> | <code>vcpu</code> | <code>memory-mib</code> </p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "DefaultInstanceWarmup",
+                  "value": "<integer>",
+                  "description": "<p>The amount of time, in seconds, until a new instance is considered to have finished initializing and resource consumption to become stable after it enters the <code>InService</code> state. </p> <p>During an instance refresh, Amazon EC2 Auto Scaling waits for the warm-up period after it replaces an instance before it moves on to replacing the next instance. Amazon EC2 Auto Scaling also waits for the warm-up period before aggregating the metrics for new instances with existing instances in the Amazon CloudWatch metrics that are used for scaling, resulting in more reliable usage data. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html\">Set the default instance warmup for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <important> <p>To manage various warm-up settings at the group level, we recommend that you set the default instance warmup, <i>even if it is set to 0 seconds</i>. To remove a value that you previously set, include the property but specify <code>-1</code> for the value. However, we strongly recommend keeping the default instance warmup enabled by specifying a value of <code>0</code> or other nominal value.</p> </important> <p>Default: None </p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "TrafficSources",
+                  "value": "{\"Identifier\":\"<string>\",\"Type\":\"<string>\"}",
+                  "description": "The list of traffic sources to attach to this Auto Scaling group. You can use any of the following as traffic sources for an Auto Scaling group: Classic Load Balancer, Application Load Balancer, Gateway Load Balancer, Network Load Balancer, and VPC Lattice."
+                },
+                {
+                  "disabled": false,
+                  "key": "TrafficSources",
+                  "value": "{\"Identifier\":\"<string>\",\"Type\":\"<string>\"}",
+                  "description": "The list of traffic sources to attach to this Auto Scaling group. You can use any of the following as traffic sources for an Auto Scaling group: Classic Load Balancer, Application Load Balancer, Gateway Load Balancer, Network Load Balancer, and VPC Lattice."
+                },
+                {
+                  "disabled": false,
+                  "key": "Action",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "Version",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The AWS region (This can only be one of us-east-1,us-east-2,us-west-1,us-west-2,us-gov-west-1,us-gov-east-1,ca-central-1,eu-north-1,eu-west-1,eu-west-2,eu-west-3,eu-central-1,eu-south-1,af-south-1,ap-northeast-1,ap-northeast-2,ap-northeast-3,ap-southeast-1,ap-southeast-2,ap-east-1,ap-south-1,sa-east-1,me-south-1)",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "disabled": false,
+                "key": "X-Amz-Date",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "disabled": false,
+                "key": "X-Amz-Algorithm",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "disabled": false,
+                "key": "X-Amz-Credential",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "disabled": false,
+                "key": "X-Amz-Security-Token",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "disabled": false,
+                "key": "X-Amz-Signature",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "disabled": false,
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e389b160-a06f-42bf-bae6-1b172273c980",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "hash": "Action=CreateAutoScalingGroup",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "AutoScalingGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "LaunchConfigurationName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "LaunchTemplateId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "LaunchTemplateName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "LaunchTemplate",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "InstancesDistribution",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "InstanceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MinSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "MaxSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "DesiredCapacity",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "DefaultCooldown",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "AvailabilityZones",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "AvailabilityZones",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "LoadBalancerNames",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "LoadBalancerNames",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TargetGroupARNs",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TargetGroupARNs",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "HealthCheckType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "HealthCheckGracePeriod",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "PlacementGroup",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "VPCZoneIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TerminationPolicies",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TerminationPolicies",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "NewInstancesProtectedFromScaleIn",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "CapacityRebalance",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "LifecycleHookSpecificationList",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "LifecycleHookSpecificationList",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "Tags",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "Tags",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "ServiceLinkedRoleARN",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxInstanceLifetime",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "Context",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "DesiredCapacityType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "DefaultInstanceWarmup",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "TrafficSources",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "TrafficSources",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The AWS region (This can only be one of us-east-1,us-east-2,us-west-1,us-west-2,us-gov-west-1,us-gov-east-1,ca-central-1,eu-north-1,eu-west-1,eu-west-2,eu-west-3,eu-central-1,eu-south-1,af-south-1,ap-northeast-1,ap-northeast-2,ap-northeast-3,ap-southeast-1,ap-southeast-2,ap-east-1,ap-south-1,sa-east-1,me-south-1)",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Date",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Credential",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Signature",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>",
+                    "description": ""
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f0055db8-91a5-4cc2-a706-32cf1bc943c5",
+              "name": "AlreadyExistsFault",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "hash": "Action=CreateAutoScalingGroup",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "AutoScalingGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "LaunchConfigurationName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "LaunchTemplateId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "LaunchTemplateName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "LaunchTemplate",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "InstancesDistribution",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "InstanceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MinSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "MaxSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "DesiredCapacity",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "DefaultCooldown",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "AvailabilityZones",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "AvailabilityZones",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "LoadBalancerNames",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "LoadBalancerNames",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TargetGroupARNs",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TargetGroupARNs",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "HealthCheckType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "HealthCheckGracePeriod",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "PlacementGroup",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "VPCZoneIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TerminationPolicies",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TerminationPolicies",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "NewInstancesProtectedFromScaleIn",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "CapacityRebalance",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "LifecycleHookSpecificationList",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "LifecycleHookSpecificationList",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "Tags",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "Tags",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "ServiceLinkedRoleARN",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxInstanceLifetime",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "Context",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "DesiredCapacityType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "DefaultInstanceWarmup",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "TrafficSources",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "TrafficSources",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The AWS region (This can only be one of us-east-1,us-east-2,us-west-1,us-west-2,us-gov-west-1,us-gov-east-1,ca-central-1,eu-north-1,eu-west-1,eu-west-2,eu-west-3,eu-central-1,eu-south-1,af-south-1,ap-northeast-1,ap-northeast-2,ap-northeast-3,ap-southeast-1,ap-southeast-2,ap-east-1,ap-south-1,sa-east-1,me-south-1)",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Date",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Credential",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Signature",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "code": 480,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "11e7094d-81ed-421f-96ac-88cb19063995",
+              "name": "LimitExceededFault",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "hash": "Action=CreateAutoScalingGroup",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "AutoScalingGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "LaunchConfigurationName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "LaunchTemplateId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "LaunchTemplateName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "LaunchTemplate",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "InstancesDistribution",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "InstanceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MinSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "MaxSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "DesiredCapacity",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "DefaultCooldown",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "AvailabilityZones",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "AvailabilityZones",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "LoadBalancerNames",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "LoadBalancerNames",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TargetGroupARNs",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TargetGroupARNs",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "HealthCheckType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "HealthCheckGracePeriod",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "PlacementGroup",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "VPCZoneIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TerminationPolicies",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TerminationPolicies",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "NewInstancesProtectedFromScaleIn",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "CapacityRebalance",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "LifecycleHookSpecificationList",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "LifecycleHookSpecificationList",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "Tags",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "Tags",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "ServiceLinkedRoleARN",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxInstanceLifetime",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "Context",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "DesiredCapacityType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "DefaultInstanceWarmup",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "TrafficSources",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "TrafficSources",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The AWS region (This can only be one of us-east-1,us-east-2,us-west-1,us-west-2,us-gov-west-1,us-gov-east-1,ca-central-1,eu-north-1,eu-west-1,eu-west-2,eu-west-3,eu-central-1,eu-south-1,af-south-1,ap-northeast-1,ap-northeast-2,ap-northeast-3,ap-southeast-1,ap-southeast-2,ap-east-1,ap-south-1,sa-east-1,me-south-1)",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Date",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Credential",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Signature",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "code": 481,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "63c92563-5521-49b9-8bca-6a8fa5964d4c",
+              "name": "ResourceContentionFault",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "hash": "Action=CreateAutoScalingGroup",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "AutoScalingGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "LaunchConfigurationName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "LaunchTemplateId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "LaunchTemplateName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "LaunchTemplate",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "InstancesDistribution",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "InstanceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MinSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "MaxSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "DesiredCapacity",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "DefaultCooldown",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "AvailabilityZones",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "AvailabilityZones",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "LoadBalancerNames",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "LoadBalancerNames",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TargetGroupARNs",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TargetGroupARNs",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "HealthCheckType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "HealthCheckGracePeriod",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "PlacementGroup",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "VPCZoneIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TerminationPolicies",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TerminationPolicies",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "NewInstancesProtectedFromScaleIn",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "CapacityRebalance",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "LifecycleHookSpecificationList",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "LifecycleHookSpecificationList",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "Tags",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "Tags",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "ServiceLinkedRoleARN",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxInstanceLifetime",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "Context",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "DesiredCapacityType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "DefaultInstanceWarmup",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "TrafficSources",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "TrafficSources",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The AWS region (This can only be one of us-east-1,us-east-2,us-west-1,us-west-2,us-gov-west-1,us-gov-east-1,ca-central-1,eu-north-1,eu-west-1,eu-west-2,eu-west-3,eu-central-1,eu-south-1,af-south-1,ap-northeast-1,ap-northeast-2,ap-northeast-3,ap-southeast-1,ap-southeast-2,ap-east-1,ap-south-1,sa-east-1,me-south-1)",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Date",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Credential",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Signature",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "code": 482,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "5a052a3c-74ad-4c0f-89ff-2040fc4c703c",
+              "name": "ServiceLinkedRoleFailure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "hash": "Action=CreateAutoScalingGroup",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "AutoScalingGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "LaunchConfigurationName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "LaunchTemplateId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "LaunchTemplateName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "LaunchTemplate",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "InstancesDistribution",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "InstanceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MinSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "MaxSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "DesiredCapacity",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "DefaultCooldown",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "AvailabilityZones",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "AvailabilityZones",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "LoadBalancerNames",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "LoadBalancerNames",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TargetGroupARNs",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TargetGroupARNs",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "HealthCheckType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "HealthCheckGracePeriod",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "PlacementGroup",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "VPCZoneIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TerminationPolicies",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TerminationPolicies",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "NewInstancesProtectedFromScaleIn",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "CapacityRebalance",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "LifecycleHookSpecificationList",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "LifecycleHookSpecificationList",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "Tags",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "Tags",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "ServiceLinkedRoleARN",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxInstanceLifetime",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "Context",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "DesiredCapacityType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "DefaultInstanceWarmup",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "TrafficSources",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "TrafficSources",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The AWS region (This can only be one of us-east-1,us-east-2,us-west-1,us-west-2,us-gov-west-1,us-gov-east-1,ca-central-1,eu-north-1,eu-west-1,eu-west-2,eu-west-3,eu-central-1,eu-south-1,af-south-1,ap-northeast-1,ap-northeast-2,ap-northeast-3,ap-southeast-1,ap-southeast-2,ap-east-1,ap-south-1,sa-east-1,me-south-1)",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Date",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Credential",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Signature",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "code": 483,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ef09a829-59b7-4f6a-8a34-e8d3d5ea1e71",
+          "name": "Amazon EC2 Auto Scaling POST_ Create Auto Scaling Group",
+          "request": {
+            "name": "Amazon EC2 Auto Scaling POST_ Create Auto Scaling Group",
+            "description": {
+              "content": "<p> <b>We strongly recommend using a launch template when calling this operation to ensure full functionality for Amazon EC2 Auto Scaling and Amazon EC2.</b> </p> <p>Creates an Auto Scaling group with the specified name and attributes. </p> <p>If you exceed your maximum limit of Auto Scaling groups, the call fails. To query this limit, call the <a>DescribeAccountLimits</a> API. For information about updating this limit, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html\">Quotas for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>For introductory exercises for creating an Auto Scaling group, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/GettingStartedTutorial.html\">Getting started with Amazon EC2 Auto Scaling</a> and <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-register-lbs-with-asg.html\">Tutorial: Set up a scaled and load-balanced application</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html\">Auto Scaling groups</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>Every Auto Scaling group has three size properties (<code>DesiredCapacity</code>, <code>MaxSize</code>, and <code>MinSize</code>). Usually, you set these sizes based on a specific number of instances. However, if you configure a mixed instances policy that defines weights for the instance types, you must specify these sizes with the same units that you use for weighting instances.</p>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "hash": "Action=CreateAutoScalingGroup",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "Action",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "Version",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The AWS region (This can only be one of us-east-1,us-east-2,us-west-1,us-west-2,us-gov-west-1,us-gov-east-1,ca-central-1,eu-north-1,eu-west-1,eu-west-2,eu-west-3,eu-central-1,eu-south-1,af-south-1,ap-northeast-1,ap-northeast-2,ap-northeast-3,ap-southeast-1,ap-southeast-2,ap-east-1,ap-south-1,sa-east-1,me-south-1)",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "disabled": false,
+                "key": "X-Amz-Date",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "disabled": false,
+                "key": "X-Amz-Algorithm",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "disabled": false,
+                "key": "X-Amz-Credential",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "disabled": false,
+                "key": "X-Amz-Security-Token",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "disabled": false,
+                "key": "X-Amz-Signature",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "disabled": false,
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Content-Type",
+                "value": "text/xml"
+              },
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <LaunchConfigurationName>(string)</LaunchConfigurationName>\n  <LaunchTemplate>\n    <LaunchTemplateId>(string)</LaunchTemplateId>\n    <LaunchTemplateName>(string)</LaunchTemplateName>\n    <Version>(string)</Version>\n  </LaunchTemplate>\n  <MixedInstancesPolicy>\n    <LaunchTemplate>\n      <LaunchTemplateSpecification>\n      </LaunchTemplateSpecification>\n    </LaunchTemplate>\n    <InstancesDistribution>\n      <OnDemandAllocationStrategy>(string)</OnDemandAllocationStrategy>\n      <OnDemandBaseCapacity>(integer)</OnDemandBaseCapacity>\n      <OnDemandPercentageAboveBaseCapacity>(integer)</OnDemandPercentageAboveBaseCapacity>\n      <SpotAllocationStrategy>(string)</SpotAllocationStrategy>\n      <SpotInstancePools>(integer)</SpotInstancePools>\n      <SpotMaxPrice>(string)</SpotMaxPrice>\n    </InstancesDistribution>\n  </MixedInstancesPolicy>\n  <InstanceId>(string)</InstanceId>\n  <MinSize>(integer)</MinSize>\n  <MaxSize>(integer)</MaxSize>\n  <DesiredCapacity>(integer)</DesiredCapacity>\n  <DefaultCooldown>(integer)</DefaultCooldown>\n  <AvailabilityZones>(string)</AvailabilityZones>\n  <AvailabilityZones>(string)</AvailabilityZones>\n  <LoadBalancerNames>(string)</LoadBalancerNames>\n  <LoadBalancerNames>(string)</LoadBalancerNames>\n  <TargetGroupARNs>(string)</TargetGroupARNs>\n  <TargetGroupARNs>(string)</TargetGroupARNs>\n  <HealthCheckType>(string)</HealthCheckType>\n  <HealthCheckGracePeriod>(integer)</HealthCheckGracePeriod>\n  <PlacementGroup>(string)</PlacementGroup>\n  <VPCZoneIdentifier>(string)</VPCZoneIdentifier>\n  <TerminationPolicies>(string)</TerminationPolicies>\n  <TerminationPolicies>(string)</TerminationPolicies>\n  <NewInstancesProtectedFromScaleIn>(boolean)</NewInstancesProtectedFromScaleIn>\n  <CapacityRebalance>(boolean)</CapacityRebalance>\n  <LifecycleHookSpecificationList>\n    <LifecycleHookName>(string)</LifecycleHookName>\n    <LifecycleTransition>(string)</LifecycleTransition>\n    <NotificationMetadata>(string)</NotificationMetadata>\n    <HeartbeatTimeout>(integer)</HeartbeatTimeout>\n    <DefaultResult>(string)</DefaultResult>\n    <NotificationTargetARN>(string)</NotificationTargetARN>\n    <RoleARN>(string)</RoleARN>\n  </LifecycleHookSpecificationList>\n  <LifecycleHookSpecificationList>\n    <LifecycleHookName>(string)</LifecycleHookName>\n    <LifecycleTransition>(string)</LifecycleTransition>\n    <NotificationMetadata>(string)</NotificationMetadata>\n    <HeartbeatTimeout>(integer)</HeartbeatTimeout>\n    <DefaultResult>(string)</DefaultResult>\n    <NotificationTargetARN>(string)</NotificationTargetARN>\n    <RoleARN>(string)</RoleARN>\n  </LifecycleHookSpecificationList>\n  <Tags>\n    <ResourceId>(string)</ResourceId>\n    <ResourceType>(string)</ResourceType>\n    <Key>(string)</Key>\n    <Value>(string)</Value>\n    <PropagateAtLaunch>(boolean)</PropagateAtLaunch>\n  </Tags>\n  <Tags>\n    <ResourceId>(string)</ResourceId>\n    <ResourceType>(string)</ResourceType>\n    <Key>(string)</Key>\n    <Value>(string)</Value>\n    <PropagateAtLaunch>(boolean)</PropagateAtLaunch>\n  </Tags>\n  <ServiceLinkedRoleARN>(string)</ServiceLinkedRoleARN>\n  <MaxInstanceLifetime>(integer)</MaxInstanceLifetime>\n  <Context>(string)</Context>\n  <DesiredCapacityType>(string)</DesiredCapacityType>\n  <DefaultInstanceWarmup>(integer)</DefaultInstanceWarmup>\n  <TrafficSources>\n    <Identifier>(string)</Identifier>\n    <Type>(string)</Type>\n  </TrafficSources>\n  <TrafficSources>\n    <Identifier>(string)</Identifier>\n    <Type>(string)</Type>\n  </TrafficSources>\n</element>",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b7d0369a-b374-4f41-8c01-1232dea4bd36",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "hash": "Action=CreateAutoScalingGroup",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The AWS region (This can only be one of us-east-1,us-east-2,us-west-1,us-west-2,us-gov-west-1,us-gov-east-1,ca-central-1,eu-north-1,eu-west-1,eu-west-2,eu-west-3,eu-central-1,eu-south-1,af-south-1,ap-northeast-1,ap-northeast-2,ap-northeast-3,ap-southeast-1,ap-southeast-2,ap-east-1,ap-south-1,sa-east-1,me-south-1)",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Date",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Credential",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Signature",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>",
+                    "description": ""
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <LaunchConfigurationName>(string)</LaunchConfigurationName>\n  <LaunchTemplate>\n    <LaunchTemplateId>(string)</LaunchTemplateId>\n    <LaunchTemplateName>(string)</LaunchTemplateName>\n    <Version>(string)</Version>\n  </LaunchTemplate>\n  <MixedInstancesPolicy>\n    <LaunchTemplate>\nexample-string\nexample-id-1234\n    </LaunchTemplate>\n    <InstancesDistribution>\n      <OnDemandAllocationStrategy>example-string</OnDemandAllocationStrategy>\n      <OnDemandBaseCapacity>example-string</OnDemandBaseCapacity>\n      <OnDemandPercentageAboveBaseCapacity>example-string</OnDemandPercentageAboveBaseCapacity>\n      <SpotAllocationStrategy>example-string</SpotAllocationStrategy>\n      <SpotInstancePools>example-string</SpotInstancePools>\n      <SpotMaxPrice>example-string</SpotMaxPrice>\n    </InstancesDistribution>\n  </MixedInstancesPolicy>\n  <InstanceId>(string)</InstanceId>\n  <MinSize>(integer)</MinSize>\n  <MaxSize>(integer)</MaxSize>\n  <DesiredCapacity>(integer)</DesiredCapacity>\n  <DefaultCooldown>(integer)</DefaultCooldown>\n  <AvailabilityZones>(string)</AvailabilityZones>\n  <AvailabilityZones>(string)</AvailabilityZones>\n  <LoadBalancerNames>(string)</LoadBalancerNames>\n  <LoadBalancerNames>(string)</LoadBalancerNames>\n  <TargetGroupARNs>(string)</TargetGroupARNs>\n  <TargetGroupARNs>(string)</TargetGroupARNs>\n  <HealthCheckType>(string)</HealthCheckType>\n  <HealthCheckGracePeriod>(integer)</HealthCheckGracePeriod>\n  <PlacementGroup>(string)</PlacementGroup>\n  <VPCZoneIdentifier>(string)</VPCZoneIdentifier>\n  <TerminationPolicies>(string)</TerminationPolicies>\n  <TerminationPolicies>(string)</TerminationPolicies>\n  <NewInstancesProtectedFromScaleIn>(boolean)</NewInstancesProtectedFromScaleIn>\n  <CapacityRebalance>(boolean)</CapacityRebalance>\n  <LifecycleHookSpecificationList>\n    <LifecycleHookName>example-resource-name</LifecycleHookName>\n    <LifecycleTransition>example-string</LifecycleTransition>\n    <NotificationMetadata>example-string</NotificationMetadata>\n    <HeartbeatTimeout>example-string</HeartbeatTimeout>\n    <DefaultResult>example-string</DefaultResult>\n    <NotificationTargetARN>arn:aws:service:us-east-1:123456789012:resource/example</NotificationTargetARN>\n    <RoleARN>arn:aws:service:us-east-1:123456789012:resource/example</RoleARN>\n  </LifecycleHookSpecificationList>\n  <LifecycleHookSpecificationList>\n    <LifecycleHookName>example-resource-name</LifecycleHookName>\n    <LifecycleTransition>example-string</LifecycleTransition>\n    <NotificationMetadata>example-string</NotificationMetadata>\n    <HeartbeatTimeout>example-string</HeartbeatTimeout>\n    <DefaultResult>example-string</DefaultResult>\n    <NotificationTargetARN>arn:aws:service:us-east-1:123456789012:resource/example</NotificationTargetARN>\n    <RoleARN>arn:aws:service:us-east-1:123456789012:resource/example</RoleARN>\n  </LifecycleHookSpecificationList>\n  <Tags>\n    <ResourceId>example-id-1234</ResourceId>\n    <ResourceType>example-string</ResourceType>\n    <Key>example-string</Key>\n    <Value>example-string</Value>\n    <PropagateAtLaunch>example-string</PropagateAtLaunch>\n  </Tags>\n  <Tags>\n    <ResourceId>example-id-1234</ResourceId>\n    <ResourceType>example-string</ResourceType>\n    <Key>example-string</Key>\n    <Value>example-string</Value>\n    <PropagateAtLaunch>example-string</PropagateAtLaunch>\n  </Tags>\n  <ServiceLinkedRoleARN>(string)</ServiceLinkedRoleARN>\n  <MaxInstanceLifetime>(integer)</MaxInstanceLifetime>\n  <Context>(string)</Context>\n  <DesiredCapacityType>(string)</DesiredCapacityType>\n  <DefaultInstanceWarmup>(integer)</DefaultInstanceWarmup>\n  <TrafficSources>\n    <Identifier>example-id-1234</Identifier>\n    <Type>example-string</Type>\n  </TrafficSources>\n  <TrafficSources>\n    <Identifier>example-id-1234</Identifier>\n    <Type>example-string</Type>\n  </TrafficSources>\n</element>",
+                  "options": {
+                    "raw": {
+                      "language": "xml"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c7df3462-8a7d-4d1d-b52b-247b01eb8a54",
+              "name": "AlreadyExistsFault",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "hash": "Action=CreateAutoScalingGroup",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The AWS region (This can only be one of us-east-1,us-east-2,us-west-1,us-west-2,us-gov-west-1,us-gov-east-1,ca-central-1,eu-north-1,eu-west-1,eu-west-2,eu-west-3,eu-central-1,eu-south-1,af-south-1,ap-northeast-1,ap-northeast-2,ap-northeast-3,ap-southeast-1,ap-southeast-2,ap-east-1,ap-south-1,sa-east-1,me-south-1)",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Date",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Credential",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Signature",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <LaunchConfigurationName>(string)</LaunchConfigurationName>\n  <LaunchTemplate>\n    <LaunchTemplateId>(string)</LaunchTemplateId>\n    <LaunchTemplateName>(string)</LaunchTemplateName>\n    <Version>(string)</Version>\n  </LaunchTemplate>\n  <MixedInstancesPolicy>\n    <LaunchTemplate>\nexample-string\nexample-id-1234\n    </LaunchTemplate>\n    <InstancesDistribution>\n      <OnDemandAllocationStrategy>example-string</OnDemandAllocationStrategy>\n      <OnDemandBaseCapacity>example-string</OnDemandBaseCapacity>\n      <OnDemandPercentageAboveBaseCapacity>example-string</OnDemandPercentageAboveBaseCapacity>\n      <SpotAllocationStrategy>example-string</SpotAllocationStrategy>\n      <SpotInstancePools>example-string</SpotInstancePools>\n      <SpotMaxPrice>example-string</SpotMaxPrice>\n    </InstancesDistribution>\n  </MixedInstancesPolicy>\n  <InstanceId>(string)</InstanceId>\n  <MinSize>(integer)</MinSize>\n  <MaxSize>(integer)</MaxSize>\n  <DesiredCapacity>(integer)</DesiredCapacity>\n  <DefaultCooldown>(integer)</DefaultCooldown>\n  <AvailabilityZones>(string)</AvailabilityZones>\n  <AvailabilityZones>(string)</AvailabilityZones>\n  <LoadBalancerNames>(string)</LoadBalancerNames>\n  <LoadBalancerNames>(string)</LoadBalancerNames>\n  <TargetGroupARNs>(string)</TargetGroupARNs>\n  <TargetGroupARNs>(string)</TargetGroupARNs>\n  <HealthCheckType>(string)</HealthCheckType>\n  <HealthCheckGracePeriod>(integer)</HealthCheckGracePeriod>\n  <PlacementGroup>(string)</PlacementGroup>\n  <VPCZoneIdentifier>(string)</VPCZoneIdentifier>\n  <TerminationPolicies>(string)</TerminationPolicies>\n  <TerminationPolicies>(string)</TerminationPolicies>\n  <NewInstancesProtectedFromScaleIn>(boolean)</NewInstancesProtectedFromScaleIn>\n  <CapacityRebalance>(boolean)</CapacityRebalance>\n  <LifecycleHookSpecificationList>\n    <LifecycleHookName>example-resource-name</LifecycleHookName>\n    <LifecycleTransition>example-string</LifecycleTransition>\n    <NotificationMetadata>example-string</NotificationMetadata>\n    <HeartbeatTimeout>example-string</HeartbeatTimeout>\n    <DefaultResult>example-string</DefaultResult>\n    <NotificationTargetARN>arn:aws:service:us-east-1:123456789012:resource/example</NotificationTargetARN>\n    <RoleARN>arn:aws:service:us-east-1:123456789012:resource/example</RoleARN>\n  </LifecycleHookSpecificationList>\n  <LifecycleHookSpecificationList>\n    <LifecycleHookName>example-resource-name</LifecycleHookName>\n    <LifecycleTransition>example-string</LifecycleTransition>\n    <NotificationMetadata>example-string</NotificationMetadata>\n    <HeartbeatTimeout>example-string</HeartbeatTimeout>\n    <DefaultResult>example-string</DefaultResult>\n    <NotificationTargetARN>arn:aws:service:us-east-1:123456789012:resource/example</NotificationTargetARN>\n    <RoleARN>arn:aws:service:us-east-1:123456789012:resource/example</RoleARN>\n  </LifecycleHookSpecificationList>\n  <Tags>\n    <ResourceId>example-id-1234</ResourceId>\n    <ResourceType>example-string</ResourceType>\n    <Key>example-string</Key>\n    <Value>example-string</Value>\n    <PropagateAtLaunch>example-string</PropagateAtLaunch>\n  </Tags>\n  <Tags>\n    <ResourceId>example-id-1234</ResourceId>\n    <ResourceType>example-string</ResourceType>\n    <Key>example-string</Key>\n    <Value>example-string</Value>\n    <PropagateAtLaunch>example-string</PropagateAtLaunch>\n  </Tags>\n  <ServiceLinkedRoleARN>(string)</ServiceLinkedRoleARN>\n  <MaxInstanceLifetime>(integer)</MaxInstanceLifetime>\n  <Context>(string)</Context>\n  <DesiredCapacityType>(string)</DesiredCapacityType>\n  <DefaultInstanceWarmup>(integer)</DefaultInstanceWarmup>\n  <TrafficSources>\n    <Identifier>example-id-1234</Identifier>\n    <Type>example-string</Type>\n  </TrafficSources>\n  <TrafficSources>\n    <Identifier>example-id-1234</Identifier>\n    <Type>example-string</Type>\n  </TrafficSources>\n</element>",
+                  "options": {
+                    "raw": {
+                      "language": "xml"
+                    }
+                  }
+                }
+              },
+              "code": 480,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "ab708e26-d594-4db3-a864-626953878f6b",
+              "name": "LimitExceededFault",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "hash": "Action=CreateAutoScalingGroup",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The AWS region (This can only be one of us-east-1,us-east-2,us-west-1,us-west-2,us-gov-west-1,us-gov-east-1,ca-central-1,eu-north-1,eu-west-1,eu-west-2,eu-west-3,eu-central-1,eu-south-1,af-south-1,ap-northeast-1,ap-northeast-2,ap-northeast-3,ap-southeast-1,ap-southeast-2,ap-east-1,ap-south-1,sa-east-1,me-south-1)",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Date",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Credential",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Signature",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <LaunchConfigurationName>(string)</LaunchConfigurationName>\n  <LaunchTemplate>\n    <LaunchTemplateId>(string)</LaunchTemplateId>\n    <LaunchTemplateName>(string)</LaunchTemplateName>\n    <Version>(string)</Version>\n  </LaunchTemplate>\n  <MixedInstancesPolicy>\n    <LaunchTemplate>\nexample-string\nexample-id-1234\n    </LaunchTemplate>\n    <InstancesDistribution>\n      <OnDemandAllocationStrategy>example-string</OnDemandAllocationStrategy>\n      <OnDemandBaseCapacity>example-string</OnDemandBaseCapacity>\n      <OnDemandPercentageAboveBaseCapacity>example-string</OnDemandPercentageAboveBaseCapacity>\n      <SpotAllocationStrategy>example-string</SpotAllocationStrategy>\n      <SpotInstancePools>example-string</SpotInstancePools>\n      <SpotMaxPrice>example-string</SpotMaxPrice>\n    </InstancesDistribution>\n  </MixedInstancesPolicy>\n  <InstanceId>(string)</InstanceId>\n  <MinSize>(integer)</MinSize>\n  <MaxSize>(integer)</MaxSize>\n  <DesiredCapacity>(integer)</DesiredCapacity>\n  <DefaultCooldown>(integer)</DefaultCooldown>\n  <AvailabilityZones>(string)</AvailabilityZones>\n  <AvailabilityZones>(string)</AvailabilityZones>\n  <LoadBalancerNames>(string)</LoadBalancerNames>\n  <LoadBalancerNames>(string)</LoadBalancerNames>\n  <TargetGroupARNs>(string)</TargetGroupARNs>\n  <TargetGroupARNs>(string)</TargetGroupARNs>\n  <HealthCheckType>(string)</HealthCheckType>\n  <HealthCheckGracePeriod>(integer)</HealthCheckGracePeriod>\n  <PlacementGroup>(string)</PlacementGroup>\n  <VPCZoneIdentifier>(string)</VPCZoneIdentifier>\n  <TerminationPolicies>(string)</TerminationPolicies>\n  <TerminationPolicies>(string)</TerminationPolicies>\n  <NewInstancesProtectedFromScaleIn>(boolean)</NewInstancesProtectedFromScaleIn>\n  <CapacityRebalance>(boolean)</CapacityRebalance>\n  <LifecycleHookSpecificationList>\n    <LifecycleHookName>example-resource-name</LifecycleHookName>\n    <LifecycleTransition>example-string</LifecycleTransition>\n    <NotificationMetadata>example-string</NotificationMetadata>\n    <HeartbeatTimeout>example-string</HeartbeatTimeout>\n    <DefaultResult>example-string</DefaultResult>\n    <NotificationTargetARN>arn:aws:service:us-east-1:123456789012:resource/example</NotificationTargetARN>\n    <RoleARN>arn:aws:service:us-east-1:123456789012:resource/example</RoleARN>\n  </LifecycleHookSpecificationList>\n  <LifecycleHookSpecificationList>\n    <LifecycleHookName>example-resource-name</LifecycleHookName>\n    <LifecycleTransition>example-string</LifecycleTransition>\n    <NotificationMetadata>example-string</NotificationMetadata>\n    <HeartbeatTimeout>example-string</HeartbeatTimeout>\n    <DefaultResult>example-string</DefaultResult>\n    <NotificationTargetARN>arn:aws:service:us-east-1:123456789012:resource/example</NotificationTargetARN>\n    <RoleARN>arn:aws:service:us-east-1:123456789012:resource/example</RoleARN>\n  </LifecycleHookSpecificationList>\n  <Tags>\n    <ResourceId>example-id-1234</ResourceId>\n    <ResourceType>example-string</ResourceType>\n    <Key>example-string</Key>\n    <Value>example-string</Value>\n    <PropagateAtLaunch>example-string</PropagateAtLaunch>\n  </Tags>\n  <Tags>\n    <ResourceId>example-id-1234</ResourceId>\n    <ResourceType>example-string</ResourceType>\n    <Key>example-string</Key>\n    <Value>example-string</Value>\n    <PropagateAtLaunch>example-string</PropagateAtLaunch>\n  </Tags>\n  <ServiceLinkedRoleARN>(string)</ServiceLinkedRoleARN>\n  <MaxInstanceLifetime>(integer)</MaxInstanceLifetime>\n  <Context>(string)</Context>\n  <DesiredCapacityType>(string)</DesiredCapacityType>\n  <DefaultInstanceWarmup>(integer)</DefaultInstanceWarmup>\n  <TrafficSources>\n    <Identifier>example-id-1234</Identifier>\n    <Type>example-string</Type>\n  </TrafficSources>\n  <TrafficSources>\n    <Identifier>example-id-1234</Identifier>\n    <Type>example-string</Type>\n  </TrafficSources>\n</element>",
+                  "options": {
+                    "raw": {
+                      "language": "xml"
+                    }
+                  }
+                }
+              },
+              "code": 481,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "dd272166-bf74-454f-8561-592760e30980",
+              "name": "ResourceContentionFault",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "hash": "Action=CreateAutoScalingGroup",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The AWS region (This can only be one of us-east-1,us-east-2,us-west-1,us-west-2,us-gov-west-1,us-gov-east-1,ca-central-1,eu-north-1,eu-west-1,eu-west-2,eu-west-3,eu-central-1,eu-south-1,af-south-1,ap-northeast-1,ap-northeast-2,ap-northeast-3,ap-southeast-1,ap-southeast-2,ap-east-1,ap-south-1,sa-east-1,me-south-1)",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Date",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Credential",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Signature",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <LaunchConfigurationName>(string)</LaunchConfigurationName>\n  <LaunchTemplate>\n    <LaunchTemplateId>(string)</LaunchTemplateId>\n    <LaunchTemplateName>(string)</LaunchTemplateName>\n    <Version>(string)</Version>\n  </LaunchTemplate>\n  <MixedInstancesPolicy>\n    <LaunchTemplate>\nexample-string\nexample-id-1234\n    </LaunchTemplate>\n    <InstancesDistribution>\n      <OnDemandAllocationStrategy>example-string</OnDemandAllocationStrategy>\n      <OnDemandBaseCapacity>example-string</OnDemandBaseCapacity>\n      <OnDemandPercentageAboveBaseCapacity>example-string</OnDemandPercentageAboveBaseCapacity>\n      <SpotAllocationStrategy>example-string</SpotAllocationStrategy>\n      <SpotInstancePools>example-string</SpotInstancePools>\n      <SpotMaxPrice>example-string</SpotMaxPrice>\n    </InstancesDistribution>\n  </MixedInstancesPolicy>\n  <InstanceId>(string)</InstanceId>\n  <MinSize>(integer)</MinSize>\n  <MaxSize>(integer)</MaxSize>\n  <DesiredCapacity>(integer)</DesiredCapacity>\n  <DefaultCooldown>(integer)</DefaultCooldown>\n  <AvailabilityZones>(string)</AvailabilityZones>\n  <AvailabilityZones>(string)</AvailabilityZones>\n  <LoadBalancerNames>(string)</LoadBalancerNames>\n  <LoadBalancerNames>(string)</LoadBalancerNames>\n  <TargetGroupARNs>(string)</TargetGroupARNs>\n  <TargetGroupARNs>(string)</TargetGroupARNs>\n  <HealthCheckType>(string)</HealthCheckType>\n  <HealthCheckGracePeriod>(integer)</HealthCheckGracePeriod>\n  <PlacementGroup>(string)</PlacementGroup>\n  <VPCZoneIdentifier>(string)</VPCZoneIdentifier>\n  <TerminationPolicies>(string)</TerminationPolicies>\n  <TerminationPolicies>(string)</TerminationPolicies>\n  <NewInstancesProtectedFromScaleIn>(boolean)</NewInstancesProtectedFromScaleIn>\n  <CapacityRebalance>(boolean)</CapacityRebalance>\n  <LifecycleHookSpecificationList>\n    <LifecycleHookName>example-resource-name</LifecycleHookName>\n    <LifecycleTransition>example-string</LifecycleTransition>\n    <NotificationMetadata>example-string</NotificationMetadata>\n    <HeartbeatTimeout>example-string</HeartbeatTimeout>\n    <DefaultResult>example-string</DefaultResult>\n    <NotificationTargetARN>arn:aws:service:us-east-1:123456789012:resource/example</NotificationTargetARN>\n    <RoleARN>arn:aws:service:us-east-1:123456789012:resource/example</RoleARN>\n  </LifecycleHookSpecificationList>\n  <LifecycleHookSpecificationList>\n    <LifecycleHookName>example-resource-name</LifecycleHookName>\n    <LifecycleTransition>example-string</LifecycleTransition>\n    <NotificationMetadata>example-string</NotificationMetadata>\n    <HeartbeatTimeout>example-string</HeartbeatTimeout>\n    <DefaultResult>example-string</DefaultResult>\n    <NotificationTargetARN>arn:aws:service:us-east-1:123456789012:resource/example</NotificationTargetARN>\n    <RoleARN>arn:aws:service:us-east-1:123456789012:resource/example</RoleARN>\n  </LifecycleHookSpecificationList>\n  <Tags>\n    <ResourceId>example-id-1234</ResourceId>\n    <ResourceType>example-string</ResourceType>\n    <Key>example-string</Key>\n    <Value>example-string</Value>\n    <PropagateAtLaunch>example-string</PropagateAtLaunch>\n  </Tags>\n  <Tags>\n    <ResourceId>example-id-1234</ResourceId>\n    <ResourceType>example-string</ResourceType>\n    <Key>example-string</Key>\n    <Value>example-string</Value>\n    <PropagateAtLaunch>example-string</PropagateAtLaunch>\n  </Tags>\n  <ServiceLinkedRoleARN>(string)</ServiceLinkedRoleARN>\n  <MaxInstanceLifetime>(integer)</MaxInstanceLifetime>\n  <Context>(string)</Context>\n  <DesiredCapacityType>(string)</DesiredCapacityType>\n  <DefaultInstanceWarmup>(integer)</DefaultInstanceWarmup>\n  <TrafficSources>\n    <Identifier>example-id-1234</Identifier>\n    <Type>example-string</Type>\n  </TrafficSources>\n  <TrafficSources>\n    <Identifier>example-id-1234</Identifier>\n    <Type>example-string</Type>\n  </TrafficSources>\n</element>",
+                  "options": {
+                    "raw": {
+                      "language": "xml"
+                    }
+                  }
+                }
+              },
+              "code": 482,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "cd4f5e82-499f-4418-b353-6ded7e9dd82b",
+              "name": "ServiceLinkedRoleFailure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "hash": "Action=CreateAutoScalingGroup",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The AWS region (This can only be one of us-east-1,us-east-2,us-west-1,us-west-2,us-gov-west-1,us-gov-east-1,ca-central-1,eu-north-1,eu-west-1,eu-west-2,eu-west-3,eu-central-1,eu-south-1,af-south-1,ap-northeast-1,ap-northeast-2,ap-northeast-3,ap-southeast-1,ap-southeast-2,ap-east-1,ap-south-1,sa-east-1,me-south-1)",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Date",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Credential",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-Signature",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <AutoScalingGroupName>(string)</AutoScalingGroupName>\n  <LaunchConfigurationName>(string)</LaunchConfigurationName>\n  <LaunchTemplate>\n    <LaunchTemplateId>(string)</LaunchTemplateId>\n    <LaunchTemplateName>(string)</LaunchTemplateName>\n    <Version>(string)</Version>\n  </LaunchTemplate>\n  <MixedInstancesPolicy>\n    <LaunchTemplate>\nexample-string\nexample-id-1234\n    </LaunchTemplate>\n    <InstancesDistribution>\n      <OnDemandAllocationStrategy>example-string</OnDemandAllocationStrategy>\n      <OnDemandBaseCapacity>example-string</OnDemandBaseCapacity>\n      <OnDemandPercentageAboveBaseCapacity>example-string</OnDemandPercentageAboveBaseCapacity>\n      <SpotAllocationStrategy>example-string</SpotAllocationStrategy>\n      <SpotInstancePools>example-string</SpotInstancePools>\n      <SpotMaxPrice>example-string</SpotMaxPrice>\n    </InstancesDistribution>\n  </MixedInstancesPolicy>\n  <InstanceId>(string)</InstanceId>\n  <MinSize>(integer)</MinSize>\n  <MaxSize>(integer)</MaxSize>\n  <DesiredCapacity>(integer)</DesiredCapacity>\n  <DefaultCooldown>(integer)</DefaultCooldown>\n  <AvailabilityZones>(string)</AvailabilityZones>\n  <AvailabilityZones>(string)</AvailabilityZones>\n  <LoadBalancerNames>(string)</LoadBalancerNames>\n  <LoadBalancerNames>(string)</LoadBalancerNames>\n  <TargetGroupARNs>(string)</TargetGroupARNs>\n  <TargetGroupARNs>(string)</TargetGroupARNs>\n  <HealthCheckType>(string)</HealthCheckType>\n  <HealthCheckGracePeriod>(integer)</HealthCheckGracePeriod>\n  <PlacementGroup>(string)</PlacementGroup>\n  <VPCZoneIdentifier>(string)</VPCZoneIdentifier>\n  <TerminationPolicies>(string)</TerminationPolicies>\n  <TerminationPolicies>(string)</TerminationPolicies>\n  <NewInstancesProtectedFromScaleIn>(boolean)</NewInstancesProtectedFromScaleIn>\n  <CapacityRebalance>(boolean)</CapacityRebalance>\n  <LifecycleHookSpecificationList>\n    <LifecycleHookName>example-resource-name</LifecycleHookName>\n    <LifecycleTransition>example-string</LifecycleTransition>\n    <NotificationMetadata>example-string</NotificationMetadata>\n    <HeartbeatTimeout>example-string</HeartbeatTimeout>\n    <DefaultResult>example-string</DefaultResult>\n    <NotificationTargetARN>arn:aws:service:us-east-1:123456789012:resource/example</NotificationTargetARN>\n    <RoleARN>arn:aws:service:us-east-1:123456789012:resource/example</RoleARN>\n  </LifecycleHookSpecificationList>\n  <LifecycleHookSpecificationList>\n    <LifecycleHookName>example-resource-name</LifecycleHookName>\n    <LifecycleTransition>example-string</LifecycleTransition>\n    <NotificationMetadata>example-string</NotificationMetadata>\n    <HeartbeatTimeout>example-string</HeartbeatTimeout>\n    <DefaultResult>example-string</DefaultResult>\n    <NotificationTargetARN>arn:aws:service:us-east-1:123456789012:resource/example</NotificationTargetARN>\n    <RoleARN>arn:aws:service:us-east-1:123456789012:resource/example</RoleARN>\n  </LifecycleHookSpecificationList>\n  <Tags>\n    <ResourceId>example-id-1234</ResourceId>\n    <ResourceType>example-string</ResourceType>\n    <Key>example-string</Key>\n    <Value>example-string</Value>\n    <PropagateAtLaunch>example-string</PropagateAtLaunch>\n  </Tags>\n  <Tags>\n    <ResourceId>example-id-1234</ResourceId>\n    <ResourceType>example-string</ResourceType>\n    <Key>example-string</Key>\n    <Value>example-string</Value>\n    <PropagateAtLaunch>example-string</PropagateAtLaunch>\n  </Tags>\n  <ServiceLinkedRoleARN>(string)</ServiceLinkedRoleARN>\n  <MaxInstanceLifetime>(integer)</MaxInstanceLifetime>\n  <Context>(string)</Context>\n  <DesiredCapacityType>(string)</DesiredCapacityType>\n  <DefaultInstanceWarmup>(integer)</DefaultInstanceWarmup>\n  <TrafficSources>\n    <Identifier>example-id-1234</Identifier>\n    <Type>example-string</Type>\n  </TrafficSources>\n  <TrafficSources>\n    <Identifier>example-id-1234</Identifier>\n    <Type>example-string</Type>\n  </TrafficSources>\n</element>",
+                  "options": {
+                    "raw": {
+                      "language": "xml"
+                    }
+                  }
+                }
+              },
+              "code": 483,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "The AWS region (This can only be one of us-east-1,us-east-2,us-west-1,us-west-2,us-gov-west-1,us-gov-east-1,ca-central-1,eu-north-1,eu-west-1,eu-west-2,eu-west-3,eu-central-1,eu-south-1,af-south-1,ap-northeast-1,ap-northeast-2,ap-northeast-3,ap-southeast-1,ap-southeast-2,ap-east-1,ap-south-1,sa-east-1,me-south-1)",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "us-east-1",
+      "key": "region"
+    },
+    {
+      "type": "string",
+      "value": "http://autoscaling.{{region}}.amazonaws.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b4eacce9-6539-471a-af73-98f783232072",
+    "name": "Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=CreateAutoScalingGroup API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "<fullname>Amazon EC2 Auto Scaling</fullname> <p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.</p> <p>For more information, see the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/\">Amazon EC2 Auto Scaling User Guide</a> and the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html\">Amazon EC2 Auto Scaling API Reference</a>.</p>\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+      "type": "text/plain"
+    }
+  }
+}
