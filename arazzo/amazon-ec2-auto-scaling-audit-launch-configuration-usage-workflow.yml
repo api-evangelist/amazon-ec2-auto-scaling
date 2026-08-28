@@ -12,8 +12,14 @@ info:
     OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: autoScalingApi
-  url: ../openapi/amazon-ec2-auto-scaling-openapi.yaml
+- name: actionDescribeautoscalinggroupsApi
+  url: ../openapi/amazon-ec2-auto-scaling-action-describeautoscalinggroups-api-openapi.yml
+  type: openapi
+- name: actionDescribelaunchconfigurationsApi
+  url: ../openapi/amazon-ec2-auto-scaling-action-describelaunchconfigurations-api-openapi.yml
+  type: openapi
+- name: actionDescribepoliciesApi
+  url: ../openapi/amazon-ec2-auto-scaling-action-describepolicies-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: audit-launch-configuration-usage

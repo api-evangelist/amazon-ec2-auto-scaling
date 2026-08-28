@@ -11,8 +11,14 @@ info:
     be read and executed without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: autoScalingApi
-  url: ../openapi/amazon-ec2-auto-scaling-openapi.yaml
+- name: actionDescribeautoscalinggroupsApi
+  url: ../openapi/amazon-ec2-auto-scaling-action-describeautoscalinggroups-api-openapi.yml
+  type: openapi
+- name: actionDescribeautoscalinginstancesApi
+  url: ../openapi/amazon-ec2-auto-scaling-action-describeautoscalinginstances-api-openapi.yml
+  type: openapi
+- name: actionSetinstanceprotectionApi
+  url: ../openapi/amazon-ec2-auto-scaling-action-setinstanceprotection-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: protect-instances-from-scale-in

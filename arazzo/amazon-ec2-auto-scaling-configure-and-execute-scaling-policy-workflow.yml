@@ -11,8 +11,14 @@ info:
     and executed without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: autoScalingApi
-  url: ../openapi/amazon-ec2-auto-scaling-openapi.yaml
+- name: actionDescribepoliciesApi
+  url: ../openapi/amazon-ec2-auto-scaling-action-describepolicies-api-openapi.yml
+  type: openapi
+- name: actionExecutepolicyApi
+  url: ../openapi/amazon-ec2-auto-scaling-action-executepolicy-api-openapi.yml
+  type: openapi
+- name: actionPutscalingpolicyApi
+  url: ../openapi/amazon-ec2-auto-scaling-action-putscalingpolicy-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: configure-and-execute-scaling-policy

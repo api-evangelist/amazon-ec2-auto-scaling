@@ -12,8 +12,14 @@ info:
     underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: autoScalingApi
-  url: ../openapi/amazon-ec2-auto-scaling-openapi.yaml
+- name: actionDescribeautoscalinggroupsApi
+  url: ../openapi/amazon-ec2-auto-scaling-action-describeautoscalinggroups-api-openapi.yml
+  type: openapi
+- name: actionDescribescalingactivitiesApi
+  url: ../openapi/amazon-ec2-auto-scaling-action-describescalingactivities-api-openapi.yml
+  type: openapi
+- name: actionSetdesiredcapacityApi
+  url: ../openapi/amazon-ec2-auto-scaling-action-setdesiredcapacity-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: set-desired-capacity-and-verify

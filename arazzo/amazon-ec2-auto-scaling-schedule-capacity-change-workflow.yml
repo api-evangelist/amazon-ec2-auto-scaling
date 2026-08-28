@@ -11,8 +11,11 @@ info:
     be read and executed without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: autoScalingApi
-  url: ../openapi/amazon-ec2-auto-scaling-openapi.yaml
+- name: actionDescribescheduledactionsApi
+  url: ../openapi/amazon-ec2-auto-scaling-action-describescheduledactions-api-openapi.yml
+  type: openapi
+- name: actionPutscheduledupdategroupactionApi
+  url: ../openapi/amazon-ec2-auto-scaling-action-putscheduledupdategroupaction-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: schedule-capacity-change

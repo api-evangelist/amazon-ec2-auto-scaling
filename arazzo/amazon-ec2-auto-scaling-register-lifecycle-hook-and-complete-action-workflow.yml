@@ -12,8 +12,14 @@ info:
     can be read and executed without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: autoScalingApi
-  url: ../openapi/amazon-ec2-auto-scaling-openapi.yaml
+- name: actionCompletelifecycleactionApi
+  url: ../openapi/amazon-ec2-auto-scaling-action-completelifecycleaction-api-openapi.yml
+  type: openapi
+- name: actionDescribelifecyclehooksApi
+  url: ../openapi/amazon-ec2-auto-scaling-action-describelifecyclehooks-api-openapi.yml
+  type: openapi
+- name: actionPutlifecyclehookApi
+  url: ../openapi/amazon-ec2-auto-scaling-action-putlifecyclehook-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: register-lifecycle-hook-and-complete-action

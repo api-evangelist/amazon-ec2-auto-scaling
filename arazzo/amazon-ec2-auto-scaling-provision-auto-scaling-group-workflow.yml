@@ -13,8 +13,14 @@ info:
     underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: autoScalingApi
-  url: ../openapi/amazon-ec2-auto-scaling-openapi.yaml
+- name: actionCreateautoscalinggroupApi
+  url: ../openapi/amazon-ec2-auto-scaling-action-createautoscalinggroup-api-openapi.yml
+  type: openapi
+- name: actionCreatelaunchconfigurationApi
+  url: ../openapi/amazon-ec2-auto-scaling-action-createlaunchconfiguration-api-openapi.yml
+  type: openapi
+- name: actionDescribeautoscalinggroupsApi
+  url: ../openapi/amazon-ec2-auto-scaling-action-describeautoscalinggroups-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: provision-auto-scaling-group
