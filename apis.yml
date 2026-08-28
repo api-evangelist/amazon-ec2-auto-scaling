@@ -2,6 +2,18 @@ name: Amazon EC2 Auto Scaling
 description: Amazon EC2 Auto Scaling helps you maintain application availability and lets you automatically add or remove
   EC2 instances according to conditions you define. You can use fleet management features to maintain the health and availability
   of your fleet, and use dynamic and predictive scaling to add or remove EC2 instances to meet demand.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 specificationVersion: '0.23'
 accessModel:
   pricing: freemium
