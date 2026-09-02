@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
-  title: 'Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=DescribeInstanceRefreshes API'
+  title: 'Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=DescribeInstanceRefreshes #Action=Describe Instance Refreshes #Action=Describe Instance Refreshes API'
   description: <fullname>Amazon EC2 Auto Scaling</fullname> <p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.</p> <p>For more information, see the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/">Amazon EC2 Auto Scaling User Guide</a> and the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html">Amazon EC2 Auto Scaling API Reference</a>.</p>
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
@@ -287,75 +287,207 @@ paths:
       - '#Action=DescribeInstanceRefreshes'
 components:
   schemas:
-    XmlString:
-      type: string
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    AcceleratorType:
+    VCpuCountRequest:
+      type: object
+      required:
+      - Min
+      properties:
+        Min:
+          allOf:
+          - $ref: '#/components/schemas/NullablePositiveInteger'
+          - description: The minimum number of vCPUs.
+        Max:
+          allOf:
+          - $ref: '#/components/schemas/NullablePositiveInteger'
+          - description: The maximum number of vCPUs.
+      description: Specifies the minimum and maximum for the <code>VCpuCount</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
+    NullablePositiveInteger:
+      type: integer
+      minimum: 0
+    ResourceContentionFault: {}
+    NullableBoolean:
+      type: boolean
+    BurstablePerformance:
       type: string
       enum:
-      - gpu
-      - fpga
-      - inference
-    LaunchTemplateOverrides:
+      - included
+      - excluded
+      - required
+    MixedInstanceSpotPrice:
+      type: string
+      minLength: 0
+      maxLength: 255
+    AcceleratorNames:
+      type: array
+      items:
+        $ref: '#/components/schemas/AcceleratorName'
+    StandbyInstances:
+      type: string
+      enum:
+      - Terminate
+      - Ignore
+      - Wait
+    CpuManufacturer:
+      type: string
+      enum:
+      - intel
+      - amd
+      - amazon-web-services
+    InstancesToUpdate:
+      type: integer
+      minimum: 0
+    MaxRecords:
+      type: integer
+    CheckpointDelay:
+      type: integer
+      minimum: 0
+      maximum: 172800
+    RefreshPreferences:
       type: object
       properties:
-        InstanceType:
+        MinHealthyPercentage:
+          allOf:
+          - $ref: '#/components/schemas/IntPercent'
+          - description: <p>The amount of capacity in the Auto Scaling group that must pass your group's health checks to allow the operation to continue. The value is expressed as a percentage of the desired capacity of the Auto Scaling group (rounded up to the nearest integer). The default is <code>90</code>.</p> <p>Setting the minimum healthy percentage to 100 percent limits the rate of replacement to one instance at a time. In contrast, setting it to 0 percent has the effect of replacing all instances at the same time. </p>
+        InstanceWarmup:
+          allOf:
+          - $ref: '#/components/schemas/RefreshInstanceWarmup'
+          - description: <p>A time period, in seconds, during which an instance refresh waits before moving on to replacing the next instance after a new instance enters the <code>InService</code> state.</p> <p>This property is not required for normal usage. Instead, use the <code>DefaultInstanceWarmup</code> property of the Auto Scaling group. The <code>InstanceWarmup</code> and <code>DefaultInstanceWarmup</code> properties work the same way. Only specify this property if you must override the <code>DefaultInstanceWarmup</code> property. </p> <p> If you do not specify this property, the instance warmup by default is the value of the <code>DefaultInstanceWarmup</code> property, if defined (which is recommended in all cases), or the <code>HealthCheckGracePeriod</code> property otherwise.</p>
+        CheckpointPercentages:
+          allOf:
+          - $ref: '#/components/schemas/CheckpointPercentages'
+          - description: <p>(Optional) Threshold values for each checkpoint in ascending order. Each number must be unique. To replace all instances in the Auto Scaling group, the last number in the array must be <code>100</code>.</p> <p>For usage examples, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-adding-checkpoints-instance-refresh.html">Adding checkpoints to an instance refresh</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+        CheckpointDelay:
+          allOf:
+          - $ref: '#/components/schemas/CheckpointDelay'
+          - description: '(Optional) The amount of time, in seconds, to wait after a checkpoint before continuing. This property is optional, but if you specify a value for it, you must also specify a value for <code>CheckpointPercentages</code>. If you specify a value for <code>CheckpointPercentages</code> and not for <code>CheckpointDelay</code>, the <code>CheckpointDelay</code> defaults to <code>3600</code> (1 hour). '
+        SkipMatching:
+          allOf:
+          - $ref: '#/components/schemas/SkipMatching'
+          - description: <p>(Optional) Indicates whether skip matching is enabled. If enabled (<code>true</code>), then Amazon EC2 Auto Scaling skips replacing instances that match the desired configuration. If no desired configuration is specified, then it skips replacing instances that have the same launch template and instance types that the Auto Scaling group was using before the start of the instance refresh. The default is <code>false</code>.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh-skip-matching.html">Use an instance refresh with skip matching</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+        AutoRollback:
+          allOf:
+          - $ref: '#/components/schemas/AutoRollback'
+          - description: '<p>(Optional) Indicates whether to roll back the Auto Scaling group to its previous configuration if the instance refresh fails. The default is <code>false</code>.</p> <p>A rollback is not supported in the following situations: </p> <ul> <li> <p>There is no desired configuration specified for the instance refresh.</p> </li> <li> <p>The Auto Scaling group has a launch template that uses an Amazon Web Services Systems Manager parameter instead of an AMI ID for the <code>ImageId</code> property.</p> </li> <li> <p>The Auto Scaling group uses the launch template''s <code>$Latest</code> or <code>$Default</code> version.</p> </li> </ul>'
+        ScaleInProtectedInstances:
+          allOf:
+          - $ref: '#/components/schemas/ScaleInProtectedInstances'
+          - description: <p>Choose the behavior that you want Amazon EC2 Auto Scaling to use if instances protected from scale in are found. </p> <p>The following lists the valid values:</p> <dl> <dt>Refresh</dt> <dd> <p>Amazon EC2 Auto Scaling replaces instances that are protected from scale in.</p> </dd> <dt>Ignore</dt> <dd> <p>Amazon EC2 Auto Scaling ignores instances that are protected from scale in and continues to replace instances that are not protected.</p> </dd> <dt>Wait (default)</dt> <dd> <p>Amazon EC2 Auto Scaling waits one hour for you to remove scale-in protection. Otherwise, the instance refresh will fail.</p> </dd> </dl>
+        StandbyInstances:
+          allOf:
+          - $ref: '#/components/schemas/StandbyInstances'
+          - description: <p>Choose the behavior that you want Amazon EC2 Auto Scaling to use if instances in <code>Standby</code> state are found.</p> <p>The following lists the valid values:</p> <dl> <dt>Terminate</dt> <dd> <p>Amazon EC2 Auto Scaling terminates instances that are in <code>Standby</code>.</p> </dd> <dt>Ignore</dt> <dd> <p>Amazon EC2 Auto Scaling ignores instances that are in <code>Standby</code> and continues to replace instances that are in the <code>InService</code> state.</p> </dd> <dt>Wait (default)</dt> <dd> <p>Amazon EC2 Auto Scaling waits one hour for you to return the instances to service. Otherwise, the instance refresh will fail.</p> </dd> </dl>
+      description: Describes the preferences for an instance refresh.
+    AcceleratorManufacturer:
+      type: string
+      enum:
+      - nvidia
+      - amd
+      - amazon-web-services
+      - xilinx
+    TimestampType:
+      type: string
+      format: date-time
+    IntPercent:
+      type: integer
+      minimum: 0
+      maximum: 100
+    LaunchTemplateSpecification:
+      type: object
+      properties:
+        LaunchTemplateId:
           allOf:
           - $ref: '#/components/schemas/XmlStringMaxLen255'
-          - description: <p>The instance type, such as <code>m3.xlarge</code>. You must specify an instance type that is supported in your requested Region and Availability Zones. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>You can specify up to 40 instance types per Auto Scaling group.</p>
-        WeightedCapacity:
+          - description: '<p>The ID of the launch template. To get the template ID, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html">DescribeLaunchTemplates</a> API operation. New launch templates can be created using the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html">CreateLaunchTemplate</a> API. </p> <p>Conditional: You must specify either a <code>LaunchTemplateId</code> or a <code>LaunchTemplateName</code>.</p>'
+        LaunchTemplateName:
           allOf:
-          - $ref: '#/components/schemas/XmlStringMaxLen32'
-          - description: <p>If you provide a list of instance types to use, you can specify the number of capacity units provided by each instance type in terms of virtual CPUs, memory, storage, throughput, or other relative performance characteristic. When a Spot or On-Demand Instance is launched, the capacity units count toward the desired capacity. Amazon EC2 Auto Scaling launches instances until the desired capacity is totally fulfilled, even if this results in an overage. For example, if there are two units remaining to fulfill capacity, and Amazon EC2 Auto Scaling can only launch an instance with a <code>WeightedCapacity</code> of five units, the instance is launched, and the desired capacity is exceeded by three units. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups-instance-weighting.html">Configuring instance weighting for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. Value must be in the range of 1–999.</p> <p>If you specify a value for <code>WeightedCapacity</code> for one instance type, you must specify a value for <code>WeightedCapacity</code> for all of them.</p> <important> <p>Every Auto Scaling group has three size parameters (<code>DesiredCapacity</code>, <code>MaxSize</code>, and <code>MinSize</code>). Usually, you set these sizes based on a specific number of instances. However, if you configure a mixed instances policy that defines weights for the instance types, you must specify these sizes with the same units that you use for weighting instances. </p> </important>
+          - $ref: '#/components/schemas/LaunchTemplateName'
+          - description: '<p>The name of the launch template. To get the template name, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html">DescribeLaunchTemplates</a> API operation. New launch templates can be created using the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html">CreateLaunchTemplate</a> API. </p> <p>Conditional: You must specify either a <code>LaunchTemplateId</code> or a <code>LaunchTemplateName</code>.</p>'
+        Version:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen255'
+          - description: The version number, <code>$Latest</code>, or <code>$Default</code>. To get the version number, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplateVersions.html">DescribeLaunchTemplateVersions</a> API operation. New launch template versions can be created using the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplateVersion.html">CreateLaunchTemplateVersion</a> API. If the value is <code>$Latest</code>, Amazon EC2 Auto Scaling selects the latest version of the launch template when launching instances. If the value is <code>$Default</code>, Amazon EC2 Auto Scaling selects the default version of the launch template when launching instances. The default value is <code>$Default</code>.
+      description: Describes the launch template and the version of the launch template that Amazon EC2 Auto Scaling uses to launch Amazon EC2 instances. For more information about launch templates, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchTemplates.html">Launch templates</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+    OnDemandBaseCapacity:
+      type: integer
+    NullablePositiveDouble:
+      type: number
+      format: double
+      minimum: 0
+    InstanceGeneration:
+      type: string
+      enum:
+      - current
+      - previous
+    LocalStorageTypes:
+      type: array
+      items:
+        $ref: '#/components/schemas/LocalStorageType'
+    ScaleInProtectedInstances:
+      type: string
+      enum:
+      - Refresh
+      - Ignore
+      - Wait
+    DescribeInstanceRefreshesAnswer:
+      type: object
+      example:
+        InstanceRefreshes:
+        - AutoScalingGroupName: my-auto-scaling-group
+          InstanceRefreshId: 08b91cf7-8fa6-48af-b6a6-d227f40f1b9b
+          InstancesToUpdate: 5
+          PercentageComplete: 0
+          StartTime: 2020-06-02 18:11:27+00:00
+          Status: InProgress
+        - AutoScalingGroupName: my-auto-scaling-group
+          EndTime: 2020-06-02 16:53:37+00:00
+          InstanceRefreshId: dd7728d0-5bc4-4575-96a3-1b2c52bf8bb1
+          InstancesToUpdate: 0
+          PercentageComplete: 100
+          StartTime: 2020-06-02 16:43:19+00:00
+          Status: Successful
+      properties:
+        InstanceRefreshes:
+          allOf:
+          - $ref: '#/components/schemas/InstanceRefreshes'
+          - description: The instance refreshes for the specified group, sorted by creation timestamp in descending order.
+          example: example-string
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/XmlString'
+          - description: A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the <code>NextToken</code> value when requesting the next set of items. This value is null when there are no more items to return.
+          example: example-string
+    LaunchTemplate:
+      type: object
+      properties:
         LaunchTemplateSpecification:
           allOf:
           - $ref: '#/components/schemas/LaunchTemplateSpecification'
-          - description: <p>Provides a launch template for the specified instance type or set of instance requirements. For example, some instance types might require a launch template with a different AMI. If not provided, Amazon EC2 Auto Scaling uses the launch template that's specified in the <code>LaunchTemplate</code> definition. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups-launch-template-overrides.html">Specifying a different launch template for an instance type</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p> <p>You can specify up to 20 launch templates per Auto Scaling group. The launch templates specified in the overrides and in the <code>LaunchTemplate</code> definition count towards this limit.</p>
-        InstanceRequirements:
+          - description: The launch template.
+          example: example-string
+        Overrides:
           allOf:
-          - $ref: '#/components/schemas/InstanceRequirements'
-          - description: <p>The instance requirements. Amazon EC2 Auto Scaling uses your specified requirements to identify instance types. Then, it uses your On-Demand and Spot allocation strategies to launch instances from these instance types.</p> <p>You can specify up to four separate sets of instance requirements per Auto Scaling group. This is useful for provisioning instances from different Amazon Machine Images (AMIs) in the same Auto Scaling group. To do this, create the AMIs and create a new launch template for each AMI. Then, create a compatible set of instance requirements for each launch template. </p> <note> <p>If you specify <code>InstanceRequirements</code>, you can't specify <code>InstanceType</code>.</p> </note>
-      description: <p>Use this structure to let Amazon EC2 Auto Scaling do the following when the Auto Scaling group has a mixed instances policy:</p> <ul> <li> <p>Override the instance type that is specified in the launch template.</p> </li> <li> <p>Use multiple instance types.</p> </li> </ul> <p>Specify the instance types that you want, or define your instance requirements instead and let Amazon EC2 Auto Scaling provision the available instance types that meet your requirements. This can provide Amazon EC2 Auto Scaling with a larger selection of instance types to choose from when fulfilling Spot and On-Demand capacities. You can view which instance types are matched before you apply the instance requirements to your Auto Scaling group.</p> <p>After you define your instance requirements, you don't have to keep updating these settings to get new EC2 instance types automatically. Amazon EC2 Auto Scaling uses the instance requirements of the Auto Scaling group to determine whether a new EC2 instance type can be used.</p>
-    NetworkBandwidthGbpsRequest:
-      type: object
-      properties:
-        Min:
-          allOf:
-          - $ref: '#/components/schemas/NullablePositiveDouble'
-          - description: The minimum amount of network bandwidth, in gigabits per second (Gbps).
-        Max:
-          allOf:
-          - $ref: '#/components/schemas/NullablePositiveDouble'
-          - description: The maximum amount of network bandwidth, in gigabits per second (Gbps).
-      description: <p>Specifies the minimum and maximum for the <code>NetworkBandwidthGbps</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.</p> <note> <p>Setting the minimum bandwidth does not guarantee that your instance will achieve the minimum bandwidth. Amazon EC2 will identify instance types that support the specified minimum bandwidth, but the actual bandwidth of your instance might go below the specified minimum at times. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html#available-instance-bandwidth">Available instance bandwidth</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> </note>
-    TotalLocalStorageGBRequest:
-      type: object
-      properties:
-        Min:
-          allOf:
-          - $ref: '#/components/schemas/NullablePositiveDouble'
-          - description: The storage minimum in GB.
-        Max:
-          allOf:
-          - $ref: '#/components/schemas/NullablePositiveDouble'
-          - description: The storage maximum in GB.
-      description: Specifies the minimum and maximum for the <code>TotalLocalStorageGB</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
-    DesiredConfiguration:
+          - $ref: '#/components/schemas/Overrides'
+          - description: Any properties that you specify override the same properties in the launch template.
+          example: example-id-1234
+      description: Use this structure to specify the launch templates and instance types (overrides) for a mixed instances policy.
+    MixedInstancesPolicy:
       type: object
       properties:
         LaunchTemplate:
           allOf:
-          - $ref: '#/components/schemas/LaunchTemplateSpecification'
-          - description: Describes the launch template and the version of the launch template that Amazon EC2 Auto Scaling uses to launch Amazon EC2 instances. For more information about launch templates, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchTemplates.html">Launch templates</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
-        MixedInstancesPolicy:
+          - $ref: '#/components/schemas/LaunchTemplate'
+          - description: One or more launch templates and the instance types (overrides) that are used to launch EC2 instances to fulfill On-Demand and Spot capacities.
+        InstancesDistribution:
           allOf:
-          - $ref: '#/components/schemas/MixedInstancesPolicy'
-          - description: <p>Use this structure to launch multiple instance types and On-Demand Instances and Spot Instances within a single Auto Scaling group.</p> <p>A mixed instances policy contains information that Amazon EC2 Auto Scaling can use to launch instances and help optimize your costs. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html">Auto Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
-      description: <p>Describes the desired configuration for an instance refresh. </p> <p>If you specify a desired configuration, you must specify either a <code>LaunchTemplate</code> or a <code>MixedInstancesPolicy</code>. </p>
-    InstanceRefreshIds:
-      type: array
-      items:
-        $ref: '#/components/schemas/XmlStringMaxLen255'
+          - $ref: '#/components/schemas/InstancesDistribution'
+          - description: The instances distribution.
+      description: <p>Use this structure to launch multiple instance types and On-Demand Instances and Spot Instances within a single Auto Scaling group.</p> <p>A mixed instances policy contains information that Amazon EC2 Auto Scaling can use to launch instances and help optimize your costs. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html">Auto Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+    XmlStringMaxLen1023:
+      type: string
+      minLength: 1
+      maxLength: 1023
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
     InstanceRequirements:
       type: object
       required:
@@ -455,186 +587,16 @@ components:
           - $ref: '#/components/schemas/AllowedInstanceTypes'
           - description: '<p>The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.</p> <p>You can use strings with one or more wild cards, represented by an asterisk (<code>*</code>), to allow an instance type, size, or generation. The following are examples: <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>, <code>r*</code>, <code>*3*</code>.</p> <p>For example, if you specify <code>c5*</code>, Amazon EC2 Auto Scaling will allow the entire C5 instance family, which includes all C5a and C5n instance types. If you specify <code>m5a.*</code>, Amazon EC2 Auto Scaling will allow all the M5a instance types, but not the M5n instance types.</p> <note> <p>If you specify <code>AllowedInstanceTypes</code>, you can''t specify <code>ExcludedInstanceTypes</code>.</p> </note> <p>Default: All instance types</p>'
       description: <p>The attributes for the instance types for a mixed instances policy. Amazon EC2 Auto Scaling uses your specified requirements to identify instance types. Then, it uses your On-Demand and Spot allocation strategies to launch instances from these instance types.</p> <p>When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.</p> <p>To limit the list of instance types from which Amazon EC2 Auto Scaling can identify matching instance types, you can use one of the following parameters, but not both in the same request:</p> <ul> <li> <p> <code>AllowedInstanceTypes</code> - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.</p> </li> <li> <p> <code>ExcludedInstanceTypes</code> - The instance types to exclude from the list, even if they match your specified attributes.</p> </li> </ul> <note> <p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other attributes are optional. Any unspecified optional attribute is set to its default.</p> </note> <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html">Creating an Auto Scaling group using attribute-based instance type selection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. For help determining which instance types match your attributes before you apply them to your Auto Scaling group, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-get-instance-types-from-instance-requirements">Preview instance types with specified attributes</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
-    LocalStorageTypes:
-      type: array
-      items:
-        $ref: '#/components/schemas/LocalStorageType'
-    LaunchTemplateSpecification:
-      type: object
-      properties:
-        LaunchTemplateId:
-          allOf:
-          - $ref: '#/components/schemas/XmlStringMaxLen255'
-          - description: '<p>The ID of the launch template. To get the template ID, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html">DescribeLaunchTemplates</a> API operation. New launch templates can be created using the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html">CreateLaunchTemplate</a> API. </p> <p>Conditional: You must specify either a <code>LaunchTemplateId</code> or a <code>LaunchTemplateName</code>.</p>'
-        LaunchTemplateName:
-          allOf:
-          - $ref: '#/components/schemas/LaunchTemplateName'
-          - description: '<p>The name of the launch template. To get the template name, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html">DescribeLaunchTemplates</a> API operation. New launch templates can be created using the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html">CreateLaunchTemplate</a> API. </p> <p>Conditional: You must specify either a <code>LaunchTemplateId</code> or a <code>LaunchTemplateName</code>.</p>'
-        Version:
-          allOf:
-          - $ref: '#/components/schemas/XmlStringMaxLen255'
-          - description: The version number, <code>$Latest</code>, or <code>$Default</code>. To get the version number, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplateVersions.html">DescribeLaunchTemplateVersions</a> API operation. New launch template versions can be created using the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplateVersion.html">CreateLaunchTemplateVersion</a> API. If the value is <code>$Latest</code>, Amazon EC2 Auto Scaling selects the latest version of the launch template when launching instances. If the value is <code>$Default</code>, Amazon EC2 Auto Scaling selects the default version of the launch template when launching instances. The default value is <code>$Default</code>.
-      description: Describes the launch template and the version of the launch template that Amazon EC2 Auto Scaling uses to launch Amazon EC2 instances. For more information about launch templates, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchTemplates.html">Launch templates</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
-    AcceleratorNames:
-      type: array
-      items:
-        $ref: '#/components/schemas/AcceleratorName'
-    BurstablePerformance:
-      type: string
-      enum:
-      - included
-      - excluded
-      - required
-    SpotInstancePools:
-      type: integer
-    AcceleratorName:
-      type: string
-      enum:
-      - a100
-      - v100
-      - k80
-      - t4
-      - m60
-      - radeon-pro-v520
-      - vu9p
-    InstancesToUpdate:
-      type: integer
-      minimum: 0
-    InstanceRefreshes:
-      type: array
-      items:
-        $ref: '#/components/schemas/InstanceRefresh'
-    InstanceRefreshStatus:
-      type: string
-      enum:
-      - Pending
-      - InProgress
-      - Successful
-      - Failed
-      - Cancelling
-      - Cancelled
-      - RollbackInProgress
-      - RollbackFailed
-      - RollbackSuccessful
-    AcceleratorTypes:
-      type: array
-      items:
-        $ref: '#/components/schemas/AcceleratorType'
-    NetworkInterfaceCountRequest:
-      type: object
-      properties:
-        Min:
-          allOf:
-          - $ref: '#/components/schemas/NullablePositiveInteger'
-          - description: The minimum number of network interfaces.
-        Max:
-          allOf:
-          - $ref: '#/components/schemas/NullablePositiveInteger'
-          - description: The maximum number of network interfaces.
-      description: Specifies the minimum and maximum for the <code>NetworkInterfaceCount</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
-    OnDemandBaseCapacity:
-      type: integer
-    AcceleratorManufacturer:
-      type: string
-      enum:
-      - nvidia
-      - amd
-      - amazon-web-services
-      - xilinx
     AllowedInstanceTypes:
       type: array
       items:
         $ref: '#/components/schemas/AllowedInstanceType'
       maxItems: 400
-    AutoRollback:
-      type: boolean
-    BareMetal:
+    LaunchTemplateName:
       type: string
-      enum:
-      - included
-      - excluded
-      - required
-    DescribeInstanceRefreshesAnswer:
-      type: object
-      example:
-        InstanceRefreshes:
-        - AutoScalingGroupName: my-auto-scaling-group
-          InstanceRefreshId: 08b91cf7-8fa6-48af-b6a6-d227f40f1b9b
-          InstancesToUpdate: 5
-          PercentageComplete: 0
-          StartTime: 2020-06-02 18:11:27+00:00
-          Status: InProgress
-        - AutoScalingGroupName: my-auto-scaling-group
-          EndTime: 2020-06-02 16:53:37+00:00
-          InstanceRefreshId: dd7728d0-5bc4-4575-96a3-1b2c52bf8bb1
-          InstancesToUpdate: 0
-          PercentageComplete: 100
-          StartTime: 2020-06-02 16:43:19+00:00
-          Status: Successful
-      properties:
-        InstanceRefreshes:
-          allOf:
-          - $ref: '#/components/schemas/InstanceRefreshes'
-          - description: The instance refreshes for the specified group, sorted by creation timestamp in descending order.
-          example: example-string
-        NextToken:
-          allOf:
-          - $ref: '#/components/schemas/XmlString'
-          - description: A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the <code>NextToken</code> value when requesting the next set of items. This value is null when there are no more items to return.
-          example: example-string
-    XmlStringMaxLen1023:
-      type: string
-      minLength: 1
-      maxLength: 1023
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    XmlStringMaxLen32:
-      type: string
-      minLength: 1
-      maxLength: 32
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    NullablePositiveDouble:
-      type: number
-      format: double
-      minimum: 0
-    LocalStorageType:
-      type: string
-      enum:
-      - hdd
-      - ssd
-    IntPercent:
-      type: integer
-      minimum: 0
-      maximum: 100
-    MixedInstancesPolicy:
-      type: object
-      properties:
-        LaunchTemplate:
-          allOf:
-          - $ref: '#/components/schemas/LaunchTemplate'
-          - description: One or more launch templates and the instance types (overrides) that are used to launch EC2 instances to fulfill On-Demand and Spot capacities.
-        InstancesDistribution:
-          allOf:
-          - $ref: '#/components/schemas/InstancesDistribution'
-          - description: The instances distribution.
-      description: <p>Use this structure to launch multiple instance types and On-Demand Instances and Spot Instances within a single Auto Scaling group.</p> <p>A mixed instances policy contains information that Amazon EC2 Auto Scaling can use to launch instances and help optimize your costs. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html">Auto Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
-    InstanceRefreshProgressDetails:
-      type: object
-      properties:
-        LivePoolProgress:
-          allOf:
-          - $ref: '#/components/schemas/InstanceRefreshLivePoolProgress'
-          - description: Reports progress on replacing instances that are in the Auto Scaling group.
-        WarmPoolProgress:
-          allOf:
-          - $ref: '#/components/schemas/InstanceRefreshWarmPoolProgress'
-          - description: Reports progress on replacing instances that are in the warm pool.
-      description: Reports progress on replacing instances in an Auto Scaling group that has a warm pool. This includes separate details for instances in the warm pool and instances in the Auto Scaling group (the live pool).
-    CpuManufacturer:
-      type: string
-      enum:
-      - intel
-      - amd
-      - amazon-web-services
+      pattern: '[a-zA-Z0-9\(\)\.\-/_]+'
+      minLength: 3
+      maxLength: 128
     InstanceRefresh:
       type: object
       properties:
@@ -687,152 +649,26 @@ components:
           - $ref: '#/components/schemas/RollbackDetails'
           - description: The rollback details.
       description: 'Describes an instance refresh for an Auto Scaling group. '
-    InstanceGenerations:
-      type: array
-      items:
-        $ref: '#/components/schemas/InstanceGeneration'
-    MemoryMiBRequest:
+    AutoRollback:
+      type: boolean
+    OnDemandPercentageAboveBaseCapacity:
+      type: integer
+    TotalLocalStorageGBRequest:
       type: object
-      required:
-      - Min
       properties:
         Min:
           allOf:
-          - $ref: '#/components/schemas/NullablePositiveInteger'
-          - description: The memory minimum in MiB.
+          - $ref: '#/components/schemas/NullablePositiveDouble'
+          - description: The storage minimum in GB.
         Max:
           allOf:
-          - $ref: '#/components/schemas/NullablePositiveInteger'
-          - description: The memory maximum in MiB.
-      description: Specifies the minimum and maximum for the <code>MemoryMiB</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
-    NullableBoolean:
-      type: boolean
-    StandbyInstances:
-      type: string
-      enum:
-      - Terminate
-      - Ignore
-      - Wait
-    InstanceRefreshWarmPoolProgress:
-      type: object
-      properties:
-        PercentageComplete:
-          allOf:
-          - $ref: '#/components/schemas/IntPercent'
-          - description: The percentage of instances in the warm pool that have been replaced. For each instance replacement, Amazon EC2 Auto Scaling tracks the instance's health status and warm-up time. When the instance's health status changes to healthy and the specified warm-up time passes, the instance is considered updated and is added to the percentage complete.
-        InstancesToUpdate:
-          allOf:
-          - $ref: '#/components/schemas/InstancesToUpdate'
-          - description: The number of instances remaining to update.
-      description: Reports progress on replacing instances that are in the warm pool.
-    NonZeroIntPercent:
-      type: integer
-      minimum: 1
-      maximum: 100
-    CpuManufacturers:
-      type: array
-      items:
-        $ref: '#/components/schemas/CpuManufacturer'
-    LocalStorage:
-      type: string
-      enum:
-      - included
-      - excluded
-      - required
+          - $ref: '#/components/schemas/NullablePositiveDouble'
+          - description: The storage maximum in GB.
+      description: Specifies the minimum and maximum for the <code>TotalLocalStorageGB</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
     CheckpointPercentages:
       type: array
       items:
         $ref: '#/components/schemas/NonZeroIntPercent'
-    ExcludedInstance:
-      type: string
-      pattern: '[a-zA-Z0-9\.\*]+'
-      minLength: 1
-      maxLength: 30
-    VCpuCountRequest:
-      type: object
-      required:
-      - Min
-      properties:
-        Min:
-          allOf:
-          - $ref: '#/components/schemas/NullablePositiveInteger'
-          - description: The minimum number of vCPUs.
-        Max:
-          allOf:
-          - $ref: '#/components/schemas/NullablePositiveInteger'
-          - description: The maximum number of vCPUs.
-      description: Specifies the minimum and maximum for the <code>VCpuCount</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
-    LaunchTemplate:
-      type: object
-      properties:
-        LaunchTemplateSpecification:
-          allOf:
-          - $ref: '#/components/schemas/LaunchTemplateSpecification'
-          - description: The launch template.
-          example: example-string
-        Overrides:
-          allOf:
-          - $ref: '#/components/schemas/Overrides'
-          - description: Any properties that you specify override the same properties in the launch template.
-          example: example-id-1234
-      description: Use this structure to specify the launch templates and instance types (overrides) for a mixed instances policy.
-    AllowedInstanceType:
-      type: string
-      pattern: '[a-zA-Z0-9\.\*]+'
-      minLength: 1
-      maxLength: 30
-    AcceleratorManufacturers:
-      type: array
-      items:
-        $ref: '#/components/schemas/AcceleratorManufacturer'
-    NullablePositiveInteger:
-      type: integer
-      minimum: 0
-    ExcludedInstanceTypes:
-      type: array
-      items:
-        $ref: '#/components/schemas/ExcludedInstance'
-      maxItems: 400
-    MixedInstanceSpotPrice:
-      type: string
-      minLength: 0
-      maxLength: 255
-    XmlStringMaxLen255:
-      type: string
-      minLength: 1
-      maxLength: 255
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    InstanceRefreshLivePoolProgress:
-      type: object
-      properties:
-        PercentageComplete:
-          allOf:
-          - $ref: '#/components/schemas/IntPercent'
-          - description: The percentage of instances in the Auto Scaling group that have been replaced. For each instance replacement, Amazon EC2 Auto Scaling tracks the instance's health status and warm-up time. When the instance's health status changes to healthy and the specified warm-up time passes, the instance is considered updated and is added to the percentage complete.
-        InstancesToUpdate:
-          allOf:
-          - $ref: '#/components/schemas/InstancesToUpdate'
-          - description: The number of instances remaining to update.
-      description: Reports progress on replacing instances that are in the Auto Scaling group.
-    ScaleInProtectedInstances:
-      type: string
-      enum:
-      - Refresh
-      - Ignore
-      - Wait
-    InvalidNextToken: {}
-    BaselineEbsBandwidthMbpsRequest:
-      type: object
-      properties:
-        Min:
-          allOf:
-          - $ref: '#/components/schemas/NullablePositiveInteger'
-          - description: The minimum value in Mbps.
-        Max:
-          allOf:
-          - $ref: '#/components/schemas/NullablePositiveInteger'
-          - description: The maximum value in Mbps.
-      description: Specifies the minimum and maximum for the <code>BaselineEbsBandwidthMbps</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
     DescribeInstanceRefreshesType:
       type: object
       required:
@@ -855,42 +691,97 @@ components:
           allOf:
           - $ref: '#/components/schemas/MaxRecords'
           - description: The maximum number of items to return with this call. The default value is <code>50</code> and the maximum value is <code>100</code>.
-    RefreshPreferences:
+    InstanceRefreshIds:
+      type: array
+      items:
+        $ref: '#/components/schemas/XmlStringMaxLen255'
+    AcceleratorTotalMemoryMiBRequest:
       type: object
       properties:
-        MinHealthyPercentage:
+        Min:
+          allOf:
+          - $ref: '#/components/schemas/NullablePositiveInteger'
+          - description: The memory minimum in MiB.
+        Max:
+          allOf:
+          - $ref: '#/components/schemas/NullablePositiveInteger'
+          - description: The memory maximum in MiB.
+      description: Specifies the minimum and maximum for the <code>AcceleratorTotalMemoryMiB</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
+    XmlString:
+      type: string
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    RefreshInstanceWarmup:
+      type: integer
+      minimum: 0
+    NetworkInterfaceCountRequest:
+      type: object
+      properties:
+        Min:
+          allOf:
+          - $ref: '#/components/schemas/NullablePositiveInteger'
+          - description: The minimum number of network interfaces.
+        Max:
+          allOf:
+          - $ref: '#/components/schemas/NullablePositiveInteger'
+          - description: The maximum number of network interfaces.
+      description: Specifies the minimum and maximum for the <code>NetworkInterfaceCount</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
+    InstanceGenerations:
+      type: array
+      items:
+        $ref: '#/components/schemas/InstanceGeneration'
+    MemoryGiBPerVCpuRequest:
+      type: object
+      properties:
+        Min:
+          allOf:
+          - $ref: '#/components/schemas/NullablePositiveDouble'
+          - description: The memory minimum in GiB.
+        Max:
+          allOf:
+          - $ref: '#/components/schemas/NullablePositiveDouble'
+          - description: The memory maximum in GiB.
+      description: Specifies the minimum and maximum for the <code>MemoryGiBPerVCpu</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
+    RollbackDetails:
+      type: object
+      properties:
+        RollbackReason:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen1023'
+          - description: The reason for this instance refresh rollback (for example, whether a manual or automatic rollback was initiated).
+        RollbackStartTime:
+          allOf:
+          - $ref: '#/components/schemas/TimestampType'
+          - description: The date and time at which the rollback began.
+        PercentageCompleteOnRollback:
           allOf:
           - $ref: '#/components/schemas/IntPercent'
-          - description: <p>The amount of capacity in the Auto Scaling group that must pass your group's health checks to allow the operation to continue. The value is expressed as a percentage of the desired capacity of the Auto Scaling group (rounded up to the nearest integer). The default is <code>90</code>.</p> <p>Setting the minimum healthy percentage to 100 percent limits the rate of replacement to one instance at a time. In contrast, setting it to 0 percent has the effect of replacing all instances at the same time. </p>
-        InstanceWarmup:
+          - description: Indicates the value of <code>PercentageComplete</code> at the time the rollback started.
+        InstancesToUpdateOnRollback:
           allOf:
-          - $ref: '#/components/schemas/RefreshInstanceWarmup'
-          - description: <p>A time period, in seconds, during which an instance refresh waits before moving on to replacing the next instance after a new instance enters the <code>InService</code> state.</p> <p>This property is not required for normal usage. Instead, use the <code>DefaultInstanceWarmup</code> property of the Auto Scaling group. The <code>InstanceWarmup</code> and <code>DefaultInstanceWarmup</code> properties work the same way. Only specify this property if you must override the <code>DefaultInstanceWarmup</code> property. </p> <p> If you do not specify this property, the instance warmup by default is the value of the <code>DefaultInstanceWarmup</code> property, if defined (which is recommended in all cases), or the <code>HealthCheckGracePeriod</code> property otherwise.</p>
-        CheckpointPercentages:
+          - $ref: '#/components/schemas/InstancesToUpdate'
+          - description: Indicates the value of <code>InstancesToUpdate</code> at the time the rollback started.
+        ProgressDetailsOnRollback:
           allOf:
-          - $ref: '#/components/schemas/CheckpointPercentages'
-          - description: <p>(Optional) Threshold values for each checkpoint in ascending order. Each number must be unique. To replace all instances in the Auto Scaling group, the last number in the array must be <code>100</code>.</p> <p>For usage examples, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-adding-checkpoints-instance-refresh.html">Adding checkpoints to an instance refresh</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
-        CheckpointDelay:
+          - $ref: '#/components/schemas/InstanceRefreshProgressDetails'
+          - description: Reports progress on replacing instances in an Auto Scaling group that has a warm pool. This includes separate details for instances in the warm pool and instances in the Auto Scaling group (the live pool).
+      description: Details about an instance refresh rollback.
+    LocalStorageType:
+      type: string
+      enum:
+      - hdd
+      - ssd
+    NetworkBandwidthGbpsRequest:
+      type: object
+      properties:
+        Min:
           allOf:
-          - $ref: '#/components/schemas/CheckpointDelay'
-          - description: '(Optional) The amount of time, in seconds, to wait after a checkpoint before continuing. This property is optional, but if you specify a value for it, you must also specify a value for <code>CheckpointPercentages</code>. If you specify a value for <code>CheckpointPercentages</code> and not for <code>CheckpointDelay</code>, the <code>CheckpointDelay</code> defaults to <code>3600</code> (1 hour). '
-        SkipMatching:
+          - $ref: '#/components/schemas/NullablePositiveDouble'
+          - description: The minimum amount of network bandwidth, in gigabits per second (Gbps).
+        Max:
           allOf:
-          - $ref: '#/components/schemas/SkipMatching'
-          - description: <p>(Optional) Indicates whether skip matching is enabled. If enabled (<code>true</code>), then Amazon EC2 Auto Scaling skips replacing instances that match the desired configuration. If no desired configuration is specified, then it skips replacing instances that have the same launch template and instance types that the Auto Scaling group was using before the start of the instance refresh. The default is <code>false</code>.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh-skip-matching.html">Use an instance refresh with skip matching</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
-        AutoRollback:
-          allOf:
-          - $ref: '#/components/schemas/AutoRollback'
-          - description: '<p>(Optional) Indicates whether to roll back the Auto Scaling group to its previous configuration if the instance refresh fails. The default is <code>false</code>.</p> <p>A rollback is not supported in the following situations: </p> <ul> <li> <p>There is no desired configuration specified for the instance refresh.</p> </li> <li> <p>The Auto Scaling group has a launch template that uses an Amazon Web Services Systems Manager parameter instead of an AMI ID for the <code>ImageId</code> property.</p> </li> <li> <p>The Auto Scaling group uses the launch template''s <code>$Latest</code> or <code>$Default</code> version.</p> </li> </ul>'
-        ScaleInProtectedInstances:
-          allOf:
-          - $ref: '#/components/schemas/ScaleInProtectedInstances'
-          - description: <p>Choose the behavior that you want Amazon EC2 Auto Scaling to use if instances protected from scale in are found. </p> <p>The following lists the valid values:</p> <dl> <dt>Refresh</dt> <dd> <p>Amazon EC2 Auto Scaling replaces instances that are protected from scale in.</p> </dd> <dt>Ignore</dt> <dd> <p>Amazon EC2 Auto Scaling ignores instances that are protected from scale in and continues to replace instances that are not protected.</p> </dd> <dt>Wait (default)</dt> <dd> <p>Amazon EC2 Auto Scaling waits one hour for you to remove scale-in protection. Otherwise, the instance refresh will fail.</p> </dd> </dl>
-        StandbyInstances:
-          allOf:
-          - $ref: '#/components/schemas/StandbyInstances'
-          - description: <p>Choose the behavior that you want Amazon EC2 Auto Scaling to use if instances in <code>Standby</code> state are found.</p> <p>The following lists the valid values:</p> <dl> <dt>Terminate</dt> <dd> <p>Amazon EC2 Auto Scaling terminates instances that are in <code>Standby</code>.</p> </dd> <dt>Ignore</dt> <dd> <p>Amazon EC2 Auto Scaling ignores instances that are in <code>Standby</code> and continues to replace instances that are in the <code>InService</code> state.</p> </dd> <dt>Wait (default)</dt> <dd> <p>Amazon EC2 Auto Scaling waits one hour for you to return the instances to service. Otherwise, the instance refresh will fail.</p> </dd> </dl>
-      description: Describes the preferences for an instance refresh.
+          - $ref: '#/components/schemas/NullablePositiveDouble'
+          - description: The maximum amount of network bandwidth, in gigabits per second (Gbps).
+      description: <p>Specifies the minimum and maximum for the <code>NetworkBandwidthGbps</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.</p> <note> <p>Setting the minimum bandwidth does not guarantee that your instance will achieve the minimum bandwidth. Amazon EC2 will identify instance types that support the specified minimum bandwidth, but the actual bandwidth of your instance might go below the specified minimum at times. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html#available-instance-bandwidth">Available instance bandwidth</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> </note>
     AcceleratorCountRequest:
       type: object
       properties:
@@ -903,29 +794,160 @@ components:
           - $ref: '#/components/schemas/NullablePositiveInteger'
           - description: The maximum value.
       description: Specifies the minimum and maximum for the <code>AcceleratorCount</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
-    RefreshInstanceWarmup:
-      type: integer
-      minimum: 0
-    Overrides:
+    AcceleratorManufacturers:
       type: array
       items:
-        $ref: '#/components/schemas/LaunchTemplateOverrides'
-    ResourceContentionFault: {}
-    SkipMatching:
-      type: boolean
-    TimestampType:
-      type: string
-      format: date-time
-    InstanceGeneration:
+        $ref: '#/components/schemas/AcceleratorManufacturer'
+    InvalidNextToken: {}
+    LaunchTemplateOverrides:
+      type: object
+      properties:
+        InstanceType:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen255'
+          - description: <p>The instance type, such as <code>m3.xlarge</code>. You must specify an instance type that is supported in your requested Region and Availability Zones. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>You can specify up to 40 instance types per Auto Scaling group.</p>
+        WeightedCapacity:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen32'
+          - description: <p>If you provide a list of instance types to use, you can specify the number of capacity units provided by each instance type in terms of virtual CPUs, memory, storage, throughput, or other relative performance characteristic. When a Spot or On-Demand Instance is launched, the capacity units count toward the desired capacity. Amazon EC2 Auto Scaling launches instances until the desired capacity is totally fulfilled, even if this results in an overage. For example, if there are two units remaining to fulfill capacity, and Amazon EC2 Auto Scaling can only launch an instance with a <code>WeightedCapacity</code> of five units, the instance is launched, and the desired capacity is exceeded by three units. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups-instance-weighting.html">Configuring instance weighting for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. Value must be in the range of 1–999.</p> <p>If you specify a value for <code>WeightedCapacity</code> for one instance type, you must specify a value for <code>WeightedCapacity</code> for all of them.</p> <important> <p>Every Auto Scaling group has three size parameters (<code>DesiredCapacity</code>, <code>MaxSize</code>, and <code>MinSize</code>). Usually, you set these sizes based on a specific number of instances. However, if you configure a mixed instances policy that defines weights for the instance types, you must specify these sizes with the same units that you use for weighting instances. </p> </important>
+        LaunchTemplateSpecification:
+          allOf:
+          - $ref: '#/components/schemas/LaunchTemplateSpecification'
+          - description: <p>Provides a launch template for the specified instance type or set of instance requirements. For example, some instance types might require a launch template with a different AMI. If not provided, Amazon EC2 Auto Scaling uses the launch template that's specified in the <code>LaunchTemplate</code> definition. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups-launch-template-overrides.html">Specifying a different launch template for an instance type</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p> <p>You can specify up to 20 launch templates per Auto Scaling group. The launch templates specified in the overrides and in the <code>LaunchTemplate</code> definition count towards this limit.</p>
+        InstanceRequirements:
+          allOf:
+          - $ref: '#/components/schemas/InstanceRequirements'
+          - description: <p>The instance requirements. Amazon EC2 Auto Scaling uses your specified requirements to identify instance types. Then, it uses your On-Demand and Spot allocation strategies to launch instances from these instance types.</p> <p>You can specify up to four separate sets of instance requirements per Auto Scaling group. This is useful for provisioning instances from different Amazon Machine Images (AMIs) in the same Auto Scaling group. To do this, create the AMIs and create a new launch template for each AMI. Then, create a compatible set of instance requirements for each launch template. </p> <note> <p>If you specify <code>InstanceRequirements</code>, you can't specify <code>InstanceType</code>.</p> </note>
+      description: <p>Use this structure to let Amazon EC2 Auto Scaling do the following when the Auto Scaling group has a mixed instances policy:</p> <ul> <li> <p>Override the instance type that is specified in the launch template.</p> </li> <li> <p>Use multiple instance types.</p> </li> </ul> <p>Specify the instance types that you want, or define your instance requirements instead and let Amazon EC2 Auto Scaling provision the available instance types that meet your requirements. This can provide Amazon EC2 Auto Scaling with a larger selection of instance types to choose from when fulfilling Spot and On-Demand capacities. You can view which instance types are matched before you apply the instance requirements to your Auto Scaling group.</p> <p>After you define your instance requirements, you don't have to keep updating these settings to get new EC2 instance types automatically. Amazon EC2 Auto Scaling uses the instance requirements of the Auto Scaling group to determine whether a new EC2 instance type can be used.</p>
+    DesiredConfiguration:
+      type: object
+      properties:
+        LaunchTemplate:
+          allOf:
+          - $ref: '#/components/schemas/LaunchTemplateSpecification'
+          - description: Describes the launch template and the version of the launch template that Amazon EC2 Auto Scaling uses to launch Amazon EC2 instances. For more information about launch templates, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchTemplates.html">Launch templates</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+        MixedInstancesPolicy:
+          allOf:
+          - $ref: '#/components/schemas/MixedInstancesPolicy'
+          - description: <p>Use this structure to launch multiple instance types and On-Demand Instances and Spot Instances within a single Auto Scaling group.</p> <p>A mixed instances policy contains information that Amazon EC2 Auto Scaling can use to launch instances and help optimize your costs. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html">Auto Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+      description: <p>Describes the desired configuration for an instance refresh. </p> <p>If you specify a desired configuration, you must specify either a <code>LaunchTemplate</code> or a <code>MixedInstancesPolicy</code>. </p>
+    InstanceRefreshes:
+      type: array
+      items:
+        $ref: '#/components/schemas/InstanceRefresh'
+    AcceleratorType:
       type: string
       enum:
-      - current
-      - previous
-    LaunchTemplateName:
+      - gpu
+      - fpga
+      - inference
+    BaselineEbsBandwidthMbpsRequest:
+      type: object
+      properties:
+        Min:
+          allOf:
+          - $ref: '#/components/schemas/NullablePositiveInteger'
+          - description: The minimum value in Mbps.
+        Max:
+          allOf:
+          - $ref: '#/components/schemas/NullablePositiveInteger'
+          - description: The maximum value in Mbps.
+      description: Specifies the minimum and maximum for the <code>BaselineEbsBandwidthMbps</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
+    BareMetal:
       type: string
-      pattern: '[a-zA-Z0-9\(\)\.\-/_]+'
-      minLength: 3
-      maxLength: 128
+      enum:
+      - included
+      - excluded
+      - required
+    InstanceRefreshLivePoolProgress:
+      type: object
+      properties:
+        PercentageComplete:
+          allOf:
+          - $ref: '#/components/schemas/IntPercent'
+          - description: The percentage of instances in the Auto Scaling group that have been replaced. For each instance replacement, Amazon EC2 Auto Scaling tracks the instance's health status and warm-up time. When the instance's health status changes to healthy and the specified warm-up time passes, the instance is considered updated and is added to the percentage complete.
+        InstancesToUpdate:
+          allOf:
+          - $ref: '#/components/schemas/InstancesToUpdate'
+          - description: The number of instances remaining to update.
+      description: Reports progress on replacing instances that are in the Auto Scaling group.
+    XmlStringMaxLen32:
+      type: string
+      minLength: 1
+      maxLength: 32
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    XmlStringMaxLen255:
+      type: string
+      minLength: 1
+      maxLength: 255
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    InstanceRefreshStatus:
+      type: string
+      enum:
+      - Pending
+      - InProgress
+      - Successful
+      - Failed
+      - Cancelling
+      - Cancelled
+      - RollbackInProgress
+      - RollbackFailed
+      - RollbackSuccessful
+    NonZeroIntPercent:
+      type: integer
+      minimum: 1
+      maximum: 100
+    CpuManufacturers:
+      type: array
+      items:
+        $ref: '#/components/schemas/CpuManufacturer'
+    InstanceRefreshWarmPoolProgress:
+      type: object
+      properties:
+        PercentageComplete:
+          allOf:
+          - $ref: '#/components/schemas/IntPercent'
+          - description: The percentage of instances in the warm pool that have been replaced. For each instance replacement, Amazon EC2 Auto Scaling tracks the instance's health status and warm-up time. When the instance's health status changes to healthy and the specified warm-up time passes, the instance is considered updated and is added to the percentage complete.
+        InstancesToUpdate:
+          allOf:
+          - $ref: '#/components/schemas/InstancesToUpdate'
+          - description: The number of instances remaining to update.
+      description: Reports progress on replacing instances that are in the warm pool.
+    AllowedInstanceType:
+      type: string
+      pattern: '[a-zA-Z0-9\.\*]+'
+      minLength: 1
+      maxLength: 30
+    AcceleratorName:
+      type: string
+      enum:
+      - a100
+      - v100
+      - k80
+      - t4
+      - m60
+      - radeon-pro-v520
+      - vu9p
+    LocalStorage:
+      type: string
+      enum:
+      - included
+      - excluded
+      - required
+    MemoryMiBRequest:
+      type: object
+      required:
+      - Min
+      properties:
+        Min:
+          allOf:
+          - $ref: '#/components/schemas/NullablePositiveInteger'
+          - description: The memory minimum in MiB.
+        Max:
+          allOf:
+          - $ref: '#/components/schemas/NullablePositiveInteger'
+          - description: The memory maximum in MiB.
+      description: Specifies the minimum and maximum for the <code>MemoryMiB</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
     InstancesDistribution:
       type: object
       properties:
@@ -960,83 +982,49 @@ components:
           - description: '<p>The maximum price per unit hour that you are willing to pay for a Spot Instance. If your maximum price is lower than the Spot price for the instance types that you selected, your Spot Instances are not launched. We do not recommend specifying a maximum price because it can lead to increased interruptions. When Spot Instances launch, you pay the current Spot price. To remove a maximum price that you previously set, include the property but specify an empty string ("") for the value.</p> <important> <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify one.</p> </important> <p>Valid Range: Minimum value of 0.001</p>'
           example: example-string
       description: Use this structure to specify the distribution of On-Demand Instances and Spot Instances and the allocation strategies used to fulfill On-Demand and Spot capacities for a mixed instances policy.
-    MaxRecords:
-      type: integer
-    OnDemandPercentageAboveBaseCapacity:
-      type: integer
-    CheckpointDelay:
-      type: integer
-      minimum: 0
-      maximum: 172800
-    RollbackDetails:
+    ExcludedInstanceTypes:
+      type: array
+      items:
+        $ref: '#/components/schemas/ExcludedInstance'
+      maxItems: 400
+    InstanceRefreshProgressDetails:
       type: object
       properties:
-        RollbackReason:
+        LivePoolProgress:
           allOf:
-          - $ref: '#/components/schemas/XmlStringMaxLen1023'
-          - description: The reason for this instance refresh rollback (for example, whether a manual or automatic rollback was initiated).
-        RollbackStartTime:
+          - $ref: '#/components/schemas/InstanceRefreshLivePoolProgress'
+          - description: Reports progress on replacing instances that are in the Auto Scaling group.
+        WarmPoolProgress:
           allOf:
-          - $ref: '#/components/schemas/TimestampType'
-          - description: The date and time at which the rollback began.
-        PercentageCompleteOnRollback:
-          allOf:
-          - $ref: '#/components/schemas/IntPercent'
-          - description: Indicates the value of <code>PercentageComplete</code> at the time the rollback started.
-        InstancesToUpdateOnRollback:
-          allOf:
-          - $ref: '#/components/schemas/InstancesToUpdate'
-          - description: Indicates the value of <code>InstancesToUpdate</code> at the time the rollback started.
-        ProgressDetailsOnRollback:
-          allOf:
-          - $ref: '#/components/schemas/InstanceRefreshProgressDetails'
-          - description: Reports progress on replacing instances in an Auto Scaling group that has a warm pool. This includes separate details for instances in the warm pool and instances in the Auto Scaling group (the live pool).
-      description: Details about an instance refresh rollback.
-    AcceleratorTotalMemoryMiBRequest:
-      type: object
-      properties:
-        Min:
-          allOf:
-          - $ref: '#/components/schemas/NullablePositiveInteger'
-          - description: The memory minimum in MiB.
-        Max:
-          allOf:
-          - $ref: '#/components/schemas/NullablePositiveInteger'
-          - description: The memory maximum in MiB.
-      description: Specifies the minimum and maximum for the <code>AcceleratorTotalMemoryMiB</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
-    MemoryGiBPerVCpuRequest:
-      type: object
-      properties:
-        Min:
-          allOf:
-          - $ref: '#/components/schemas/NullablePositiveDouble'
-          - description: The memory minimum in GiB.
-        Max:
-          allOf:
-          - $ref: '#/components/schemas/NullablePositiveDouble'
-          - description: The memory maximum in GiB.
-      description: Specifies the minimum and maximum for the <code>MemoryGiBPerVCpu</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
+          - $ref: '#/components/schemas/InstanceRefreshWarmPoolProgress'
+          - description: Reports progress on replacing instances that are in the warm pool.
+      description: Reports progress on replacing instances in an Auto Scaling group that has a warm pool. This includes separate details for instances in the warm pool and instances in the Auto Scaling group (the live pool).
+    SpotInstancePools:
+      type: integer
+    ExcludedInstance:
+      type: string
+      pattern: '[a-zA-Z0-9\.\*]+'
+      minLength: 1
+      maxLength: 30
+    Overrides:
+      type: array
+      items:
+        $ref: '#/components/schemas/LaunchTemplateOverrides'
+    AcceleratorTypes:
+      type: array
+      items:
+        $ref: '#/components/schemas/AcceleratorType'
+    SkipMatching:
+      type: boolean
   parameters:
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Signature:
       name: X-Amz-Signature
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -1047,8 +1035,20 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string

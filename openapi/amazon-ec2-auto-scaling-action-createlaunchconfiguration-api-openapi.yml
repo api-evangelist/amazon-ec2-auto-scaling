@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
-  title: 'Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=CreateLaunchConfiguration API'
+  title: 'Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=CreateLaunchConfiguration #Action=Create Launch Configuration #Action=Create Launch Configuration API'
   description: <fullname>Amazon EC2 Auto Scaling</fullname> <p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.</p> <p>For more information, see the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/">Amazon EC2 Auto Scaling User Guide</a> and the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html">Amazon EC2 Auto Scaling API Reference</a>.</p>
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
@@ -421,38 +421,34 @@ paths:
       - '#Action=CreateLaunchConfiguration'
 components:
   schemas:
-    XmlString:
-      type: string
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    InstanceMetadataHttpPutResponseHopLimit:
+    BlockDeviceEbsIops:
       type: integer
-      minimum: 1
-      maximum: 64
-    SpotPrice:
-      type: string
-      minLength: 1
-      maxLength: 255
-    ResourceContentionFault: {}
-    XmlStringMaxLen64:
-      type: string
-      minLength: 1
-      maxLength: 64
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+      minimum: 100
+      maximum: 20000
     XmlStringUserData:
       type: string
       maxLength: 21847
       x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    XmlStringMaxLen1600:
-      type: string
-      minLength: 1
-      maxLength: 1600
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    MonitoringEnabled:
-      type: boolean
-    BlockDeviceMappings:
+    SecurityGroups:
       type: array
       items:
-        $ref: '#/components/schemas/BlockDeviceMapping'
+        $ref: '#/components/schemas/XmlString'
+    InstanceMetadataOptions:
+      type: object
+      properties:
+        HttpTokens:
+          allOf:
+          - $ref: '#/components/schemas/InstanceMetadataHttpTokensState'
+          - description: <p>The state of token usage for your instance metadata requests. If the parameter is not specified in the request, the default state is <code>optional</code>.</p> <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata with or without a signed token header on your request. If you retrieve the IAM role credentials without a token, the version 1.0 role credentials are returned. If you retrieve the IAM role credentials using a valid signed token, the version 2.0 role credentials are returned.</p> <p>If the state is <code>required</code>, you must send a signed token header with any instance metadata retrieval requests. In this state, retrieving the IAM role credentials always returns the version 2.0 credentials; the version 1.0 credentials are not available.</p>
+        HttpPutResponseHopLimit:
+          allOf:
+          - $ref: '#/components/schemas/InstanceMetadataHttpPutResponseHopLimit'
+          - description: '<p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel.</p> <p>Default: 1</p>'
+        HttpEndpoint:
+          allOf:
+          - $ref: '#/components/schemas/InstanceMetadataEndpointState'
+          - description: <p>This parameter enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is <code>enabled</code>.</p> <note> <p>If you specify a value of <code>disabled</code>, you will not be able to access your instance metadata. </p> </note>
+      description: The metadata options for the instances. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds">Configuring the Instance Metadata Options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
     BlockDeviceMapping:
       type: object
       required:
@@ -479,16 +475,40 @@ components:
           - description: <p>Setting this value to <code>true</code> prevents a volume that is included in the block device mapping of the AMI from being mapped to the specified device name at launch.</p> <p>If <code>NoDevice</code> is <code>true</code> for the root device, instances might fail the EC2 health check. In that case, Amazon EC2 Auto Scaling launches replacement instances.</p>
           example: example-string
       description: Describes a block device mapping.
-    ClassicLinkVPCSecurityGroups:
-      type: array
-      items:
-        $ref: '#/components/schemas/XmlStringMaxLen255'
+    InstanceMetadataHttpTokensState:
+      type: string
+      enum:
+      - optional
+      - required
     XmlStringMaxLen19:
       type: string
       minLength: 1
       maxLength: 19
       x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    NoDevice:
+    BlockDeviceMappings:
+      type: array
+      items:
+        $ref: '#/components/schemas/BlockDeviceMapping'
+    XmlStringMaxLen255:
+      type: string
+      minLength: 1
+      maxLength: 255
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    XmlString:
+      type: string
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    AlreadyExistsFault: {}
+    ResourceContentionFault: {}
+    InstanceMetadataEndpointState:
+      type: string
+      enum:
+      - disabled
+      - enabled
+    ClassicLinkVPCSecurityGroups:
+      type: array
+      items:
+        $ref: '#/components/schemas/XmlStringMaxLen255'
+    MonitoringEnabled:
       type: boolean
     InstanceMonitoring:
       type: object
@@ -498,61 +518,23 @@ components:
           - $ref: '#/components/schemas/MonitoringEnabled'
           - description: If <code>true</code>, detailed monitoring is enabled. Otherwise, basic monitoring is enabled.
       description: Describes whether detailed monitoring is enabled for the Auto Scaling instances.
-    XmlStringMaxLen255:
-      type: string
-      minLength: 1
-      maxLength: 255
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    InstanceMetadataHttpTokensState:
-      type: string
-      enum:
-      - optional
-      - required
     EbsOptimized:
       type: boolean
-    BlockDeviceEbsVolumeType:
+    InstanceMetadataHttpPutResponseHopLimit:
+      type: integer
+      minimum: 1
+      maximum: 64
+    XmlStringMaxLen64:
       type: string
       minLength: 1
-      maxLength: 255
-    BlockDeviceEbsEncrypted:
-      type: boolean
+      maxLength: 64
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
     BlockDeviceEbsDeleteOnTermination:
       type: boolean
-    InstanceMetadataEndpointState:
-      type: string
-      enum:
-      - disabled
-      - enabled
-    BlockDeviceEbsThroughput:
-      type: integer
-      minimum: 125
-      maximum: 1000
     BlockDeviceEbsVolumeSize:
       type: integer
       minimum: 1
       maximum: 16384
-    AssociatePublicIpAddress:
-      type: boolean
-    InstanceMetadataOptions:
-      type: object
-      properties:
-        HttpTokens:
-          allOf:
-          - $ref: '#/components/schemas/InstanceMetadataHttpTokensState'
-          - description: <p>The state of token usage for your instance metadata requests. If the parameter is not specified in the request, the default state is <code>optional</code>.</p> <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata with or without a signed token header on your request. If you retrieve the IAM role credentials without a token, the version 1.0 role credentials are returned. If you retrieve the IAM role credentials using a valid signed token, the version 2.0 role credentials are returned.</p> <p>If the state is <code>required</code>, you must send a signed token header with any instance metadata retrieval requests. In this state, retrieving the IAM role credentials always returns the version 2.0 credentials; the version 1.0 credentials are not available.</p>
-        HttpPutResponseHopLimit:
-          allOf:
-          - $ref: '#/components/schemas/InstanceMetadataHttpPutResponseHopLimit'
-          - description: '<p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel.</p> <p>Default: 1</p>'
-        HttpEndpoint:
-          allOf:
-          - $ref: '#/components/schemas/InstanceMetadataEndpointState'
-          - description: <p>This parameter enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is <code>enabled</code>.</p> <note> <p>If you specify a value of <code>disabled</code>, you will not be able to access your instance metadata. </p> </note>
-      description: The metadata options for the instances. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds">Configuring the Instance Metadata Options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
-    BlockDeviceEbsIops:
-      type: integer
-      minimum: 100
-      maximum: 20000
     CreateLaunchConfigurationType:
       type: object
       required:
@@ -635,6 +617,25 @@ components:
           allOf:
           - $ref: '#/components/schemas/InstanceMetadataOptions'
           - description: The metadata options for the instances. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds">Configuring the Instance Metadata Options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+    XmlStringMaxLen1600:
+      type: string
+      minLength: 1
+      maxLength: 1600
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    SpotPrice:
+      type: string
+      minLength: 1
+      maxLength: 255
+    BlockDeviceEbsThroughput:
+      type: integer
+      minimum: 125
+      maximum: 1000
+    BlockDeviceEbsVolumeType:
+      type: string
+      minLength: 1
+      maxLength: 255
+    BlockDeviceEbsEncrypted:
+      type: boolean
     Ebs:
       type: object
       properties:
@@ -667,15 +668,26 @@ components:
           - $ref: '#/components/schemas/BlockDeviceEbsThroughput'
           - description: The throughput (MiBps) to provision for a <code>gp3</code> volume.
       description: Describes information used to set up an Amazon EBS volume specified in a block device mapping.
+    AssociatePublicIpAddress:
+      type: boolean
+    NoDevice:
+      type: boolean
     LimitExceededFault: {}
-    SecurityGroups:
-      type: array
-      items:
-        $ref: '#/components/schemas/XmlString'
-    AlreadyExistsFault: {}
   parameters:
     X-Amz-Credential:
       name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
@@ -686,8 +698,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
@@ -700,18 +712,6 @@ components:
       required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
       in: header
       schema:
         type: string

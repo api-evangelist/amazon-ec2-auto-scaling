@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
-  title: 'Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=DescribeLifecycleHooks API'
+  title: 'Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=DescribeLifecycleHooks #Action=Describe Lifecycle Hooks #Action=Describe Lifecycle Hooks API'
   description: <fullname>Amazon EC2 Auto Scaling</fullname> <p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.</p> <p>For more information, see the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/">Amazon EC2 Auto Scaling User Guide</a> and the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html">Amazon EC2 Auto Scaling API Reference</a>.</p>
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
@@ -250,63 +250,70 @@ paths:
       tags:
       - '#Action=DescribeLifecycleHooks'
 components:
-  parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
+    DescribeLifecycleHooksAnswer:
+      type: object
+      example:
+        LifecycleHooks:
+        - AutoScalingGroupName: my-auto-scaling-group
+          DefaultResult: ABANDON
+          GlobalTimeout: 172800
+          HeartbeatTimeout: 3600
+          LifecycleHookName: my-lifecycle-hook
+          LifecycleTransition: autoscaling:EC2_INSTANCE_LAUNCHING
+          NotificationTargetARN: arn:aws:sns:us-west-2:123456789012:my-sns-topic
+          RoleARN: arn:aws:iam::123456789012:role/my-auto-scaling-role
+      properties:
+        LifecycleHooks:
+          allOf:
+          - $ref: '#/components/schemas/LifecycleHooks'
+          - description: The lifecycle hooks for the specified group.
+          example: example-string
+    GlobalTimeout:
+      type: integer
+    XmlStringMaxLen255:
+      type: string
+      minLength: 1
+      maxLength: 255
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    HeartbeatTimeout:
+      type: integer
+    LifecycleActionResult:
+      type: string
     ResourceContentionFault: {}
+    NotificationTargetResourceName:
+      type: string
+      minLength: 0
+      maxLength: 255
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    LifecycleHookNames:
+      type: array
+      items:
+        $ref: '#/components/schemas/AsciiStringMaxLen255'
+      maxItems: 50
+    LifecycleHooks:
+      type: array
+      items:
+        $ref: '#/components/schemas/LifecycleHook'
+    DescribeLifecycleHooksType:
+      type: object
+      required:
+      - AutoScalingGroupName
+      title: DescribeLifecycleHooksType
+      properties:
+        AutoScalingGroupName:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen255'
+          - description: The name of the Auto Scaling group.
+        LifecycleHookNames:
+          allOf:
+          - $ref: '#/components/schemas/LifecycleHookNames'
+          - description: The names of one or more lifecycle hooks. If you omit this property, all lifecycle hooks are described.
     XmlStringMaxLen1023:
       type: string
       minLength: 1
       maxLength: 1023
       x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    LifecycleTransition:
-      type: string
-    AsciiStringMaxLen255:
-      type: string
-      pattern: '[A-Za-z0-9\-_\/]+'
-      minLength: 1
-      maxLength: 255
     LifecycleHook:
       type: object
       properties:
@@ -347,63 +354,56 @@ components:
           - $ref: '#/components/schemas/LifecycleActionResult'
           - description: '<p>The action the Auto Scaling group takes when the lifecycle hook timeout elapses or if an unexpected failure occurs.</p> <p>Valid values: <code>CONTINUE</code> | <code>ABANDON</code> </p>'
       description: Describes a lifecycle hook. A lifecycle hook lets you create solutions that are aware of events in the Auto Scaling instance lifecycle, and then perform a custom action on instances when the corresponding lifecycle event occurs.
-    GlobalTimeout:
-      type: integer
-    LifecycleActionResult:
+    LifecycleTransition:
       type: string
-    NotificationTargetResourceName:
+    AsciiStringMaxLen255:
       type: string
-      minLength: 0
-      maxLength: 255
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    XmlStringMaxLen255:
-      type: string
+      pattern: '[A-Za-z0-9\-_\/]+'
       minLength: 1
       maxLength: 255
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    LifecycleHookNames:
-      type: array
-      items:
-        $ref: '#/components/schemas/AsciiStringMaxLen255'
-      maxItems: 50
-    LifecycleHooks:
-      type: array
-      items:
-        $ref: '#/components/schemas/LifecycleHook'
-    HeartbeatTimeout:
-      type: integer
-    DescribeLifecycleHooksAnswer:
-      type: object
-      example:
-        LifecycleHooks:
-        - AutoScalingGroupName: my-auto-scaling-group
-          DefaultResult: ABANDON
-          GlobalTimeout: 172800
-          HeartbeatTimeout: 3600
-          LifecycleHookName: my-lifecycle-hook
-          LifecycleTransition: autoscaling:EC2_INSTANCE_LAUNCHING
-          NotificationTargetARN: arn:aws:sns:us-west-2:123456789012:my-sns-topic
-          RoleARN: arn:aws:iam::123456789012:role/my-auto-scaling-role
-      properties:
-        LifecycleHooks:
-          allOf:
-          - $ref: '#/components/schemas/LifecycleHooks'
-          - description: The lifecycle hooks for the specified group.
-          example: example-string
-    DescribeLifecycleHooksType:
-      type: object
-      required:
-      - AutoScalingGroupName
-      title: DescribeLifecycleHooksType
-      properties:
-        AutoScalingGroupName:
-          allOf:
-          - $ref: '#/components/schemas/XmlStringMaxLen255'
-          - description: The name of the Auto Scaling group.
-        LifecycleHookNames:
-          allOf:
-          - $ref: '#/components/schemas/LifecycleHookNames'
-          - description: The names of one or more lifecycle hooks. If you omit this property, all lifecycle hooks are described.
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

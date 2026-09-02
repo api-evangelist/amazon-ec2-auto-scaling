@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
-  title: 'Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=DescribeWarmPool API'
+  title: 'Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=DescribeWarmPool #Action=Describe Warm Pool #Action=Describe Warm Pool API'
   description: <fullname>Amazon EC2 Auto Scaling</fullname> <p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.</p> <p>For more information, see the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/">Amazon EC2 Auto Scaling User Guide</a> and the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html">Amazon EC2 Auto Scaling API Reference</a>.</p>
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
@@ -293,44 +293,8 @@ paths:
       - '#Action=DescribeWarmPool'
 components:
   schemas:
-    XmlString:
-      type: string
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    WarmPoolStatus:
-      type: string
-      enum:
-      - PendingDelete
-    WarmPoolState:
-      type: string
-      enum:
-      - Stopped
-      - Running
-      - Hibernated
-    WarmPoolMinSize:
-      type: integer
-      minimum: 0
-    ResourceContentionFault: {}
-    Instances:
-      type: array
-      items:
-        $ref: '#/components/schemas/Instance'
-    XmlStringMaxLen32:
-      type: string
-      minLength: 1
-      maxLength: 32
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    LaunchTemplateName:
-      type: string
-      pattern: '[a-zA-Z0-9\(\)\.\-/_]+'
-      minLength: 3
-      maxLength: 128
-    XmlStringMaxLen19:
-      type: string
-      minLength: 1
-      maxLength: 19
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    MaxRecords:
-      type: integer
+    ReuseOnScaleIn:
+      type: boolean
     InstanceReusePolicy:
       type: object
       properties:
@@ -339,6 +303,14 @@ components:
           - $ref: '#/components/schemas/ReuseOnScaleIn'
           - description: 'Specifies whether instances in the Auto Scaling group can be returned to the warm pool on scale in. '
       description: <p>Describes an instance reuse policy for a warm pool. </p> <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html">Warm pools for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+    MaxGroupPreparedCapacity:
+      type: integer
+      minimum: -1
+    XmlStringMaxLen19:
+      type: string
+      minLength: 1
+      maxLength: 19
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
     Instance:
       type: object
       required:
@@ -385,6 +357,49 @@ components:
           - $ref: '#/components/schemas/XmlStringMaxLen32'
           - description: '<p>The number of capacity units contributed by the instance based on its instance type.</p> <p>Valid Range: Minimum value of 1. Maximum value of 999.</p>'
       description: Describes an EC2 instance.
+    XmlStringMaxLen32:
+      type: string
+      minLength: 1
+      maxLength: 32
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    DescribeWarmPoolType:
+      type: object
+      required:
+      - AutoScalingGroupName
+      title: DescribeWarmPoolType
+      properties:
+        AutoScalingGroupName:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen255'
+          - description: The name of the Auto Scaling group.
+        MaxRecords:
+          allOf:
+          - $ref: '#/components/schemas/MaxRecords'
+          - description: The maximum number of instances to return with this call. The maximum value is <code>50</code>.
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/XmlString'
+          - description: The token for the next set of instances to return. (You received this token from a previous call.)
+    XmlStringMaxLen255:
+      type: string
+      minLength: 1
+      maxLength: 255
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    DescribeWarmPoolAnswer:
+      type: object
+      properties:
+        WarmPoolConfiguration:
+          allOf:
+          - $ref: '#/components/schemas/WarmPoolConfiguration'
+          - description: 'The warm pool configuration details. '
+        Instances:
+          allOf:
+          - $ref: '#/components/schemas/Instances'
+          - description: The instances that are currently in the warm pool.
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/XmlString'
+          - description: This string indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the <code>NextToken</code> value when requesting the next set of items. This value is null when there are no more items to return.
     LaunchTemplateSpecification:
       type: object
       properties:
@@ -401,13 +416,16 @@ components:
           - $ref: '#/components/schemas/XmlStringMaxLen255'
           - description: The version number, <code>$Latest</code>, or <code>$Default</code>. To get the version number, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplateVersions.html">DescribeLaunchTemplateVersions</a> API operation. New launch template versions can be created using the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplateVersion.html">CreateLaunchTemplateVersion</a> API. If the value is <code>$Latest</code>, Amazon EC2 Auto Scaling selects the latest version of the launch template when launching instances. If the value is <code>$Default</code>, Amazon EC2 Auto Scaling selects the default version of the launch template when launching instances. The default value is <code>$Default</code>.
       description: Describes the launch template and the version of the launch template that Amazon EC2 Auto Scaling uses to launch Amazon EC2 instances. For more information about launch templates, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchTemplates.html">Launch templates</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
-    XmlStringMaxLen255:
-      type: string
-      minLength: 1
-      maxLength: 255
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
     InstanceProtected:
       type: boolean
+    XmlString:
+      type: string
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    ResourceContentionFault: {}
+    WarmPoolStatus:
+      type: string
+      enum:
+      - PendingDelete
     WarmPoolConfiguration:
       type: object
       properties:
@@ -432,6 +450,27 @@ components:
           - $ref: '#/components/schemas/InstanceReusePolicy'
           - description: The instance reuse policy.
       description: 'Describes a warm pool configuration. '
+    InvalidNextToken: {}
+    WarmPoolState:
+      type: string
+      enum:
+      - Stopped
+      - Running
+      - Hibernated
+    LaunchTemplateName:
+      type: string
+      pattern: '[a-zA-Z0-9\(\)\.\-/_]+'
+      minLength: 3
+      maxLength: 128
+    WarmPoolMinSize:
+      type: integer
+      minimum: 0
+    Instances:
+      type: array
+      items:
+        $ref: '#/components/schemas/Instance'
+    MaxRecords:
+      type: integer
     LifecycleState:
       type: string
       enum:
@@ -458,49 +497,22 @@ components:
       - Warmed:Stopped
       - Warmed:Running
       - Warmed:Hibernated
-    MaxGroupPreparedCapacity:
-      type: integer
-      minimum: -1
-    InvalidNextToken: {}
-    DescribeWarmPoolAnswer:
-      type: object
-      properties:
-        WarmPoolConfiguration:
-          allOf:
-          - $ref: '#/components/schemas/WarmPoolConfiguration'
-          - description: 'The warm pool configuration details. '
-        Instances:
-          allOf:
-          - $ref: '#/components/schemas/Instances'
-          - description: The instances that are currently in the warm pool.
-        NextToken:
-          allOf:
-          - $ref: '#/components/schemas/XmlString'
-          - description: This string indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the <code>NextToken</code> value when requesting the next set of items. This value is null when there are no more items to return.
-    DescribeWarmPoolType:
-      type: object
-      required:
-      - AutoScalingGroupName
-      title: DescribeWarmPoolType
-      properties:
-        AutoScalingGroupName:
-          allOf:
-          - $ref: '#/components/schemas/XmlStringMaxLen255'
-          - description: The name of the Auto Scaling group.
-        MaxRecords:
-          allOf:
-          - $ref: '#/components/schemas/MaxRecords'
-          - description: The maximum number of instances to return with this call. The maximum value is <code>50</code>.
-        NextToken:
-          allOf:
-          - $ref: '#/components/schemas/XmlString'
-          - description: The token for the next set of instances to return. (You received this token from a previous call.)
-    ReuseOnScaleIn:
-      type: boolean
     LimitExceededFault: {}
   parameters:
     X-Amz-Credential:
       name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
@@ -511,8 +523,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
@@ -525,18 +537,6 @@ components:
       required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
       in: header
       schema:
         type: string

@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
-  title: 'Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=DescribeAutoScalingGroups API'
+  title: 'Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=DescribeAutoScalingGroups #Action=Describe Auto Scaling Groups #Action=Describe Auto Scaling Groups API'
   description: <fullname>Amazon EC2 Auto Scaling</fullname> <p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.</p> <p>For more information, see the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/">Amazon EC2 Auto Scaling User Guide</a> and the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html">Amazon EC2 Auto Scaling API Reference</a>.</p>
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
@@ -298,25 +298,135 @@ paths:
       - '#Action=DescribeAutoScalingGroups'
 components:
   schemas:
-    XmlString:
-      type: string
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    AcceleratorType:
+    VCpuCountRequest:
+      type: object
+      required:
+      - Min
+      properties:
+        Min:
+          allOf:
+          - $ref: '#/components/schemas/NullablePositiveInteger'
+          - description: The minimum number of vCPUs.
+        Max:
+          allOf:
+          - $ref: '#/components/schemas/NullablePositiveInteger'
+          - description: The maximum number of vCPUs.
+      description: Specifies the minimum and maximum for the <code>VCpuCount</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
+    NullablePositiveInteger:
+      type: integer
+      minimum: 0
+    ResourceContentionFault: {}
+    NullableBoolean:
+      type: boolean
+    TerminationPolicies:
+      type: array
+      items:
+        $ref: '#/components/schemas/XmlStringMaxLen1600'
+    SuspendedProcesses:
+      type: array
+      items:
+        $ref: '#/components/schemas/SuspendedProcess'
+    BurstablePerformance:
       type: string
       enum:
-      - gpu
-      - fpga
-      - inference
-    AutoScalingGroupMaxSize:
+      - included
+      - excluded
+      - required
+    ResourceName:
+      type: string
+      minLength: 1
+      maxLength: 1600
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    LoadBalancerNames:
+      type: array
+      items:
+        $ref: '#/components/schemas/XmlStringMaxLen255'
+    MixedInstanceSpotPrice:
+      type: string
+      minLength: 0
+      maxLength: 255
+    WarmPoolState:
+      type: string
+      enum:
+      - Stopped
+      - Running
+      - Hibernated
+    AcceleratorNames:
+      type: array
+      items:
+        $ref: '#/components/schemas/AcceleratorName'
+    Instances:
+      type: array
+      items:
+        $ref: '#/components/schemas/Instance'
+    CpuManufacturer:
+      type: string
+      enum:
+      - intel
+      - amd
+      - amazon-web-services
+    WarmPoolMinSize:
+      type: integer
+      minimum: 0
+    MaxRecords:
       type: integer
     Filters:
       type: array
       items:
         $ref: '#/components/schemas/Filter'
-    SuspendedProcesses:
+    CapacityRebalanceEnabled:
+      type: boolean
+    SuspendedProcess:
+      type: object
+      properties:
+        ProcessName:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen255'
+          - description: The name of the suspended process.
+        SuspensionReason:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen255'
+          - description: The reason that the process was suspended.
+      description: <p>Describes an auto scaling process that has been suspended.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html#process-types">Scaling processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+    AcceleratorManufacturer:
+      type: string
+      enum:
+      - nvidia
+      - amd
+      - amazon-web-services
+      - xilinx
+    Values:
       type: array
       items:
-        $ref: '#/components/schemas/SuspendedProcess'
+        $ref: '#/components/schemas/XmlString'
+    XmlStringMaxLen19:
+      type: string
+      minLength: 1
+      maxLength: 19
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    TimestampType:
+      type: string
+      format: date-time
+    MaxInstanceLifetime:
+      type: integer
+    AutoScalingGroupMinSize:
+      type: integer
+    LaunchTemplateSpecification:
+      type: object
+      properties:
+        LaunchTemplateId:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen255'
+          - description: '<p>The ID of the launch template. To get the template ID, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html">DescribeLaunchTemplates</a> API operation. New launch templates can be created using the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html">CreateLaunchTemplate</a> API. </p> <p>Conditional: You must specify either a <code>LaunchTemplateId</code> or a <code>LaunchTemplateName</code>.</p>'
+        LaunchTemplateName:
+          allOf:
+          - $ref: '#/components/schemas/LaunchTemplateName'
+          - description: '<p>The name of the launch template. To get the template name, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html">DescribeLaunchTemplates</a> API operation. New launch templates can be created using the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html">CreateLaunchTemplate</a> API. </p> <p>Conditional: You must specify either a <code>LaunchTemplateId</code> or a <code>LaunchTemplateName</code>.</p>'
+        Version:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen255'
+          - description: The version number, <code>$Latest</code>, or <code>$Default</code>. To get the version number, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplateVersions.html">DescribeLaunchTemplateVersions</a> API operation. New launch template versions can be created using the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplateVersion.html">CreateLaunchTemplateVersion</a> API. If the value is <code>$Latest</code>, Amazon EC2 Auto Scaling selects the latest version of the launch template when launching instances. If the value is <code>$Default</code>, Amazon EC2 Auto Scaling selects the default version of the launch template when launching instances. The default value is <code>$Default</code>.
+      description: Describes the launch template and the version of the launch template that Amazon EC2 Auto Scaling uses to launch Amazon EC2 instances. For more information about launch templates, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchTemplates.html">Launch templates</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
     Filter:
       type: object
       properties:
@@ -331,10 +441,399 @@ components:
           - description: <p>One or more filter values. Filter values are case-sensitive. </p> <p>If you specify multiple values for a filter, the values are automatically logically joined with an <code>OR</code>, and the request returns all results that match any of the specified values. For example, specify "tag:environment" for the filter name and "production,development" for the filter values to find Auto Scaling groups with the tag "environment=production" or "environment=development".</p>
           example: example-string
       description: <p>Describes a filter that is used to return a more specific list of results from a describe operation.</p> <p>If you specify multiple filters, the filters are automatically logically joined with an <code>AND</code>, and the request returns only the results that match all of the specified filters. </p> <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-tagging.html">Tag Auto Scaling groups and instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
-    WarmPoolStatus:
+    OnDemandBaseCapacity:
+      type: integer
+    NullablePositiveDouble:
+      type: number
+      format: double
+      minimum: 0
+    AvailabilityZones:
+      type: array
+      items:
+        $ref: '#/components/schemas/XmlStringMaxLen255'
+    InstanceGeneration:
       type: string
       enum:
-      - PendingDelete
+      - current
+      - previous
+    LocalStorageTypes:
+      type: array
+      items:
+        $ref: '#/components/schemas/LocalStorageType'
+    WarmPoolSize:
+      type: integer
+    LaunchTemplate:
+      type: object
+      properties:
+        LaunchTemplateSpecification:
+          allOf:
+          - $ref: '#/components/schemas/LaunchTemplateSpecification'
+          - description: The launch template.
+          example: example-string
+        Overrides:
+          allOf:
+          - $ref: '#/components/schemas/Overrides'
+          - description: Any properties that you specify override the same properties in the launch template.
+          example: example-id-1234
+      description: Use this structure to specify the launch templates and instance types (overrides) for a mixed instances policy.
+    XmlStringMaxLen2047:
+      type: string
+      minLength: 1
+      maxLength: 2047
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    MixedInstancesPolicy:
+      type: object
+      properties:
+        LaunchTemplate:
+          allOf:
+          - $ref: '#/components/schemas/LaunchTemplate'
+          - description: One or more launch templates and the instance types (overrides) that are used to launch EC2 instances to fulfill On-Demand and Spot capacities.
+        InstancesDistribution:
+          allOf:
+          - $ref: '#/components/schemas/InstancesDistribution'
+          - description: The instances distribution.
+      description: <p>Use this structure to launch multiple instance types and On-Demand Instances and Spot Instances within a single Auto Scaling group.</p> <p>A mixed instances policy contains information that Amazon EC2 Auto Scaling can use to launch instances and help optimize your costs. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html">Auto Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+    InstanceRequirements:
+      type: object
+      required:
+      - VCpuCount
+      - MemoryMiB
+      properties:
+        VCpuCount:
+          allOf:
+          - $ref: '#/components/schemas/VCpuCountRequest'
+          - description: The minimum and maximum number of vCPUs for an instance type.
+        MemoryMiB:
+          allOf:
+          - $ref: '#/components/schemas/MemoryMiBRequest'
+          - description: The minimum and maximum instance memory size for an instance type, in MiB.
+        CpuManufacturers:
+          allOf:
+          - $ref: '#/components/schemas/CpuManufacturers'
+          - description: '<p>Lists which specific CPU manufacturers to include.</p> <ul> <li> <p>For instance types with Intel CPUs, specify <code>intel</code>.</p> </li> <li> <p>For instance types with AMD CPUs, specify <code>amd</code>.</p> </li> <li> <p>For instance types with Amazon Web Services CPUs, specify <code>amazon-web-services</code>.</p> </li> </ul> <note> <p>Don''t confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template. </p> </note> <p>Default: Any manufacturer</p>'
+        MemoryGiBPerVCpu:
+          allOf:
+          - $ref: '#/components/schemas/MemoryGiBPerVCpuRequest'
+          - description: '<p>The minimum and maximum amount of memory per vCPU for an instance type, in GiB.</p> <p>Default: No minimum or maximum limits</p>'
+        ExcludedInstanceTypes:
+          allOf:
+          - $ref: '#/components/schemas/ExcludedInstanceTypes'
+          - description: '<p>The instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (<code>*</code>), to exclude an instance family, type, size, or generation. The following are examples: <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>, <code>r*</code>, <code>*3*</code>. </p> <p>For example, if you specify <code>c5*</code>, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify <code>m5a.*</code>, Amazon EC2 Auto Scaling will exclude all the M5a instance types, but not the M5n instance types.</p> <note> <p>If you specify <code>ExcludedInstanceTypes</code>, you can''t specify <code>AllowedInstanceTypes</code>.</p> </note> <p>Default: No excluded instance types</p>'
+        InstanceGenerations:
+          allOf:
+          - $ref: '#/components/schemas/InstanceGenerations'
+          - description: '<p>Indicates whether current or previous generation instance types are included.</p> <ul> <li> <p>For current generation instance types, specify <code>current</code>. The current generation includes EC2 instance types currently recommended for use. This typically includes the latest two to three generations in each instance family. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> </li> <li> <p>For previous generation instance types, specify <code>previous</code>.</p> </li> </ul> <p>Default: Any current or previous generation</p>'
+        SpotMaxPricePercentageOverLowestPrice:
+          allOf:
+          - $ref: '#/components/schemas/NullablePositiveInteger'
+          - description: '<p>The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the least expensive current generation M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as <code>999999</code>. </p> <p>If you set <code>DesiredCapacityType</code> to <code>vcpu</code> or <code>memory-mib</code>, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price. </p> <p>Default: <code>100</code> </p>'
+        OnDemandMaxPricePercentageOverLowestPrice:
+          allOf:
+          - $ref: '#/components/schemas/NullablePositiveInteger'
+          - description: '<p>The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the least expensive current generation M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as <code>999999</code>. </p> <p>If you set <code>DesiredCapacityType</code> to <code>vcpu</code> or <code>memory-mib</code>, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price. </p> <p>Default: <code>20</code> </p>'
+        BareMetal:
+          allOf:
+          - $ref: '#/components/schemas/BareMetal'
+          - description: '<p>Indicates whether bare metal instance types are included, excluded, or required.</p> <p>Default: <code>excluded</code> </p>'
+        BurstablePerformance:
+          allOf:
+          - $ref: '#/components/schemas/BurstablePerformance'
+          - description: '<p>Indicates whether burstable performance instance types are included, excluded, or required. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable performance instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> <p>Default: <code>excluded</code> </p>'
+        RequireHibernateSupport:
+          allOf:
+          - $ref: '#/components/schemas/NullableBoolean'
+          - description: '<p>Indicates whether instance types must provide On-Demand Instance hibernation support.</p> <p>Default: <code>false</code> </p>'
+        NetworkInterfaceCount:
+          allOf:
+          - $ref: '#/components/schemas/NetworkInterfaceCountRequest'
+          - description: '<p>The minimum and maximum number of network interfaces for an instance type.</p> <p>Default: No minimum or maximum limits</p>'
+        LocalStorage:
+          allOf:
+          - $ref: '#/components/schemas/LocalStorage'
+          - description: '<p>Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html">Amazon EC2 instance store</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> <p>Default: <code>included</code> </p>'
+        LocalStorageTypes:
+          allOf:
+          - $ref: '#/components/schemas/LocalStorageTypes'
+          - description: '<p>Indicates the type of local storage that is required.</p> <ul> <li> <p>For instance types with hard disk drive (HDD) storage, specify <code>hdd</code>.</p> </li> <li> <p>For instance types with solid state drive (SSD) storage, specify <code>ssd</code>.</p> </li> </ul> <p>Default: Any local storage type</p>'
+        TotalLocalStorageGB:
+          allOf:
+          - $ref: '#/components/schemas/TotalLocalStorageGBRequest'
+          - description: '<p>The minimum and maximum total local storage size for an instance type, in GB.</p> <p>Default: No minimum or maximum limits</p>'
+        BaselineEbsBandwidthMbps:
+          allOf:
+          - $ref: '#/components/schemas/BaselineEbsBandwidthMbpsRequest'
+          - description: '<p>The minimum and maximum baseline bandwidth performance for an instance type, in Mbps. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html">Amazon EBS–optimized instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> <p>Default: No minimum or maximum limits</p>'
+        AcceleratorTypes:
+          allOf:
+          - $ref: '#/components/schemas/AcceleratorTypes'
+          - description: '<p>Lists the accelerator types that must be on an instance type.</p> <ul> <li> <p>For instance types with GPU accelerators, specify <code>gpu</code>.</p> </li> <li> <p>For instance types with FPGA accelerators, specify <code>fpga</code>.</p> </li> <li> <p>For instance types with inference accelerators, specify <code>inference</code>.</p> </li> </ul> <p>Default: Any accelerator type</p>'
+        AcceleratorCount:
+          allOf:
+          - $ref: '#/components/schemas/AcceleratorCountRequest'
+          - description: '<p>The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon Web Services Inferentia chips) for an instance type.</p> <p>To exclude accelerator-enabled instance types, set <code>Max</code> to <code>0</code>.</p> <p>Default: No minimum or maximum limits</p>'
+        AcceleratorManufacturers:
+          allOf:
+          - $ref: '#/components/schemas/AcceleratorManufacturers'
+          - description: '<p>Indicates whether instance types must have accelerators by specific manufacturers.</p> <ul> <li> <p>For instance types with NVIDIA devices, specify <code>nvidia</code>.</p> </li> <li> <p>For instance types with AMD devices, specify <code>amd</code>.</p> </li> <li> <p>For instance types with Amazon Web Services devices, specify <code>amazon-web-services</code>.</p> </li> <li> <p>For instance types with Xilinx devices, specify <code>xilinx</code>.</p> </li> </ul> <p>Default: Any manufacturer</p>'
+        AcceleratorNames:
+          allOf:
+          - $ref: '#/components/schemas/AcceleratorNames'
+          - description: '<p>Lists the accelerators that must be on an instance type.</p> <ul> <li> <p>For instance types with NVIDIA A100 GPUs, specify <code>a100</code>.</p> </li> <li> <p>For instance types with NVIDIA V100 GPUs, specify <code>v100</code>.</p> </li> <li> <p>For instance types with NVIDIA K80 GPUs, specify <code>k80</code>.</p> </li> <li> <p>For instance types with NVIDIA T4 GPUs, specify <code>t4</code>.</p> </li> <li> <p>For instance types with NVIDIA M60 GPUs, specify <code>m60</code>.</p> </li> <li> <p>For instance types with AMD Radeon Pro V520 GPUs, specify <code>radeon-pro-v520</code>.</p> </li> <li> <p>For instance types with Xilinx VU9P FPGAs, specify <code>vu9p</code>.</p> </li> </ul> <p>Default: Any accelerator</p>'
+        AcceleratorTotalMemoryMiB:
+          allOf:
+          - $ref: '#/components/schemas/AcceleratorTotalMemoryMiBRequest'
+          - description: '<p>The minimum and maximum total memory size for the accelerators on an instance type, in MiB.</p> <p>Default: No minimum or maximum limits</p>'
+        NetworkBandwidthGbps:
+          allOf:
+          - $ref: '#/components/schemas/NetworkBandwidthGbpsRequest'
+          - description: '<p>The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).</p> <p>Default: No minimum or maximum limits</p>'
+        AllowedInstanceTypes:
+          allOf:
+          - $ref: '#/components/schemas/AllowedInstanceTypes'
+          - description: '<p>The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.</p> <p>You can use strings with one or more wild cards, represented by an asterisk (<code>*</code>), to allow an instance type, size, or generation. The following are examples: <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>, <code>r*</code>, <code>*3*</code>.</p> <p>For example, if you specify <code>c5*</code>, Amazon EC2 Auto Scaling will allow the entire C5 instance family, which includes all C5a and C5n instance types. If you specify <code>m5a.*</code>, Amazon EC2 Auto Scaling will allow all the M5a instance types, but not the M5n instance types.</p> <note> <p>If you specify <code>AllowedInstanceTypes</code>, you can''t specify <code>ExcludedInstanceTypes</code>.</p> </note> <p>Default: All instance types</p>'
+      description: <p>The attributes for the instance types for a mixed instances policy. Amazon EC2 Auto Scaling uses your specified requirements to identify instance types. Then, it uses your On-Demand and Spot allocation strategies to launch instances from these instance types.</p> <p>When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.</p> <p>To limit the list of instance types from which Amazon EC2 Auto Scaling can identify matching instance types, you can use one of the following parameters, but not both in the same request:</p> <ul> <li> <p> <code>AllowedInstanceTypes</code> - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.</p> </li> <li> <p> <code>ExcludedInstanceTypes</code> - The instance types to exclude from the list, even if they match your specified attributes.</p> </li> </ul> <note> <p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other attributes are optional. Any unspecified optional attribute is set to its default.</p> </note> <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html">Creating an Auto Scaling group using attribute-based instance type selection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. For help determining which instance types match your attributes before you apply them to your Auto Scaling group, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-get-instance-types-from-instance-requirements">Preview instance types with specified attributes</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+    AllowedInstanceTypes:
+      type: array
+      items:
+        $ref: '#/components/schemas/AllowedInstanceType'
+      maxItems: 400
+    LaunchTemplateName:
+      type: string
+      pattern: '[a-zA-Z0-9\(\)\.\-/_]+'
+      minLength: 3
+      maxLength: 128
+    TagValue:
+      type: string
+      minLength: 0
+      maxLength: 256
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    OnDemandPercentageAboveBaseCapacity:
+      type: integer
+    TotalLocalStorageGBRequest:
+      type: object
+      properties:
+        Min:
+          allOf:
+          - $ref: '#/components/schemas/NullablePositiveDouble'
+          - description: The storage minimum in GB.
+        Max:
+          allOf:
+          - $ref: '#/components/schemas/NullablePositiveDouble'
+          - description: The storage maximum in GB.
+      description: Specifies the minimum and maximum for the <code>TotalLocalStorageGB</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
+    AutoScalingGroupPredictedCapacity:
+      type: integer
+    TrafficSources:
+      type: array
+      items:
+        $ref: '#/components/schemas/TrafficSourceIdentifier'
+    TagDescription:
+      type: object
+      properties:
+        ResourceId:
+          allOf:
+          - $ref: '#/components/schemas/XmlString'
+          - description: The name of the group.
+        ResourceType:
+          allOf:
+          - $ref: '#/components/schemas/XmlString'
+          - description: The type of resource. The only supported value is <code>auto-scaling-group</code>.
+        Key:
+          allOf:
+          - $ref: '#/components/schemas/TagKey'
+          - description: The tag key.
+        Value:
+          allOf:
+          - $ref: '#/components/schemas/TagValue'
+          - description: The tag value.
+        PropagateAtLaunch:
+          allOf:
+          - $ref: '#/components/schemas/PropagateAtLaunch'
+          - description: Determines whether the tag is added to new instances as they are launched in the group.
+      description: Describes a tag for an Auto Scaling group.
+    Instance:
+      type: object
+      required:
+      - InstanceId
+      - AvailabilityZone
+      - LifecycleState
+      - HealthStatus
+      - ProtectedFromScaleIn
+      properties:
+        InstanceId:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen19'
+          - description: The ID of the instance.
+        InstanceType:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen255'
+          - description: The instance type of the EC2 instance.
+        AvailabilityZone:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen255'
+          - description: The Availability Zone in which the instance is running.
+        LifecycleState:
+          allOf:
+          - $ref: '#/components/schemas/LifecycleState'
+          - description: 'A description of the current lifecycle state. The <code>Quarantined</code> state is not used. For information about lifecycle states, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroupLifecycle.html">Instance lifecycle</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. '
+        HealthStatus:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen32'
+          - description: The last reported health status of the instance. <code>Healthy</code> means that the instance is healthy and should remain in service. <code>Unhealthy</code> means that the instance is unhealthy and that Amazon EC2 Auto Scaling should terminate and replace it.
+        LaunchConfigurationName:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen255'
+          - description: The launch configuration associated with the instance.
+        LaunchTemplate:
+          allOf:
+          - $ref: '#/components/schemas/LaunchTemplateSpecification'
+          - description: The launch template for the instance.
+        ProtectedFromScaleIn:
+          allOf:
+          - $ref: '#/components/schemas/InstanceProtected'
+          - description: Indicates whether the instance is protected from termination by Amazon EC2 Auto Scaling when scaling in.
+        WeightedCapacity:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen32'
+          - description: '<p>The number of capacity units contributed by the instance based on its instance type.</p> <p>Valid Range: Minimum value of 1. Maximum value of 999.</p>'
+      description: Describes an EC2 instance.
+    AutoScalingGroupMaxSize:
+      type: integer
+    EnabledMetric:
+      type: object
+      properties:
+        Metric:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen255'
+          - description: <p>One of the following metrics:</p> <ul> <li> <p> <code>GroupMinSize</code> </p> </li> <li> <p> <code>GroupMaxSize</code> </p> </li> <li> <p> <code>GroupDesiredCapacity</code> </p> </li> <li> <p> <code>GroupInServiceInstances</code> </p> </li> <li> <p> <code>GroupPendingInstances</code> </p> </li> <li> <p> <code>GroupStandbyInstances</code> </p> </li> <li> <p> <code>GroupTerminatingInstances</code> </p> </li> <li> <p> <code>GroupTotalInstances</code> </p> </li> <li> <p> <code>GroupInServiceCapacity</code> </p> </li> <li> <p> <code>GroupPendingCapacity</code> </p> </li> <li> <p> <code>GroupStandbyCapacity</code> </p> </li> <li> <p> <code>GroupTerminatingCapacity</code> </p> </li> <li> <p> <code>GroupTotalCapacity</code> </p> </li> <li> <p> <code>WarmPoolDesiredCapacity</code> </p> </li> <li> <p> <code>WarmPoolWarmedCapacity</code> </p> </li> <li> <p> <code>WarmPoolPendingCapacity</code> </p> </li> <li> <p> <code>WarmPoolTerminatingCapacity</code> </p> </li> <li> <p> <code>WarmPoolTotalCapacity</code> </p> </li> <li> <p> <code>GroupAndWarmPoolDesiredCapacity</code> </p> </li> <li> <p> <code>GroupAndWarmPoolTotalCapacity</code> </p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-cloudwatch-monitoring.html#as-group-metrics">Auto Scaling group metrics</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+        Granularity:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen255'
+          - description: The granularity of the metric. The only valid value is <code>1Minute</code>.
+      description: Describes an enabled Auto Scaling group metric.
+    InstanceProtected:
+      type: boolean
+    AcceleratorTotalMemoryMiBRequest:
+      type: object
+      properties:
+        Min:
+          allOf:
+          - $ref: '#/components/schemas/NullablePositiveInteger'
+          - description: The memory minimum in MiB.
+        Max:
+          allOf:
+          - $ref: '#/components/schemas/NullablePositiveInteger'
+          - description: The memory maximum in MiB.
+      description: Specifies the minimum and maximum for the <code>AcceleratorTotalMemoryMiB</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
+    XmlString:
+      type: string
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    NetworkInterfaceCountRequest:
+      type: object
+      properties:
+        Min:
+          allOf:
+          - $ref: '#/components/schemas/NullablePositiveInteger'
+          - description: The minimum number of network interfaces.
+        Max:
+          allOf:
+          - $ref: '#/components/schemas/NullablePositiveInteger'
+          - description: The maximum number of network interfaces.
+      description: Specifies the minimum and maximum for the <code>NetworkInterfaceCount</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
+    InstanceGenerations:
+      type: array
+      items:
+        $ref: '#/components/schemas/InstanceGeneration'
+    TrafficSourceIdentifier:
+      type: object
+      required:
+      - Identifier
+      properties:
+        Identifier:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen511'
+          - description: '<p>Identifies the traffic source.</p> <p>For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.</p> <p>For example: </p> <ul> <li> <p>Application Load Balancer ARN: <code>arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/1234567890123456</code> </p> </li> <li> <p>Classic Load Balancer name: <code>my-classic-load-balancer</code> </p> </li> <li> <p>VPC Lattice ARN: <code>arn:aws:vpc-lattice:us-west-2:123456789012:targetgroup/tg-1234567890123456</code> </p> </li> </ul> <p>To get the ARN of a target group for a Application Load Balancer, Gateway Load Balancer, or Network Load Balancer, or the name of a Classic Load Balancer, use the Elastic Load Balancing <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html">DescribeTargetGroups</a> and <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html">DescribeLoadBalancers</a> API operations.</p> <p>To get the ARN of a target group for VPC Lattice, use the VPC Lattice <a href="https://docs.aws.amazon.com/vpc-lattice/latest/APIReference/API_GetTargetGroup.html">GetTargetGroup</a> API operation.</p>'
+          example: example-id-1234
+        Type:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen511'
+          - description: <p>Provides additional context for the value of <code>Identifier</code>.</p> <p>The following lists the valid values:</p> <ul> <li> <p> <code>elb</code> if <code>Identifier</code> is the name of a Classic Load Balancer.</p> </li> <li> <p> <code>elbv2</code> if <code>Identifier</code> is the ARN of an Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target group.</p> </li> <li> <p> <code>vpc-lattice</code> if <code>Identifier</code> is the ARN of a VPC Lattice target group.</p> </li> </ul> <p>Required if the identifier is the name of a Classic Load Balancer.</p>
+          example: example-string
+      description: Identifying information for a traffic source.
+    MemoryGiBPerVCpuRequest:
+      type: object
+      properties:
+        Min:
+          allOf:
+          - $ref: '#/components/schemas/NullablePositiveDouble'
+          - description: The memory minimum in GiB.
+        Max:
+          allOf:
+          - $ref: '#/components/schemas/NullablePositiveDouble'
+          - description: The memory maximum in GiB.
+      description: Specifies the minimum and maximum for the <code>MemoryGiBPerVCpu</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
+    LocalStorageType:
+      type: string
+      enum:
+      - hdd
+      - ssd
+    NetworkBandwidthGbpsRequest:
+      type: object
+      properties:
+        Min:
+          allOf:
+          - $ref: '#/components/schemas/NullablePositiveDouble'
+          - description: The minimum amount of network bandwidth, in gigabits per second (Gbps).
+        Max:
+          allOf:
+          - $ref: '#/components/schemas/NullablePositiveDouble'
+          - description: The maximum amount of network bandwidth, in gigabits per second (Gbps).
+      description: <p>Specifies the minimum and maximum for the <code>NetworkBandwidthGbps</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.</p> <note> <p>Setting the minimum bandwidth does not guarantee that your instance will achieve the minimum bandwidth. Amazon EC2 will identify instance types that support the specified minimum bandwidth, but the actual bandwidth of your instance might go below the specified minimum at times. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html#available-instance-bandwidth">Available instance bandwidth</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> </note>
+    AcceleratorCountRequest:
+      type: object
+      properties:
+        Min:
+          allOf:
+          - $ref: '#/components/schemas/NullablePositiveInteger'
+          - description: The minimum value.
+        Max:
+          allOf:
+          - $ref: '#/components/schemas/NullablePositiveInteger'
+          - description: The maximum value.
+      description: Specifies the minimum and maximum for the <code>AcceleratorCount</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
+    WarmPoolConfiguration:
+      type: object
+      properties:
+        MaxGroupPreparedCapacity:
+          allOf:
+          - $ref: '#/components/schemas/MaxGroupPreparedCapacity'
+          - description: The maximum number of instances that are allowed to be in the warm pool or in any state except <code>Terminated</code> for the Auto Scaling group.
+        MinSize:
+          allOf:
+          - $ref: '#/components/schemas/WarmPoolMinSize'
+          - description: The minimum number of instances to maintain in the warm pool.
+        PoolState:
+          allOf:
+          - $ref: '#/components/schemas/WarmPoolState'
+          - description: The instance state to transition to after the lifecycle actions are complete.
+        Status:
+          allOf:
+          - $ref: '#/components/schemas/WarmPoolStatus'
+          - description: The status of a warm pool that is marked for deletion.
+        InstanceReusePolicy:
+          allOf:
+          - $ref: '#/components/schemas/InstanceReusePolicy'
+          - description: The instance reuse policy.
+      description: 'Describes a warm pool configuration. '
+    AcceleratorManufacturers:
+      type: array
+      items:
+        $ref: '#/components/schemas/AcceleratorManufacturer'
+    InvalidNextToken: {}
+    AutoScalingGroupNames:
+      type: array
+      items:
+        $ref: '#/components/schemas/XmlStringMaxLen255'
     LaunchTemplateOverrides:
       type: object
       properties:
@@ -355,62 +854,139 @@ components:
           - $ref: '#/components/schemas/InstanceRequirements'
           - description: <p>The instance requirements. Amazon EC2 Auto Scaling uses your specified requirements to identify instance types. Then, it uses your On-Demand and Spot allocation strategies to launch instances from these instance types.</p> <p>You can specify up to four separate sets of instance requirements per Auto Scaling group. This is useful for provisioning instances from different Amazon Machine Images (AMIs) in the same Auto Scaling group. To do this, create the AMIs and create a new launch template for each AMI. Then, create a compatible set of instance requirements for each launch template. </p> <note> <p>If you specify <code>InstanceRequirements</code>, you can't specify <code>InstanceType</code>.</p> </note>
       description: <p>Use this structure to let Amazon EC2 Auto Scaling do the following when the Auto Scaling group has a mixed instances policy:</p> <ul> <li> <p>Override the instance type that is specified in the launch template.</p> </li> <li> <p>Use multiple instance types.</p> </li> </ul> <p>Specify the instance types that you want, or define your instance requirements instead and let Amazon EC2 Auto Scaling provision the available instance types that meet your requirements. This can provide Amazon EC2 Auto Scaling with a larger selection of instance types to choose from when fulfilling Spot and On-Demand capacities. You can view which instance types are matched before you apply the instance requirements to your Auto Scaling group.</p> <p>After you define your instance requirements, you don't have to keep updating these settings to get new EC2 instance types automatically. Amazon EC2 Auto Scaling uses the instance requirements of the Auto Scaling group to determine whether a new EC2 instance type can be used.</p>
-    EnabledMetric:
-      type: object
-      properties:
-        Metric:
-          allOf:
-          - $ref: '#/components/schemas/XmlStringMaxLen255'
-          - description: <p>One of the following metrics:</p> <ul> <li> <p> <code>GroupMinSize</code> </p> </li> <li> <p> <code>GroupMaxSize</code> </p> </li> <li> <p> <code>GroupDesiredCapacity</code> </p> </li> <li> <p> <code>GroupInServiceInstances</code> </p> </li> <li> <p> <code>GroupPendingInstances</code> </p> </li> <li> <p> <code>GroupStandbyInstances</code> </p> </li> <li> <p> <code>GroupTerminatingInstances</code> </p> </li> <li> <p> <code>GroupTotalInstances</code> </p> </li> <li> <p> <code>GroupInServiceCapacity</code> </p> </li> <li> <p> <code>GroupPendingCapacity</code> </p> </li> <li> <p> <code>GroupStandbyCapacity</code> </p> </li> <li> <p> <code>GroupTerminatingCapacity</code> </p> </li> <li> <p> <code>GroupTotalCapacity</code> </p> </li> <li> <p> <code>WarmPoolDesiredCapacity</code> </p> </li> <li> <p> <code>WarmPoolWarmedCapacity</code> </p> </li> <li> <p> <code>WarmPoolPendingCapacity</code> </p> </li> <li> <p> <code>WarmPoolTerminatingCapacity</code> </p> </li> <li> <p> <code>WarmPoolTotalCapacity</code> </p> </li> <li> <p> <code>GroupAndWarmPoolDesiredCapacity</code> </p> </li> <li> <p> <code>GroupAndWarmPoolTotalCapacity</code> </p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-cloudwatch-monitoring.html#as-group-metrics">Auto Scaling group metrics</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
-        Granularity:
-          allOf:
-          - $ref: '#/components/schemas/XmlStringMaxLen255'
-          - description: The granularity of the metric. The only valid value is <code>1Minute</code>.
-      description: Describes an enabled Auto Scaling group metric.
-    NetworkBandwidthGbpsRequest:
+    HealthCheckGracePeriod:
+      type: integer
+    EnabledMetrics:
+      type: array
+      items:
+        $ref: '#/components/schemas/EnabledMetric'
+    AutoScalingGroupDesiredCapacity:
+      type: integer
+    AcceleratorType:
+      type: string
+      enum:
+      - gpu
+      - fpga
+      - inference
+    TagDescriptionList:
+      type: array
+      items:
+        $ref: '#/components/schemas/TagDescription'
+    BaselineEbsBandwidthMbpsRequest:
       type: object
       properties:
         Min:
           allOf:
-          - $ref: '#/components/schemas/NullablePositiveDouble'
-          - description: The minimum amount of network bandwidth, in gigabits per second (Gbps).
+          - $ref: '#/components/schemas/NullablePositiveInteger'
+          - description: The minimum value in Mbps.
         Max:
           allOf:
-          - $ref: '#/components/schemas/NullablePositiveDouble'
-          - description: The maximum amount of network bandwidth, in gigabits per second (Gbps).
-      description: <p>Specifies the minimum and maximum for the <code>NetworkBandwidthGbps</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.</p> <note> <p>Setting the minimum bandwidth does not guarantee that your instance will achieve the minimum bandwidth. Amazon EC2 will identify instance types that support the specified minimum bandwidth, but the actual bandwidth of your instance might go below the specified minimum at times. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html#available-instance-bandwidth">Available instance bandwidth</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> </note>
-    AvailabilityZones:
+          - $ref: '#/components/schemas/NullablePositiveInteger'
+          - description: The maximum value in Mbps.
+      description: Specifies the minimum and maximum for the <code>BaselineEbsBandwidthMbps</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
+    LifecycleState:
+      type: string
+      enum:
+      - Pending
+      - Pending:Wait
+      - Pending:Proceed
+      - Quarantined
+      - InService
+      - Terminating
+      - Terminating:Wait
+      - Terminating:Proceed
+      - Terminated
+      - Detaching
+      - Detached
+      - EnteringStandby
+      - Standby
+      - Warmed:Pending
+      - Warmed:Pending:Wait
+      - Warmed:Pending:Proceed
+      - Warmed:Terminating
+      - Warmed:Terminating:Wait
+      - Warmed:Terminating:Proceed
+      - Warmed:Terminated
+      - Warmed:Stopped
+      - Warmed:Running
+      - Warmed:Hibernated
+    BareMetal:
+      type: string
+      enum:
+      - included
+      - excluded
+      - required
+    AutoScalingGroups:
       type: array
       items:
-        $ref: '#/components/schemas/XmlStringMaxLen255'
-    TotalLocalStorageGBRequest:
+        $ref: '#/components/schemas/AutoScalingGroup'
+    Cooldown:
+      type: integer
+    ReuseOnScaleIn:
+      type: boolean
+    InstanceReusePolicy:
       type: object
       properties:
-        Min:
+        ReuseOnScaleIn:
           allOf:
-          - $ref: '#/components/schemas/NullablePositiveDouble'
-          - description: The storage minimum in GB.
-        Max:
-          allOf:
-          - $ref: '#/components/schemas/NullablePositiveDouble'
-          - description: The storage maximum in GB.
-      description: Specifies the minimum and maximum for the <code>TotalLocalStorageGB</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
-    Instances:
-      type: array
-      items:
-        $ref: '#/components/schemas/Instance'
-    XmlStringMaxLen1600:
+          - $ref: '#/components/schemas/ReuseOnScaleIn'
+          - description: 'Specifies whether instances in the Auto Scaling group can be returned to the warm pool on scale in. '
+      description: <p>Describes an instance reuse policy for a warm pool. </p> <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html">Warm pools for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+    MaxGroupPreparedCapacity:
+      type: integer
+      minimum: -1
+    XmlStringMaxLen32:
       type: string
       minLength: 1
-      maxLength: 1600
+      maxLength: 32
       x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    PropagateAtLaunch:
+      type: boolean
+    XmlStringMaxLen255:
+      type: string
+      minLength: 1
+      maxLength: 255
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    XmlStringMaxLen511:
+      type: string
+      minLength: 1
+      maxLength: 511
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    WarmPoolStatus:
+      type: string
+      enum:
+      - PendingDelete
+    AutoScalingGroupNamesType:
+      type: object
+      title: AutoScalingGroupNamesType
+      properties:
+        AutoScalingGroupNames:
+          allOf:
+          - $ref: '#/components/schemas/AutoScalingGroupNames'
+          - description: <p>The names of the Auto Scaling groups. By default, you can only specify up to 50 names. You can optionally increase this limit using the <code>MaxRecords</code> property.</p> <p>If you omit this property, all Auto Scaling groups are described.</p>
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/XmlString'
+          - description: The token for the next set of items to return. (You received this token from a previous call.)
+        MaxRecords:
+          allOf:
+          - $ref: '#/components/schemas/MaxRecords'
+          - description: The maximum number of items to return with this call. The default value is <code>50</code> and the maximum value is <code>100</code>.
+        Filters:
+          allOf:
+          - $ref: '#/components/schemas/Filters'
+          - description: 'One or more filters to limit the results based on specific tags. '
+    CpuManufacturers:
+      type: array
+      items:
+        $ref: '#/components/schemas/CpuManufacturer'
     Context:
       type: string
-    XmlStringMaxLen19:
+    AllowedInstanceType:
       type: string
+      pattern: '[a-zA-Z0-9\.\*]+'
       minLength: 1
-      maxLength: 19
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+      maxLength: 30
     AutoScalingGroup:
       type: object
       required:
@@ -560,215 +1136,10 @@ components:
           - $ref: '#/components/schemas/TrafficSources'
           - description: The traffic sources associated with this Auto Scaling group.
       description: Describes an Auto Scaling group.
-    InstanceRequirements:
-      type: object
-      required:
-      - VCpuCount
-      - MemoryMiB
-      properties:
-        VCpuCount:
-          allOf:
-          - $ref: '#/components/schemas/VCpuCountRequest'
-          - description: The minimum and maximum number of vCPUs for an instance type.
-        MemoryMiB:
-          allOf:
-          - $ref: '#/components/schemas/MemoryMiBRequest'
-          - description: The minimum and maximum instance memory size for an instance type, in MiB.
-        CpuManufacturers:
-          allOf:
-          - $ref: '#/components/schemas/CpuManufacturers'
-          - description: '<p>Lists which specific CPU manufacturers to include.</p> <ul> <li> <p>For instance types with Intel CPUs, specify <code>intel</code>.</p> </li> <li> <p>For instance types with AMD CPUs, specify <code>amd</code>.</p> </li> <li> <p>For instance types with Amazon Web Services CPUs, specify <code>amazon-web-services</code>.</p> </li> </ul> <note> <p>Don''t confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template. </p> </note> <p>Default: Any manufacturer</p>'
-        MemoryGiBPerVCpu:
-          allOf:
-          - $ref: '#/components/schemas/MemoryGiBPerVCpuRequest'
-          - description: '<p>The minimum and maximum amount of memory per vCPU for an instance type, in GiB.</p> <p>Default: No minimum or maximum limits</p>'
-        ExcludedInstanceTypes:
-          allOf:
-          - $ref: '#/components/schemas/ExcludedInstanceTypes'
-          - description: '<p>The instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (<code>*</code>), to exclude an instance family, type, size, or generation. The following are examples: <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>, <code>r*</code>, <code>*3*</code>. </p> <p>For example, if you specify <code>c5*</code>, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify <code>m5a.*</code>, Amazon EC2 Auto Scaling will exclude all the M5a instance types, but not the M5n instance types.</p> <note> <p>If you specify <code>ExcludedInstanceTypes</code>, you can''t specify <code>AllowedInstanceTypes</code>.</p> </note> <p>Default: No excluded instance types</p>'
-        InstanceGenerations:
-          allOf:
-          - $ref: '#/components/schemas/InstanceGenerations'
-          - description: '<p>Indicates whether current or previous generation instance types are included.</p> <ul> <li> <p>For current generation instance types, specify <code>current</code>. The current generation includes EC2 instance types currently recommended for use. This typically includes the latest two to three generations in each instance family. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> </li> <li> <p>For previous generation instance types, specify <code>previous</code>.</p> </li> </ul> <p>Default: Any current or previous generation</p>'
-        SpotMaxPricePercentageOverLowestPrice:
-          allOf:
-          - $ref: '#/components/schemas/NullablePositiveInteger'
-          - description: '<p>The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the least expensive current generation M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as <code>999999</code>. </p> <p>If you set <code>DesiredCapacityType</code> to <code>vcpu</code> or <code>memory-mib</code>, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price. </p> <p>Default: <code>100</code> </p>'
-        OnDemandMaxPricePercentageOverLowestPrice:
-          allOf:
-          - $ref: '#/components/schemas/NullablePositiveInteger'
-          - description: '<p>The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the least expensive current generation M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as <code>999999</code>. </p> <p>If you set <code>DesiredCapacityType</code> to <code>vcpu</code> or <code>memory-mib</code>, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price. </p> <p>Default: <code>20</code> </p>'
-        BareMetal:
-          allOf:
-          - $ref: '#/components/schemas/BareMetal'
-          - description: '<p>Indicates whether bare metal instance types are included, excluded, or required.</p> <p>Default: <code>excluded</code> </p>'
-        BurstablePerformance:
-          allOf:
-          - $ref: '#/components/schemas/BurstablePerformance'
-          - description: '<p>Indicates whether burstable performance instance types are included, excluded, or required. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable performance instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> <p>Default: <code>excluded</code> </p>'
-        RequireHibernateSupport:
-          allOf:
-          - $ref: '#/components/schemas/NullableBoolean'
-          - description: '<p>Indicates whether instance types must provide On-Demand Instance hibernation support.</p> <p>Default: <code>false</code> </p>'
-        NetworkInterfaceCount:
-          allOf:
-          - $ref: '#/components/schemas/NetworkInterfaceCountRequest'
-          - description: '<p>The minimum and maximum number of network interfaces for an instance type.</p> <p>Default: No minimum or maximum limits</p>'
-        LocalStorage:
-          allOf:
-          - $ref: '#/components/schemas/LocalStorage'
-          - description: '<p>Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html">Amazon EC2 instance store</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> <p>Default: <code>included</code> </p>'
-        LocalStorageTypes:
-          allOf:
-          - $ref: '#/components/schemas/LocalStorageTypes'
-          - description: '<p>Indicates the type of local storage that is required.</p> <ul> <li> <p>For instance types with hard disk drive (HDD) storage, specify <code>hdd</code>.</p> </li> <li> <p>For instance types with solid state drive (SSD) storage, specify <code>ssd</code>.</p> </li> </ul> <p>Default: Any local storage type</p>'
-        TotalLocalStorageGB:
-          allOf:
-          - $ref: '#/components/schemas/TotalLocalStorageGBRequest'
-          - description: '<p>The minimum and maximum total local storage size for an instance type, in GB.</p> <p>Default: No minimum or maximum limits</p>'
-        BaselineEbsBandwidthMbps:
-          allOf:
-          - $ref: '#/components/schemas/BaselineEbsBandwidthMbpsRequest'
-          - description: '<p>The minimum and maximum baseline bandwidth performance for an instance type, in Mbps. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html">Amazon EBS–optimized instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> <p>Default: No minimum or maximum limits</p>'
-        AcceleratorTypes:
-          allOf:
-          - $ref: '#/components/schemas/AcceleratorTypes'
-          - description: '<p>Lists the accelerator types that must be on an instance type.</p> <ul> <li> <p>For instance types with GPU accelerators, specify <code>gpu</code>.</p> </li> <li> <p>For instance types with FPGA accelerators, specify <code>fpga</code>.</p> </li> <li> <p>For instance types with inference accelerators, specify <code>inference</code>.</p> </li> </ul> <p>Default: Any accelerator type</p>'
-        AcceleratorCount:
-          allOf:
-          - $ref: '#/components/schemas/AcceleratorCountRequest'
-          - description: '<p>The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon Web Services Inferentia chips) for an instance type.</p> <p>To exclude accelerator-enabled instance types, set <code>Max</code> to <code>0</code>.</p> <p>Default: No minimum or maximum limits</p>'
-        AcceleratorManufacturers:
-          allOf:
-          - $ref: '#/components/schemas/AcceleratorManufacturers'
-          - description: '<p>Indicates whether instance types must have accelerators by specific manufacturers.</p> <ul> <li> <p>For instance types with NVIDIA devices, specify <code>nvidia</code>.</p> </li> <li> <p>For instance types with AMD devices, specify <code>amd</code>.</p> </li> <li> <p>For instance types with Amazon Web Services devices, specify <code>amazon-web-services</code>.</p> </li> <li> <p>For instance types with Xilinx devices, specify <code>xilinx</code>.</p> </li> </ul> <p>Default: Any manufacturer</p>'
-        AcceleratorNames:
-          allOf:
-          - $ref: '#/components/schemas/AcceleratorNames'
-          - description: '<p>Lists the accelerators that must be on an instance type.</p> <ul> <li> <p>For instance types with NVIDIA A100 GPUs, specify <code>a100</code>.</p> </li> <li> <p>For instance types with NVIDIA V100 GPUs, specify <code>v100</code>.</p> </li> <li> <p>For instance types with NVIDIA K80 GPUs, specify <code>k80</code>.</p> </li> <li> <p>For instance types with NVIDIA T4 GPUs, specify <code>t4</code>.</p> </li> <li> <p>For instance types with NVIDIA M60 GPUs, specify <code>m60</code>.</p> </li> <li> <p>For instance types with AMD Radeon Pro V520 GPUs, specify <code>radeon-pro-v520</code>.</p> </li> <li> <p>For instance types with Xilinx VU9P FPGAs, specify <code>vu9p</code>.</p> </li> </ul> <p>Default: Any accelerator</p>'
-        AcceleratorTotalMemoryMiB:
-          allOf:
-          - $ref: '#/components/schemas/AcceleratorTotalMemoryMiBRequest'
-          - description: '<p>The minimum and maximum total memory size for the accelerators on an instance type, in MiB.</p> <p>Default: No minimum or maximum limits</p>'
-        NetworkBandwidthGbps:
-          allOf:
-          - $ref: '#/components/schemas/NetworkBandwidthGbpsRequest'
-          - description: '<p>The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).</p> <p>Default: No minimum or maximum limits</p>'
-        AllowedInstanceTypes:
-          allOf:
-          - $ref: '#/components/schemas/AllowedInstanceTypes'
-          - description: '<p>The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.</p> <p>You can use strings with one or more wild cards, represented by an asterisk (<code>*</code>), to allow an instance type, size, or generation. The following are examples: <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>, <code>r*</code>, <code>*3*</code>.</p> <p>For example, if you specify <code>c5*</code>, Amazon EC2 Auto Scaling will allow the entire C5 instance family, which includes all C5a and C5n instance types. If you specify <code>m5a.*</code>, Amazon EC2 Auto Scaling will allow all the M5a instance types, but not the M5n instance types.</p> <note> <p>If you specify <code>AllowedInstanceTypes</code>, you can''t specify <code>ExcludedInstanceTypes</code>.</p> </note> <p>Default: All instance types</p>'
-      description: <p>The attributes for the instance types for a mixed instances policy. Amazon EC2 Auto Scaling uses your specified requirements to identify instance types. Then, it uses your On-Demand and Spot allocation strategies to launch instances from these instance types.</p> <p>When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.</p> <p>To limit the list of instance types from which Amazon EC2 Auto Scaling can identify matching instance types, you can use one of the following parameters, but not both in the same request:</p> <ul> <li> <p> <code>AllowedInstanceTypes</code> - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.</p> </li> <li> <p> <code>ExcludedInstanceTypes</code> - The instance types to exclude from the list, even if they match your specified attributes.</p> </li> </ul> <note> <p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other attributes are optional. Any unspecified optional attribute is set to its default.</p> </note> <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html">Creating an Auto Scaling group using attribute-based instance type selection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. For help determining which instance types match your attributes before you apply them to your Auto Scaling group, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-get-instance-types-from-instance-requirements">Preview instance types with specified attributes</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
-    LocalStorageTypes:
-      type: array
-      items:
-        $ref: '#/components/schemas/LocalStorageType'
-    LoadBalancerNames:
-      type: array
-      items:
-        $ref: '#/components/schemas/XmlStringMaxLen255'
-    Instance:
-      type: object
-      required:
-      - InstanceId
-      - AvailabilityZone
-      - LifecycleState
-      - HealthStatus
-      - ProtectedFromScaleIn
-      properties:
-        InstanceId:
-          allOf:
-          - $ref: '#/components/schemas/XmlStringMaxLen19'
-          - description: The ID of the instance.
-        InstanceType:
-          allOf:
-          - $ref: '#/components/schemas/XmlStringMaxLen255'
-          - description: The instance type of the EC2 instance.
-        AvailabilityZone:
-          allOf:
-          - $ref: '#/components/schemas/XmlStringMaxLen255'
-          - description: The Availability Zone in which the instance is running.
-        LifecycleState:
-          allOf:
-          - $ref: '#/components/schemas/LifecycleState'
-          - description: 'A description of the current lifecycle state. The <code>Quarantined</code> state is not used. For information about lifecycle states, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroupLifecycle.html">Instance lifecycle</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. '
-        HealthStatus:
-          allOf:
-          - $ref: '#/components/schemas/XmlStringMaxLen32'
-          - description: The last reported health status of the instance. <code>Healthy</code> means that the instance is healthy and should remain in service. <code>Unhealthy</code> means that the instance is unhealthy and that Amazon EC2 Auto Scaling should terminate and replace it.
-        LaunchConfigurationName:
-          allOf:
-          - $ref: '#/components/schemas/XmlStringMaxLen255'
-          - description: The launch configuration associated with the instance.
-        LaunchTemplate:
-          allOf:
-          - $ref: '#/components/schemas/LaunchTemplateSpecification'
-          - description: The launch template for the instance.
-        ProtectedFromScaleIn:
-          allOf:
-          - $ref: '#/components/schemas/InstanceProtected'
-          - description: Indicates whether the instance is protected from termination by Amazon EC2 Auto Scaling when scaling in.
-        WeightedCapacity:
-          allOf:
-          - $ref: '#/components/schemas/XmlStringMaxLen32'
-          - description: '<p>The number of capacity units contributed by the instance based on its instance type.</p> <p>Valid Range: Minimum value of 1. Maximum value of 999.</p>'
-      description: Describes an EC2 instance.
     TargetGroupARNs:
       type: array
       items:
         $ref: '#/components/schemas/XmlStringMaxLen511'
-    LaunchTemplateSpecification:
-      type: object
-      properties:
-        LaunchTemplateId:
-          allOf:
-          - $ref: '#/components/schemas/XmlStringMaxLen255'
-          - description: '<p>The ID of the launch template. To get the template ID, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html">DescribeLaunchTemplates</a> API operation. New launch templates can be created using the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html">CreateLaunchTemplate</a> API. </p> <p>Conditional: You must specify either a <code>LaunchTemplateId</code> or a <code>LaunchTemplateName</code>.</p>'
-        LaunchTemplateName:
-          allOf:
-          - $ref: '#/components/schemas/LaunchTemplateName'
-          - description: '<p>The name of the launch template. To get the template name, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html">DescribeLaunchTemplates</a> API operation. New launch templates can be created using the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html">CreateLaunchTemplate</a> API. </p> <p>Conditional: You must specify either a <code>LaunchTemplateId</code> or a <code>LaunchTemplateName</code>.</p>'
-        Version:
-          allOf:
-          - $ref: '#/components/schemas/XmlStringMaxLen255'
-          - description: The version number, <code>$Latest</code>, or <code>$Default</code>. To get the version number, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplateVersions.html">DescribeLaunchTemplateVersions</a> API operation. New launch template versions can be created using the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplateVersion.html">CreateLaunchTemplateVersion</a> API. If the value is <code>$Latest</code>, Amazon EC2 Auto Scaling selects the latest version of the launch template when launching instances. If the value is <code>$Default</code>, Amazon EC2 Auto Scaling selects the default version of the launch template when launching instances. The default value is <code>$Default</code>.
-      description: Describes the launch template and the version of the launch template that Amazon EC2 Auto Scaling uses to launch Amazon EC2 instances. For more information about launch templates, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchTemplates.html">Launch templates</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
-    AcceleratorNames:
-      type: array
-      items:
-        $ref: '#/components/schemas/AcceleratorName'
-    BurstablePerformance:
-      type: string
-      enum:
-      - included
-      - excluded
-      - required
-    SpotInstancePools:
-      type: integer
-    TagDescription:
-      type: object
-      properties:
-        ResourceId:
-          allOf:
-          - $ref: '#/components/schemas/XmlString'
-          - description: The name of the group.
-        ResourceType:
-          allOf:
-          - $ref: '#/components/schemas/XmlString'
-          - description: The type of resource. The only supported value is <code>auto-scaling-group</code>.
-        Key:
-          allOf:
-          - $ref: '#/components/schemas/TagKey'
-          - description: The tag key.
-        Value:
-          allOf:
-          - $ref: '#/components/schemas/TagValue'
-          - description: The tag value.
-        PropagateAtLaunch:
-          allOf:
-          - $ref: '#/components/schemas/PropagateAtLaunch'
-          - description: Determines whether the tag is added to new instances as they are launched in the group.
-      description: Describes a tag for an Auto Scaling group.
     AcceleratorName:
       type: string
       enum:
@@ -779,155 +1150,12 @@ components:
       - m60
       - radeon-pro-v520
       - vu9p
-    WarmPoolConfiguration:
-      type: object
-      properties:
-        MaxGroupPreparedCapacity:
-          allOf:
-          - $ref: '#/components/schemas/MaxGroupPreparedCapacity'
-          - description: The maximum number of instances that are allowed to be in the warm pool or in any state except <code>Terminated</code> for the Auto Scaling group.
-        MinSize:
-          allOf:
-          - $ref: '#/components/schemas/WarmPoolMinSize'
-          - description: The minimum number of instances to maintain in the warm pool.
-        PoolState:
-          allOf:
-          - $ref: '#/components/schemas/WarmPoolState'
-          - description: The instance state to transition to after the lifecycle actions are complete.
-        Status:
-          allOf:
-          - $ref: '#/components/schemas/WarmPoolStatus'
-          - description: The status of a warm pool that is marked for deletion.
-        InstanceReusePolicy:
-          allOf:
-          - $ref: '#/components/schemas/InstanceReusePolicy'
-          - description: The instance reuse policy.
-      description: 'Describes a warm pool configuration. '
-    LifecycleState:
-      type: string
-      enum:
-      - Pending
-      - Pending:Wait
-      - Pending:Proceed
-      - Quarantined
-      - InService
-      - Terminating
-      - Terminating:Wait
-      - Terminating:Proceed
-      - Terminated
-      - Detaching
-      - Detached
-      - EnteringStandby
-      - Standby
-      - Warmed:Pending
-      - Warmed:Pending:Wait
-      - Warmed:Pending:Proceed
-      - Warmed:Terminating
-      - Warmed:Terminating:Wait
-      - Warmed:Terminating:Proceed
-      - Warmed:Terminated
-      - Warmed:Stopped
-      - Warmed:Running
-      - Warmed:Hibernated
-    AcceleratorTypes:
-      type: array
-      items:
-        $ref: '#/components/schemas/AcceleratorType'
-    MaxGroupPreparedCapacity:
-      type: integer
-      minimum: -1
-    NetworkInterfaceCountRequest:
-      type: object
-      properties:
-        Min:
-          allOf:
-          - $ref: '#/components/schemas/NullablePositiveInteger'
-          - description: The minimum number of network interfaces.
-        Max:
-          allOf:
-          - $ref: '#/components/schemas/NullablePositiveInteger'
-          - description: The maximum number of network interfaces.
-      description: Specifies the minimum and maximum for the <code>NetworkInterfaceCount</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
-    OnDemandBaseCapacity:
-      type: integer
-    AcceleratorManufacturer:
-      type: string
-      enum:
-      - nvidia
-      - amd
-      - amazon-web-services
-      - xilinx
-    AllowedInstanceTypes:
-      type: array
-      items:
-        $ref: '#/components/schemas/AllowedInstanceType'
-      maxItems: 400
-    ReuseOnScaleIn:
-      type: boolean
-    BareMetal:
+    LocalStorage:
       type: string
       enum:
       - included
       - excluded
       - required
-    TerminationPolicies:
-      type: array
-      items:
-        $ref: '#/components/schemas/XmlStringMaxLen1600'
-    WarmPoolState:
-      type: string
-      enum:
-      - Stopped
-      - Running
-      - Hibernated
-    CapacityRebalanceEnabled:
-      type: boolean
-    AutoScalingGroupNames:
-      type: array
-      items:
-        $ref: '#/components/schemas/XmlStringMaxLen255'
-    Values:
-      type: array
-      items:
-        $ref: '#/components/schemas/XmlString'
-    XmlStringMaxLen32:
-      type: string
-      minLength: 1
-      maxLength: 32
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    NullablePositiveDouble:
-      type: number
-      format: double
-      minimum: 0
-    LocalStorageType:
-      type: string
-      enum:
-      - hdd
-      - ssd
-    MixedInstancesPolicy:
-      type: object
-      properties:
-        LaunchTemplate:
-          allOf:
-          - $ref: '#/components/schemas/LaunchTemplate'
-          - description: One or more launch templates and the instance types (overrides) that are used to launch EC2 instances to fulfill On-Demand and Spot capacities.
-        InstancesDistribution:
-          allOf:
-          - $ref: '#/components/schemas/InstancesDistribution'
-          - description: The instances distribution.
-      description: <p>Use this structure to launch multiple instance types and On-Demand Instances and Spot Instances within a single Auto Scaling group.</p> <p>A mixed instances policy contains information that Amazon EC2 Auto Scaling can use to launch instances and help optimize your costs. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html">Auto Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
-    CpuManufacturer:
-      type: string
-      enum:
-      - intel
-      - amd
-      - amazon-web-services
-    AutoScalingGroupPredictedCapacity:
-      type: integer
-    InstanceGenerations:
-      type: array
-      items:
-        $ref: '#/components/schemas/InstanceGeneration'
     MemoryMiBRequest:
       type: object
       required:
@@ -942,85 +1170,62 @@ components:
           - $ref: '#/components/schemas/NullablePositiveInteger'
           - description: The memory maximum in MiB.
       description: Specifies the minimum and maximum for the <code>MemoryMiB</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
-    Cooldown:
-      type: integer
-    AutoScalingGroupMinSize:
-      type: integer
-    NullableBoolean:
-      type: boolean
-    XmlStringMaxLen511:
+    XmlStringMaxLen1600:
       type: string
       minLength: 1
-      maxLength: 511
+      maxLength: 1600
       x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    AutoScalingGroupNamesType:
+    TagKey:
+      type: string
+      minLength: 1
+      maxLength: 128
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    InstancesDistribution:
       type: object
-      title: AutoScalingGroupNamesType
       properties:
-        AutoScalingGroupNames:
-          allOf:
-          - $ref: '#/components/schemas/AutoScalingGroupNames'
-          - description: <p>The names of the Auto Scaling groups. By default, you can only specify up to 50 names. You can optionally increase this limit using the <code>MaxRecords</code> property.</p> <p>If you omit this property, all Auto Scaling groups are described.</p>
-        NextToken:
+        OnDemandAllocationStrategy:
           allOf:
           - $ref: '#/components/schemas/XmlString'
-          - description: The token for the next set of items to return. (You received this token from a previous call.)
-        MaxRecords:
-          allOf:
-          - $ref: '#/components/schemas/MaxRecords'
-          - description: The maximum number of items to return with this call. The default value is <code>50</code> and the maximum value is <code>100</code>.
-        Filters:
-          allOf:
-          - $ref: '#/components/schemas/Filters'
-          - description: 'One or more filters to limit the results based on specific tags. '
-    TrafficSourceIdentifier:
-      type: object
-      required:
-      - Identifier
-      properties:
-        Identifier:
-          allOf:
-          - $ref: '#/components/schemas/XmlStringMaxLen511'
-          - description: '<p>Identifies the traffic source.</p> <p>For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.</p> <p>For example: </p> <ul> <li> <p>Application Load Balancer ARN: <code>arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/1234567890123456</code> </p> </li> <li> <p>Classic Load Balancer name: <code>my-classic-load-balancer</code> </p> </li> <li> <p>VPC Lattice ARN: <code>arn:aws:vpc-lattice:us-west-2:123456789012:targetgroup/tg-1234567890123456</code> </p> </li> </ul> <p>To get the ARN of a target group for a Application Load Balancer, Gateway Load Balancer, or Network Load Balancer, or the name of a Classic Load Balancer, use the Elastic Load Balancing <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html">DescribeTargetGroups</a> and <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html">DescribeLoadBalancers</a> API operations.</p> <p>To get the ARN of a target group for VPC Lattice, use the VPC Lattice <a href="https://docs.aws.amazon.com/vpc-lattice/latest/APIReference/API_GetTargetGroup.html">GetTargetGroup</a> API operation.</p>'
-          example: example-id-1234
-        Type:
-          allOf:
-          - $ref: '#/components/schemas/XmlStringMaxLen511'
-          - description: <p>Provides additional context for the value of <code>Identifier</code>.</p> <p>The following lists the valid values:</p> <ul> <li> <p> <code>elb</code> if <code>Identifier</code> is the name of a Classic Load Balancer.</p> </li> <li> <p> <code>elbv2</code> if <code>Identifier</code> is the ARN of an Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target group.</p> </li> <li> <p> <code>vpc-lattice</code> if <code>Identifier</code> is the ARN of a VPC Lattice target group.</p> </li> </ul> <p>Required if the identifier is the name of a Classic Load Balancer.</p>
+          - description: <p>The allocation strategy to apply to your On-Demand Instances when they are launched. Possible instance types are determined by the launch template overrides that you specify.</p> <p>The following lists the valid values:</p> <dl> <dt>lowest-price</dt> <dd> <p>Uses price to determine which instance types are the highest priority, launching the lowest priced instance types within an Availability Zone first. This is the default value for Auto Scaling groups that specify <a>InstanceRequirements</a>. </p> </dd> <dt>prioritized</dt> <dd> <p>You set the order of instance types for the launch template overrides from highest to lowest priority (from first to last in the list). Amazon EC2 Auto Scaling launches your highest priority instance types first. If all your On-Demand capacity cannot be fulfilled using your highest priority instance type, then Amazon EC2 Auto Scaling launches the remaining capacity using the second priority instance type, and so on. This is the default value for Auto Scaling groups that don't specify <a>InstanceRequirements</a> and cannot be used for groups that do.</p> </dd> </dl>
           example: example-string
-      description: Identifying information for a traffic source.
-    XmlStringMaxLen2047:
-      type: string
-      minLength: 1
-      maxLength: 2047
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    CpuManufacturers:
+        OnDemandBaseCapacity:
+          allOf:
+          - $ref: '#/components/schemas/OnDemandBaseCapacity'
+          - description: '<p>The minimum amount of the Auto Scaling group''s capacity that must be fulfilled by On-Demand Instances. This base portion is launched first as your group scales.</p> <p>This number has the same unit of measurement as the group''s desired capacity. If you change the default unit of measurement (number of instances) by specifying weighted capacity values in your launch template overrides list, or by changing the default desired capacity type setting of the group, you must specify this number using the same unit of measurement.</p> <p>Default: 0</p>'
+          example: example-string
+        OnDemandPercentageAboveBaseCapacity:
+          allOf:
+          - $ref: '#/components/schemas/OnDemandPercentageAboveBaseCapacity'
+          - description: '<p>Controls the percentages of On-Demand Instances and Spot Instances for your additional capacity beyond <code>OnDemandBaseCapacity</code>. Expressed as a number (for example, 20 specifies 20% On-Demand Instances, 80% Spot Instances). If set to 100, only On-Demand Instances are used.</p> <p>Default: 100</p>'
+          example: example-string
+        SpotAllocationStrategy:
+          allOf:
+          - $ref: '#/components/schemas/XmlString'
+          - description: <p>The allocation strategy to apply to your Spot Instances when they are launched. Possible instance types are determined by the launch template overrides that you specify.</p> <p>The following lists the valid values:</p> <dl> <dt>capacity-optimized</dt> <dd> <p>Requests Spot Instances using pools that are optimally chosen based on the available Spot capacity. This strategy has the lowest risk of interruption. To give certain instance types a higher chance of launching first, use <code>capacity-optimized-prioritized</code>.</p> </dd> <dt>capacity-optimized-prioritized</dt> <dd> <p>You set the order of instance types for the launch template overrides from highest to lowest priority (from first to last in the list). Amazon EC2 Auto Scaling honors the instance type priorities on a best effort basis but optimizes for capacity first. Note that if the On-Demand allocation strategy is set to <code>prioritized</code>, the same priority is applied when fulfilling On-Demand capacity. This is not a valid value for Auto Scaling groups that specify <a>InstanceRequirements</a>.</p> </dd> <dt>lowest-price</dt> <dd> <p>Requests Spot Instances using the lowest priced pools within an Availability Zone, across the number of Spot pools that you specify for the <code>SpotInstancePools</code> property. To ensure that your desired capacity is met, you might receive Spot Instances from several pools. This is the default value, but it might lead to high interruption rates because this strategy only considers instance price and not available capacity.</p> </dd> <dt>price-capacity-optimized (recommended)</dt> <dd> <p>The price and capacity optimized allocation strategy looks at both price and capacity to select the Spot Instance pools that are the least likely to be interrupted and have the lowest possible price.</p> </dd> </dl>
+          example: example-string
+        SpotInstancePools:
+          allOf:
+          - $ref: '#/components/schemas/SpotInstancePools'
+          - description: '<p>The number of Spot Instance pools across which to allocate your Spot Instances. The Spot pools are determined from the different instance types in the overrides. Valid only when the <code>SpotAllocationStrategy</code> is <code>lowest-price</code>. Value must be in the range of 1–20.</p> <p>Default: 2</p>'
+          example: example-string
+        SpotMaxPrice:
+          allOf:
+          - $ref: '#/components/schemas/MixedInstanceSpotPrice'
+          - description: '<p>The maximum price per unit hour that you are willing to pay for a Spot Instance. If your maximum price is lower than the Spot price for the instance types that you selected, your Spot Instances are not launched. We do not recommend specifying a maximum price because it can lead to increased interruptions. When Spot Instances launch, you pay the current Spot price. To remove a maximum price that you previously set, include the property but specify an empty string ("") for the value.</p> <important> <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify one.</p> </important> <p>Valid Range: Minimum value of 0.001</p>'
+          example: example-string
+      description: Use this structure to specify the distribution of On-Demand Instances and Spot Instances and the allocation strategies used to fulfill On-Demand and Spot capacities for a mixed instances policy.
+    ExcludedInstanceTypes:
       type: array
       items:
-        $ref: '#/components/schemas/CpuManufacturer'
-    LocalStorage:
+        $ref: '#/components/schemas/ExcludedInstance'
+      maxItems: 400
+    SpotInstancePools:
+      type: integer
+    ExcludedInstance:
       type: string
-      enum:
-      - included
-      - excluded
-      - required
-    TagValue:
-      type: string
-      minLength: 0
-      maxLength: 256
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    SuspendedProcess:
-      type: object
-      properties:
-        ProcessName:
-          allOf:
-          - $ref: '#/components/schemas/XmlStringMaxLen255'
-          - description: The name of the suspended process.
-        SuspensionReason:
-          allOf:
-          - $ref: '#/components/schemas/XmlStringMaxLen255'
-          - description: The reason that the process was suspended.
-      description: <p>Describes an auto scaling process that has been suspended.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html#process-types">Scaling processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+      pattern: '[a-zA-Z0-9\.\*]+'
+      minLength: 1
+      maxLength: 30
     AutoScalingGroupsType:
       type: object
       required:
@@ -1065,242 +1270,25 @@ components:
           - $ref: '#/components/schemas/XmlString'
           - description: A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the <code>NextToken</code> value when requesting the next set of items. This value is null when there are no more items to return.
           example: example-string
-    TagKey:
-      type: string
-      minLength: 1
-      maxLength: 128
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    ExcludedInstance:
-      type: string
-      pattern: '[a-zA-Z0-9\.\*]+'
-      minLength: 1
-      maxLength: 30
-    VCpuCountRequest:
-      type: object
-      required:
-      - Min
-      properties:
-        Min:
-          allOf:
-          - $ref: '#/components/schemas/NullablePositiveInteger'
-          - description: The minimum number of vCPUs.
-        Max:
-          allOf:
-          - $ref: '#/components/schemas/NullablePositiveInteger'
-          - description: The maximum number of vCPUs.
-      description: Specifies the minimum and maximum for the <code>VCpuCount</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
-    EnabledMetrics:
-      type: array
-      items:
-        $ref: '#/components/schemas/EnabledMetric'
-    LaunchTemplate:
-      type: object
-      properties:
-        LaunchTemplateSpecification:
-          allOf:
-          - $ref: '#/components/schemas/LaunchTemplateSpecification'
-          - description: The launch template.
-          example: example-string
-        Overrides:
-          allOf:
-          - $ref: '#/components/schemas/Overrides'
-          - description: Any properties that you specify override the same properties in the launch template.
-          example: example-id-1234
-      description: Use this structure to specify the launch templates and instance types (overrides) for a mixed instances policy.
-    WarmPoolSize:
-      type: integer
-    AllowedInstanceType:
-      type: string
-      pattern: '[a-zA-Z0-9\.\*]+'
-      minLength: 1
-      maxLength: 30
-    AcceleratorManufacturers:
-      type: array
-      items:
-        $ref: '#/components/schemas/AcceleratorManufacturer'
-    NullablePositiveInteger:
-      type: integer
-      minimum: 0
-    HealthCheckGracePeriod:
-      type: integer
-    InstanceReusePolicy:
-      type: object
-      properties:
-        ReuseOnScaleIn:
-          allOf:
-          - $ref: '#/components/schemas/ReuseOnScaleIn'
-          - description: 'Specifies whether instances in the Auto Scaling group can be returned to the warm pool on scale in. '
-      description: <p>Describes an instance reuse policy for a warm pool. </p> <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html">Warm pools for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
-    ExcludedInstanceTypes:
-      type: array
-      items:
-        $ref: '#/components/schemas/ExcludedInstance'
-      maxItems: 400
-    MixedInstanceSpotPrice:
-      type: string
-      minLength: 0
-      maxLength: 255
-    XmlStringMaxLen255:
-      type: string
-      minLength: 1
-      maxLength: 255
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    TagDescriptionList:
-      type: array
-      items:
-        $ref: '#/components/schemas/TagDescription'
-    InvalidNextToken: {}
-    BaselineEbsBandwidthMbpsRequest:
-      type: object
-      properties:
-        Min:
-          allOf:
-          - $ref: '#/components/schemas/NullablePositiveInteger'
-          - description: The minimum value in Mbps.
-        Max:
-          allOf:
-          - $ref: '#/components/schemas/NullablePositiveInteger'
-          - description: The maximum value in Mbps.
-      description: Specifies the minimum and maximum for the <code>BaselineEbsBandwidthMbps</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
-    ResourceName:
-      type: string
-      minLength: 1
-      maxLength: 1600
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    DefaultInstanceWarmup:
-      type: integer
-    AcceleratorCountRequest:
-      type: object
-      properties:
-        Min:
-          allOf:
-          - $ref: '#/components/schemas/NullablePositiveInteger'
-          - description: The minimum value.
-        Max:
-          allOf:
-          - $ref: '#/components/schemas/NullablePositiveInteger'
-          - description: The maximum value.
-      description: Specifies the minimum and maximum for the <code>AcceleratorCount</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
     Overrides:
       type: array
       items:
         $ref: '#/components/schemas/LaunchTemplateOverrides'
-    WarmPoolMinSize:
+    DefaultInstanceWarmup:
       type: integer
-      minimum: 0
-    ResourceContentionFault: {}
-    TimestampType:
-      type: string
-      format: date-time
-    AutoScalingGroups:
+    AcceleratorTypes:
       type: array
       items:
-        $ref: '#/components/schemas/AutoScalingGroup'
-    InstanceGeneration:
-      type: string
-      enum:
-      - current
-      - previous
-    MaxInstanceLifetime:
-      type: integer
-    LaunchTemplateName:
-      type: string
-      pattern: '[a-zA-Z0-9\(\)\.\-/_]+'
-      minLength: 3
-      maxLength: 128
-    InstancesDistribution:
-      type: object
-      properties:
-        OnDemandAllocationStrategy:
-          allOf:
-          - $ref: '#/components/schemas/XmlString'
-          - description: <p>The allocation strategy to apply to your On-Demand Instances when they are launched. Possible instance types are determined by the launch template overrides that you specify.</p> <p>The following lists the valid values:</p> <dl> <dt>lowest-price</dt> <dd> <p>Uses price to determine which instance types are the highest priority, launching the lowest priced instance types within an Availability Zone first. This is the default value for Auto Scaling groups that specify <a>InstanceRequirements</a>. </p> </dd> <dt>prioritized</dt> <dd> <p>You set the order of instance types for the launch template overrides from highest to lowest priority (from first to last in the list). Amazon EC2 Auto Scaling launches your highest priority instance types first. If all your On-Demand capacity cannot be fulfilled using your highest priority instance type, then Amazon EC2 Auto Scaling launches the remaining capacity using the second priority instance type, and so on. This is the default value for Auto Scaling groups that don't specify <a>InstanceRequirements</a> and cannot be used for groups that do.</p> </dd> </dl>
-          example: example-string
-        OnDemandBaseCapacity:
-          allOf:
-          - $ref: '#/components/schemas/OnDemandBaseCapacity'
-          - description: '<p>The minimum amount of the Auto Scaling group''s capacity that must be fulfilled by On-Demand Instances. This base portion is launched first as your group scales.</p> <p>This number has the same unit of measurement as the group''s desired capacity. If you change the default unit of measurement (number of instances) by specifying weighted capacity values in your launch template overrides list, or by changing the default desired capacity type setting of the group, you must specify this number using the same unit of measurement.</p> <p>Default: 0</p>'
-          example: example-string
-        OnDemandPercentageAboveBaseCapacity:
-          allOf:
-          - $ref: '#/components/schemas/OnDemandPercentageAboveBaseCapacity'
-          - description: '<p>Controls the percentages of On-Demand Instances and Spot Instances for your additional capacity beyond <code>OnDemandBaseCapacity</code>. Expressed as a number (for example, 20 specifies 20% On-Demand Instances, 80% Spot Instances). If set to 100, only On-Demand Instances are used.</p> <p>Default: 100</p>'
-          example: example-string
-        SpotAllocationStrategy:
-          allOf:
-          - $ref: '#/components/schemas/XmlString'
-          - description: <p>The allocation strategy to apply to your Spot Instances when they are launched. Possible instance types are determined by the launch template overrides that you specify.</p> <p>The following lists the valid values:</p> <dl> <dt>capacity-optimized</dt> <dd> <p>Requests Spot Instances using pools that are optimally chosen based on the available Spot capacity. This strategy has the lowest risk of interruption. To give certain instance types a higher chance of launching first, use <code>capacity-optimized-prioritized</code>.</p> </dd> <dt>capacity-optimized-prioritized</dt> <dd> <p>You set the order of instance types for the launch template overrides from highest to lowest priority (from first to last in the list). Amazon EC2 Auto Scaling honors the instance type priorities on a best effort basis but optimizes for capacity first. Note that if the On-Demand allocation strategy is set to <code>prioritized</code>, the same priority is applied when fulfilling On-Demand capacity. This is not a valid value for Auto Scaling groups that specify <a>InstanceRequirements</a>.</p> </dd> <dt>lowest-price</dt> <dd> <p>Requests Spot Instances using the lowest priced pools within an Availability Zone, across the number of Spot pools that you specify for the <code>SpotInstancePools</code> property. To ensure that your desired capacity is met, you might receive Spot Instances from several pools. This is the default value, but it might lead to high interruption rates because this strategy only considers instance price and not available capacity.</p> </dd> <dt>price-capacity-optimized (recommended)</dt> <dd> <p>The price and capacity optimized allocation strategy looks at both price and capacity to select the Spot Instance pools that are the least likely to be interrupted and have the lowest possible price.</p> </dd> </dl>
-          example: example-string
-        SpotInstancePools:
-          allOf:
-          - $ref: '#/components/schemas/SpotInstancePools'
-          - description: '<p>The number of Spot Instance pools across which to allocate your Spot Instances. The Spot pools are determined from the different instance types in the overrides. Valid only when the <code>SpotAllocationStrategy</code> is <code>lowest-price</code>. Value must be in the range of 1–20.</p> <p>Default: 2</p>'
-          example: example-string
-        SpotMaxPrice:
-          allOf:
-          - $ref: '#/components/schemas/MixedInstanceSpotPrice'
-          - description: '<p>The maximum price per unit hour that you are willing to pay for a Spot Instance. If your maximum price is lower than the Spot price for the instance types that you selected, your Spot Instances are not launched. We do not recommend specifying a maximum price because it can lead to increased interruptions. When Spot Instances launch, you pay the current Spot price. To remove a maximum price that you previously set, include the property but specify an empty string ("") for the value.</p> <important> <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify one.</p> </important> <p>Valid Range: Minimum value of 0.001</p>'
-          example: example-string
-      description: Use this structure to specify the distribution of On-Demand Instances and Spot Instances and the allocation strategies used to fulfill On-Demand and Spot capacities for a mixed instances policy.
-    MaxRecords:
-      type: integer
-    AutoScalingGroupDesiredCapacity:
-      type: integer
-    TrafficSources:
-      type: array
-      items:
-        $ref: '#/components/schemas/TrafficSourceIdentifier'
-    InstanceProtected:
-      type: boolean
-    OnDemandPercentageAboveBaseCapacity:
-      type: integer
-    AcceleratorTotalMemoryMiBRequest:
-      type: object
-      properties:
-        Min:
-          allOf:
-          - $ref: '#/components/schemas/NullablePositiveInteger'
-          - description: The memory minimum in MiB.
-        Max:
-          allOf:
-          - $ref: '#/components/schemas/NullablePositiveInteger'
-          - description: The memory maximum in MiB.
-      description: Specifies the minimum and maximum for the <code>AcceleratorTotalMemoryMiB</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
-    PropagateAtLaunch:
-      type: boolean
-    MemoryGiBPerVCpuRequest:
-      type: object
-      properties:
-        Min:
-          allOf:
-          - $ref: '#/components/schemas/NullablePositiveDouble'
-          - description: The memory minimum in GiB.
-        Max:
-          allOf:
-          - $ref: '#/components/schemas/NullablePositiveDouble'
-          - description: The memory maximum in GiB.
-      description: Specifies the minimum and maximum for the <code>MemoryGiBPerVCpu</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
+        $ref: '#/components/schemas/AcceleratorType'
   parameters:
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Signature:
       name: X-Amz-Signature
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -1311,8 +1299,20 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
