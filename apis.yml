@@ -58,6 +58,12 @@ apis:
   humanURL: https://aws.amazon.com/ec2/autoscaling/
   baseURL: https://autoscaling.amazonaws.com
   tags:
+  - Auto-Scaling
+  - Compute
+  - Infrastructure
+  - Cloud
+  - AWS
+  tags_raw:
   - Auto Scaling
   - Compute
   - Infrastructure
