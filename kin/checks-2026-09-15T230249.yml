@@ -1,20 +1,18 @@
 ---
 kin_checks:
   slug: amazon-ec2-auto-scaling
-  schema_version: 0.21.0
-  scored_at: '2026-09-12'
-  run_ts: 2026-09-12T080032
+  schema_version: 0.22.0
+  scored_at: '2026-09-15'
+  run_ts: 2026-09-15T230249
   note: Actionable checks only (missed + partial). earned/na are every other check
-    in rubric/scoring-0.21.0.yml; counts below let you verify that.
+    in rubric/scoring-0.22.0.yml; counts below let you verify that.
   counts:
     total: 136
-    earned: 60
-    partial: 15
-    missed: 35
+    earned: 55
+    partial: 14
+    missed: 41
     na: 26
   checks:
-  - id: maintainer_present
-    status: missed
   - id: multiple_apis
     status: missed
   - id: well_known_published
@@ -23,14 +21,30 @@ kin_checks:
     status: missed
   - id: openapi_3_2
     status: missed
-    detail: 0 of 65 openapi documents pass
+    detail: 0 of 1 openapi documents pass
   - id: openapi_3_1
     status: missed
-    detail: 0 of 65 openapi documents pass
+    detail: 0 of 1 openapi documents pass
+  - id: operations_tagged
+    status: missed
+    detail: 0 of 1 openapi documents pass
+  - id: components_reuse
+    status: missed
+    detail: 0 of 1 openapi documents pass
+  - id: security_schemes_defined
+    status: missed
+    detail: 0 of 1 openapi documents pass
+  - id: security_applied
+    status: missed
+    detail: 0 of 1 openapi documents pass
   - id: webhooks_or_callbacks
     status: missed
-    detail: 0 of 65 openapi documents pass
+    detail: 0 of 1 openapi documents pass
   - id: asyncapi_present
+    status: missed
+  - id: json_schema_present
+    status: missed
+  - id: json_schema_per_resource
     status: missed
   - id: lifecycle_documented
     status: missed
@@ -47,6 +61,8 @@ kin_checks:
   - id: webhooks_advertised
     status: missed
   - id: roadmap_present
+    status: missed
+  - id: examples_published
     status: missed
   - id: sdk_count_1
     status: missed
@@ -86,10 +102,6 @@ kin_checks:
     status: missed
   - id: agentic_commerce
     status: missed
-  - id: components_reuse
-    status: partial
-    earned: 2.63
-    detail: 57 of 65 openapi documents pass
   - id: rules_present
     status: partial
     earned: 2.5
