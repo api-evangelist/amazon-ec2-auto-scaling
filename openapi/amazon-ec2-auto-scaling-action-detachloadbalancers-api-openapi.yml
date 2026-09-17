@@ -1,9 +1,14 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: 2011-01-01
   x-release: v4
-  title: 'Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=DetachLoadBalancers #Action=Detach Load Balancers #Action=Detach Load Balancers API'
-  description: <fullname>Amazon EC2 Auto Scaling</fullname> <p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.</p> <p>For more information, see the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/">Amazon EC2 Auto Scaling User Guide</a> and the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html">Amazon EC2 Auto Scaling API Reference</a>.</p>
+  title: 'Auto Scaling #Action=Detach Load Balancers API'
+  description: 'Amazon EC2 Auto Scaling
+
+    Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.
+
+
+    For more information, see the Amazon EC2 Auto Scaling User Guide and the Amazon EC2 Auto Scaling API Reference.'
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -23,6 +28,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/autoscaling-2011-01-01.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -131,7 +137,16 @@ paths:
     get:
       x-aws-operation-name: DetachLoadBalancers
       operationId: GET_DetachLoadBalancers
-      description: <note> <p>This API operation is superseded by <a>DetachTrafficSources</a>, which can detach multiple traffic sources types. We recommend using <code>DetachTrafficSources</code> to simplify how you manage traffic sources. However, we continue to support <code>DetachLoadBalancers</code>. You can use both the original <code>DetachLoadBalancers</code> API operation and <code>DetachTrafficSources</code> on the same Auto Scaling group.</p> </note> <p>Detaches one or more Classic Load Balancers from the specified Auto Scaling group.</p> <p>This operation detaches only Classic Load Balancers. If you have Application Load Balancers, Network Load Balancers, or Gateway Load Balancers, use the <a>DetachLoadBalancerTargetGroups</a> API instead.</p> <p>When you detach a load balancer, it enters the <code>Removing</code> state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the load balancer using the <a>DescribeLoadBalancers</a> API call. The instances remain running.</p>
+      description: 'This API operation is superseded by DetachTrafficSources, which can detach multiple traffic sources types. We recommend using DetachTrafficSources to simplify how you manage traffic sources. However, we continue to support DetachLoadBalancers. You can use both the original DetachLoadBalancers API operation and DetachTrafficSources on the same Auto Scaling group.
+
+
+        Detaches one or more Classic Load Balancers from the specified Auto Scaling group.
+
+
+        This operation detaches only Classic Load Balancers. If you have Application Load Balancers, Network Load Balancers, or Gateway Load Balancers, use the DetachLoadBalancerTargetGroups API instead.
+
+
+        When you detach a load balancer, it enters the Removing state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the load balancer using the DescribeLoadBalancers API call. The instances remain running.'
       responses:
         '200':
           description: Success
@@ -196,7 +211,16 @@ paths:
     post:
       x-aws-operation-name: DetachLoadBalancers
       operationId: POST_DetachLoadBalancers
-      description: <note> <p>This API operation is superseded by <a>DetachTrafficSources</a>, which can detach multiple traffic sources types. We recommend using <code>DetachTrafficSources</code> to simplify how you manage traffic sources. However, we continue to support <code>DetachLoadBalancers</code>. You can use both the original <code>DetachLoadBalancers</code> API operation and <code>DetachTrafficSources</code> on the same Auto Scaling group.</p> </note> <p>Detaches one or more Classic Load Balancers from the specified Auto Scaling group.</p> <p>This operation detaches only Classic Load Balancers. If you have Application Load Balancers, Network Load Balancers, or Gateway Load Balancers, use the <a>DetachLoadBalancerTargetGroups</a> API instead.</p> <p>When you detach a load balancer, it enters the <code>Removing</code> state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the load balancer using the <a>DescribeLoadBalancers</a> API call. The instances remain running.</p>
+      description: 'This API operation is superseded by DetachTrafficSources, which can detach multiple traffic sources types. We recommend using DetachTrafficSources to simplify how you manage traffic sources. However, we continue to support DetachLoadBalancers. You can use both the original DetachLoadBalancers API operation and DetachTrafficSources on the same Auto Scaling group.
+
+
+        Detaches one or more Classic Load Balancers from the specified Auto Scaling group.
+
+
+        This operation detaches only Classic Load Balancers. If you have Application Load Balancers, Network Load Balancers, or Gateway Load Balancers, use the DetachLoadBalancerTargetGroups API instead.
+
+
+        When you detach a load balancer, it enters the Removing state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the load balancer using the DescribeLoadBalancers API call. The instances remain running.'
       responses:
         '200':
           description: Success
@@ -247,6 +271,49 @@ paths:
       tags:
       - '#Action=DetachLoadBalancers'
 components:
+  parameters:
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
   schemas:
     DetachLoadBalancersType:
       type: object
@@ -263,62 +330,19 @@ components:
           allOf:
           - $ref: '#/components/schemas/LoadBalancerNames'
           - description: The names of the load balancers. You can specify up to 10 load balancers.
-    DetachLoadBalancersResultType:
-      type: object
-      properties: {}
+    LoadBalancerNames:
+      type: array
+      items:
+        $ref: '#/components/schemas/XmlStringMaxLen255'
     XmlStringMaxLen255:
       type: string
       minLength: 1
       maxLength: 255
       x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    LoadBalancerNames:
-      type: array
-      items:
-        $ref: '#/components/schemas/XmlStringMaxLen255'
+    DetachLoadBalancersResultType:
+      type: object
+      properties: {}
     ResourceContentionFault: {}
-  parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
   securitySchemes:
     hmac:
       type: apiKey

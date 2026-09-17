@@ -1,9 +1,14 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: 2011-01-01
   x-release: v4
-  title: 'Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=PutScheduledUpdateGroupAction #Action=Put Scheduled Update Group Action #Action=Put Scheduled Update Group Action API'
-  description: <fullname>Amazon EC2 Auto Scaling</fullname> <p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.</p> <p>For more information, see the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/">Amazon EC2 Auto Scaling User Guide</a> and the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html">Amazon EC2 Auto Scaling API Reference</a>.</p>
+  title: 'Auto Scaling #Action=Put Scheduled Update Group Action API'
+  description: 'Amazon EC2 Auto Scaling
+
+    Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.
+
+
+    For more information, see the Amazon EC2 Auto Scaling User Guide and the Amazon EC2 Auto Scaling API Reference.'
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -23,6 +28,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/autoscaling-2011-01-01.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -131,7 +137,16 @@ paths:
     get:
       x-aws-operation-name: PutScheduledUpdateGroupAction
       operationId: GET_PutScheduledUpdateGroupAction
-      description: <p>Creates or updates a scheduled scaling action for an Auto Scaling group.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">Scheduled scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>You can view the scheduled actions for an Auto Scaling group using the <a>DescribeScheduledActions</a> API call. If you are no longer using a scheduled action, you can delete it by calling the <a>DeleteScheduledAction</a> API.</p> <p>If you try to schedule your action in the past, Amazon EC2 Auto Scaling returns an error message.</p>
+      description: 'Creates or updates a scheduled scaling action for an Auto Scaling group.
+
+
+        For more information, see Scheduled scaling in the Amazon EC2 Auto Scaling User Guide.
+
+
+        You can view the scheduled actions for an Auto Scaling group using the DescribeScheduledActions API call. If you are no longer using a scheduled action, you can delete it by calling the DeleteScheduledAction API.
+
+
+        If you try to schedule your action in the past, Amazon EC2 Auto Scaling returns an error message.'
       responses:
         '200':
           description: Success
@@ -262,7 +277,16 @@ paths:
     post:
       x-aws-operation-name: PutScheduledUpdateGroupAction
       operationId: POST_PutScheduledUpdateGroupAction
-      description: <p>Creates or updates a scheduled scaling action for an Auto Scaling group.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">Scheduled scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>You can view the scheduled actions for an Auto Scaling group using the <a>DescribeScheduledActions</a> API call. If you are no longer using a scheduled action, you can delete it by calling the <a>DeleteScheduledAction</a> API.</p> <p>If you try to schedule your action in the past, Amazon EC2 Auto Scaling returns an error message.</p>
+      description: 'Creates or updates a scheduled scaling action for an Auto Scaling group.
+
+
+        For more information, see Scheduled scaling in the Amazon EC2 Auto Scaling User Guide.
+
+
+        You can view the scheduled actions for an Auto Scaling group using the DescribeScheduledActions API call. If you are no longer using a scheduled action, you can delete it by calling the DeleteScheduledAction API.
+
+
+        If you try to schedule your action in the past, Amazon EC2 Auto Scaling returns an error message.'
       responses:
         '200':
           description: Success
@@ -321,7 +345,60 @@ paths:
       tags:
       - '#Action=PutScheduledUpdateGroupAction'
 components:
+  parameters:
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
   schemas:
+    XmlStringMaxLen255:
+      type: string
+      minLength: 1
+      maxLength: 255
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    AutoScalingGroupMaxSize:
+      type: integer
+    AutoScalingGroupMinSize:
+      type: integer
+    LimitExceededFault: {}
     PutScheduledUpdateGroupActionType:
       type: object
       required:
@@ -369,66 +446,13 @@ components:
           allOf:
           - $ref: '#/components/schemas/XmlStringMaxLen255'
           - description: <p>Specifies the time zone for a cron expression. If a time zone is not provided, UTC is used by default. </p> <p>Valid values are the canonical names of the IANA time zones, derived from the IANA Time Zone Database (such as <code>Etc/GMT+9</code> or <code>Pacific/Tahiti</code>). For more information, see <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">https://en.wikipedia.org/wiki/List_of_tz_database_time_zones</a>.</p>
-    AutoScalingGroupMaxSize:
+    AutoScalingGroupDesiredCapacity:
       type: integer
     TimestampType:
       type: string
       format: date-time
-    AutoScalingGroupDesiredCapacity:
-      type: integer
-    AutoScalingGroupMinSize:
-      type: integer
-    XmlStringMaxLen255:
-      type: string
-      minLength: 1
-      maxLength: 255
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
     AlreadyExistsFault: {}
-    LimitExceededFault: {}
     ResourceContentionFault: {}
-  parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
   securitySchemes:
     hmac:
       type: apiKey

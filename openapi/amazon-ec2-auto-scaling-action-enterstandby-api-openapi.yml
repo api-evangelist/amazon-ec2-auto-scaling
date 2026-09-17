@@ -1,9 +1,14 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: 2011-01-01
   x-release: v4
-  title: 'Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=EnterStandby #Action=Enter Standby #Action=Enter Standby API'
-  description: <fullname>Amazon EC2 Auto Scaling</fullname> <p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.</p> <p>For more information, see the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/">Amazon EC2 Auto Scaling User Guide</a> and the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html">Amazon EC2 Auto Scaling API Reference</a>.</p>
+  title: 'Auto Scaling #Action=Enter Standby API'
+  description: 'Amazon EC2 Auto Scaling
+
+    Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.
+
+
+    For more information, see the Amazon EC2 Auto Scaling User Guide and the Amazon EC2 Auto Scaling API Reference.'
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -23,6 +28,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/autoscaling-2011-01-01.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -131,7 +137,16 @@ paths:
     get:
       x-aws-operation-name: EnterStandby
       operationId: GET_EnterStandby
-      description: <p>Moves the specified instances into the standby state.</p> <p>If you choose to decrement the desired capacity of the Auto Scaling group, the instances can enter standby as long as the desired capacity of the Auto Scaling group after the instances are placed into standby is equal to or greater than the minimum capacity of the group.</p> <p>If you choose not to decrement the desired capacity of the Auto Scaling group, the Auto Scaling group launches new instances to replace the instances on standby.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enter-exit-standby.html">Temporarily removing instances from your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+      description: 'Moves the specified instances into the standby state.
+
+
+        If you choose to decrement the desired capacity of the Auto Scaling group, the instances can enter standby as long as the desired capacity of the Auto Scaling group after the instances are placed into standby is equal to or greater than the minimum capacity of the group.
+
+
+        If you choose not to decrement the desired capacity of the Auto Scaling group, the Auto Scaling group launches new instances to replace the instances on standby.
+
+
+        For more information, see Temporarily removing instances from your Auto Scaling group in the Amazon EC2 Auto Scaling User Guide.'
       responses:
         '200':
           description: Success
@@ -203,7 +218,16 @@ paths:
     post:
       x-aws-operation-name: EnterStandby
       operationId: POST_EnterStandby
-      description: <p>Moves the specified instances into the standby state.</p> <p>If you choose to decrement the desired capacity of the Auto Scaling group, the instances can enter standby as long as the desired capacity of the Auto Scaling group after the instances are placed into standby is equal to or greater than the minimum capacity of the group.</p> <p>If you choose not to decrement the desired capacity of the Auto Scaling group, the Auto Scaling group launches new instances to replace the instances on standby.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enter-exit-standby.html">Temporarily removing instances from your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+      description: 'Moves the specified instances into the standby state.
+
+
+        If you choose to decrement the desired capacity of the Auto Scaling group, the instances can enter standby as long as the desired capacity of the Auto Scaling group after the instances are placed into standby is equal to or greater than the minimum capacity of the group.
+
+
+        If you choose not to decrement the desired capacity of the Auto Scaling group, the Auto Scaling group launches new instances to replace the instances on standby.
+
+
+        For more information, see Temporarily removing instances from your Auto Scaling group in the Amazon EC2 Auto Scaling User Guide.'
       responses:
         '200':
           description: Success
@@ -256,28 +280,95 @@ paths:
       - '#Action=EnterStandby'
 components:
   schemas:
-    XmlStringMaxLen19:
-      type: string
-      minLength: 1
-      maxLength: 19
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    EnterStandbyQuery:
+      type: object
+      required:
+      - AutoScalingGroupName
+      - ShouldDecrementDesiredCapacity
+      title: EnterStandbyQuery
+      properties:
+        InstanceIds:
+          allOf:
+          - $ref: '#/components/schemas/InstanceIds'
+          - description: The IDs of the instances. You can specify up to 20 instances.
+        AutoScalingGroupName:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen255'
+          - description: The name of the Auto Scaling group.
+        ShouldDecrementDesiredCapacity:
+          allOf:
+          - $ref: '#/components/schemas/ShouldDecrementDesiredCapacity'
+          - description: Indicates whether to decrement the desired capacity of the Auto Scaling group by the number of instances moved to <code>Standby</code> mode.
+    ResourceContentionFault: {}
     TimestampType:
       type: string
       format: date-time
+    Progress:
+      type: integer
     XmlStringMaxLen255:
       type: string
       minLength: 1
       maxLength: 255
       x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    XmlString:
-      type: string
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    ResourceContentionFault: {}
+    InstanceIds:
+      type: array
+      items:
+        $ref: '#/components/schemas/XmlStringMaxLen19'
+    Activities:
+      type: array
+      items:
+        $ref: '#/components/schemas/Activity'
     ResourceName:
       type: string
       minLength: 1
       maxLength: 1600
       x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    XmlStringMaxLen1023:
+      type: string
+      minLength: 1
+      maxLength: 1023
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    EnterStandbyAnswer:
+      type: object
+      example:
+        Activities:
+        - ActivityId: ffa056b4-6ed3-41ba-ae7c-249dfae6eba1
+          AutoScalingGroupName: my-auto-scaling-group
+          Cause: At 2015-04-12T15:10:23Z instance i-93633f9b was moved to standby in response to a user request, shrinking the capacity from 2 to 1.
+          Description: 'Moving EC2 instance to Standby: i-93633f9b'
+          Details: details
+          Progress: 50
+          StartTime: 2015-04-12 15:10:23.640000+00:00
+          StatusCode: InProgress
+      properties:
+        Activities:
+          allOf:
+          - $ref: '#/components/schemas/Activities'
+          - description: The activities related to moving instances into <code>Standby</code> mode.
+    XmlString:
+      type: string
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    XmlStringMaxLen19:
+      type: string
+      minLength: 1
+      maxLength: 19
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    ScalingActivityStatusCode:
+      type: string
+      enum:
+      - PendingSpotBidPlacement
+      - WaitingForSpotInstanceRequestId
+      - WaitingForSpotInstanceId
+      - WaitingForInstanceId
+      - PreInService
+      - InProgress
+      - WaitingForELBConnectionDraining
+      - MidLifecycleAction
+      - WaitingForInstanceWarmup
+      - Successful
+      - Failed
+      - Cancelled
+      - WaitingForConnectionDraining
     Activity:
       type: object
       required:
@@ -336,100 +427,21 @@ components:
           - $ref: '#/components/schemas/ResourceName'
           - description: The Amazon Resource Name (ARN) of the Auto Scaling group.
       description: Describes scaling activity, which is a long-running process that represents a change to your Auto Scaling group, such as changing its size or replacing an instance.
-    EnterStandbyQuery:
-      type: object
-      required:
-      - AutoScalingGroupName
-      - ShouldDecrementDesiredCapacity
-      title: EnterStandbyQuery
-      properties:
-        InstanceIds:
-          allOf:
-          - $ref: '#/components/schemas/InstanceIds'
-          - description: The IDs of the instances. You can specify up to 20 instances.
-        AutoScalingGroupName:
-          allOf:
-          - $ref: '#/components/schemas/XmlStringMaxLen255'
-          - description: The name of the Auto Scaling group.
-        ShouldDecrementDesiredCapacity:
-          allOf:
-          - $ref: '#/components/schemas/ShouldDecrementDesiredCapacity'
-          - description: Indicates whether to decrement the desired capacity of the Auto Scaling group by the number of instances moved to <code>Standby</code> mode.
-    Progress:
-      type: integer
-    Activities:
-      type: array
-      items:
-        $ref: '#/components/schemas/Activity'
     AutoScalingGroupState:
       type: string
       minLength: 1
       maxLength: 32
-    ScalingActivityStatusCode:
-      type: string
-      enum:
-      - PendingSpotBidPlacement
-      - WaitingForSpotInstanceRequestId
-      - WaitingForSpotInstanceId
-      - WaitingForInstanceId
-      - PreInService
-      - InProgress
-      - WaitingForELBConnectionDraining
-      - MidLifecycleAction
-      - WaitingForInstanceWarmup
-      - Successful
-      - Failed
-      - Cancelled
-      - WaitingForConnectionDraining
-    XmlStringMaxLen1023:
-      type: string
-      minLength: 1
-      maxLength: 1023
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
     ShouldDecrementDesiredCapacity:
       type: boolean
-    InstanceIds:
-      type: array
-      items:
-        $ref: '#/components/schemas/XmlStringMaxLen19'
-    EnterStandbyAnswer:
-      type: object
-      example:
-        Activities:
-        - ActivityId: ffa056b4-6ed3-41ba-ae7c-249dfae6eba1
-          AutoScalingGroupName: my-auto-scaling-group
-          Cause: At 2015-04-12T15:10:23Z instance i-93633f9b was moved to standby in response to a user request, shrinking the capacity from 2 to 1.
-          Description: 'Moving EC2 instance to Standby: i-93633f9b'
-          Details: details
-          Progress: 50
-          StartTime: 2015-04-12 15:10:23.640000+00:00
-          StatusCode: InProgress
-      properties:
-        Activities:
-          allOf:
-          - $ref: '#/components/schemas/Activities'
-          - description: The activities related to moving instances into <code>Standby</code> mode.
   parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Date:
       name: X-Amz-Date
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -440,14 +452,26 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
       in: header
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string

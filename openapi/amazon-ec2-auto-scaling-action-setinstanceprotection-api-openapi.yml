@@ -1,9 +1,14 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: 2011-01-01
   x-release: v4
-  title: 'Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=SetInstanceProtection #Action=Set Instance Protection #Action=Set Instance Protection API'
-  description: <fullname>Amazon EC2 Auto Scaling</fullname> <p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.</p> <p>For more information, see the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/">Amazon EC2 Auto Scaling User Guide</a> and the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html">Amazon EC2 Auto Scaling API Reference</a>.</p>
+  title: 'Auto Scaling #Action=Set Instance Protection API'
+  description: 'Amazon EC2 Auto Scaling
+
+    Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.
+
+
+    For more information, see the Amazon EC2 Auto Scaling User Guide and the Amazon EC2 Auto Scaling API Reference.'
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -23,6 +28,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/autoscaling-2011-01-01.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -131,7 +137,13 @@ paths:
     get:
       x-aws-operation-name: SetInstanceProtection
       operationId: GET_SetInstanceProtection
-      description: <p>Updates the instance protection settings of the specified instances. This operation cannot be called on instances in a warm pool.</p> <p>For more information about preventing instances that are part of an Auto Scaling group from terminating on scale in, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html">Using instance scale-in protection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>If you exceed your maximum limit of instance IDs, which is 50 per Auto Scaling group, the call fails.</p>
+      description: 'Updates the instance protection settings of the specified instances. This operation cannot be called on instances in a warm pool.
+
+
+        For more information about preventing instances that are part of an Auto Scaling group from terminating on scale in, see Using instance scale-in protection in the Amazon EC2 Auto Scaling User Guide.
+
+
+        If you exceed your maximum limit of instance IDs, which is 50 per Auto Scaling group, the call fails.'
       responses:
         '200':
           description: Success
@@ -213,7 +225,13 @@ paths:
     post:
       x-aws-operation-name: SetInstanceProtection
       operationId: POST_SetInstanceProtection
-      description: <p>Updates the instance protection settings of the specified instances. This operation cannot be called on instances in a warm pool.</p> <p>For more information about preventing instances that are part of an Auto Scaling group from terminating on scale in, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html">Using instance scale-in protection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>If you exceed your maximum limit of instance IDs, which is 50 per Auto Scaling group, the call fails.</p>
+      description: 'Updates the instance protection settings of the specified instances. This operation cannot be called on instances in a warm pool.
+
+
+        For more information about preventing instances that are part of an Auto Scaling group from terminating on scale in, see Using instance scale-in protection in the Amazon EC2 Auto Scaling User Guide.
+
+
+        If you exceed your maximum limit of instance IDs, which is 50 per Auto Scaling group, the call fails.'
       responses:
         '200':
           description: Success
@@ -276,25 +294,11 @@ paths:
       - '#Action=SetInstanceProtection'
 components:
   schemas:
-    ResourceContentionFault: {}
     SetInstanceProtectionAnswer:
       type: object
       properties: {}
-    XmlStringMaxLen19:
-      type: string
-      minLength: 1
-      maxLength: 19
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    XmlStringMaxLen255:
-      type: string
-      minLength: 1
-      maxLength: 255
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    InstanceIds:
-      type: array
-      items:
-        $ref: '#/components/schemas/XmlStringMaxLen19'
-    LimitExceededFault: {}
+    ProtectedFromScaleIn:
+      type: boolean
     SetInstanceProtectionQuery:
       type: object
       required:
@@ -315,29 +319,31 @@ components:
           allOf:
           - $ref: '#/components/schemas/ProtectedFromScaleIn'
           - description: Indicates whether the instance is protected from termination by Amazon EC2 Auto Scaling when scaling in.
-    ProtectedFromScaleIn:
-      type: boolean
+    XmlStringMaxLen19:
+      type: string
+      minLength: 1
+      maxLength: 19
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    XmlStringMaxLen255:
+      type: string
+      minLength: 1
+      maxLength: 255
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    LimitExceededFault: {}
+    InstanceIds:
+      type: array
+      items:
+        $ref: '#/components/schemas/XmlStringMaxLen19'
+    ResourceContentionFault: {}
   parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
@@ -348,14 +354,26 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
       required: false
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string

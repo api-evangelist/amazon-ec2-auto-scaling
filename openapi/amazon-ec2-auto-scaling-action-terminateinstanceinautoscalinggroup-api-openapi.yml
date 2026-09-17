@@ -1,9 +1,14 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: 2011-01-01
   x-release: v4
-  title: 'Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=TerminateInstanceInAutoScalingGroup #Action=Terminate Instance In Auto Scaling Group #Action=Terminate Instance In Auto Scaling Group API'
-  description: <fullname>Amazon EC2 Auto Scaling</fullname> <p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.</p> <p>For more information, see the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/">Amazon EC2 Auto Scaling User Guide</a> and the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html">Amazon EC2 Auto Scaling API Reference</a>.</p>
+  title: '#Action=Terminate Instance In Auto Scaling Group API'
+  description: 'Amazon EC2 Auto Scaling
+
+    Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.
+
+
+    For more information, see the Amazon EC2 Auto Scaling User Guide and the Amazon EC2 Auto Scaling API Reference.'
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -23,6 +28,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/autoscaling-2011-01-01.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -131,7 +137,16 @@ paths:
     get:
       x-aws-operation-name: TerminateInstanceInAutoScalingGroup
       operationId: GET_TerminateInstanceInAutoScalingGroup
-      description: <p>Terminates the specified instance and optionally adjusts the desired group size. This operation cannot be called on instances in a warm pool.</p> <p>This call simply makes a termination request. The instance is not terminated immediately. When an instance is terminated, the instance status changes to <code>terminated</code>. You can't connect to or start an instance after you've terminated it.</p> <p>If you do not specify the option to decrement the desired capacity, Amazon EC2 Auto Scaling launches instances to replace the ones that are terminated. </p> <p>By default, Amazon EC2 Auto Scaling balances instances across all Availability Zones. If you decrement the desired capacity, your Auto Scaling group can become unbalanced between Availability Zones. Amazon EC2 Auto Scaling tries to rebalance the group, and rebalancing might terminate instances in other zones. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-benefits.html#AutoScalingBehavior.InstanceUsage">Rebalancing activities</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+      description: 'Terminates the specified instance and optionally adjusts the desired group size. This operation cannot be called on instances in a warm pool.
+
+
+        This call simply makes a termination request. The instance is not terminated immediately. When an instance is terminated, the instance status changes to terminated. You can''t connect to or start an instance after you''ve terminated it.
+
+
+        If you do not specify the option to decrement the desired capacity, Amazon EC2 Auto Scaling launches instances to replace the ones that are terminated.
+
+
+        By default, Amazon EC2 Auto Scaling balances instances across all Availability Zones. If you decrement the desired capacity, your Auto Scaling group can become unbalanced between Availability Zones. Amazon EC2 Auto Scaling tries to rebalance the group, and rebalancing might terminate instances in other zones. For more information, see Rebalancing activities in the Amazon EC2 Auto Scaling User Guide.'
       responses:
         '200':
           description: Success
@@ -206,7 +221,16 @@ paths:
     post:
       x-aws-operation-name: TerminateInstanceInAutoScalingGroup
       operationId: POST_TerminateInstanceInAutoScalingGroup
-      description: <p>Terminates the specified instance and optionally adjusts the desired group size. This operation cannot be called on instances in a warm pool.</p> <p>This call simply makes a termination request. The instance is not terminated immediately. When an instance is terminated, the instance status changes to <code>terminated</code>. You can't connect to or start an instance after you've terminated it.</p> <p>If you do not specify the option to decrement the desired capacity, Amazon EC2 Auto Scaling launches instances to replace the ones that are terminated. </p> <p>By default, Amazon EC2 Auto Scaling balances instances across all Availability Zones. If you decrement the desired capacity, your Auto Scaling group can become unbalanced between Availability Zones. Amazon EC2 Auto Scaling tries to rebalance the group, and rebalancing might terminate instances in other zones. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-benefits.html#AutoScalingBehavior.InstanceUsage">Rebalancing activities</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+      description: 'Terminates the specified instance and optionally adjusts the desired group size. This operation cannot be called on instances in a warm pool.
+
+
+        This call simply makes a termination request. The instance is not terminated immediately. When an instance is terminated, the instance status changes to terminated. You can''t connect to or start an instance after you''ve terminated it.
+
+
+        If you do not specify the option to decrement the desired capacity, Amazon EC2 Auto Scaling launches instances to replace the ones that are terminated.
+
+
+        By default, Amazon EC2 Auto Scaling balances instances across all Availability Zones. If you decrement the desired capacity, your Auto Scaling group can become unbalanced between Availability Zones. Amazon EC2 Auto Scaling tries to rebalance the group, and rebalancing might terminate instances in other zones. For more information, see Rebalancing activities in the Amazon EC2 Auto Scaling User Guide.'
       responses:
         '200':
           description: Success
@@ -270,39 +294,17 @@ paths:
       - '#Action=TerminateInstanceInAutoScalingGroup'
 components:
   schemas:
-    XmlStringMaxLen19:
-      type: string
-      minLength: 1
-      maxLength: 19
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    ResourceContentionFault: {}
     TimestampType:
       type: string
       format: date-time
+    Progress:
+      type: integer
     XmlStringMaxLen255:
       type: string
       minLength: 1
       maxLength: 255
       x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    XmlString:
-      type: string
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    ResourceContentionFault: {}
-    ScalingActivityInProgressFault: {}
-    TerminateInstanceInAutoScalingGroupType:
-      type: object
-      required:
-      - InstanceId
-      - ShouldDecrementDesiredCapacity
-      title: TerminateInstanceInAutoScalingGroupType
-      properties:
-        InstanceId:
-          allOf:
-          - $ref: '#/components/schemas/XmlStringMaxLen19'
-          - description: The ID of the instance.
-        ShouldDecrementDesiredCapacity:
-          allOf:
-          - $ref: '#/components/schemas/ShouldDecrementDesiredCapacity'
-          - description: Indicates whether terminating the instance also decrements the size of the Auto Scaling group.
     ActivityType:
       type: object
       properties:
@@ -310,11 +312,41 @@ components:
           allOf:
           - $ref: '#/components/schemas/Activity'
           - description: A scaling activity.
+    ScalingActivityInProgressFault: {}
     ResourceName:
       type: string
       minLength: 1
       maxLength: 1600
       x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    XmlStringMaxLen1023:
+      type: string
+      minLength: 1
+      maxLength: 1023
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    XmlString:
+      type: string
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    XmlStringMaxLen19:
+      type: string
+      minLength: 1
+      maxLength: 19
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    ScalingActivityStatusCode:
+      type: string
+      enum:
+      - PendingSpotBidPlacement
+      - WaitingForSpotInstanceRequestId
+      - WaitingForSpotInstanceId
+      - WaitingForInstanceId
+      - PreInService
+      - InProgress
+      - WaitingForELBConnectionDraining
+      - MidLifecycleAction
+      - WaitingForInstanceWarmup
+      - Successful
+      - Failed
+      - Cancelled
+      - WaitingForConnectionDraining
     Activity:
       type: object
       required:
@@ -373,56 +405,36 @@ components:
           - $ref: '#/components/schemas/ResourceName'
           - description: The Amazon Resource Name (ARN) of the Auto Scaling group.
       description: Describes scaling activity, which is a long-running process that represents a change to your Auto Scaling group, such as changing its size or replacing an instance.
-    Progress:
-      type: integer
+    TerminateInstanceInAutoScalingGroupType:
+      type: object
+      required:
+      - InstanceId
+      - ShouldDecrementDesiredCapacity
+      title: TerminateInstanceInAutoScalingGroupType
+      properties:
+        InstanceId:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen19'
+          - description: The ID of the instance.
+        ShouldDecrementDesiredCapacity:
+          allOf:
+          - $ref: '#/components/schemas/ShouldDecrementDesiredCapacity'
+          - description: Indicates whether terminating the instance also decrements the size of the Auto Scaling group.
     AutoScalingGroupState:
       type: string
       minLength: 1
       maxLength: 32
-    ScalingActivityStatusCode:
-      type: string
-      enum:
-      - PendingSpotBidPlacement
-      - WaitingForSpotInstanceRequestId
-      - WaitingForSpotInstanceId
-      - WaitingForInstanceId
-      - PreInService
-      - InProgress
-      - WaitingForELBConnectionDraining
-      - MidLifecycleAction
-      - WaitingForInstanceWarmup
-      - Successful
-      - Failed
-      - Cancelled
-      - WaitingForConnectionDraining
-    XmlStringMaxLen1023:
-      type: string
-      minLength: 1
-      maxLength: 1023
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
     ShouldDecrementDesiredCapacity:
       type: boolean
   parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Date:
       name: X-Amz-Date
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -433,14 +445,26 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
       in: header
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string

@@ -1,9 +1,14 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: 2011-01-01
   x-release: v4
-  title: 'Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=DescribeScalingActivities #Action=Describe Scaling Activities #Action=Describe Scaling Activities API'
-  description: <fullname>Amazon EC2 Auto Scaling</fullname> <p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.</p> <p>For more information, see the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/">Amazon EC2 Auto Scaling User Guide</a> and the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html">Amazon EC2 Auto Scaling API Reference</a>.</p>
+  title: 'Auto Scaling #Action=Describe Scaling Activities API'
+  description: 'Amazon EC2 Auto Scaling
+
+    Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.
+
+
+    For more information, see the Amazon EC2 Auto Scaling User Guide and the Amazon EC2 Auto Scaling API Reference.'
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -23,6 +28,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/autoscaling-2011-01-01.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -131,7 +137,13 @@ paths:
     get:
       x-aws-operation-name: DescribeScalingActivities
       operationId: GET_DescribeScalingActivities
-      description: <p>Gets information about the scaling activities in the account and Region.</p> <p>When scaling events occur, you see a record of the scaling activity in the scaling activities. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html">Verifying a scaling activity for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>If the scaling event succeeds, the value of the <code>StatusCode</code> element in the response is <code>Successful</code>. If an attempt to launch instances failed, the <code>StatusCode</code> value is <code>Failed</code> or <code>Cancelled</code> and the <code>StatusMessage</code> element in the response indicates the cause of the failure. For help interpreting the <code>StatusMessage</code>, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/CHAP_Troubleshooting.html">Troubleshooting Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
+      description: 'Gets information about the scaling activities in the account and Region.
+
+
+        When scaling events occur, you see a record of the scaling activity in the scaling activities. For more information, see Verifying a scaling activity for an Auto Scaling group in the Amazon EC2 Auto Scaling User Guide.
+
+
+        If the scaling event succeeds, the value of the StatusCode element in the response is Successful. If an attempt to launch instances failed, the StatusCode value is Failed or Cancelled and the StatusMessage element in the response indicates the cause of the failure. For help interpreting the StatusMessage, see Troubleshooting Amazon EC2 Auto Scaling in the Amazon EC2 Auto Scaling User Guide.'
       responses:
         '200':
           description: Success
@@ -228,7 +240,13 @@ paths:
     post:
       x-aws-operation-name: DescribeScalingActivities
       operationId: POST_DescribeScalingActivities
-      description: <p>Gets information about the scaling activities in the account and Region.</p> <p>When scaling events occur, you see a record of the scaling activity in the scaling activities. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html">Verifying a scaling activity for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>If the scaling event succeeds, the value of the <code>StatusCode</code> element in the response is <code>Successful</code>. If an attempt to launch instances failed, the <code>StatusCode</code> value is <code>Failed</code> or <code>Cancelled</code> and the <code>StatusMessage</code> element in the response indicates the cause of the failure. For help interpreting the <code>StatusMessage</code>, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/CHAP_Troubleshooting.html">Troubleshooting Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
+      description: 'Gets information about the scaling activities in the account and Region.
+
+
+        When scaling events occur, you see a record of the scaling activity in the scaling activities. For more information, see Verifying a scaling activity for an Auto Scaling group in the Amazon EC2 Auto Scaling User Guide.
+
+
+        If the scaling event succeeds, the value of the StatusCode element in the response is Successful. If an attempt to launch instances failed, the StatusCode value is Failed or Cancelled and the StatusMessage element in the response indicates the cause of the failure. For help interpreting the StatusMessage, see Troubleshooting Amazon EC2 Auto Scaling in the Amazon EC2 Auto Scaling User Guide.'
       responses:
         '200':
           description: Success
@@ -305,29 +323,83 @@ paths:
       - '#Action=DescribeScalingActivities'
 components:
   schemas:
+    ResourceContentionFault: {}
+    ActivityIds:
+      type: array
+      items:
+        $ref: '#/components/schemas/XmlString'
+    Progress:
+      type: integer
     TimestampType:
       type: string
       format: date-time
-    IncludeDeletedGroups:
-      type: boolean
     XmlStringMaxLen255:
       type: string
       minLength: 1
       maxLength: 255
       x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    XmlString:
-      type: string
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    ResourceContentionFault: {}
+    ActivitiesType:
+      type: object
+      required:
+      - Activities
+      example:
+        Activities:
+        - ActivityId: f9f2d65b-f1f2-43e7-b46d-d86756459699
+          AutoScalingGroupName: my-auto-scaling-group
+          Cause: At 2013-08-19T20:53:25Z a user request created an AutoScalingGroup changing the desired capacity from 0 to 1.  At 2013-08-19T20:53:29Z an instance was started in response to a difference between desired and actual capacity, increasing the capacity from 0 to 1.
+          Description: 'Launching a new EC2 instance: i-4ba0837f'
+          Details: details
+          EndTime: 2013-08-19 20:54:02+00:00
+          Progress: 100
+          StartTime: 2013-08-19 20:53:29.930000+00:00
+          StatusCode: Successful
+      properties:
+        Activities:
+          allOf:
+          - $ref: '#/components/schemas/Activities'
+          - description: The scaling activities. Activities are sorted by start time. Activities still in progress are described first.
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/XmlString'
+          - description: A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the <code>NextToken</code> value when requesting the next set of items. This value is null when there are no more items to return.
+    Activities:
+      type: array
+      items:
+        $ref: '#/components/schemas/Activity'
+    InvalidNextToken: {}
     ResourceName:
       type: string
       minLength: 1
       maxLength: 1600
       x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    ActivityIds:
-      type: array
-      items:
-        $ref: '#/components/schemas/XmlString'
+    IncludeDeletedGroups:
+      type: boolean
+    XmlStringMaxLen1023:
+      type: string
+      minLength: 1
+      maxLength: 1023
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    MaxRecords:
+      type: integer
+    XmlString:
+      type: string
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    ScalingActivityStatusCode:
+      type: string
+      enum:
+      - PendingSpotBidPlacement
+      - WaitingForSpotInstanceRequestId
+      - WaitingForSpotInstanceId
+      - WaitingForInstanceId
+      - PreInService
+      - InProgress
+      - WaitingForELBConnectionDraining
+      - MidLifecycleAction
+      - WaitingForInstanceWarmup
+      - Successful
+      - Failed
+      - Cancelled
+      - WaitingForConnectionDraining
     Activity:
       type: object
       required:
@@ -386,38 +458,10 @@ components:
           - $ref: '#/components/schemas/ResourceName'
           - description: The Amazon Resource Name (ARN) of the Auto Scaling group.
       description: Describes scaling activity, which is a long-running process that represents a change to your Auto Scaling group, such as changing its size or replacing an instance.
-    Progress:
-      type: integer
-    Activities:
-      type: array
-      items:
-        $ref: '#/components/schemas/Activity'
     AutoScalingGroupState:
       type: string
       minLength: 1
       maxLength: 32
-    ScalingActivityStatusCode:
-      type: string
-      enum:
-      - PendingSpotBidPlacement
-      - WaitingForSpotInstanceRequestId
-      - WaitingForSpotInstanceId
-      - WaitingForInstanceId
-      - PreInService
-      - InProgress
-      - WaitingForELBConnectionDraining
-      - MidLifecycleAction
-      - WaitingForInstanceWarmup
-      - Successful
-      - Failed
-      - Cancelled
-      - WaitingForConnectionDraining
-    InvalidNextToken: {}
-    XmlStringMaxLen1023:
-      type: string
-      minLength: 1
-      maxLength: 1023
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
     DescribeScalingActivitiesType:
       type: object
       title: DescribeScalingActivitiesType
@@ -442,53 +486,15 @@ components:
           allOf:
           - $ref: '#/components/schemas/XmlString'
           - description: The token for the next set of items to return. (You received this token from a previous call.)
-    ActivitiesType:
-      type: object
-      required:
-      - Activities
-      example:
-        Activities:
-        - ActivityId: f9f2d65b-f1f2-43e7-b46d-d86756459699
-          AutoScalingGroupName: my-auto-scaling-group
-          Cause: At 2013-08-19T20:53:25Z a user request created an AutoScalingGroup changing the desired capacity from 0 to 1.  At 2013-08-19T20:53:29Z an instance was started in response to a difference between desired and actual capacity, increasing the capacity from 0 to 1.
-          Description: 'Launching a new EC2 instance: i-4ba0837f'
-          Details: details
-          EndTime: 2013-08-19 20:54:02+00:00
-          Progress: 100
-          StartTime: 2013-08-19 20:53:29.930000+00:00
-          StatusCode: Successful
-      properties:
-        Activities:
-          allOf:
-          - $ref: '#/components/schemas/Activities'
-          - description: The scaling activities. Activities are sorted by start time. Activities still in progress are described first.
-        NextToken:
-          allOf:
-          - $ref: '#/components/schemas/XmlString'
-          - description: A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the <code>NextToken</code> value when requesting the next set of items. This value is null when there are no more items to return.
-    MaxRecords:
-      type: integer
   parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Date:
       name: X-Amz-Date
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -499,14 +505,26 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
       in: header
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string

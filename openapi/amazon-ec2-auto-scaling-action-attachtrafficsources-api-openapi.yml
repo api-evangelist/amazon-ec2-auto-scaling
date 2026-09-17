@@ -1,9 +1,14 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: 2011-01-01
   x-release: v4
-  title: 'Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=AttachTrafficSources #Action=Attach Traffic Sources #Action=Attach Traffic Sources API'
-  description: <fullname>Amazon EC2 Auto Scaling</fullname> <p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.</p> <p>For more information, see the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/">Amazon EC2 Auto Scaling User Guide</a> and the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html">Amazon EC2 Auto Scaling API Reference</a>.</p>
+  title: 'Auto Scaling #Action=Attach Traffic Sources API'
+  description: 'Amazon EC2 Auto Scaling
+
+    Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.
+
+
+    For more information, see the Amazon EC2 Auto Scaling User Guide and the Amazon EC2 Auto Scaling API Reference.'
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -23,6 +28,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/autoscaling-2011-01-01.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -131,7 +137,31 @@ paths:
     get:
       x-aws-operation-name: AttachTrafficSources
       operationId: GET_AttachTrafficSources
-      description: <p>Attaches one or more traffic sources to the specified Auto Scaling group.</p> <p>You can use any of the following as traffic sources for an Auto Scaling group:</p> <ul> <li> <p>Application Load Balancer</p> </li> <li> <p>Classic Load Balancer</p> </li> <li> <p>Gateway Load Balancer</p> </li> <li> <p>Network Load Balancer</p> </li> <li> <p>VPC Lattice</p> </li> </ul> <p>This operation is additive and does not detach existing traffic sources from the Auto Scaling group. </p> <p>After the operation completes, use the <a>DescribeTrafficSources</a> API to return details about the state of the attachments between traffic sources and your Auto Scaling group. To detach a traffic source from the Auto Scaling group, call the <a>DetachTrafficSources</a> API.</p>
+      description: 'Attaches one or more traffic sources to the specified Auto Scaling group.
+
+
+        You can use any of the following as traffic sources for an Auto Scaling group:
+
+
+        Application Load Balancer
+
+
+        Classic Load Balancer
+
+
+        Gateway Load Balancer
+
+
+        Network Load Balancer
+
+
+        VPC Lattice
+
+
+        This operation is additive and does not detach existing traffic sources from the Auto Scaling group.
+
+
+        After the operation completes, use the DescribeTrafficSources API to return details about the state of the attachments between traffic sources and your Auto Scaling group. To detach a traffic source from the Auto Scaling group, call the DetachTrafficSources API.'
       responses:
         '200':
           description: Success
@@ -207,7 +237,31 @@ paths:
     post:
       x-aws-operation-name: AttachTrafficSources
       operationId: POST_AttachTrafficSources
-      description: <p>Attaches one or more traffic sources to the specified Auto Scaling group.</p> <p>You can use any of the following as traffic sources for an Auto Scaling group:</p> <ul> <li> <p>Application Load Balancer</p> </li> <li> <p>Classic Load Balancer</p> </li> <li> <p>Gateway Load Balancer</p> </li> <li> <p>Network Load Balancer</p> </li> <li> <p>VPC Lattice</p> </li> </ul> <p>This operation is additive and does not detach existing traffic sources from the Auto Scaling group. </p> <p>After the operation completes, use the <a>DescribeTrafficSources</a> API to return details about the state of the attachments between traffic sources and your Auto Scaling group. To detach a traffic source from the Auto Scaling group, call the <a>DetachTrafficSources</a> API.</p>
+      description: 'Attaches one or more traffic sources to the specified Auto Scaling group.
+
+
+        You can use any of the following as traffic sources for an Auto Scaling group:
+
+
+        Application Load Balancer
+
+
+        Classic Load Balancer
+
+
+        Gateway Load Balancer
+
+
+        Network Load Balancer
+
+
+        VPC Lattice
+
+
+        This operation is additive and does not detach existing traffic sources from the Auto Scaling group.
+
+
+        After the operation completes, use the DescribeTrafficSources API to return details about the state of the attachments between traffic sources and your Auto Scaling group. To detach a traffic source from the Auto Scaling group, call the DetachTrafficSources API.'
       responses:
         '200':
           description: Success
@@ -270,26 +324,8 @@ paths:
       - '#Action=AttachTrafficSources'
 components:
   parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
       in: header
       schema:
         type: string
@@ -300,8 +336,20 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
@@ -312,11 +360,22 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
   schemas:
-    AttachTrafficSourcesResultType:
-      type: object
-      example: {}
-      properties: {}
+    XmlStringMaxLen255:
+      type: string
+      minLength: 1
+      maxLength: 255
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    TrafficSources:
+      type: array
+      items:
+        $ref: '#/components/schemas/TrafficSourceIdentifier'
     TrafficSourceIdentifier:
       type: object
       required:
@@ -333,21 +392,6 @@ components:
           - description: <p>Provides additional context for the value of <code>Identifier</code>.</p> <p>The following lists the valid values:</p> <ul> <li> <p> <code>elb</code> if <code>Identifier</code> is the name of a Classic Load Balancer.</p> </li> <li> <p> <code>elbv2</code> if <code>Identifier</code> is the ARN of an Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target group.</p> </li> <li> <p> <code>vpc-lattice</code> if <code>Identifier</code> is the ARN of a VPC Lattice target group.</p> </li> </ul> <p>Required if the identifier is the name of a Classic Load Balancer.</p>
           example: example-string
       description: Identifying information for a traffic source.
-    XmlStringMaxLen511:
-      type: string
-      minLength: 1
-      maxLength: 511
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    TrafficSources:
-      type: array
-      items:
-        $ref: '#/components/schemas/TrafficSourceIdentifier'
-    XmlStringMaxLen255:
-      type: string
-      minLength: 1
-      maxLength: 255
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    ServiceLinkedRoleFailure: {}
     AttachTrafficSourcesType:
       type: object
       required:
@@ -363,7 +407,17 @@ components:
           allOf:
           - $ref: '#/components/schemas/TrafficSources'
           - description: The unique identifiers of one or more traffic sources. You can specify up to 10 traffic sources.
+    XmlStringMaxLen511:
+      type: string
+      minLength: 1
+      maxLength: 511
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
     ResourceContentionFault: {}
+    ServiceLinkedRoleFailure: {}
+    AttachTrafficSourcesResultType:
+      type: object
+      example: {}
+      properties: {}
   securitySchemes:
     hmac:
       type: apiKey

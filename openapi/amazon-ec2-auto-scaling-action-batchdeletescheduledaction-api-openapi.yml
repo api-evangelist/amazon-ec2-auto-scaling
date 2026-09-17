@@ -1,9 +1,14 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: 2011-01-01
   x-release: v4
-  title: 'Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=BatchDeleteScheduledAction #Action=Batch Delete Scheduled Action #Action=Batch Delete Scheduled Action API'
-  description: <fullname>Amazon EC2 Auto Scaling</fullname> <p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.</p> <p>For more information, see the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/">Amazon EC2 Auto Scaling User Guide</a> and the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html">Amazon EC2 Auto Scaling API Reference</a>.</p>
+  title: 'Auto Scaling #Action=Batch Delete Scheduled Action API'
+  description: 'Amazon EC2 Auto Scaling
+
+    Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.
+
+
+    For more information, see the Amazon EC2 Auto Scaling User Guide and the Amazon EC2 Auto Scaling API Reference.'
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -23,6 +28,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/autoscaling-2011-01-01.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -249,42 +255,66 @@ paths:
       tags:
       - '#Action=BatchDeleteScheduledAction'
 components:
+  parameters:
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
   schemas:
-    BatchDeleteScheduledActionAnswer:
-      type: object
-      properties:
-        FailedScheduledActions:
-          allOf:
-          - $ref: '#/components/schemas/FailedScheduledUpdateGroupActionRequests'
-          - description: The names of the scheduled actions that could not be deleted, including an error message.
-          example: example-string
-    ScheduledActionNames:
-      type: array
-      items:
-        $ref: '#/components/schemas/XmlStringMaxLen255'
-    FailedScheduledUpdateGroupActionRequests:
-      type: array
-      items:
-        $ref: '#/components/schemas/FailedScheduledUpdateGroupActionRequest'
-    BatchDeleteScheduledActionType:
-      type: object
-      required:
-      - AutoScalingGroupName
-      - ScheduledActionNames
-      title: BatchDeleteScheduledActionType
-      properties:
-        AutoScalingGroupName:
-          allOf:
-          - $ref: '#/components/schemas/XmlStringMaxLen255'
-          - description: The name of the Auto Scaling group.
-        ScheduledActionNames:
-          allOf:
-          - $ref: '#/components/schemas/ScheduledActionNames'
-          - description: 'The names of the scheduled actions to delete. The maximum number allowed is 50. '
     XmlStringMaxLen255:
       type: string
       minLength: 1
       maxLength: 255
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    XmlStringMaxLen64:
+      type: string
+      minLength: 1
+      maxLength: 64
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    ScheduledActionNames:
+      type: array
+      items:
+        $ref: '#/components/schemas/XmlStringMaxLen255'
+    XmlString:
+      type: string
       x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
     FailedScheduledUpdateGroupActionRequest:
       type: object
@@ -304,58 +334,34 @@ components:
           - $ref: '#/components/schemas/XmlString'
           - description: The error message accompanying the error code.
       description: Describes a scheduled action that could not be created, updated, or deleted.
-    XmlString:
-      type: string
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    FailedScheduledUpdateGroupActionRequests:
+      type: array
+      items:
+        $ref: '#/components/schemas/FailedScheduledUpdateGroupActionRequest'
+    BatchDeleteScheduledActionType:
+      type: object
+      required:
+      - AutoScalingGroupName
+      - ScheduledActionNames
+      title: BatchDeleteScheduledActionType
+      properties:
+        AutoScalingGroupName:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen255'
+          - description: The name of the Auto Scaling group.
+        ScheduledActionNames:
+          allOf:
+          - $ref: '#/components/schemas/ScheduledActionNames'
+          - description: 'The names of the scheduled actions to delete. The maximum number allowed is 50. '
     ResourceContentionFault: {}
-    XmlStringMaxLen64:
-      type: string
-      minLength: 1
-      maxLength: 64
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-  parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
+    BatchDeleteScheduledActionAnswer:
+      type: object
+      properties:
+        FailedScheduledActions:
+          allOf:
+          - $ref: '#/components/schemas/FailedScheduledUpdateGroupActionRequests'
+          - description: The names of the scheduled actions that could not be deleted, including an error message.
+          example: example-string
   securitySchemes:
     hmac:
       type: apiKey

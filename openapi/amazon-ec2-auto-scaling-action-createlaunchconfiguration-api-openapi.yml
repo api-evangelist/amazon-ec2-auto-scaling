@@ -1,9 +1,14 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: 2011-01-01
   x-release: v4
-  title: 'Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=CreateLaunchConfiguration #Action=Create Launch Configuration #Action=Create Launch Configuration API'
-  description: <fullname>Amazon EC2 Auto Scaling</fullname> <p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.</p> <p>For more information, see the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/">Amazon EC2 Auto Scaling User Guide</a> and the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html">Amazon EC2 Auto Scaling API Reference</a>.</p>
+  title: 'Auto Scaling #Action=Create Launch Configuration API'
+  description: 'Amazon EC2 Auto Scaling
+
+    Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.
+
+
+    For more information, see the Amazon EC2 Auto Scaling User Guide and the Amazon EC2 Auto Scaling API Reference.'
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -23,6 +28,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/autoscaling-2011-01-01.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -131,7 +137,16 @@ paths:
     get:
       x-aws-operation-name: CreateLaunchConfiguration
       operationId: GET_CreateLaunchConfiguration
-      description: <p>Creates a launch configuration.</p> <p>If you exceed your maximum limit of launch configurations, the call fails. To query this limit, call the <a>DescribeAccountLimits</a> API. For information about updating this limit, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html">Quotas for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchConfiguration.html">Launch configurations</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <note> <p>Amazon EC2 Auto Scaling configures instances launched as part of an Auto Scaling group using either a launch template or a launch configuration. We strongly recommend that you do not use launch configurations. They do not provide full functionality for Amazon EC2 Auto Scaling or Amazon EC2. For information about using launch templates, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-templates.html">Launch templates</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> </note>
+      description: 'Creates a launch configuration.
+
+
+        If you exceed your maximum limit of launch configurations, the call fails. To query this limit, call the DescribeAccountLimits API. For information about updating this limit, see Quotas for Amazon EC2 Auto Scaling in the Amazon EC2 Auto Scaling User Guide.
+
+
+        For more information, see Launch configurations in the Amazon EC2 Auto Scaling User Guide.
+
+
+        Amazon EC2 Auto Scaling configures instances launched as part of an Auto Scaling group using either a launch template or a launch configuration. We strongly recommend that you do not use launch configurations. They do not provide full functionality for Amazon EC2 Auto Scaling or Amazon EC2. For information about using launch templates, see Launch templates in the Amazon EC2 Auto Scaling User Guide.'
       responses:
         '200':
           description: Success
@@ -361,7 +376,16 @@ paths:
     post:
       x-aws-operation-name: CreateLaunchConfiguration
       operationId: POST_CreateLaunchConfiguration
-      description: <p>Creates a launch configuration.</p> <p>If you exceed your maximum limit of launch configurations, the call fails. To query this limit, call the <a>DescribeAccountLimits</a> API. For information about updating this limit, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html">Quotas for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchConfiguration.html">Launch configurations</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <note> <p>Amazon EC2 Auto Scaling configures instances launched as part of an Auto Scaling group using either a launch template or a launch configuration. We strongly recommend that you do not use launch configurations. They do not provide full functionality for Amazon EC2 Auto Scaling or Amazon EC2. For information about using launch templates, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-templates.html">Launch templates</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> </note>
+      description: 'Creates a launch configuration.
+
+
+        If you exceed your maximum limit of launch configurations, the call fails. To query this limit, call the DescribeAccountLimits API. For information about updating this limit, see Quotas for Amazon EC2 Auto Scaling in the Amazon EC2 Auto Scaling User Guide.
+
+
+        For more information, see Launch configurations in the Amazon EC2 Auto Scaling User Guide.
+
+
+        Amazon EC2 Auto Scaling configures instances launched as part of an Auto Scaling group using either a launch template or a launch configuration. We strongly recommend that you do not use launch configurations. They do not provide full functionality for Amazon EC2 Auto Scaling or Amazon EC2. For information about using launch templates, see Launch templates in the Amazon EC2 Auto Scaling User Guide.'
       responses:
         '200':
           description: Success
@@ -421,18 +445,13 @@ paths:
       - '#Action=CreateLaunchConfiguration'
 components:
   schemas:
-    BlockDeviceEbsIops:
+    BlockDeviceEbsThroughput:
       type: integer
-      minimum: 100
-      maximum: 20000
-    XmlStringUserData:
-      type: string
-      maxLength: 21847
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    SecurityGroups:
-      type: array
-      items:
-        $ref: '#/components/schemas/XmlString'
+      minimum: 125
+      maximum: 1000
+    BlockDeviceEbsEncrypted:
+      type: boolean
+    LimitExceededFault: {}
     InstanceMetadataOptions:
       type: object
       properties:
@@ -449,6 +468,52 @@ components:
           - $ref: '#/components/schemas/InstanceMetadataEndpointState'
           - description: <p>This parameter enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is <code>enabled</code>.</p> <note> <p>If you specify a value of <code>disabled</code>, you will not be able to access your instance metadata. </p> </note>
       description: The metadata options for the instances. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds">Configuring the Instance Metadata Options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+    InstanceMetadataHttpTokensState:
+      type: string
+      enum:
+      - optional
+      - required
+    BlockDeviceMappings:
+      type: array
+      items:
+        $ref: '#/components/schemas/BlockDeviceMapping'
+    XmlStringMaxLen1600:
+      type: string
+      minLength: 1
+      maxLength: 1600
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    Ebs:
+      type: object
+      properties:
+        SnapshotId:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen255'
+          - description: <p>The snapshot ID of the volume to use.</p> <p>You must specify either a <code>VolumeSize</code> or a <code>SnapshotId</code>.</p>
+        VolumeSize:
+          allOf:
+          - $ref: '#/components/schemas/BlockDeviceEbsVolumeSize'
+          - description: '<p>The volume size, in GiBs. The following are the supported volumes sizes for each volume type: </p> <ul> <li> <p> <code>gp2</code> and <code>gp3</code>: 1-16,384</p> </li> <li> <p> <code>io1</code>: 4-16,384</p> </li> <li> <p> <code>st1</code> and <code>sc1</code>: 125-16,384</p> </li> <li> <p> <code>standard</code>: 1-1,024</p> </li> </ul> <p>You must specify either a <code>SnapshotId</code> or a <code>VolumeSize</code>. If you specify both <code>SnapshotId</code> and <code>VolumeSize</code>, the volume size must be equal or greater than the size of the snapshot.</p>'
+        VolumeType:
+          allOf:
+          - $ref: '#/components/schemas/BlockDeviceEbsVolumeType'
+          - description: '<p>The volume type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS volume types</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> <p>Valid values: <code>standard</code> | <code>io1</code> | <code>gp2</code> | <code>st1</code> | <code>sc1</code> | <code>gp3</code> </p>'
+        DeleteOnTermination:
+          allOf:
+          - $ref: '#/components/schemas/BlockDeviceEbsDeleteOnTermination'
+          - description: Indicates whether the volume is deleted on instance termination. For Amazon EC2 Auto Scaling, the default value is <code>true</code>.
+        Iops:
+          allOf:
+          - $ref: '#/components/schemas/BlockDeviceEbsIops'
+          - description: '<p>The number of input/output (I/O) operations per second (IOPS) to provision for the volume. For <code>gp3</code> and <code>io1</code> volumes, this represents the number of IOPS that are provisioned for the volume. For <code>gp2</code> volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. </p> <p>The following are the supported values for each volume type: </p> <ul> <li> <p> <code>gp3</code>: 3,000-16,000 IOPS</p> </li> <li> <p> <code>io1</code>: 100-64,000 IOPS</p> </li> </ul> <p>For <code>io1</code> volumes, we guarantee 64,000 IOPS only for <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Instances built on the Nitro System</a>. Other instance families guarantee performance up to 32,000 IOPS. </p> <p> <code>Iops</code> is supported when the volume type is <code>gp3</code> or <code>io1</code> and required only when the volume type is <code>io1</code>. (Not used with <code>standard</code>, <code>gp2</code>, <code>st1</code>, or <code>sc1</code> volumes.) </p>'
+        Encrypted:
+          allOf:
+          - $ref: '#/components/schemas/BlockDeviceEbsEncrypted'
+          - description: <p>Specifies whether the volume should be encrypted. Encrypted EBS volumes can only be attached to instances that support Amazon EBS encryption. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported instance types</a>. If your AMI uses encrypted volumes, you can also only launch it on supported instance types.</p> <note> <p>If you are creating a volume from a snapshot, you cannot create an unencrypted volume from an encrypted snapshot. Also, you cannot specify a KMS key ID when using a launch configuration.</p> <p>If you enable encryption by default, the EBS volumes that you create are always encrypted, either using the Amazon Web Services managed KMS key or a customer-managed KMS key, regardless of whether the snapshot was encrypted. </p> <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-data-protection.html#encryption">Use Amazon Web Services KMS keys to encrypt Amazon EBS volumes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> </note>
+        Throughput:
+          allOf:
+          - $ref: '#/components/schemas/BlockDeviceEbsThroughput'
+          - description: The throughput (MiBps) to provision for a <code>gp3</code> volume.
+      description: Describes information used to set up an Amazon EBS volume specified in a block device mapping.
     BlockDeviceMapping:
       type: object
       required:
@@ -475,66 +540,22 @@ components:
           - description: <p>Setting this value to <code>true</code> prevents a volume that is included in the block device mapping of the AMI from being mapped to the specified device name at launch.</p> <p>If <code>NoDevice</code> is <code>true</code> for the root device, instances might fail the EC2 health check. In that case, Amazon EC2 Auto Scaling launches replacement instances.</p>
           example: example-string
       description: Describes a block device mapping.
-    InstanceMetadataHttpTokensState:
-      type: string
-      enum:
-      - optional
-      - required
-    XmlStringMaxLen19:
-      type: string
-      minLength: 1
-      maxLength: 19
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    BlockDeviceMappings:
-      type: array
-      items:
-        $ref: '#/components/schemas/BlockDeviceMapping'
+    NoDevice:
+      type: boolean
     XmlStringMaxLen255:
       type: string
       minLength: 1
       maxLength: 255
       x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    XmlString:
-      type: string
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    AlreadyExistsFault: {}
-    ResourceContentionFault: {}
-    InstanceMetadataEndpointState:
-      type: string
-      enum:
-      - disabled
-      - enabled
-    ClassicLinkVPCSecurityGroups:
-      type: array
-      items:
-        $ref: '#/components/schemas/XmlStringMaxLen255'
-    MonitoringEnabled:
-      type: boolean
-    InstanceMonitoring:
-      type: object
-      properties:
-        Enabled:
-          allOf:
-          - $ref: '#/components/schemas/MonitoringEnabled'
-          - description: If <code>true</code>, detailed monitoring is enabled. Otherwise, basic monitoring is enabled.
-      description: Describes whether detailed monitoring is enabled for the Auto Scaling instances.
-    EbsOptimized:
-      type: boolean
-    InstanceMetadataHttpPutResponseHopLimit:
-      type: integer
-      minimum: 1
-      maximum: 64
-    XmlStringMaxLen64:
-      type: string
-      minLength: 1
-      maxLength: 64
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
     BlockDeviceEbsDeleteOnTermination:
       type: boolean
-    BlockDeviceEbsVolumeSize:
-      type: integer
-      minimum: 1
-      maximum: 16384
+    EbsOptimized:
+      type: boolean
+    AlreadyExistsFault: {}
+    XmlStringUserData:
+      type: string
+      maxLength: 21847
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
     CreateLaunchConfigurationType:
       type: object
       required:
@@ -617,83 +638,74 @@ components:
           allOf:
           - $ref: '#/components/schemas/InstanceMetadataOptions'
           - description: The metadata options for the instances. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds">Configuring the Instance Metadata Options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
-    XmlStringMaxLen1600:
+    InstanceMetadataEndpointState:
+      type: string
+      enum:
+      - disabled
+      - enabled
+    InstanceMonitoring:
+      type: object
+      properties:
+        Enabled:
+          allOf:
+          - $ref: '#/components/schemas/MonitoringEnabled'
+          - description: If <code>true</code>, detailed monitoring is enabled. Otherwise, basic monitoring is enabled.
+      description: Describes whether detailed monitoring is enabled for the Auto Scaling instances.
+    AssociatePublicIpAddress:
+      type: boolean
+    XmlString:
+      type: string
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    BlockDeviceEbsIops:
+      type: integer
+      minimum: 100
+      maximum: 20000
+    BlockDeviceEbsVolumeSize:
+      type: integer
+      minimum: 1
+      maximum: 16384
+    InstanceMetadataHttpPutResponseHopLimit:
+      type: integer
+      minimum: 1
+      maximum: 64
+    XmlStringMaxLen19:
       type: string
       minLength: 1
-      maxLength: 1600
+      maxLength: 19
       x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    XmlStringMaxLen64:
+      type: string
+      minLength: 1
+      maxLength: 64
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    ClassicLinkVPCSecurityGroups:
+      type: array
+      items:
+        $ref: '#/components/schemas/XmlStringMaxLen255'
     SpotPrice:
       type: string
       minLength: 1
       maxLength: 255
-    BlockDeviceEbsThroughput:
-      type: integer
-      minimum: 125
-      maximum: 1000
     BlockDeviceEbsVolumeType:
       type: string
       minLength: 1
       maxLength: 255
-    BlockDeviceEbsEncrypted:
+    MonitoringEnabled:
       type: boolean
-    Ebs:
-      type: object
-      properties:
-        SnapshotId:
-          allOf:
-          - $ref: '#/components/schemas/XmlStringMaxLen255'
-          - description: <p>The snapshot ID of the volume to use.</p> <p>You must specify either a <code>VolumeSize</code> or a <code>SnapshotId</code>.</p>
-        VolumeSize:
-          allOf:
-          - $ref: '#/components/schemas/BlockDeviceEbsVolumeSize'
-          - description: '<p>The volume size, in GiBs. The following are the supported volumes sizes for each volume type: </p> <ul> <li> <p> <code>gp2</code> and <code>gp3</code>: 1-16,384</p> </li> <li> <p> <code>io1</code>: 4-16,384</p> </li> <li> <p> <code>st1</code> and <code>sc1</code>: 125-16,384</p> </li> <li> <p> <code>standard</code>: 1-1,024</p> </li> </ul> <p>You must specify either a <code>SnapshotId</code> or a <code>VolumeSize</code>. If you specify both <code>SnapshotId</code> and <code>VolumeSize</code>, the volume size must be equal or greater than the size of the snapshot.</p>'
-        VolumeType:
-          allOf:
-          - $ref: '#/components/schemas/BlockDeviceEbsVolumeType'
-          - description: '<p>The volume type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS volume types</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> <p>Valid values: <code>standard</code> | <code>io1</code> | <code>gp2</code> | <code>st1</code> | <code>sc1</code> | <code>gp3</code> </p>'
-        DeleteOnTermination:
-          allOf:
-          - $ref: '#/components/schemas/BlockDeviceEbsDeleteOnTermination'
-          - description: Indicates whether the volume is deleted on instance termination. For Amazon EC2 Auto Scaling, the default value is <code>true</code>.
-        Iops:
-          allOf:
-          - $ref: '#/components/schemas/BlockDeviceEbsIops'
-          - description: '<p>The number of input/output (I/O) operations per second (IOPS) to provision for the volume. For <code>gp3</code> and <code>io1</code> volumes, this represents the number of IOPS that are provisioned for the volume. For <code>gp2</code> volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. </p> <p>The following are the supported values for each volume type: </p> <ul> <li> <p> <code>gp3</code>: 3,000-16,000 IOPS</p> </li> <li> <p> <code>io1</code>: 100-64,000 IOPS</p> </li> </ul> <p>For <code>io1</code> volumes, we guarantee 64,000 IOPS only for <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Instances built on the Nitro System</a>. Other instance families guarantee performance up to 32,000 IOPS. </p> <p> <code>Iops</code> is supported when the volume type is <code>gp3</code> or <code>io1</code> and required only when the volume type is <code>io1</code>. (Not used with <code>standard</code>, <code>gp2</code>, <code>st1</code>, or <code>sc1</code> volumes.) </p>'
-        Encrypted:
-          allOf:
-          - $ref: '#/components/schemas/BlockDeviceEbsEncrypted'
-          - description: <p>Specifies whether the volume should be encrypted. Encrypted EBS volumes can only be attached to instances that support Amazon EBS encryption. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported instance types</a>. If your AMI uses encrypted volumes, you can also only launch it on supported instance types.</p> <note> <p>If you are creating a volume from a snapshot, you cannot create an unencrypted volume from an encrypted snapshot. Also, you cannot specify a KMS key ID when using a launch configuration.</p> <p>If you enable encryption by default, the EBS volumes that you create are always encrypted, either using the Amazon Web Services managed KMS key or a customer-managed KMS key, regardless of whether the snapshot was encrypted. </p> <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-data-protection.html#encryption">Use Amazon Web Services KMS keys to encrypt Amazon EBS volumes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> </note>
-        Throughput:
-          allOf:
-          - $ref: '#/components/schemas/BlockDeviceEbsThroughput'
-          - description: The throughput (MiBps) to provision for a <code>gp3</code> volume.
-      description: Describes information used to set up an Amazon EBS volume specified in a block device mapping.
-    AssociatePublicIpAddress:
-      type: boolean
-    NoDevice:
-      type: boolean
-    LimitExceededFault: {}
+    ResourceContentionFault: {}
+    SecurityGroups:
+      type: array
+      items:
+        $ref: '#/components/schemas/XmlString'
   parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Date:
       name: X-Amz-Date
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -704,14 +716,26 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
       in: header
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string

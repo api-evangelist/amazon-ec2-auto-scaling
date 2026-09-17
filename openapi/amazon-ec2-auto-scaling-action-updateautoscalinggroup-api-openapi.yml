@@ -1,9 +1,14 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: 2011-01-01
   x-release: v4
-  title: 'Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=UpdateAutoScalingGroup #Action=Update Auto Scaling Group #Action=Update Auto Scaling Group API'
-  description: <fullname>Amazon EC2 Auto Scaling</fullname> <p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.</p> <p>For more information, see the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/">Amazon EC2 Auto Scaling User Guide</a> and the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html">Amazon EC2 Auto Scaling API Reference</a>.</p>
+  title: '#Action=Update Auto Scaling Group API'
+  description: 'Amazon EC2 Auto Scaling
+
+    Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.
+
+
+    For more information, see the Amazon EC2 Auto Scaling User Guide and the Amazon EC2 Auto Scaling API Reference.'
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -23,6 +28,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/autoscaling-2011-01-01.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -131,7 +137,31 @@ paths:
     get:
       x-aws-operation-name: UpdateAutoScalingGroup
       operationId: GET_UpdateAutoScalingGroup
-      description: <p> <b>We strongly recommend that all Auto Scaling groups use launch templates to ensure full functionality for Amazon EC2 Auto Scaling and Amazon EC2.</b> </p> <p>Updates the configuration for the specified Auto Scaling group.</p> <p>To update an Auto Scaling group, specify the name of the group and the property that you want to change. Any properties that you don't specify are not changed by this update request. The new settings take effect on any scaling activities after this call returns. </p> <p>If you associate a new launch configuration or template with an Auto Scaling group, all new instances will get the updated configuration. Existing instances continue to run with the configuration that they were originally launched with. When you update a group to specify a mixed instances policy instead of a launch configuration or template, existing instances may be replaced to match the new purchasing options that you specified in the policy. For example, if the group currently has 100% On-Demand capacity and the policy specifies 50% Spot capacity, this means that half of your instances will be gradually terminated and relaunched as Spot Instances. When replacing instances, Amazon EC2 Auto Scaling launches new instances before terminating the old ones, so that updating your group does not compromise the performance or availability of your application.</p> <p>Note the following about changing <code>DesiredCapacity</code>, <code>MaxSize</code>, or <code>MinSize</code>:</p> <ul> <li> <p>If a scale-in activity occurs as a result of a new <code>DesiredCapacity</code> value that is lower than the current size of the group, the Auto Scaling group uses its termination policy to determine which instances to terminate.</p> </li> <li> <p>If you specify a new value for <code>MinSize</code> without specifying a value for <code>DesiredCapacity</code>, and the new <code>MinSize</code> is larger than the current size of the group, this sets the group's <code>DesiredCapacity</code> to the new <code>MinSize</code> value.</p> </li> <li> <p>If you specify a new value for <code>MaxSize</code> without specifying a value for <code>DesiredCapacity</code>, and the new <code>MaxSize</code> is smaller than the current size of the group, this sets the group's <code>DesiredCapacity</code> to the new <code>MaxSize</code> value.</p> </li> </ul> <p>To see which properties have been set, call the <a>DescribeAutoScalingGroups</a> API. To view the scaling policies for an Auto Scaling group, call the <a>DescribePolicies</a> API. If the group has scaling policies, you can update them by calling the <a>PutScalingPolicy</a> API.</p>
+      description: 'We strongly recommend that all Auto Scaling groups use launch templates to ensure full functionality for Amazon EC2 Auto Scaling and Amazon EC2.
+
+
+        Updates the configuration for the specified Auto Scaling group.
+
+
+        To update an Auto Scaling group, specify the name of the group and the property that you want to change. Any properties that you don''t specify are not changed by this update request. The new settings take effect on any scaling activities after this call returns.
+
+
+        If you associate a new launch configuration or template with an Auto Scaling group, all new instances will get the updated configuration. Existing instances continue to run with the configuration that they were originally launched with. When you update a group to specify a mixed instances policy instead of a launch configuration or template, existing instances may be replaced to match the new purchasing options that you specified in the policy. For example, if the group currently has 100% On-Demand capacity and the policy specifies 50% Spot capacity, this means that half of your instances will be gradually terminated and relaunched as Spot Instances. When replacing instances, Amazon EC2 Auto Scaling launches new instances before terminating the old ones, so that updating your group does not compromise the performance or availability of your application.
+
+
+        Note the following about changing DesiredCapacity, MaxSize, or MinSize:
+
+
+        If a scale-in activity occurs as a result of a new DesiredCapacity value that is lower than the current size of the group, the Auto Scaling group uses its termination policy to determine which instances to terminate.
+
+
+        If you specify a new value for MinSize without specifying a value for DesiredCapacity, and the new MinSize is larger than the current size of the group, this sets the group''s DesiredCapacity to the new MinSize value.
+
+
+        If you specify a new value for MaxSize without specifying a value for DesiredCapacity, and the new MaxSize is smaller than the current size of the group, this sets the group''s DesiredCapacity to the new MaxSize value.
+
+
+        To see which properties have been set, call the DescribeAutoScalingGroups API. To view the scaling policies for an Auto Scaling group, call the DescribePolicies API. If the group has scaling policies, you can update them by calling the PutScalingPolicy API.'
       responses:
         '200':
           description: Success
@@ -362,7 +392,31 @@ paths:
     post:
       x-aws-operation-name: UpdateAutoScalingGroup
       operationId: POST_UpdateAutoScalingGroup
-      description: <p> <b>We strongly recommend that all Auto Scaling groups use launch templates to ensure full functionality for Amazon EC2 Auto Scaling and Amazon EC2.</b> </p> <p>Updates the configuration for the specified Auto Scaling group.</p> <p>To update an Auto Scaling group, specify the name of the group and the property that you want to change. Any properties that you don't specify are not changed by this update request. The new settings take effect on any scaling activities after this call returns. </p> <p>If you associate a new launch configuration or template with an Auto Scaling group, all new instances will get the updated configuration. Existing instances continue to run with the configuration that they were originally launched with. When you update a group to specify a mixed instances policy instead of a launch configuration or template, existing instances may be replaced to match the new purchasing options that you specified in the policy. For example, if the group currently has 100% On-Demand capacity and the policy specifies 50% Spot capacity, this means that half of your instances will be gradually terminated and relaunched as Spot Instances. When replacing instances, Amazon EC2 Auto Scaling launches new instances before terminating the old ones, so that updating your group does not compromise the performance or availability of your application.</p> <p>Note the following about changing <code>DesiredCapacity</code>, <code>MaxSize</code>, or <code>MinSize</code>:</p> <ul> <li> <p>If a scale-in activity occurs as a result of a new <code>DesiredCapacity</code> value that is lower than the current size of the group, the Auto Scaling group uses its termination policy to determine which instances to terminate.</p> </li> <li> <p>If you specify a new value for <code>MinSize</code> without specifying a value for <code>DesiredCapacity</code>, and the new <code>MinSize</code> is larger than the current size of the group, this sets the group's <code>DesiredCapacity</code> to the new <code>MinSize</code> value.</p> </li> <li> <p>If you specify a new value for <code>MaxSize</code> without specifying a value for <code>DesiredCapacity</code>, and the new <code>MaxSize</code> is smaller than the current size of the group, this sets the group's <code>DesiredCapacity</code> to the new <code>MaxSize</code> value.</p> </li> </ul> <p>To see which properties have been set, call the <a>DescribeAutoScalingGroups</a> API. To view the scaling policies for an Auto Scaling group, call the <a>DescribePolicies</a> API. If the group has scaling policies, you can update them by calling the <a>PutScalingPolicy</a> API.</p>
+      description: 'We strongly recommend that all Auto Scaling groups use launch templates to ensure full functionality for Amazon EC2 Auto Scaling and Amazon EC2.
+
+
+        Updates the configuration for the specified Auto Scaling group.
+
+
+        To update an Auto Scaling group, specify the name of the group and the property that you want to change. Any properties that you don''t specify are not changed by this update request. The new settings take effect on any scaling activities after this call returns.
+
+
+        If you associate a new launch configuration or template with an Auto Scaling group, all new instances will get the updated configuration. Existing instances continue to run with the configuration that they were originally launched with. When you update a group to specify a mixed instances policy instead of a launch configuration or template, existing instances may be replaced to match the new purchasing options that you specified in the policy. For example, if the group currently has 100% On-Demand capacity and the policy specifies 50% Spot capacity, this means that half of your instances will be gradually terminated and relaunched as Spot Instances. When replacing instances, Amazon EC2 Auto Scaling launches new instances before terminating the old ones, so that updating your group does not compromise the performance or availability of your application.
+
+
+        Note the following about changing DesiredCapacity, MaxSize, or MinSize:
+
+
+        If a scale-in activity occurs as a result of a new DesiredCapacity value that is lower than the current size of the group, the Auto Scaling group uses its termination policy to determine which instances to terminate.
+
+
+        If you specify a new value for MinSize without specifying a value for DesiredCapacity, and the new MinSize is larger than the current size of the group, this sets the group''s DesiredCapacity to the new MinSize value.
+
+
+        If you specify a new value for MaxSize without specifying a value for DesiredCapacity, and the new MaxSize is smaller than the current size of the group, this sets the group''s DesiredCapacity to the new MaxSize value.
+
+
+        To see which properties have been set, call the DescribeAutoScalingGroups API. To view the scaling policies for an Auto Scaling group, call the DescribePolicies API. If the group has scaling policies, you can update them by calling the PutScalingPolicy API.'
       responses:
         '200':
           description: Success
@@ -422,340 +476,14 @@ paths:
       - '#Action=UpdateAutoScalingGroup'
 components:
   schemas:
-    VCpuCountRequest:
-      type: object
-      required:
-      - Min
-      properties:
-        Min:
-          allOf:
-          - $ref: '#/components/schemas/NullablePositiveInteger'
-          - description: The minimum number of vCPUs.
-        Max:
-          allOf:
-          - $ref: '#/components/schemas/NullablePositiveInteger'
-          - description: The maximum number of vCPUs.
-      description: Specifies the minimum and maximum for the <code>VCpuCount</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
-    AcceleratorManufacturer:
-      type: string
-      enum:
-      - nvidia
-      - amd
-      - amazon-web-services
-      - xilinx
-    NullablePositiveInteger:
+    SpotInstancePools:
       type: integer
-      minimum: 0
-    XmlStringMaxLen32:
-      type: string
-      minLength: 1
-      maxLength: 32
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
     AutoScalingGroupMaxSize:
       type: integer
-    MaxInstanceLifetime:
-      type: integer
-    AutoScalingGroupMinSize:
-      type: integer
-    XmlStringMaxLen255:
-      type: string
-      minLength: 1
-      maxLength: 255
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    AcceleratorTotalMemoryMiBRequest:
-      type: object
-      properties:
-        Min:
-          allOf:
-          - $ref: '#/components/schemas/NullablePositiveInteger'
-          - description: The memory minimum in MiB.
-        Max:
-          allOf:
-          - $ref: '#/components/schemas/NullablePositiveInteger'
-          - description: The memory maximum in MiB.
-      description: Specifies the minimum and maximum for the <code>AcceleratorTotalMemoryMiB</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
-    LaunchTemplateSpecification:
-      type: object
-      properties:
-        LaunchTemplateId:
-          allOf:
-          - $ref: '#/components/schemas/XmlStringMaxLen255'
-          - description: '<p>The ID of the launch template. To get the template ID, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html">DescribeLaunchTemplates</a> API operation. New launch templates can be created using the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html">CreateLaunchTemplate</a> API. </p> <p>Conditional: You must specify either a <code>LaunchTemplateId</code> or a <code>LaunchTemplateName</code>.</p>'
-        LaunchTemplateName:
-          allOf:
-          - $ref: '#/components/schemas/LaunchTemplateName'
-          - description: '<p>The name of the launch template. To get the template name, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html">DescribeLaunchTemplates</a> API operation. New launch templates can be created using the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html">CreateLaunchTemplate</a> API. </p> <p>Conditional: You must specify either a <code>LaunchTemplateId</code> or a <code>LaunchTemplateName</code>.</p>'
-        Version:
-          allOf:
-          - $ref: '#/components/schemas/XmlStringMaxLen255'
-          - description: The version number, <code>$Latest</code>, or <code>$Default</code>. To get the version number, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplateVersions.html">DescribeLaunchTemplateVersions</a> API operation. New launch template versions can be created using the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplateVersion.html">CreateLaunchTemplateVersion</a> API. If the value is <code>$Latest</code>, Amazon EC2 Auto Scaling selects the latest version of the launch template when launching instances. If the value is <code>$Default</code>, Amazon EC2 Auto Scaling selects the default version of the launch template when launching instances. The default value is <code>$Default</code>.
-      description: Describes the launch template and the version of the launch template that Amazon EC2 Auto Scaling uses to launch Amazon EC2 instances. For more information about launch templates, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchTemplates.html">Launch templates</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
-    InstanceProtected:
-      type: boolean
-    XmlString:
-      type: string
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    ResourceContentionFault: {}
-    OnDemandBaseCapacity:
-      type: integer
-    NullablePositiveDouble:
-      type: number
-      format: double
-      minimum: 0
-    NullableBoolean:
-      type: boolean
-    NetworkInterfaceCountRequest:
-      type: object
-      properties:
-        Min:
-          allOf:
-          - $ref: '#/components/schemas/NullablePositiveInteger'
-          - description: The minimum number of network interfaces.
-        Max:
-          allOf:
-          - $ref: '#/components/schemas/NullablePositiveInteger'
-          - description: The maximum number of network interfaces.
-      description: Specifies the minimum and maximum for the <code>NetworkInterfaceCount</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
-    InstanceGeneration:
-      type: string
-      enum:
-      - current
-      - previous
-    UpdateAutoScalingGroupType:
-      type: object
-      required:
-      - AutoScalingGroupName
-      title: UpdateAutoScalingGroupType
-      properties:
-        AutoScalingGroupName:
-          allOf:
-          - $ref: '#/components/schemas/XmlStringMaxLen255'
-          - description: The name of the Auto Scaling group.
-        LaunchConfigurationName:
-          allOf:
-          - $ref: '#/components/schemas/XmlStringMaxLen255'
-          - description: The name of the launch configuration. If you specify <code>LaunchConfigurationName</code> in your update request, you can't specify <code>LaunchTemplate</code> or <code>MixedInstancesPolicy</code>.
-        LaunchTemplate:
-          allOf:
-          - $ref: '#/components/schemas/LaunchTemplateSpecification'
-          - description: The launch template and version to use to specify the updates. If you specify <code>LaunchTemplate</code> in your update request, you can't specify <code>LaunchConfigurationName</code> or <code>MixedInstancesPolicy</code>.
-        MixedInstancesPolicy:
-          allOf:
-          - $ref: '#/components/schemas/MixedInstancesPolicy'
-          - description: The mixed instances policy. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html">Auto Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
-        MinSize:
-          allOf:
-          - $ref: '#/components/schemas/AutoScalingGroupMinSize'
-          - description: The minimum size of the Auto Scaling group.
-        MaxSize:
-          allOf:
-          - $ref: '#/components/schemas/AutoScalingGroupMaxSize'
-          - description: <p>The maximum size of the Auto Scaling group.</p> <note> <p>With a mixed instances policy that uses instance weighting, Amazon EC2 Auto Scaling may need to go above <code>MaxSize</code> to meet your capacity requirements. In this event, Amazon EC2 Auto Scaling will never go above <code>MaxSize</code> by more than your largest instance weight (weights that define how many units each instance contributes to the desired capacity of the group).</p> </note>
-        DesiredCapacity:
-          allOf:
-          - $ref: '#/components/schemas/AutoScalingGroupDesiredCapacity'
-          - description: The desired capacity is the initial capacity of the Auto Scaling group after this operation completes and the capacity it attempts to maintain. This number must be greater than or equal to the minimum size of the group and less than or equal to the maximum size of the group.
-        DefaultCooldown:
-          allOf:
-          - $ref: '#/components/schemas/Cooldown'
-          - description: <p> <i>Only needed if you use simple scaling policies.</i> </p> <p>The amount of time, in seconds, between one scaling activity ending and another one starting due to simple scaling policies. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling cooldowns for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
-        AvailabilityZones:
-          allOf:
-          - $ref: '#/components/schemas/AvailabilityZones'
-          - description: One or more Availability Zones for the group.
-        HealthCheckType:
-          allOf:
-          - $ref: '#/components/schemas/XmlStringMaxLen32'
-          - description: <p>A comma-separated value string of one or more health check types.</p> <p>The valid values are <code>EC2</code>, <code>ELB</code>, and <code>VPC_LATTICE</code>. <code>EC2</code> is the default health check and cannot be disabled. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health checks for Auto Scaling instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>Only specify <code>EC2</code> if you must clear a value that was previously set.</p>
-        HealthCheckGracePeriod:
-          allOf:
-          - $ref: '#/components/schemas/HealthCheckGracePeriod'
-          - description: The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service and marking it unhealthy due to a failed health check. This is useful if your instances do not immediately pass their health checks after they enter the <code>InService</code> state. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/health-check-grace-period.html">Set the health check grace period for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
-        PlacementGroup:
-          allOf:
-          - $ref: '#/components/schemas/XmlStringMaxLen255'
-          - description: <p>The name of an existing placement group into which to launch your instances. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement groups</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> <note> <p>A <i>cluster</i> placement group is a logical grouping of instances within a single Availability Zone. You cannot specify multiple Availability Zones and a cluster placement group. </p> </note>
-        VPCZoneIdentifier:
-          allOf:
-          - $ref: '#/components/schemas/XmlStringMaxLen2047'
-          - description: A comma-separated list of subnet IDs for a virtual private cloud (VPC). If you specify <code>VPCZoneIdentifier</code> with <code>AvailabilityZones</code>, the subnets that you specify must reside in those Availability Zones.
-        TerminationPolicies:
-          allOf:
-          - $ref: '#/components/schemas/TerminationPolicies'
-          - description: '<p>A policy or a list of policies that are used to select the instances to terminate. The policies are executed in the order that you list them. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html">Work with Amazon EC2 Auto Scaling termination policies</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>Valid values: <code>Default</code> | <code>AllocationStrategy</code> | <code>ClosestToNextInstanceHour</code> | <code>NewestInstance</code> | <code>OldestInstance</code> | <code>OldestLaunchConfiguration</code> | <code>OldestLaunchTemplate</code> | <code>arn:aws:lambda:region:account-id:function:my-function:my-alias</code> </p>'
-        NewInstancesProtectedFromScaleIn:
-          allOf:
-          - $ref: '#/components/schemas/InstanceProtected'
-          - description: Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in. For more information about preventing instances from terminating on scale in, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html">Using instance scale-in protection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
-        ServiceLinkedRoleARN:
-          allOf:
-          - $ref: '#/components/schemas/ResourceName'
-          - description: The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other Amazon Web Services on your behalf. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html">Service-linked roles</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
-        MaxInstanceLifetime:
-          allOf:
-          - $ref: '#/components/schemas/MaxInstanceLifetime'
-          - description: The maximum amount of time, in seconds, that an instance can be in service. The default is null. If specified, the value must be either 0 or a number equal to or greater than 86,400 seconds (1 day). To clear a previously set value, specify a new value of 0. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html">Replacing Auto Scaling instances based on maximum instance lifetime</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
-        CapacityRebalance:
-          allOf:
-          - $ref: '#/components/schemas/CapacityRebalanceEnabled'
-          - description: Enables or disables Capacity Rebalancing. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html">Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
-        Context:
-          allOf:
-          - $ref: '#/components/schemas/Context'
-          - description: Reserved.
-        DesiredCapacityType:
-          allOf:
-          - $ref: '#/components/schemas/XmlStringMaxLen255'
-          - description: '<p>The unit of measurement for the value specified for desired capacity. Amazon EC2 Auto Scaling supports <code>DesiredCapacityType</code> for attribute-based instance type selection only. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html">Creating an Auto Scaling group using attribute-based instance type selection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>By default, Amazon EC2 Auto Scaling specifies <code>units</code>, which translates into number of instances.</p> <p>Valid values: <code>units</code> | <code>vcpu</code> | <code>memory-mib</code> </p>'
-        DefaultInstanceWarmup:
-          allOf:
-          - $ref: '#/components/schemas/DefaultInstanceWarmup'
-          - description: <p>The amount of time, in seconds, until a new instance is considered to have finished initializing and resource consumption to become stable after it enters the <code>InService</code> state. </p> <p>During an instance refresh, Amazon EC2 Auto Scaling waits for the warm-up period after it replaces an instance before it moves on to replacing the next instance. Amazon EC2 Auto Scaling also waits for the warm-up period before aggregating the metrics for new instances with existing instances in the Amazon CloudWatch metrics that are used for scaling, resulting in more reliable usage data. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html">Set the default instance warmup for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <important> <p>To manage various warm-up settings at the group level, we recommend that you set the default instance warmup, <i>even if it is set to 0 seconds</i>. To remove a value that you previously set, include the property but specify <code>-1</code> for the value. However, we strongly recommend keeping the default instance warmup enabled by specifying a value of <code>0</code> or other nominal value.</p> </important>
-    TerminationPolicies:
+    Overrides:
       type: array
       items:
-        $ref: '#/components/schemas/XmlStringMaxLen1600'
-    AvailabilityZones:
-      type: array
-      items:
-        $ref: '#/components/schemas/XmlStringMaxLen255'
-    ScalingActivityInProgressFault: {}
-    LocalStorageTypes:
-      type: array
-      items:
-        $ref: '#/components/schemas/LocalStorageType'
-    InstanceGenerations:
-      type: array
-      items:
-        $ref: '#/components/schemas/InstanceGeneration'
-    BurstablePerformance:
-      type: string
-      enum:
-      - included
-      - excluded
-      - required
-    ResourceName:
-      type: string
-      minLength: 1
-      maxLength: 1600
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    MemoryGiBPerVCpuRequest:
-      type: object
-      properties:
-        Min:
-          allOf:
-          - $ref: '#/components/schemas/NullablePositiveDouble'
-          - description: The memory minimum in GiB.
-        Max:
-          allOf:
-          - $ref: '#/components/schemas/NullablePositiveDouble'
-          - description: The memory maximum in GiB.
-      description: Specifies the minimum and maximum for the <code>MemoryGiBPerVCpu</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
-    LaunchTemplate:
-      type: object
-      properties:
-        LaunchTemplateSpecification:
-          allOf:
-          - $ref: '#/components/schemas/LaunchTemplateSpecification'
-          - description: The launch template.
-          example: example-string
-        Overrides:
-          allOf:
-          - $ref: '#/components/schemas/Overrides'
-          - description: Any properties that you specify override the same properties in the launch template.
-          example: example-id-1234
-      description: Use this structure to specify the launch templates and instance types (overrides) for a mixed instances policy.
-    CpuManufacturers:
-      type: array
-      items:
-        $ref: '#/components/schemas/CpuManufacturer'
-    XmlStringMaxLen2047:
-      type: string
-      minLength: 1
-      maxLength: 2047
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    Context:
-      type: string
-    AllowedInstanceType:
-      type: string
-      pattern: '[a-zA-Z0-9\.\*]+'
-      minLength: 1
-      maxLength: 30
-    LocalStorageType:
-      type: string
-      enum:
-      - hdd
-      - ssd
-    NetworkBandwidthGbpsRequest:
-      type: object
-      properties:
-        Min:
-          allOf:
-          - $ref: '#/components/schemas/NullablePositiveDouble'
-          - description: The minimum amount of network bandwidth, in gigabits per second (Gbps).
-        Max:
-          allOf:
-          - $ref: '#/components/schemas/NullablePositiveDouble'
-          - description: The maximum amount of network bandwidth, in gigabits per second (Gbps).
-      description: <p>Specifies the minimum and maximum for the <code>NetworkBandwidthGbps</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.</p> <note> <p>Setting the minimum bandwidth does not guarantee that your instance will achieve the minimum bandwidth. Amazon EC2 will identify instance types that support the specified minimum bandwidth, but the actual bandwidth of your instance might go below the specified minimum at times. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html#available-instance-bandwidth">Available instance bandwidth</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> </note>
-    AcceleratorCountRequest:
-      type: object
-      properties:
-        Min:
-          allOf:
-          - $ref: '#/components/schemas/NullablePositiveInteger'
-          - description: The minimum value.
-        Max:
-          allOf:
-          - $ref: '#/components/schemas/NullablePositiveInteger'
-          - description: The maximum value.
-      description: Specifies the minimum and maximum for the <code>AcceleratorCount</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
-    MixedInstancesPolicy:
-      type: object
-      properties:
-        LaunchTemplate:
-          allOf:
-          - $ref: '#/components/schemas/LaunchTemplate'
-          - description: One or more launch templates and the instance types (overrides) that are used to launch EC2 instances to fulfill On-Demand and Spot capacities.
-        InstancesDistribution:
-          allOf:
-          - $ref: '#/components/schemas/InstancesDistribution'
-          - description: The instances distribution.
-      description: <p>Use this structure to launch multiple instance types and On-Demand Instances and Spot Instances within a single Auto Scaling group.</p> <p>A mixed instances policy contains information that Amazon EC2 Auto Scaling can use to launch instances and help optimize your costs. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html">Auto Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
-    AcceleratorName:
-      type: string
-      enum:
-      - a100
-      - v100
-      - k80
-      - t4
-      - m60
-      - radeon-pro-v520
-      - vu9p
-    AcceleratorManufacturers:
-      type: array
-      items:
-        $ref: '#/components/schemas/AcceleratorManufacturer'
-    LaunchTemplateOverrides:
-      type: object
-      properties:
-        InstanceType:
-          allOf:
-          - $ref: '#/components/schemas/XmlStringMaxLen255'
-          - description: <p>The instance type, such as <code>m3.xlarge</code>. You must specify an instance type that is supported in your requested Region and Availability Zones. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>You can specify up to 40 instance types per Auto Scaling group.</p>
-        WeightedCapacity:
-          allOf:
-          - $ref: '#/components/schemas/XmlStringMaxLen32'
-          - description: <p>If you provide a list of instance types to use, you can specify the number of capacity units provided by each instance type in terms of virtual CPUs, memory, storage, throughput, or other relative performance characteristic. When a Spot or On-Demand Instance is launched, the capacity units count toward the desired capacity. Amazon EC2 Auto Scaling launches instances until the desired capacity is totally fulfilled, even if this results in an overage. For example, if there are two units remaining to fulfill capacity, and Amazon EC2 Auto Scaling can only launch an instance with a <code>WeightedCapacity</code> of five units, the instance is launched, and the desired capacity is exceeded by three units. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups-instance-weighting.html">Configuring instance weighting for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. Value must be in the range of 1–999.</p> <p>If you specify a value for <code>WeightedCapacity</code> for one instance type, you must specify a value for <code>WeightedCapacity</code> for all of them.</p> <important> <p>Every Auto Scaling group has three size parameters (<code>DesiredCapacity</code>, <code>MaxSize</code>, and <code>MinSize</code>). Usually, you set these sizes based on a specific number of instances. However, if you configure a mixed instances policy that defines weights for the instance types, you must specify these sizes with the same units that you use for weighting instances. </p> </important>
-        LaunchTemplateSpecification:
-          allOf:
-          - $ref: '#/components/schemas/LaunchTemplateSpecification'
-          - description: <p>Provides a launch template for the specified instance type or set of instance requirements. For example, some instance types might require a launch template with a different AMI. If not provided, Amazon EC2 Auto Scaling uses the launch template that's specified in the <code>LaunchTemplate</code> definition. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups-launch-template-overrides.html">Specifying a different launch template for an instance type</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p> <p>You can specify up to 20 launch templates per Auto Scaling group. The launch templates specified in the overrides and in the <code>LaunchTemplate</code> definition count towards this limit.</p>
-        InstanceRequirements:
-          allOf:
-          - $ref: '#/components/schemas/InstanceRequirements'
-          - description: <p>The instance requirements. Amazon EC2 Auto Scaling uses your specified requirements to identify instance types. Then, it uses your On-Demand and Spot allocation strategies to launch instances from these instance types.</p> <p>You can specify up to four separate sets of instance requirements per Auto Scaling group. This is useful for provisioning instances from different Amazon Machine Images (AMIs) in the same Auto Scaling group. To do this, create the AMIs and create a new launch template for each AMI. Then, create a compatible set of instance requirements for each launch template. </p> <note> <p>If you specify <code>InstanceRequirements</code>, you can't specify <code>InstanceType</code>.</p> </note>
-      description: <p>Use this structure to let Amazon EC2 Auto Scaling do the following when the Auto Scaling group has a mixed instances policy:</p> <ul> <li> <p>Override the instance type that is specified in the launch template.</p> </li> <li> <p>Use multiple instance types.</p> </li> </ul> <p>Specify the instance types that you want, or define your instance requirements instead and let Amazon EC2 Auto Scaling provision the available instance types that meet your requirements. This can provide Amazon EC2 Auto Scaling with a larger selection of instance types to choose from when fulfilling Spot and On-Demand capacities. You can view which instance types are matched before you apply the instance requirements to your Auto Scaling group.</p> <p>After you define your instance requirements, you don't have to keep updating these settings to get new EC2 instance types automatically. Amazon EC2 Auto Scaling uses the instance requirements of the Auto Scaling group to determine whether a new EC2 instance type can be used.</p>
+        $ref: '#/components/schemas/LaunchTemplateOverrides'
     InstanceRequirements:
       type: object
       required:
@@ -855,47 +583,33 @@ components:
           - $ref: '#/components/schemas/AllowedInstanceTypes'
           - description: '<p>The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.</p> <p>You can use strings with one or more wild cards, represented by an asterisk (<code>*</code>), to allow an instance type, size, or generation. The following are examples: <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>, <code>r*</code>, <code>*3*</code>.</p> <p>For example, if you specify <code>c5*</code>, Amazon EC2 Auto Scaling will allow the entire C5 instance family, which includes all C5a and C5n instance types. If you specify <code>m5a.*</code>, Amazon EC2 Auto Scaling will allow all the M5a instance types, but not the M5n instance types.</p> <note> <p>If you specify <code>AllowedInstanceTypes</code>, you can''t specify <code>ExcludedInstanceTypes</code>.</p> </note> <p>Default: All instance types</p>'
       description: <p>The attributes for the instance types for a mixed instances policy. Amazon EC2 Auto Scaling uses your specified requirements to identify instance types. Then, it uses your On-Demand and Spot allocation strategies to launch instances from these instance types.</p> <p>When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.</p> <p>To limit the list of instance types from which Amazon EC2 Auto Scaling can identify matching instance types, you can use one of the following parameters, but not both in the same request:</p> <ul> <li> <p> <code>AllowedInstanceTypes</code> - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.</p> </li> <li> <p> <code>ExcludedInstanceTypes</code> - The instance types to exclude from the list, even if they match your specified attributes.</p> </li> </ul> <note> <p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other attributes are optional. Any unspecified optional attribute is set to its default.</p> </note> <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html">Creating an Auto Scaling group using attribute-based instance type selection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. For help determining which instance types match your attributes before you apply them to your Auto Scaling group, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-get-instance-types-from-instance-requirements">Preview instance types with specified attributes</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
-    LocalStorage:
-      type: string
-      enum:
-      - included
-      - excluded
-      - required
-    MemoryMiBRequest:
-      type: object
-      required:
-      - Min
-      properties:
-        Min:
-          allOf:
-          - $ref: '#/components/schemas/NullablePositiveInteger'
-          - description: The memory minimum in MiB.
-        Max:
-          allOf:
-          - $ref: '#/components/schemas/NullablePositiveInteger'
-          - description: The memory maximum in MiB.
-      description: Specifies the minimum and maximum for the <code>MemoryMiB</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
-    XmlStringMaxLen1600:
-      type: string
-      minLength: 1
-      maxLength: 1600
-      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    MixedInstanceSpotPrice:
-      type: string
-      minLength: 0
-      maxLength: 255
-    HealthCheckGracePeriod:
-      type: integer
     AllowedInstanceTypes:
       type: array
       items:
         $ref: '#/components/schemas/AllowedInstanceType'
       maxItems: 400
-    LaunchTemplateName:
+    ExcludedInstance:
       type: string
-      pattern: '[a-zA-Z0-9\(\)\.\-/_]+'
-      minLength: 3
-      maxLength: 128
+      pattern: '[a-zA-Z0-9\.\*]+'
+      minLength: 1
+      maxLength: 30
+    AcceleratorType:
+      type: string
+      enum:
+      - gpu
+      - fpga
+      - inference
+    BareMetal:
+      type: string
+      enum:
+      - included
+      - excluded
+      - required
+    XmlStringMaxLen32:
+      type: string
+      minLength: 1
+      maxLength: 32
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
     InstancesDistribution:
       type: object
       properties:
@@ -930,34 +644,18 @@ components:
           - description: '<p>The maximum price per unit hour that you are willing to pay for a Spot Instance. If your maximum price is lower than the Spot price for the instance types that you selected, your Spot Instances are not launched. We do not recommend specifying a maximum price because it can lead to increased interruptions. When Spot Instances launch, you pay the current Spot price. To remove a maximum price that you previously set, include the property but specify an empty string ("") for the value.</p> <important> <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify one.</p> </important> <p>Valid Range: Minimum value of 0.001</p>'
           example: example-string
       description: Use this structure to specify the distribution of On-Demand Instances and Spot Instances and the allocation strategies used to fulfill On-Demand and Spot capacities for a mixed instances policy.
-    AcceleratorNames:
-      type: array
-      items:
-        $ref: '#/components/schemas/AcceleratorName'
-    ServiceLinkedRoleFailure: {}
-    ExcludedInstanceTypes:
-      type: array
-      items:
-        $ref: '#/components/schemas/ExcludedInstance'
-      maxItems: 400
-    AutoScalingGroupDesiredCapacity:
-      type: integer
-    SpotInstancePools:
-      type: integer
-    AcceleratorType:
-      type: string
-      enum:
-      - gpu
-      - fpga
-      - inference
-    CpuManufacturer:
-      type: string
-      enum:
-      - intel
-      - amd
-      - amazon-web-services
     OnDemandPercentageAboveBaseCapacity:
       type: integer
+    XmlStringMaxLen1600:
+      type: string
+      minLength: 1
+      maxLength: 1600
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    InstanceGeneration:
+      type: string
+      enum:
+      - current
+      - previous
     TotalLocalStorageGBRequest:
       type: object
       properties:
@@ -970,25 +668,6 @@ components:
           - $ref: '#/components/schemas/NullablePositiveDouble'
           - description: The storage maximum in GB.
       description: Specifies the minimum and maximum for the <code>TotalLocalStorageGB</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
-    ExcludedInstance:
-      type: string
-      pattern: '[a-zA-Z0-9\.\*]+'
-      minLength: 1
-      maxLength: 30
-    Overrides:
-      type: array
-      items:
-        $ref: '#/components/schemas/LaunchTemplateOverrides'
-    AcceleratorTypes:
-      type: array
-      items:
-        $ref: '#/components/schemas/AcceleratorType'
-    BareMetal:
-      type: string
-      enum:
-      - included
-      - excluded
-      - required
     BaselineEbsBandwidthMbpsRequest:
       type: object
       properties:
@@ -1001,33 +680,396 @@ components:
           - $ref: '#/components/schemas/NullablePositiveInteger'
           - description: The maximum value in Mbps.
       description: Specifies the minimum and maximum for the <code>BaselineEbsBandwidthMbps</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
+    AcceleratorTypes:
+      type: array
+      items:
+        $ref: '#/components/schemas/AcceleratorType'
+    VCpuCountRequest:
+      type: object
+      required:
+      - Min
+      properties:
+        Min:
+          allOf:
+          - $ref: '#/components/schemas/NullablePositiveInteger'
+          - description: The minimum number of vCPUs.
+        Max:
+          allOf:
+          - $ref: '#/components/schemas/NullablePositiveInteger'
+          - description: The maximum number of vCPUs.
+      description: Specifies the minimum and maximum for the <code>VCpuCount</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
+    AcceleratorNames:
+      type: array
+      items:
+        $ref: '#/components/schemas/AcceleratorName'
+    LaunchTemplateName:
+      type: string
+      pattern: '[a-zA-Z0-9\(\)\.\-/_]+'
+      minLength: 3
+      maxLength: 128
+    NullableBoolean:
+      type: boolean
+    XmlStringMaxLen255:
+      type: string
+      minLength: 1
+      maxLength: 255
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    AutoScalingGroupMinSize:
+      type: integer
+    LaunchTemplateSpecification:
+      type: object
+      properties:
+        LaunchTemplateId:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen255'
+          - description: '<p>The ID of the launch template. To get the template ID, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html">DescribeLaunchTemplates</a> API operation. New launch templates can be created using the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html">CreateLaunchTemplate</a> API. </p> <p>Conditional: You must specify either a <code>LaunchTemplateId</code> or a <code>LaunchTemplateName</code>.</p>'
+        LaunchTemplateName:
+          allOf:
+          - $ref: '#/components/schemas/LaunchTemplateName'
+          - description: '<p>The name of the launch template. To get the template name, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html">DescribeLaunchTemplates</a> API operation. New launch templates can be created using the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html">CreateLaunchTemplate</a> API. </p> <p>Conditional: You must specify either a <code>LaunchTemplateId</code> or a <code>LaunchTemplateName</code>.</p>'
+        Version:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen255'
+          - description: The version number, <code>$Latest</code>, or <code>$Default</code>. To get the version number, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplateVersions.html">DescribeLaunchTemplateVersions</a> API operation. New launch template versions can be created using the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplateVersion.html">CreateLaunchTemplateVersion</a> API. If the value is <code>$Latest</code>, Amazon EC2 Auto Scaling selects the latest version of the launch template when launching instances. If the value is <code>$Default</code>, Amazon EC2 Auto Scaling selects the default version of the launch template when launching instances. The default value is <code>$Default</code>.
+      description: Describes the launch template and the version of the launch template that Amazon EC2 Auto Scaling uses to launch Amazon EC2 instances. For more information about launch templates, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchTemplates.html">Launch templates</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+    MemoryGiBPerVCpuRequest:
+      type: object
+      properties:
+        Min:
+          allOf:
+          - $ref: '#/components/schemas/NullablePositiveDouble'
+          - description: The memory minimum in GiB.
+        Max:
+          allOf:
+          - $ref: '#/components/schemas/NullablePositiveDouble'
+          - description: The memory maximum in GiB.
+      description: Specifies the minimum and maximum for the <code>MemoryGiBPerVCpu</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
+    LaunchTemplate:
+      type: object
+      properties:
+        LaunchTemplateSpecification:
+          allOf:
+          - $ref: '#/components/schemas/LaunchTemplateSpecification'
+          - description: The launch template.
+          example: example-string
+        Overrides:
+          allOf:
+          - $ref: '#/components/schemas/Overrides'
+          - description: Any properties that you specify override the same properties in the launch template.
+          example: example-id-1234
+      description: Use this structure to specify the launch templates and instance types (overrides) for a mixed instances policy.
+    LocalStorageTypes:
+      type: array
+      items:
+        $ref: '#/components/schemas/LocalStorageType'
+    ScalingActivityInProgressFault: {}
+    BurstablePerformance:
+      type: string
+      enum:
+      - included
+      - excluded
+      - required
+    OnDemandBaseCapacity:
+      type: integer
+    ResourceName:
+      type: string
+      minLength: 1
+      maxLength: 1600
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    CpuManufacturer:
+      type: string
+      enum:
+      - intel
+      - amd
+      - amazon-web-services
+    HealthCheckGracePeriod:
+      type: integer
+    NetworkInterfaceCountRequest:
+      type: object
+      properties:
+        Min:
+          allOf:
+          - $ref: '#/components/schemas/NullablePositiveInteger'
+          - description: The minimum number of network interfaces.
+        Max:
+          allOf:
+          - $ref: '#/components/schemas/NullablePositiveInteger'
+          - description: The maximum number of network interfaces.
+      description: Specifies the minimum and maximum for the <code>NetworkInterfaceCount</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
+    AllowedInstanceType:
+      type: string
+      pattern: '[a-zA-Z0-9\.\*]+'
+      minLength: 1
+      maxLength: 30
+    UpdateAutoScalingGroupType:
+      type: object
+      required:
+      - AutoScalingGroupName
+      title: UpdateAutoScalingGroupType
+      properties:
+        AutoScalingGroupName:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen255'
+          - description: The name of the Auto Scaling group.
+        LaunchConfigurationName:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen255'
+          - description: The name of the launch configuration. If you specify <code>LaunchConfigurationName</code> in your update request, you can't specify <code>LaunchTemplate</code> or <code>MixedInstancesPolicy</code>.
+        LaunchTemplate:
+          allOf:
+          - $ref: '#/components/schemas/LaunchTemplateSpecification'
+          - description: The launch template and version to use to specify the updates. If you specify <code>LaunchTemplate</code> in your update request, you can't specify <code>LaunchConfigurationName</code> or <code>MixedInstancesPolicy</code>.
+        MixedInstancesPolicy:
+          allOf:
+          - $ref: '#/components/schemas/MixedInstancesPolicy'
+          - description: The mixed instances policy. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html">Auto Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+        MinSize:
+          allOf:
+          - $ref: '#/components/schemas/AutoScalingGroupMinSize'
+          - description: The minimum size of the Auto Scaling group.
+        MaxSize:
+          allOf:
+          - $ref: '#/components/schemas/AutoScalingGroupMaxSize'
+          - description: <p>The maximum size of the Auto Scaling group.</p> <note> <p>With a mixed instances policy that uses instance weighting, Amazon EC2 Auto Scaling may need to go above <code>MaxSize</code> to meet your capacity requirements. In this event, Amazon EC2 Auto Scaling will never go above <code>MaxSize</code> by more than your largest instance weight (weights that define how many units each instance contributes to the desired capacity of the group).</p> </note>
+        DesiredCapacity:
+          allOf:
+          - $ref: '#/components/schemas/AutoScalingGroupDesiredCapacity'
+          - description: The desired capacity is the initial capacity of the Auto Scaling group after this operation completes and the capacity it attempts to maintain. This number must be greater than or equal to the minimum size of the group and less than or equal to the maximum size of the group.
+        DefaultCooldown:
+          allOf:
+          - $ref: '#/components/schemas/Cooldown'
+          - description: <p> <i>Only needed if you use simple scaling policies.</i> </p> <p>The amount of time, in seconds, between one scaling activity ending and another one starting due to simple scaling policies. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling cooldowns for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+        AvailabilityZones:
+          allOf:
+          - $ref: '#/components/schemas/AvailabilityZones'
+          - description: One or more Availability Zones for the group.
+        HealthCheckType:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen32'
+          - description: <p>A comma-separated value string of one or more health check types.</p> <p>The valid values are <code>EC2</code>, <code>ELB</code>, and <code>VPC_LATTICE</code>. <code>EC2</code> is the default health check and cannot be disabled. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health checks for Auto Scaling instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>Only specify <code>EC2</code> if you must clear a value that was previously set.</p>
+        HealthCheckGracePeriod:
+          allOf:
+          - $ref: '#/components/schemas/HealthCheckGracePeriod'
+          - description: The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service and marking it unhealthy due to a failed health check. This is useful if your instances do not immediately pass their health checks after they enter the <code>InService</code> state. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/health-check-grace-period.html">Set the health check grace period for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+        PlacementGroup:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen255'
+          - description: <p>The name of an existing placement group into which to launch your instances. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement groups</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> <note> <p>A <i>cluster</i> placement group is a logical grouping of instances within a single Availability Zone. You cannot specify multiple Availability Zones and a cluster placement group. </p> </note>
+        VPCZoneIdentifier:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen2047'
+          - description: A comma-separated list of subnet IDs for a virtual private cloud (VPC). If you specify <code>VPCZoneIdentifier</code> with <code>AvailabilityZones</code>, the subnets that you specify must reside in those Availability Zones.
+        TerminationPolicies:
+          allOf:
+          - $ref: '#/components/schemas/TerminationPolicies'
+          - description: '<p>A policy or a list of policies that are used to select the instances to terminate. The policies are executed in the order that you list them. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html">Work with Amazon EC2 Auto Scaling termination policies</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>Valid values: <code>Default</code> | <code>AllocationStrategy</code> | <code>ClosestToNextInstanceHour</code> | <code>NewestInstance</code> | <code>OldestInstance</code> | <code>OldestLaunchConfiguration</code> | <code>OldestLaunchTemplate</code> | <code>arn:aws:lambda:region:account-id:function:my-function:my-alias</code> </p>'
+        NewInstancesProtectedFromScaleIn:
+          allOf:
+          - $ref: '#/components/schemas/InstanceProtected'
+          - description: Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in. For more information about preventing instances from terminating on scale in, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html">Using instance scale-in protection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+        ServiceLinkedRoleARN:
+          allOf:
+          - $ref: '#/components/schemas/ResourceName'
+          - description: The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other Amazon Web Services on your behalf. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html">Service-linked roles</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+        MaxInstanceLifetime:
+          allOf:
+          - $ref: '#/components/schemas/MaxInstanceLifetime'
+          - description: The maximum amount of time, in seconds, that an instance can be in service. The default is null. If specified, the value must be either 0 or a number equal to or greater than 86,400 seconds (1 day). To clear a previously set value, specify a new value of 0. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html">Replacing Auto Scaling instances based on maximum instance lifetime</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+        CapacityRebalance:
+          allOf:
+          - $ref: '#/components/schemas/CapacityRebalanceEnabled'
+          - description: Enables or disables Capacity Rebalancing. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html">Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+        Context:
+          allOf:
+          - $ref: '#/components/schemas/Context'
+          - description: Reserved.
+        DesiredCapacityType:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen255'
+          - description: '<p>The unit of measurement for the value specified for desired capacity. Amazon EC2 Auto Scaling supports <code>DesiredCapacityType</code> for attribute-based instance type selection only. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html">Creating an Auto Scaling group using attribute-based instance type selection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>By default, Amazon EC2 Auto Scaling specifies <code>units</code>, which translates into number of instances.</p> <p>Valid values: <code>units</code> | <code>vcpu</code> | <code>memory-mib</code> </p>'
+        DefaultInstanceWarmup:
+          allOf:
+          - $ref: '#/components/schemas/DefaultInstanceWarmup'
+          - description: <p>The amount of time, in seconds, until a new instance is considered to have finished initializing and resource consumption to become stable after it enters the <code>InService</code> state. </p> <p>During an instance refresh, Amazon EC2 Auto Scaling waits for the warm-up period after it replaces an instance before it moves on to replacing the next instance. Amazon EC2 Auto Scaling also waits for the warm-up period before aggregating the metrics for new instances with existing instances in the Amazon CloudWatch metrics that are used for scaling, resulting in more reliable usage data. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html">Set the default instance warmup for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <important> <p>To manage various warm-up settings at the group level, we recommend that you set the default instance warmup, <i>even if it is set to 0 seconds</i>. To remove a value that you previously set, include the property but specify <code>-1</code> for the value. However, we strongly recommend keeping the default instance warmup enabled by specifying a value of <code>0</code> or other nominal value.</p> </important>
+    MixedInstanceSpotPrice:
+      type: string
+      minLength: 0
+      maxLength: 255
+    InstanceProtected:
+      type: boolean
+    LocalStorageType:
+      type: string
+      enum:
+      - hdd
+      - ssd
+    Context:
+      type: string
+    AcceleratorManufacturers:
+      type: array
+      items:
+        $ref: '#/components/schemas/AcceleratorManufacturer'
+    InstanceGenerations:
+      type: array
+      items:
+        $ref: '#/components/schemas/InstanceGeneration'
+    AcceleratorName:
+      type: string
+      enum:
+      - a100
+      - v100
+      - k80
+      - t4
+      - m60
+      - radeon-pro-v520
+      - vu9p
+    XmlString:
+      type: string
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
     Cooldown:
       type: integer
-    DefaultInstanceWarmup:
+    MemoryMiBRequest:
+      type: object
+      required:
+      - Min
+      properties:
+        Min:
+          allOf:
+          - $ref: '#/components/schemas/NullablePositiveInteger'
+          - description: The memory minimum in MiB.
+        Max:
+          allOf:
+          - $ref: '#/components/schemas/NullablePositiveInteger'
+          - description: The memory maximum in MiB.
+      description: Specifies the minimum and maximum for the <code>MemoryMiB</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
+    AcceleratorManufacturer:
+      type: string
+      enum:
+      - nvidia
+      - amd
+      - amazon-web-services
+      - xilinx
+    MaxInstanceLifetime:
       type: integer
     CapacityRebalanceEnabled:
       type: boolean
+    LaunchTemplateOverrides:
+      type: object
+      properties:
+        InstanceType:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen255'
+          - description: <p>The instance type, such as <code>m3.xlarge</code>. You must specify an instance type that is supported in your requested Region and Availability Zones. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>You can specify up to 40 instance types per Auto Scaling group.</p>
+        WeightedCapacity:
+          allOf:
+          - $ref: '#/components/schemas/XmlStringMaxLen32'
+          - description: <p>If you provide a list of instance types to use, you can specify the number of capacity units provided by each instance type in terms of virtual CPUs, memory, storage, throughput, or other relative performance characteristic. When a Spot or On-Demand Instance is launched, the capacity units count toward the desired capacity. Amazon EC2 Auto Scaling launches instances until the desired capacity is totally fulfilled, even if this results in an overage. For example, if there are two units remaining to fulfill capacity, and Amazon EC2 Auto Scaling can only launch an instance with a <code>WeightedCapacity</code> of five units, the instance is launched, and the desired capacity is exceeded by three units. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups-instance-weighting.html">Configuring instance weighting for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. Value must be in the range of 1–999.</p> <p>If you specify a value for <code>WeightedCapacity</code> for one instance type, you must specify a value for <code>WeightedCapacity</code> for all of them.</p> <important> <p>Every Auto Scaling group has three size parameters (<code>DesiredCapacity</code>, <code>MaxSize</code>, and <code>MinSize</code>). Usually, you set these sizes based on a specific number of instances. However, if you configure a mixed instances policy that defines weights for the instance types, you must specify these sizes with the same units that you use for weighting instances. </p> </important>
+        LaunchTemplateSpecification:
+          allOf:
+          - $ref: '#/components/schemas/LaunchTemplateSpecification'
+          - description: <p>Provides a launch template for the specified instance type or set of instance requirements. For example, some instance types might require a launch template with a different AMI. If not provided, Amazon EC2 Auto Scaling uses the launch template that's specified in the <code>LaunchTemplate</code> definition. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups-launch-template-overrides.html">Specifying a different launch template for an instance type</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p> <p>You can specify up to 20 launch templates per Auto Scaling group. The launch templates specified in the overrides and in the <code>LaunchTemplate</code> definition count towards this limit.</p>
+        InstanceRequirements:
+          allOf:
+          - $ref: '#/components/schemas/InstanceRequirements'
+          - description: <p>The instance requirements. Amazon EC2 Auto Scaling uses your specified requirements to identify instance types. Then, it uses your On-Demand and Spot allocation strategies to launch instances from these instance types.</p> <p>You can specify up to four separate sets of instance requirements per Auto Scaling group. This is useful for provisioning instances from different Amazon Machine Images (AMIs) in the same Auto Scaling group. To do this, create the AMIs and create a new launch template for each AMI. Then, create a compatible set of instance requirements for each launch template. </p> <note> <p>If you specify <code>InstanceRequirements</code>, you can't specify <code>InstanceType</code>.</p> </note>
+      description: <p>Use this structure to let Amazon EC2 Auto Scaling do the following when the Auto Scaling group has a mixed instances policy:</p> <ul> <li> <p>Override the instance type that is specified in the launch template.</p> </li> <li> <p>Use multiple instance types.</p> </li> </ul> <p>Specify the instance types that you want, or define your instance requirements instead and let Amazon EC2 Auto Scaling provision the available instance types that meet your requirements. This can provide Amazon EC2 Auto Scaling with a larger selection of instance types to choose from when fulfilling Spot and On-Demand capacities. You can view which instance types are matched before you apply the instance requirements to your Auto Scaling group.</p> <p>After you define your instance requirements, you don't have to keep updating these settings to get new EC2 instance types automatically. Amazon EC2 Auto Scaling uses the instance requirements of the Auto Scaling group to determine whether a new EC2 instance type can be used.</p>
+    AcceleratorTotalMemoryMiBRequest:
+      type: object
+      properties:
+        Min:
+          allOf:
+          - $ref: '#/components/schemas/NullablePositiveInteger'
+          - description: The memory minimum in MiB.
+        Max:
+          allOf:
+          - $ref: '#/components/schemas/NullablePositiveInteger'
+          - description: The memory maximum in MiB.
+      description: Specifies the minimum and maximum for the <code>AcceleratorTotalMemoryMiB</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
+    ServiceLinkedRoleFailure: {}
+    CpuManufacturers:
+      type: array
+      items:
+        $ref: '#/components/schemas/CpuManufacturer'
+    AvailabilityZones:
+      type: array
+      items:
+        $ref: '#/components/schemas/XmlStringMaxLen255'
+    MixedInstancesPolicy:
+      type: object
+      properties:
+        LaunchTemplate:
+          allOf:
+          - $ref: '#/components/schemas/LaunchTemplate'
+          - description: One or more launch templates and the instance types (overrides) that are used to launch EC2 instances to fulfill On-Demand and Spot capacities.
+        InstancesDistribution:
+          allOf:
+          - $ref: '#/components/schemas/InstancesDistribution'
+          - description: The instances distribution.
+      description: <p>Use this structure to launch multiple instance types and On-Demand Instances and Spot Instances within a single Auto Scaling group.</p> <p>A mixed instances policy contains information that Amazon EC2 Auto Scaling can use to launch instances and help optimize your costs. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html">Auto Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+    LocalStorage:
+      type: string
+      enum:
+      - included
+      - excluded
+      - required
+    XmlStringMaxLen2047:
+      type: string
+      minLength: 1
+      maxLength: 2047
+      x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
+    TerminationPolicies:
+      type: array
+      items:
+        $ref: '#/components/schemas/XmlStringMaxLen1600'
+    NetworkBandwidthGbpsRequest:
+      type: object
+      properties:
+        Min:
+          allOf:
+          - $ref: '#/components/schemas/NullablePositiveDouble'
+          - description: The minimum amount of network bandwidth, in gigabits per second (Gbps).
+        Max:
+          allOf:
+          - $ref: '#/components/schemas/NullablePositiveDouble'
+          - description: The maximum amount of network bandwidth, in gigabits per second (Gbps).
+      description: <p>Specifies the minimum and maximum for the <code>NetworkBandwidthGbps</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.</p> <note> <p>Setting the minimum bandwidth does not guarantee that your instance will achieve the minimum bandwidth. Amazon EC2 will identify instance types that support the specified minimum bandwidth, but the actual bandwidth of your instance might go below the specified minimum at times. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html#available-instance-bandwidth">Available instance bandwidth</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> </note>
+    NullablePositiveInteger:
+      type: integer
+      minimum: 0
+    DefaultInstanceWarmup:
+      type: integer
+    AutoScalingGroupDesiredCapacity:
+      type: integer
+    NullablePositiveDouble:
+      type: number
+      format: double
+      minimum: 0
+    ResourceContentionFault: {}
+    AcceleratorCountRequest:
+      type: object
+      properties:
+        Min:
+          allOf:
+          - $ref: '#/components/schemas/NullablePositiveInteger'
+          - description: The minimum value.
+        Max:
+          allOf:
+          - $ref: '#/components/schemas/NullablePositiveInteger'
+          - description: The maximum value.
+      description: Specifies the minimum and maximum for the <code>AcceleratorCount</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.
+    ExcludedInstanceTypes:
+      type: array
+      items:
+        $ref: '#/components/schemas/ExcludedInstance'
+      maxItems: 400
   parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Date:
       name: X-Amz-Date
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -1038,14 +1080,26 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
       in: header
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string

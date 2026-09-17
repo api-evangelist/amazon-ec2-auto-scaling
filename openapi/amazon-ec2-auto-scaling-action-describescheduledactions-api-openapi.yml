@@ -1,9 +1,14 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: 2011-01-01
   x-release: v4
-  title: 'Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=DescribeScheduledActions #Action=Describe Scheduled Actions #Action=Describe Scheduled Actions API'
-  description: <fullname>Amazon EC2 Auto Scaling</fullname> <p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.</p> <p>For more information, see the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/">Amazon EC2 Auto Scaling User Guide</a> and the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html">Amazon EC2 Auto Scaling API Reference</a>.</p>
+  title: 'Auto Scaling #Action=Describe Scheduled Actions API'
+  description: 'Amazon EC2 Auto Scaling
+
+    Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.
+
+
+    For more information, see the Amazon EC2 Auto Scaling User Guide and the Amazon EC2 Auto Scaling API Reference.'
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -23,6 +28,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/autoscaling-2011-01-01.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -131,7 +137,10 @@ paths:
     get:
       x-aws-operation-name: DescribeScheduledActions
       operationId: GET_DescribeScheduledActions
-      description: <p>Gets information about the scheduled actions that haven't run or that have not reached their end time.</p> <p>To describe the scaling activities for scheduled actions that have already run, call the <a>DescribeScalingActivities</a> API.</p>
+      description: 'Gets information about the scheduled actions that haven''t run or that have not reached their end time.
+
+
+        To describe the scaling activities for scheduled actions that have already run, call the DescribeScalingActivities API.'
       responses:
         '200':
           description: Success
@@ -236,7 +245,10 @@ paths:
     post:
       x-aws-operation-name: DescribeScheduledActions
       operationId: POST_DescribeScheduledActions
-      description: <p>Gets information about the scheduled actions that haven't run or that have not reached their end time.</p> <p>To describe the scaling activities for scheduled actions that have already run, call the <a>DescribeScalingActivities</a> API.</p>
+      description: 'Gets information about the scheduled actions that haven''t run or that have not reached their end time.
+
+
+        To describe the scaling activities for scheduled actions that have already run, call the DescribeScalingActivities API.'
       responses:
         '200':
           description: Success
@@ -318,17 +330,45 @@ components:
     TimestampType:
       type: string
       format: date-time
-    AutoScalingGroupMinSize:
-      type: integer
+    ScheduledActionsType:
+      type: object
+      example:
+        ScheduledUpdateGroupActions:
+        - AutoScalingGroupName: my-auto-scaling-group
+          DesiredCapacity: 4
+          MaxSize: 6
+          MinSize: 2
+          Recurrence: 30 0 1 12 0
+          ScheduledActionARN: arn:aws:autoscaling:us-west-2:123456789012:scheduledUpdateGroupAction:8e86b655-b2e6-4410-8f29-b4f094d6871c:autoScalingGroupName/my-auto-scaling-group:scheduledActionName/my-scheduled-action
+          ScheduledActionName: my-scheduled-action
+          StartTime: 2016-12-01 00:30:00+00:00
+          Time: 2016-12-01 00:30:00+00:00
+      properties:
+        ScheduledUpdateGroupActions:
+          allOf:
+          - $ref: '#/components/schemas/ScheduledUpdateGroupActions'
+          - description: The scheduled actions.
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/XmlString'
+          - description: A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the <code>NextToken</code> value when requesting the next set of items. This value is null when there are no more items to return.
+    ScheduledActionNames:
+      type: array
+      items:
+        $ref: '#/components/schemas/XmlStringMaxLen255'
     XmlStringMaxLen255:
       type: string
       minLength: 1
       maxLength: 255
       x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    XmlString:
+    AutoScalingGroupMinSize:
+      type: integer
+    InvalidNextToken: {}
+    ResourceName:
       type: string
+      minLength: 1
+      maxLength: 1600
       x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    ResourceContentionFault: {}
     ScheduledUpdateGroupAction:
       type: object
       properties:
@@ -377,16 +417,18 @@ components:
           - $ref: '#/components/schemas/XmlStringMaxLen255'
           - description: The time zone for the cron expression.
       description: Describes a scheduled scaling action.
-    ResourceName:
+    MaxRecords:
+      type: integer
+    XmlString:
       type: string
-      minLength: 1
-      maxLength: 1600
       x-pattern: '[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*'
-    ScheduledActionNames:
+    ScheduledUpdateGroupActions:
       type: array
       items:
-        $ref: '#/components/schemas/XmlStringMaxLen255'
-    InvalidNextToken: {}
+        $ref: '#/components/schemas/ScheduledUpdateGroupAction'
+    AutoScalingGroupDesiredCapacity:
+      type: integer
+    ResourceContentionFault: {}
     DescribeScheduledActionsType:
       type: object
       title: DescribeScheduledActionsType
@@ -415,57 +457,15 @@ components:
           allOf:
           - $ref: '#/components/schemas/MaxRecords'
           - description: The maximum number of items to return with this call. The default value is <code>50</code> and the maximum value is <code>100</code>.
-    AutoScalingGroupDesiredCapacity:
-      type: integer
-    ScheduledUpdateGroupActions:
-      type: array
-      items:
-        $ref: '#/components/schemas/ScheduledUpdateGroupAction'
-    MaxRecords:
-      type: integer
-    ScheduledActionsType:
-      type: object
-      example:
-        ScheduledUpdateGroupActions:
-        - AutoScalingGroupName: my-auto-scaling-group
-          DesiredCapacity: 4
-          MaxSize: 6
-          MinSize: 2
-          Recurrence: 30 0 1 12 0
-          ScheduledActionARN: arn:aws:autoscaling:us-west-2:123456789012:scheduledUpdateGroupAction:8e86b655-b2e6-4410-8f29-b4f094d6871c:autoScalingGroupName/my-auto-scaling-group:scheduledActionName/my-scheduled-action
-          ScheduledActionName: my-scheduled-action
-          StartTime: 2016-12-01 00:30:00+00:00
-          Time: 2016-12-01 00:30:00+00:00
-      properties:
-        ScheduledUpdateGroupActions:
-          allOf:
-          - $ref: '#/components/schemas/ScheduledUpdateGroupActions'
-          - description: The scheduled actions.
-        NextToken:
-          allOf:
-          - $ref: '#/components/schemas/XmlString'
-          - description: A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the <code>NextToken</code> value when requesting the next set of items. This value is null when there are no more items to return.
   parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Date:
       name: X-Amz-Date
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -476,14 +476,26 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
       in: header
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
