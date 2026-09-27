@@ -51,33 +51,23 @@ tags_raw:
 - High Availability
 - Scaling
 apis:
-- name: Amazon EC2 Auto Scaling API
-  description: The Amazon EC2 Auto Scaling API — a single AWS Query API covering 65 actions (130 operations)
-    for auto scaling groups, scaling policies, scheduled actions, lifecycle hooks, instance refreshes
-    and warm pools.
+- aid: amazon-ec2-auto-scaling:amazon-ec2-auto-scaling-autoscaling-api
+  name: Amazon EC2 Auto Scaling Autoscaling API
+  description: The Autoscaling API from Amazon EC2 Auto Scaling — 65 operation(s) for autoscaling.
   humanURL: https://aws.amazon.com/ec2/autoscaling/
   baseURL: https://autoscaling.amazonaws.com
   tags:
-  - Auto-Scaling
-  - Compute
-  - Infrastructure
-  - Cloud
-  - AWS
-  tags_raw:
-  - Auto Scaling
-  - Compute
-  - Infrastructure
-  - Cloud
-  - AWS
+  - Autoscaling
   properties:
   - type: OpenAPI
-    url: openapi/_original/amazon-ec2-auto-scaling-openapi.yaml
+    url: openapi/amazon-ec2-auto-scaling-autoscaling-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html
   - type: APIReference
     url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+    url: >-
+      https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
   - type: Authentication
     url: https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html
   - type: Pricing
@@ -86,7 +76,7 @@ apis:
     url: https://aws.amazon.com/ec2/autoscaling/faqs/
 common:
 - type: Website
-  url: https://amazon.com
+  url: https://aws.amazon.com/ec2/autoscaling/
 - type: CapabilityMap
   url: capabilities/amazon-ec2-auto-scaling-capability-edges.yml
   name: Amazon EC2 Auto Scaling Business Capability Map
@@ -240,5 +230,5 @@ integrations:
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
-x-parent: aws
+x-parent: amazon-web-services
 x-relationship: product
