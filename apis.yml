@@ -57,8 +57,6 @@ apis:
   humanURL: https://aws.amazon.com/ec2/autoscaling/
   baseURL: https://autoscaling.amazonaws.com
   tags:
-  - Auto-Scaling
-  tags_raw:
   - Autoscaling
   properties:
   - type: OpenAPI
