@@ -1,4 +1,4 @@
-# Amazon EC2 Auto Scaling (amazon-ec2-auto-scaling)
+# Amazon EC2 Auto Scaling
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,169 +66,276 @@
 
 Amazon EC2 Auto Scaling helps you maintain application availability and lets you automatically add or remove EC2 instances according to conditions you define. You can use fleet management features to maintain the health and availability of your fleet, and use dynamic and predictive scaling to add or remove EC2 instances to meet demand.
 
-**URL:** [Visit APIs.json URL](https://aws.amazon.com/ec2/autoscaling/)
+**Areas:** Amazon Web Services · Auto-Scaling · AWS · Compute · EC2 · High Availability · Scaling
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+## Amazon EC2 Auto Scaling on APIs.io
 
-## Tags:
+Everything profiled for Amazon EC2 Auto Scaling is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/amazon-ec2-auto-scaling/](https://apis.io/providers/amazon-ec2-auto-scaling/)** — or go straight to one of the APIs or properties below.
 
- - Amazon Web Services, Auto Scaling, AWS, Compute, EC2, High Availability, Scaling
+### APIs (1)
 
-## Timestamps
+- [Amazon EC2 Auto Scaling Autoscaling API](https://apis.io/apis/amazon-ec2-auto-scaling/amazon-ec2-auto-scaling-autoscaling-api/) — The Autoscaling API from Amazon EC2 Auto Scaling — 65 operation(s) for autoscaling.
 
-- **Created:** 2026-03-16
-- **Modified:** 2026-04-19
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### Amazon EC2 Auto Scaling API
-The Amazon EC2 Auto Scaling API provides programmatic access to create and manage Auto Scaling groups, launch configurations, scaling policies, scheduled actions, lifecycle hooks, and warm pools for automatic capacity management.
+#### Arazzo workflows (9)
 
-**Human URL:** [https://aws.amazon.com/ec2/autoscaling/](https://aws.amazon.com/ec2/autoscaling/)
+Multi-step workflows that chain operations into a business task.
 
-#### Tags:
+- [Amazon EC2 Auto Scaling Audit Launch Configuration Usage](https://apis.io/arazzos/amazon-ec2-auto-scaling/amazon-ec2-auto-scaling-audit-launch-configuration-usage-workflow/)
+- [Amazon EC2 Auto Scaling Configure and Execute Scaling Policy](https://apis.io/arazzos/amazon-ec2-auto-scaling/amazon-ec2-auto-scaling-configure-and-execute-scaling-policy-workflow/)
+- [Amazon EC2 Auto Scaling Decommission Group and Launch Configuration](https://apis.io/arazzos/amazon-ec2-auto-scaling/amazon-ec2-auto-scaling-decommission-group-and-launch-configuration-workflow/)
+- [Amazon EC2 Auto Scaling Protect Instances From Scale In](https://apis.io/arazzos/amazon-ec2-auto-scaling/amazon-ec2-auto-scaling-protect-instances-from-scale-in-workflow/)
+- [Amazon EC2 Auto Scaling Provision Auto Scaling Group](https://apis.io/arazzos/amazon-ec2-auto-scaling/amazon-ec2-auto-scaling-provision-auto-scaling-group-workflow/)
+- [Amazon EC2 Auto Scaling Register Lifecycle Hook and Complete Action](https://apis.io/arazzos/amazon-ec2-auto-scaling/amazon-ec2-auto-scaling-register-lifecycle-hook-and-complete-action-workflow/)
+- [Amazon EC2 Auto Scaling Roll Out Instance Refresh](https://apis.io/arazzos/amazon-ec2-auto-scaling/amazon-ec2-auto-scaling-roll-out-instance-refresh-workflow/)
+- [Amazon EC2 Auto Scaling Schedule Capacity Change](https://apis.io/arazzos/amazon-ec2-auto-scaling/amazon-ec2-auto-scaling-schedule-capacity-change-workflow/)
+- [Amazon EC2 Auto Scaling Set Desired Capacity and Verify](https://apis.io/arazzos/amazon-ec2-auto-scaling/amazon-ec2-auto-scaling-set-desired-capacity-and-verify-workflow/)
 
- - Auto Scaling, Capacity Management, Compute, EC2
+#### Agentic access (1)
 
-#### Properties
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- [Documentation](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html)
-- [OpenAPI](openapi/amazon-ec2-auto-scaling-openapi.yaml)
-- [OpenAPI](https://api.apis.guru/v2/specs/amazonaws.com/autoscaling/2011-01-01/openapi.yaml)
-- [JSONSchema](json-schema/ec2-auto-scaling-auto-scaling-group-schema.json)
-- [JSONLD](json-ld/amazon-ec2-auto-scaling-context.jsonld)
-- [GettingStarted](https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html)
-- [Pricing](https://aws.amazon.com/ec2/autoscaling/pricing/)
-- [FAQ](https://aws.amazon.com/ec2/autoscaling/faqs/)
-- [APIReference](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/)
-- [Authentication](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/CommonParameters.html)
-- [RateLimits](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-throttling.html)
-- [JSONSchema](json-schema/ec2-auto-scaling-accelerator-count-request-schema.json)
-- [JSONStructure](json-structure/ec2-auto-scaling-accelerator-count-request-structure.json)
-- [Example](examples/ec2-auto-scaling-accelerator-count-request-example.json)
+- [Amazon Ec2 Auto Scaling Agentic Access](https://apis.io/agentic-access/amazon-ec2-auto-scaling/amazon-ec2-auto-scaling-agentic-access/)
 
-## Common Properties
+#### JSON Schema (373)
 
-- [Portal](https://aws.amazon.com/)
-- [DeveloperPortal](https://aws.amazon.com/developer/)
+The data models the API reads and writes.
+
+- [AcceleratorCountRequest](https://apis.io/schemas/amazon-ec2-auto-scaling/ec2-auto-scaling-accelerator-count-request/)
+- [AcceleratorManufacturer](https://apis.io/schemas/amazon-ec2-auto-scaling/ec2-auto-scaling-accelerator-manufacturer/)
+- [AcceleratorManufacturers](https://apis.io/schemas/amazon-ec2-auto-scaling/ec2-auto-scaling-accelerator-manufacturers/)
+- [AcceleratorName](https://apis.io/schemas/amazon-ec2-auto-scaling/ec2-auto-scaling-accelerator-name/)
+- [AcceleratorNames](https://apis.io/schemas/amazon-ec2-auto-scaling/ec2-auto-scaling-accelerator-names/)
+- [AcceleratorTotalMemoryMiBRequest](https://apis.io/schemas/amazon-ec2-auto-scaling/ec2-auto-scaling-accelerator-total-memory-mi-b-request/)
+- [AcceleratorType](https://apis.io/schemas/amazon-ec2-auto-scaling/ec2-auto-scaling-accelerator-type/)
+- [AcceleratorTypes](https://apis.io/schemas/amazon-ec2-auto-scaling/ec2-auto-scaling-accelerator-types/)
+- [ActiveInstanceRefreshNotFoundFault](https://apis.io/schemas/amazon-ec2-auto-scaling/ec2-auto-scaling-active-instance-refresh-not-found-fault/)
+- [Activities](https://apis.io/schemas/amazon-ec2-auto-scaling/ec2-auto-scaling-activities/)
+- [ActivitiesType](https://apis.io/schemas/amazon-ec2-auto-scaling/ec2-auto-scaling-activities-type/)
+- [Activity](https://apis.io/schemas/amazon-ec2-auto-scaling/ec2-auto-scaling-activity/)
+- [ActivityIds](https://apis.io/schemas/amazon-ec2-auto-scaling/ec2-auto-scaling-activity-ids/)
+- [ActivityType](https://apis.io/schemas/amazon-ec2-auto-scaling/ec2-auto-scaling-activity-type/)
+- [AdjustmentType](https://apis.io/schemas/amazon-ec2-auto-scaling/ec2-auto-scaling-adjustment-type/)
+- [AdjustmentTypes](https://apis.io/schemas/amazon-ec2-auto-scaling/ec2-auto-scaling-adjustment-types/)
+- [Alarm](https://apis.io/schemas/amazon-ec2-auto-scaling/ec2-auto-scaling-alarm/)
+- [Alarms](https://apis.io/schemas/amazon-ec2-auto-scaling/ec2-auto-scaling-alarms/)
+- [AllowedInstanceType](https://apis.io/schemas/amazon-ec2-auto-scaling/ec2-auto-scaling-allowed-instance-type/)
+- [AllowedInstanceTypes](https://apis.io/schemas/amazon-ec2-auto-scaling/ec2-auto-scaling-allowed-instance-types/)
+- [AlreadyExistsFault](https://apis.io/schemas/amazon-ec2-auto-scaling/ec2-auto-scaling-already-exists-fault/)
+- [AsciiStringMaxLen255](https://apis.io/schemas/amazon-ec2-auto-scaling/ec2-auto-scaling-ascii-string-max-len255/)
+- [AssociatePublicIpAddress](https://apis.io/schemas/amazon-ec2-auto-scaling/ec2-auto-scaling-associate-public-ip-address/)
+- [AttachInstancesQuery](https://apis.io/schemas/amazon-ec2-auto-scaling/ec2-auto-scaling-attach-instances-query/)
+- [AttachLoadBalancerTargetGroupsResultType](https://apis.io/schemas/amazon-ec2-auto-scaling/ec2-auto-scaling-attach-load-balancer-target-groups-result-type/)
+- …and 348 more published on APIs.io
+
+#### JSON Structure (373)
+
+Data models expressed in JSON Structure.
+
+- [Ec2 Auto Scaling Accelerator Count Request Structure](https://apis.io/json-structure/amazon-ec2-auto-scaling/ec2-auto-scaling-accelerator-count-request-structure/)
+- [Ec2 Auto Scaling Accelerator Manufacturer Structure](https://apis.io/json-structure/amazon-ec2-auto-scaling/ec2-auto-scaling-accelerator-manufacturer-structure/)
+- [Ec2 Auto Scaling Accelerator Manufacturers Structure](https://apis.io/json-structure/amazon-ec2-auto-scaling/ec2-auto-scaling-accelerator-manufacturers-structure/)
+- [Ec2 Auto Scaling Accelerator Name Structure](https://apis.io/json-structure/amazon-ec2-auto-scaling/ec2-auto-scaling-accelerator-name-structure/)
+- [Ec2 Auto Scaling Accelerator Names Structure](https://apis.io/json-structure/amazon-ec2-auto-scaling/ec2-auto-scaling-accelerator-names-structure/)
+- [Ec2 Auto Scaling Accelerator Total Memory Mi B Request Structure](https://apis.io/json-structure/amazon-ec2-auto-scaling/ec2-auto-scaling-accelerator-total-memory-mi-b-request-structure/)
+- [Ec2 Auto Scaling Accelerator Type Structure](https://apis.io/json-structure/amazon-ec2-auto-scaling/ec2-auto-scaling-accelerator-type-structure/)
+- [Ec2 Auto Scaling Accelerator Types Structure](https://apis.io/json-structure/amazon-ec2-auto-scaling/ec2-auto-scaling-accelerator-types-structure/)
+- [Ec2 Auto Scaling Active Instance Refresh Not Found Fault Structure](https://apis.io/json-structure/amazon-ec2-auto-scaling/ec2-auto-scaling-active-instance-refresh-not-found-fault-structure/)
+- [Ec2 Auto Scaling Activities Structure](https://apis.io/json-structure/amazon-ec2-auto-scaling/ec2-auto-scaling-activities-structure/)
+- [Ec2 Auto Scaling Activities Type Structure](https://apis.io/json-structure/amazon-ec2-auto-scaling/ec2-auto-scaling-activities-type-structure/)
+- [Ec2 Auto Scaling Activity Ids Structure](https://apis.io/json-structure/amazon-ec2-auto-scaling/ec2-auto-scaling-activity-ids-structure/)
+- [Ec2 Auto Scaling Activity Structure](https://apis.io/json-structure/amazon-ec2-auto-scaling/ec2-auto-scaling-activity-structure/)
+- [Ec2 Auto Scaling Activity Type Structure](https://apis.io/json-structure/amazon-ec2-auto-scaling/ec2-auto-scaling-activity-type-structure/)
+- [Ec2 Auto Scaling Adjustment Type Structure](https://apis.io/json-structure/amazon-ec2-auto-scaling/ec2-auto-scaling-adjustment-type-structure/)
+- [Ec2 Auto Scaling Adjustment Types Structure](https://apis.io/json-structure/amazon-ec2-auto-scaling/ec2-auto-scaling-adjustment-types-structure/)
+- [Ec2 Auto Scaling Alarm Structure](https://apis.io/json-structure/amazon-ec2-auto-scaling/ec2-auto-scaling-alarm-structure/)
+- [Ec2 Auto Scaling Alarms Structure](https://apis.io/json-structure/amazon-ec2-auto-scaling/ec2-auto-scaling-alarms-structure/)
+- [Ec2 Auto Scaling Allowed Instance Type Structure](https://apis.io/json-structure/amazon-ec2-auto-scaling/ec2-auto-scaling-allowed-instance-type-structure/)
+- [Ec2 Auto Scaling Allowed Instance Types Structure](https://apis.io/json-structure/amazon-ec2-auto-scaling/ec2-auto-scaling-allowed-instance-types-structure/)
+- [Ec2 Auto Scaling Already Exists Fault Structure](https://apis.io/json-structure/amazon-ec2-auto-scaling/ec2-auto-scaling-already-exists-fault-structure/)
+- [Ec2 Auto Scaling Ascii String Max Len255 Structure](https://apis.io/json-structure/amazon-ec2-auto-scaling/ec2-auto-scaling-ascii-string-max-len255-structure/)
+- [Ec2 Auto Scaling Associate Public Ip Address Structure](https://apis.io/json-structure/amazon-ec2-auto-scaling/ec2-auto-scaling-associate-public-ip-address-structure/)
+- [Ec2 Auto Scaling Attach Instances Query Structure](https://apis.io/json-structure/amazon-ec2-auto-scaling/ec2-auto-scaling-attach-instances-query-structure/)
+- [Ec2 Auto Scaling Attach Load Balancer Target Groups Result Type Structure](https://apis.io/json-structure/amazon-ec2-auto-scaling/ec2-auto-scaling-attach-load-balancer-target-groups-result-type-structure/)
+- …and 348 more published on APIs.io
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Amazon Ec2 Auto Scaling Context](https://apis.io/jsonld/amazon-ec2-auto-scaling/amazon-ec2-auto-scaling-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Amazon Ec2 Auto Scaling Vocabulary](https://apis.io/vocabularies/amazon-ec2-auto-scaling/amazon-ec2-auto-scaling-vocabulary/)
+
+#### Examples (373)
+
+Example requests and responses.
+
+- [Ec2 Auto Scaling Accelerator Count Request Example](https://apis.io/examples/amazon-ec2-auto-scaling/ec2-auto-scaling-accelerator-count-request-example/)
+- [Ec2 Auto Scaling Accelerator Manufacturer Example](https://apis.io/examples/amazon-ec2-auto-scaling/ec2-auto-scaling-accelerator-manufacturer-example/)
+- [Ec2 Auto Scaling Accelerator Manufacturers Example](https://apis.io/examples/amazon-ec2-auto-scaling/ec2-auto-scaling-accelerator-manufacturers-example/)
+- [Ec2 Auto Scaling Accelerator Name Example](https://apis.io/examples/amazon-ec2-auto-scaling/ec2-auto-scaling-accelerator-name-example/)
+- [Ec2 Auto Scaling Accelerator Names Example](https://apis.io/examples/amazon-ec2-auto-scaling/ec2-auto-scaling-accelerator-names-example/)
+- [Ec2 Auto Scaling Accelerator Total Memory Mi B Request Example](https://apis.io/examples/amazon-ec2-auto-scaling/ec2-auto-scaling-accelerator-total-memory-mi-b-request-example/)
+- [Ec2 Auto Scaling Accelerator Type Example](https://apis.io/examples/amazon-ec2-auto-scaling/ec2-auto-scaling-accelerator-type-example/)
+- [Ec2 Auto Scaling Accelerator Types Example](https://apis.io/examples/amazon-ec2-auto-scaling/ec2-auto-scaling-accelerator-types-example/)
+- [Ec2 Auto Scaling Active Instance Refresh Not Found Fault Example](https://apis.io/examples/amazon-ec2-auto-scaling/ec2-auto-scaling-active-instance-refresh-not-found-fault-example/)
+- [Ec2 Auto Scaling Activities Example](https://apis.io/examples/amazon-ec2-auto-scaling/ec2-auto-scaling-activities-example/)
+- [Ec2 Auto Scaling Activities Type Example](https://apis.io/examples/amazon-ec2-auto-scaling/ec2-auto-scaling-activities-type-example/)
+- [Ec2 Auto Scaling Activity Example](https://apis.io/examples/amazon-ec2-auto-scaling/ec2-auto-scaling-activity-example/)
+- [Ec2 Auto Scaling Activity Ids Example](https://apis.io/examples/amazon-ec2-auto-scaling/ec2-auto-scaling-activity-ids-example/)
+- [Ec2 Auto Scaling Activity Type Example](https://apis.io/examples/amazon-ec2-auto-scaling/ec2-auto-scaling-activity-type-example/)
+- [Ec2 Auto Scaling Adjustment Type Example](https://apis.io/examples/amazon-ec2-auto-scaling/ec2-auto-scaling-adjustment-type-example/)
+- [Ec2 Auto Scaling Adjustment Types Example](https://apis.io/examples/amazon-ec2-auto-scaling/ec2-auto-scaling-adjustment-types-example/)
+- [Ec2 Auto Scaling Alarm Example](https://apis.io/examples/amazon-ec2-auto-scaling/ec2-auto-scaling-alarm-example/)
+- [Ec2 Auto Scaling Alarms Example](https://apis.io/examples/amazon-ec2-auto-scaling/ec2-auto-scaling-alarms-example/)
+- [Ec2 Auto Scaling Allowed Instance Type Example](https://apis.io/examples/amazon-ec2-auto-scaling/ec2-auto-scaling-allowed-instance-type-example/)
+- [Ec2 Auto Scaling Allowed Instance Types Example](https://apis.io/examples/amazon-ec2-auto-scaling/ec2-auto-scaling-allowed-instance-types-example/)
+- [Ec2 Auto Scaling Already Exists Fault Example](https://apis.io/examples/amazon-ec2-auto-scaling/ec2-auto-scaling-already-exists-fault-example/)
+- [Ec2 Auto Scaling Ascii String Max Len255 Example](https://apis.io/examples/amazon-ec2-auto-scaling/ec2-auto-scaling-ascii-string-max-len255-example/)
+- [Ec2 Auto Scaling Associate Public Ip Address Example](https://apis.io/examples/amazon-ec2-auto-scaling/ec2-auto-scaling-associate-public-ip-address-example/)
+- [Ec2 Auto Scaling Attach Instances Query Example](https://apis.io/examples/amazon-ec2-auto-scaling/ec2-auto-scaling-attach-instances-query-example/)
+- [Ec2 Auto Scaling Attach Load Balancer Target Groups Result Type Example](https://apis.io/examples/amazon-ec2-auto-scaling/ec2-auto-scaling-attach-load-balancer-target-groups-result-type-example/)
+- …and 348 more published on APIs.io
+
+#### Collections (130)
+
+Postman and Open Collection request collections.
+
+- [Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=AttachInstances API](https://apis.io/collections/amazon-ec2-auto-scaling/open-amazon-ec2-auto-scaling-action-attachinstances-api/)
+- [Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=AttachLoadBalancers API](https://apis.io/collections/amazon-ec2-auto-scaling/open-amazon-ec2-auto-scaling-action-attachloadbalancers-api/)
+- [Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=AttachLoadBalancerTargetGroups API](https://apis.io/collections/amazon-ec2-auto-scaling/open-amazon-ec2-auto-scaling-action-attachloadbalancertargetgroups-api/)
+- [Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=AttachTrafficSources API](https://apis.io/collections/amazon-ec2-auto-scaling/open-amazon-ec2-auto-scaling-action-attachtrafficsources-api/)
+- [Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=BatchDeleteScheduledAction API](https://apis.io/collections/amazon-ec2-auto-scaling/open-amazon-ec2-auto-scaling-action-batchdeletescheduledaction-api/)
+- [Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=BatchPutScheduledUpdateGroupAction API](https://apis.io/collections/amazon-ec2-auto-scaling/open-amazon-ec2-auto-scaling-action-batchputscheduledupdategroupaction-api/)
+- [Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=CancelInstanceRefresh API](https://apis.io/collections/amazon-ec2-auto-scaling/open-amazon-ec2-auto-scaling-action-cancelinstancerefresh-api/)
+- [Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=CompleteLifecycleAction API](https://apis.io/collections/amazon-ec2-auto-scaling/open-amazon-ec2-auto-scaling-action-completelifecycleaction-api/)
+- [Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=CreateAutoScalingGroup API](https://apis.io/collections/amazon-ec2-auto-scaling/open-amazon-ec2-auto-scaling-action-createautoscalinggroup-api/)
+- [Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=CreateLaunchConfiguration API](https://apis.io/collections/amazon-ec2-auto-scaling/open-amazon-ec2-auto-scaling-action-createlaunchconfiguration-api/)
+- [Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=CreateOrUpdateTags API](https://apis.io/collections/amazon-ec2-auto-scaling/open-amazon-ec2-auto-scaling-action-createorupdatetags-api/)
+- [Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=DeleteAutoScalingGroup API](https://apis.io/collections/amazon-ec2-auto-scaling/open-amazon-ec2-auto-scaling-action-deleteautoscalinggroup-api/)
+- [Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=DeleteLaunchConfiguration API](https://apis.io/collections/amazon-ec2-auto-scaling/open-amazon-ec2-auto-scaling-action-deletelaunchconfiguration-api/)
+- [Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=DeleteLifecycleHook API](https://apis.io/collections/amazon-ec2-auto-scaling/open-amazon-ec2-auto-scaling-action-deletelifecyclehook-api/)
+- [Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=DeleteNotificationConfiguration API](https://apis.io/collections/amazon-ec2-auto-scaling/open-amazon-ec2-auto-scaling-action-deletenotificationconfiguration-api/)
+- [Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=DeletePolicy API](https://apis.io/collections/amazon-ec2-auto-scaling/open-amazon-ec2-auto-scaling-action-deletepolicy-api/)
+- [Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=DeleteScheduledAction API](https://apis.io/collections/amazon-ec2-auto-scaling/open-amazon-ec2-auto-scaling-action-deletescheduledaction-api/)
+- [Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=DeleteTags API](https://apis.io/collections/amazon-ec2-auto-scaling/open-amazon-ec2-auto-scaling-action-deletetags-api/)
+- [Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=DeleteWarmPool API](https://apis.io/collections/amazon-ec2-auto-scaling/open-amazon-ec2-auto-scaling-action-deletewarmpool-api/)
+- [Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=DescribeAccountLimits API](https://apis.io/collections/amazon-ec2-auto-scaling/open-amazon-ec2-auto-scaling-action-describeaccountlimits-api/)
+- [Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=DescribeAdjustmentTypes API](https://apis.io/collections/amazon-ec2-auto-scaling/open-amazon-ec2-auto-scaling-action-describeadjustmenttypes-api/)
+- [Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=DescribeAutoScalingGroups API](https://apis.io/collections/amazon-ec2-auto-scaling/open-amazon-ec2-auto-scaling-action-describeautoscalinggroups-api/)
+- [Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=DescribeAutoScalingInstances API](https://apis.io/collections/amazon-ec2-auto-scaling/open-amazon-ec2-auto-scaling-action-describeautoscalinginstances-api/)
+- [Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=DescribeAutoScalingNotificationTypes API](https://apis.io/collections/amazon-ec2-auto-scaling/open-amazon-ec2-auto-scaling-action-describeautoscalingnotificationtypes-api/)
+- [Auto Scaling #Action=AttachInstances #Action=AttachInstances #Action=DescribeInstanceRefreshes API](https://apis.io/collections/amazon-ec2-auto-scaling/open-amazon-ec2-auto-scaling-action-describeinstancerefreshes-api/)
+- …and 105 more published on APIs.io
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Amazon EC2 Auto Scaling — jsonschema rules](https://apis.io/rules/amazon-ec2-auto-scaling/amazon-ec2-auto-scaling-jsonschema-spectral-rules/)
+- [Amazon EC2 Auto Scaling API Rules](https://apis.io/rules/amazon-ec2-auto-scaling/amazon-ec2-auto-scaling-spectral-rules/)
+
+#### Security (4)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Amazon Ec2 Auto Scaling Authentication](https://apis.io/security/amazon-ec2-auto-scaling/amazon-ec2-auto-scaling-authentication/)
+- [Amazon Ec2 Auto Scaling Domain Security](https://apis.io/security/amazon-ec2-auto-scaling/amazon-ec2-auto-scaling-domain-security/)
+- [Amazon Ec2 Auto Scaling Trust Center](https://apis.io/security/amazon-ec2-auto-scaling/amazon-ec2-auto-scaling-trust-center/)
+- [Amazon Ec2 Auto Scaling Vulnerability Disclosure](https://apis.io/security/amazon-ec2-auto-scaling/amazon-ec2-auto-scaling-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Amazon Ec2 Auto Scaling Plans Pricing](https://apis.io/plans/amazon-ec2-auto-scaling/amazon-ec2-auto-scaling-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Amazon Ec2 Auto Scaling Rate Limits](https://apis.io/rate-limits/amazon-ec2-auto-scaling/amazon-ec2-auto-scaling-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Amazon Ec2 Auto Scaling Finops](https://apis.io/finops/amazon-ec2-auto-scaling/amazon-ec2-auto-scaling-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://aws.amazon.com/ec2/autoscaling/)
 - [Documentation](https://docs.aws.amazon.com/autoscaling/)
-- [TermsOfService](https://aws.amazon.com/service-terms/)
-- [PrivacyPolicy](https://aws.amazon.com/privacy/)
 - [Support](https://aws.amazon.com/support/)
 - [Blog](https://aws.amazon.com/blogs/compute/category/compute/auto-scaling/)
-- [GitHubOrganization](https://github.com/aws)
-- [Console](https://console.aws.amazon.com/ec2/autoscaling/)
-- [SignUp](https://portal.aws.amazon.com/billing/signup)
-- [Login](https://signin.aws.amazon.com/)
-- [StatusPage](https://health.aws.amazon.com/health/status)
-- [KnowledgeCenter](https://repost.aws/knowledge-center)
-- [YouTube](https://www.youtube.com/user/AmazonWebServices)
-- [StackOverflow](https://stackoverflow.com/questions/tagged/amazon-ec2-auto-scaling)
-- [Contact](https://aws.amazon.com/contact-us/)
 - [Security](https://aws.amazon.com/security/)
 - [Compliance](https://aws.amazon.com/compliance/)
-- [SpectralRules](rules/amazon-ec2-auto-scaling-spectral-rules.yml)
-- [Vocabulary](vocabulary/amazon-ec2-auto-scaling-vocabulary.yaml)
-- [NaftikoCapability](capabilities/ec2-auto-scaling-management.yaml)
+- [Terms of service](https://aws.amazon.com/service-terms/)
+- [Privacy policy](https://aws.amazon.com/privacy/)
+- [GitHub](https://github.com/aws)
+- [Status](https://health.aws.amazon.com/health/status)
 
-## Features
+## API Evangelist rating
 
-| Name | Description |
-|------|-------------|
-| Dynamic Scaling | Automatically scales EC2 capacity up or down in response to real-time demand using target tracking, step, or simple scaling policies. |
-| Predictive Scaling | Uses machine learning to forecast future demand and proactively adds EC2 instances ahead of anticipated load spikes. |
-| Scheduled Scaling | Scales capacity at pre-defined times based on predictable load patterns or business cycles. |
-| Fleet Management | Automatically detects and replaces unhealthy instances to maintain application availability and fleet health. |
-| Instance Refresh | Gradually updates EC2 instances in an Auto Scaling group with new AMIs or launch template versions. |
-| Warm Pools | Pre-initializes EC2 instances to reduce latency for scale-out events by keeping a pool of instances in a stopped or running state. |
-| Mixed Instances Policy | Combines On-Demand and Spot instances with multiple instance types for cost optimization and availability. |
-| Lifecycle Hooks | Pauses instance launch or termination to perform custom actions such as installing software or draining connections. |
+**Kin Score 62.6** — strong · rubric 0.25.0 · scored 2026-10-23
 
-## Use Cases
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 62.0 |
+| Contract governance | 27.3 |
+| Operational transparency | 36.8 |
+| Developer ergonomics | 68.6 |
+| Access clarity | 61.8 |
 
-| Name | Description |
-|------|-------------|
-| Web Application Scaling | Automatically scale web server fleets to handle variable HTTP traffic loads without over-provisioning. |
-| Batch Processing | Scale compute capacity up when jobs arrive and down when completed to minimize costs for batch workloads. |
-| Microservices Autoscaling | Independently scale each microservice based on its own traffic patterns and resource utilization. |
-| Cost Optimization | Combine Spot and On-Demand instances to reduce EC2 costs while maintaining availability. |
-| Blue/Green Deployments | Use instance refresh to gradually replace old instances with new ones for zero-downtime deployments. |
+**Agent readiness 31.9** — agent-ready
 
-## Integrations
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
 
-| Name | Description |
-|------|-------------|
-| Amazon EC2 | Launches and terminates EC2 instances based on scaling policies and schedules. |
-| Amazon CloudWatch | Uses CloudWatch metrics and alarms to trigger dynamic scaling policies automatically. |
-| Elastic Load Balancing | Automatically registers new instances with load balancers and deregisters terminated instances. |
-| AWS Systems Manager | Integrates with Systems Manager for instance configuration and patch management during lifecycle hooks. |
-| Amazon SNS | Sends notifications for scaling events, instance launches, and terminations via SNS topics. |
-| AWS Cost Management | Works with Cost Explorer and Budgets to monitor and optimize spend on Auto Scaling fleets. |
+**Regulatory alignment 35.3** — Horizontal (data, software, accessibility, platform)
 
-## Artifacts
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/amazon-ec2-auto-scaling/](https://apis.io/providers/amazon-ec2-auto-scaling/).
 
-Machine-readable API specifications organized by format.
+## How this profile is made
 
-### OpenAPI
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
 
-- [Amazon Ec2 Auto Scaling](openapi/amazon-ec2-auto-scaling-openapi.yaml)
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Amazon EC2 Auto Scaling: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
 
-### JSON Schema
+## Open an issue
 
-- [Ec2 Auto Scaling Accelerator Count Request](json-schema/ec2-auto-scaling-accelerator-count-request-schema.json)
-- [Ec2 Auto Scaling Accelerator Manufacturer](json-schema/ec2-auto-scaling-accelerator-manufacturer-schema.json)
-- [Ec2 Auto Scaling Accelerator Manufacturers](json-schema/ec2-auto-scaling-accelerator-manufacturers-schema.json)
-- [Ec2 Auto Scaling Accelerator Name](json-schema/ec2-auto-scaling-accelerator-name-schema.json)
-- [Ec2 Auto Scaling Accelerator Names](json-schema/ec2-auto-scaling-accelerator-names-schema.json)
-- [Ec2 Auto Scaling Accelerator Total Memory Mi B Request](json-schema/ec2-auto-scaling-accelerator-total-memory-mi-b-request-schema.json)
-- [Ec2 Auto Scaling Accelerator Type](json-schema/ec2-auto-scaling-accelerator-type-schema.json)
-- [Ec2 Auto Scaling Accelerator Types](json-schema/ec2-auto-scaling-accelerator-types-schema.json)
-- [Ec2 Auto Scaling Active Instance Refresh Not Found Fault](json-schema/ec2-auto-scaling-active-instance-refresh-not-found-fault-schema.json)
-- [Ec2 Auto Scaling Activities](json-schema/ec2-auto-scaling-activities-schema.json)
-- *...and 363 more*
-
-### JSON Structure
-
-- [Ec2 Auto Scaling Accelerator Count Request](json-structure/ec2-auto-scaling-accelerator-count-request-structure.json)
-- [Ec2 Auto Scaling Accelerator Manufacturer](json-structure/ec2-auto-scaling-accelerator-manufacturer-structure.json)
-- [Ec2 Auto Scaling Accelerator Manufacturers](json-structure/ec2-auto-scaling-accelerator-manufacturers-structure.json)
-- [Ec2 Auto Scaling Accelerator Name](json-structure/ec2-auto-scaling-accelerator-name-structure.json)
-- [Ec2 Auto Scaling Accelerator Names](json-structure/ec2-auto-scaling-accelerator-names-structure.json)
-- [Ec2 Auto Scaling Accelerator Total Memory Mi B Request](json-structure/ec2-auto-scaling-accelerator-total-memory-mi-b-request-structure.json)
-- [Ec2 Auto Scaling Accelerator Type](json-structure/ec2-auto-scaling-accelerator-type-structure.json)
-- [Ec2 Auto Scaling Accelerator Types](json-structure/ec2-auto-scaling-accelerator-types-structure.json)
-- [Ec2 Auto Scaling Active Instance Refresh Not Found Fault](json-structure/ec2-auto-scaling-active-instance-refresh-not-found-fault-structure.json)
-- [Ec2 Auto Scaling Activities](json-structure/ec2-auto-scaling-activities-structure.json)
-- *...and 363 more*
-
-### JSON-LD
-
-- [Amazon Ec2 Auto Scaling](json-ld/amazon-ec2-auto-scaling-context.jsonld)
-
-## Capabilities
-
-Naftiko capabilities organized as shared per-API definitions composed into customer-facing workflows.
-
-### Shared Per-API Definitions
-
-- [Ec2 Auto Scaling](capabilities/shared/ec2-auto-scaling.yaml) — 148 operations
-
-### Workflow Capabilities
-
-| Workflow | Tools | Persona |
-|----------|-------|---------|
-| [Ec2 Auto Scaling Management](capabilities/ec2-auto-scaling-management.yaml) | 10 | managing EC2 Auto Scaling groups, scaling policies, and lifecycle hooks for cloud operations engineers |
-
-## Vocabulary
-
-- [Amazon EC2 Auto Scaling Vocabulary](vocabulary/amazon-ec2-auto-scaling-vocabulary.yaml) — Unified taxonomy mapping 20 resources, 23 actions, 1 workflows, and 1 personas across operational (OpenAPI) and capability (Naftiko) dimensions
-
-## Rules
-
-- [Amazon Ec2 Auto Scaling Spectral Rules](rules/amazon-ec2-auto-scaling-spectral-rules.yml) — 19 rules enforcing Amazon EC2 Auto Scaling API conventions
-
-## Maintainers
-
-**FN:** Kin Lane
-
-**Email:** kin@apievangelist.com
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/amazon-ec2-auto-scaling/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
