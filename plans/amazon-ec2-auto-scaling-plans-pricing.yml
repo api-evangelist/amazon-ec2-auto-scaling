@@ -1,0 +1,39 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-10-28'
+method: searched
+source: https://aws.amazon.com/ec2/autoscaling/pricing/
+sources:
+- https://aws.amazon.com/ec2/autoscaling/pricing/
+provenance:
+  tool: engine/economics/harvest_pricing.py
+  run: 20261028T141238
+  grounding: every price_text was found verbatim in the fetched page text
+audience: developer-api
+pricing_basis: free
+delivery:
+  delivery: managed
+  method: page
+  read: '2026-10-28'
+published: false
+note: Page states no additional fees for EC2 Auto Scaling; costs come from underlying services. No numeric
+  prices shown; offers pricing calculator and quote contact.
+plan_count: 1
+plans:
+- name: Amazon EC2 Auto Scaling
+  price_text: No additional fees
+  period: none
+  included_quota: Amazon EC2 Auto Scaling features have no additional fees beyond the service fees for
+    Amazon EC2 , CloudWatch (for scaling policies), and the other AWS resources that you use.
+x-canonical:
+  generated: '2026-11-01'
+  vocabulary: engine/economics/plans-canonical.yml
+  models: []
+  units: []
+  plans:
+  - name: Amazon EC2 Auto Scaling
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods:
+    - none
