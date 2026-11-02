@@ -25,7 +25,7 @@ plans:
   included_quota: Amazon EC2 Auto Scaling features have no additional fees beyond the service fees for
     Amazon EC2 , CloudWatch (for scaling policies), and the other AWS resources that you use.
 x-canonical:
-  generated: '2026-11-01'
+  generated: '2026-11-02'
   vocabulary: engine/economics/plans-canonical.yml
   models: []
   units: []
