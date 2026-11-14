@@ -5,6 +5,9 @@ artifacts:
   agentic-access/amazon-ec2-auto-scaling-agentic-access.yml:
     method: generated
     evidence: declared in the artifact
+  ai-preferences/amazon-ec2-auto-scaling-ai-preferences.yml:
+    method: harvested
+    evidence: declared in the artifact
   arazzo/amazon-ec2-auto-scaling-audit-launch-configuration-usage-workflow.yml:
     method: derived
     evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
@@ -38,6 +41,12 @@ artifacts:
   capabilities/amazon-ec2-auto-scaling-capability-edges.yml:
     method: unknown
     evidence: no authorship recorded
+  certification/status.yml:
+    method: unknown
+    evidence: no authorship recorded
+  cli/amazon-ec2-auto-scaling-cli.yml:
+    method: searched
+    evidence: declared in the artifact
   collections/amazon-ec2-auto-scaling-action-attachinstances-api.opencollection.json:
     method: unknown
     evidence: no authorship recorded
@@ -428,6 +437,27 @@ artifacts:
   collections/amazon-ec2-auto-scaling-action-updateautoscalinggroup-api.postman_collection.json:
     method: unknown
     evidence: no authorship recorded
+  compliance/amazon-ec2-auto-scaling-compliance.yml:
+    method: harvested
+    evidence: declared in the artifact
+  conformance/amazon-ec2-auto-scaling-conformance.yml:
+    method: derived
+    evidence: declared in the artifact
+  conventions/amazon-ec2-auto-scaling-conventions.yml:
+    method: derived
+    evidence: declared in the artifact
+  data-license/amazon-ec2-auto-scaling-data-license.yml:
+    method: harvested
+    evidence: declared in the artifact
+  data-model/amazon-ec2-auto-scaling-data-model.yml:
+    method: derived
+    evidence: declared in the artifact
+  eligibility/amazon-ec2-auto-scaling-eligibility.yml:
+    method: harvested
+    evidence: declared in the artifact
+  errors/amazon-ec2-auto-scaling-problem-types.yml:
+    method: derived
+    evidence: declared in the artifact
   examples/ec2-auto-scaling-accelerator-count-request-example.json:
     method: unknown
     evidence: no authorship recorded
@@ -1553,6 +1583,9 @@ artifacts:
   front-door-ai/2026-09-17.yml:
     method: unknown
     evidence: no authorship recorded
+  hosts/amazon-ec2-auto-scaling-hosts.yml:
+    method: derived
+    evidence: declared in the artifact
   integrations/_index.yml:
     method: generated
     evidence: carries an API Evangelist house phrase
@@ -1560,6 +1593,186 @@ artifacts:
     method: unknown
     evidence: no authorship recorded
   json-ld/amazon-ec2-auto-scaling-context.jsonld:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-attach-load-balancer-target-groups-result-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-attach-load-balancer-target-groups-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-attach-load-balancers-result-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-attach-load-balancers-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-attach-traffic-sources-result-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-attach-traffic-sources-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-auto-scaling-group-names-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-auto-scaling-groups-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-batch-delete-scheduled-action-answer-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-batch-delete-scheduled-action-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-create-auto-scaling-group-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-create-launch-configuration-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-create-scaling-plan-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-create-scaling-plan-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-delete-auto-scaling-group-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-delete-lifecycle-hook-answer-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-delete-lifecycle-hook-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-delete-notification-configuration-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-delete-policy-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-delete-scaling-plan-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-delete-scheduled-action-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-describe-auto-scaling-instances-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-describe-lifecycle-hooks-answer-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-describe-lifecycle-hooks-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-describe-load-balancer-target-groups-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-describe-load-balancer-target-groups-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-describe-load-balancers-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-describe-load-balancers-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-describe-notification-configurations-answer-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-describe-notification-configurations-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-describe-policies-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-describe-scaling-activities-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-describe-scaling-plans-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-describe-scaling-plans-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-describe-scheduled-actions-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-describe-traffic-sources-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-describe-traffic-sources-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-describe-warm-pool-answer-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-detach-load-balancer-target-groups-result-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-detach-load-balancer-target-groups-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-detach-load-balancers-result-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-detach-load-balancers-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-detach-traffic-sources-result-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-detach-traffic-sources-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-execute-policy-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-get-scaling-plan-resource-forecast-data-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-launch-configuration-name-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-launch-configuration-names-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-launch-configurations-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-launch-instances-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-policies-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-put-lifecycle-hook-answer-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-put-lifecycle-hook-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-put-notification-configuration-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-put-scaling-policy-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-put-scheduled-update-group-action-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-put-warm-pool-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-scheduled-actions-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-update-auto-scaling-group-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-auto-scaling-update-scaling-plan-request-schema.json:
     method: unknown
     evidence: no authorship recorded
   json-schema/ec2-auto-scaling-accelerator-count-request-schema.json:
@@ -3803,7 +4016,7 @@ artifacts:
   kin/checks-2026-10-23T222754.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
-  kin/checks-2026-11-02T082323.yml:
+  kin/checks-2026-11-06T143934.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-09-23T000603.yml:
@@ -3872,13 +4085,63 @@ artifacts:
   kin/score-2026-11-02T082323.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
-  openapi/_original/amazon-ec2-auto-scaling-openapi.yaml:
-    method: harvested
-    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
-      to the provider's source is unverified
-  openapi/amazon-ec2-auto-scaling-autoscaling-api-openapi.yml:
+  kin/score-2026-11-06T143934.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  lifecycle/amazon-ec2-auto-scaling-lifecycle.yml:
+    method: searched
+    evidence: declared in the artifact
+  llms/amazon-ec2-auto-scaling-llms-provenance.yml:
+    method: unknown
+    evidence: no authorship recorded
+  llms/amazon-ec2-auto-scaling-llms.txt:
+    method: unknown
+    evidence: no authorship recorded
+  mcp/amazon-ec2-auto-scaling-mcp.yml:
     method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    evidence: declared in the artifact
+  openapi/amazon-ec2-auto-scaling-auto-scaling-group-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/amazon-ec2-auto-scaling-launch-configuration-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/amazon-ec2-auto-scaling-lifecycle-hook-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/amazon-ec2-auto-scaling-load-balancer-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/amazon-ec2-auto-scaling-load-balancer-target-group-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/amazon-ec2-auto-scaling-notification-configuration-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/amazon-ec2-auto-scaling-operations-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/amazon-ec2-auto-scaling-policy-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/amazon-ec2-auto-scaling-scaling-plan-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/amazon-ec2-auto-scaling-scheduled-action-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/amazon-ec2-auto-scaling-traffic-source-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/amazon-ec2-auto-scaling-warm-pool-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  packages/amazon-ec2-auto-scaling-packages.yml:
+    method: searched
+    evidence: declared in the artifact
+  patterns/amazon-ec2-auto-scaling-patterns.yml:
+    method: derived
+    evidence: declared in the artifact
   plans/amazon-ec2-auto-scaling-plans-pricing.yml:
     method: searched
     evidence: declared in the artifact
@@ -4077,10 +4340,16 @@ artifacts:
   postman/amazon-ec2-auto-scaling-action-updateautoscalinggroup-api.postman_collection.json:
     method: unknown
     evidence: no authorship recorded
+  privacy/amazon-ec2-auto-scaling-privacy-policy.yml:
+    method: harvested
+    evidence: declared in the artifact
   rate-limits/amazon-ec2-auto-scaling-rate-limits.yml:
     method: generated
     evidence: declared in the artifact
   rules/amazon-ec2-auto-scaling-jsonschema-spectral-rules.yml:
+    method: generated
+    evidence: declared in the artifact
+  rules/amazon-ec2-auto-scaling-rules.yml:
     method: generated
     evidence: declared in the artifact
   rules/amazon-ec2-auto-scaling-spectral-rules.yml:
@@ -4095,12 +4364,50 @@ artifacts:
   security/amazon-ec2-auto-scaling-vulnerability-disclosure.yml:
     method: searched
     evidence: declared in the artifact
+  skills/_index.yml:
+    method: generated
+    evidence: declared in the artifact
+  skills/amazon-ec2-auto-scaling-configure-scaling-policy.md:
+    method: generated
+    evidence: declared in the artifact
+  skills/amazon-ec2-auto-scaling-roll-out-instance-refresh.md:
+    method: generated
+    evidence: declared in the artifact
+  skills/amazon-ec2-auto-scaling-scale-auto-scaling-group.md:
+    method: generated
+    evidence: declared in the artifact
   sla/amazon-ec2-auto-scaling-sla.yml:
     method: generated
     evidence: declared in the artifact
   smithy/auto-scaling-2011-01-01.json:
+    method: harvested
+    evidence: byte-identical to https://raw.githubusercontent.com/aws/api-models-aws/3cd98287b471c106254abd89279cc87308d38bfd/models/auto-scaling/service/2011-01-01/auto-scaling-2011-01-01.json
+      (sha256 8f4dbde7e25c, fetched 2026-11-11T21:09:05+00:00)
+  smithy/auto-scaling-plans-2018-01-06.json:
+    method: harvested
+    evidence: byte-identical to https://raw.githubusercontent.com/aws/api-models-aws/3cd98287b471c106254abd89279cc87308d38bfd/models/auto-scaling-plans/service/2018-01-06/auto-scaling-plans-2018-01-06.json
+      (sha256 e22bfd08c0b3, fetched 2026-11-11T21:09:06+00:00)
+  terms/amazon-ec2-auto-scaling-terms-of-service.yml:
+    method: harvested
+    evidence: declared in the artifact
+  vendors/amazon-ec2-auto-scaling-vendors.yml:
     method: unknown
     evidence: no authorship recorded
   vocabulary/amazon-ec2-auto-scaling-vocabulary.yaml:
+    method: unknown
+    evidence: no authorship recorded
+  vocabulary/amazon-ec2-auto-scaling-vocabulary.yml:
+    method: derived
+    evidence: declared in the artifact
+  well-known/amazon-ec2-auto-scaling-builder-security.txt:
+    method: unknown
+    evidence: no authorship recorded
+  well-known/amazon-ec2-auto-scaling-repost-security.txt:
+    method: unknown
+    evidence: no authorship recorded
+  well-known/amazon-ec2-auto-scaling-security.txt:
+    method: unknown
+    evidence: no authorship recorded
+  well-known/amazon-ec2-auto-scaling-well-known.yml:
     method: unknown
     evidence: no authorship recorded
